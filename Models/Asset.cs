@@ -1,10 +1,17 @@
-﻿namespace TracklyApi.Models
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using static TracklyApi.Helpers.EnumHelper;
+
+namespace TracklyApi.Models
 {
     public class Asset
     {
         public Guid AssetID { get; set; }
+
+        // Ensures uniqueness
+        public string BarcodeNumber { get; set; }   
         public string AssetName { get; set; }
-        public string Category { get; set; }
+        public AssetCategory Category { get; set; }
         public Guid DepartmentID { get; set; }
         public Guid LocationID { get; set; }
 
