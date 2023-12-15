@@ -1,4 +1,7 @@
-﻿namespace TracklyApi.DTOs
+﻿using TracklyApi.Models;
+using static TracklyApi.Helpers.EnumHelper;
+
+namespace TracklyApi.DTOs
 {
     public class AssetDto
     {
@@ -7,5 +10,17 @@
         public string Category { get; set; }
         public string DepartmentName { get; set; }
         public string LocationName { get; set; }
+        public IList<TicketDto>? Tickets { get; set; }
+
+        public AssetDto(string barcodeNumber, string assetName, AssetCategory category, DepartmentEnum departmentName, LocationEnum locationName, ICollection<Ticket> tickets)
+        {
+            BarcodeNumber = barcodeNumber;
+            AssetName = assetName;
+            Category = category.ToString();
+            DepartmentName = departmentName.ToString();
+            LocationName = locationName.ToString();
+            Tickets = tickets.Select(t => new TicketDto(t.Title, t.Description, t.Status, t.Priority, t.Category, t.AssignedUserID))
+                .ToList();
+        }
     }
 }
