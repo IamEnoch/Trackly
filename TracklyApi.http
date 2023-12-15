@@ -1,0 +1,6 @@
+@TracklyApi_HostAddress = http://localhost:5203
+
+GET {{TracklyApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
