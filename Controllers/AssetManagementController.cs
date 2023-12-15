@@ -24,7 +24,7 @@ namespace TracklyApi.Controllers
         /// Get assets
         /// </summary>
         /// <returns>List of assets</returns>
-        [HttpGet(Name = "GetAssets")]
+        [HttpGet("assets")]
         public async Task<ActionResult<IEnumerable<Asset>>> GetAssets()
         {
             var response = await _context.Assets.ToListAsync(); 
@@ -36,6 +36,7 @@ namespace TracklyApi.Controllers
         /// </summary>
         /// <param name="barcodeNumber"></param>
         /// <returns>An asset based on barcode number</returns>
+        [HttpGet("assets/{barcodeNumber}")]
         public async Task<ActionResult<AssetDto>> GetAsset(string barcodeNumber)
         {
             //use asset dto
@@ -44,15 +45,24 @@ namespace TracklyApi.Controllers
                 .Include(a => a.Location)
                 .FirstOrDefaultAsync(a => a.BarcodeNumber == barcodeNumber);
 
-            return Ok(asset);
+            if (asset == null)
+            {
+                return NotFound();
+            }
+
+            var tickets = await _context.Tickets
+                .Where(t => t.AssetId == asset.AssetID)
+                .ToListAsync();
+
+            return Ok(new AssetDto(asset.BarcodeNumber, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName, tickets));
         }
 
-        public async Task<ActionResult<Asset>> CreateAsset(Asset asset)
-        {
-            _context.Assets.Add(asset);
-            await _context.SaveChangesAsync();
+        //public async Task<ActionResult<Asset>> CreateAsset(Asset asset)
+        //{
+        //    _context.Assets.Add(asset);
+        //    await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAsset), new { id = asset.AssetID }, asset);
-        }
+        //    return CreatedAtAction(nameof(GetAsset), new { id = asset.AssetID }, asset);
+        //}
     }
 }
