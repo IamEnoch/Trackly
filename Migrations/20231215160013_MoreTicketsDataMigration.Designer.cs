@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TracklyApi.Data;
 
@@ -11,9 +12,11 @@ using TracklyApi.Data;
 namespace TracklyApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231215160013_MoreTicketsDataMigration")]
+    partial class MoreTicketsDataMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,633 +62,633 @@ namespace TracklyApi.Migrations
                     b.HasData(
                         new
                         {
-                            AssetID = new Guid("fd62104c-6a9c-4f8f-9e5b-5ba9f2168f12"),
+                            AssetID = new Guid("bbb1006f-2b5b-43ba-9dc6-59af443f7eb4"),
                             AssetName = "Asset 1",
                             BarcodeNumber = "100000000000",
                             Category = 0,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("749a85b6-848e-468c-b1d4-515c0d87330e"),
+                            AssetID = new Guid("47875709-4afa-4e22-a3ce-72c7b90c920c"),
                             AssetName = "Asset 2",
                             BarcodeNumber = "100000000001",
                             Category = 1,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("810a164e-120e-4a24-a0bc-8f9e569f771a"),
+                            AssetID = new Guid("a08bd44b-06b0-4e52-8cf4-6733c53fb2ad"),
                             AssetName = "Asset 3",
                             BarcodeNumber = "100000000002",
                             Category = 2,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("9206bdc9-0a0c-4fbd-9153-daaf74a44977"),
+                            AssetID = new Guid("91b78a0d-a3c3-4e4c-b1e3-b1e3d214b5f3"),
                             AssetName = "Asset 4",
                             BarcodeNumber = "100000000003",
                             Category = 3,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("c6396b2b-3c18-4fb9-aad4-b4e7820ce9db"),
+                            AssetID = new Guid("3e6b4977-5e35-4199-b4ee-956e1b92db0e"),
                             AssetName = "Asset 5",
                             BarcodeNumber = "100000000004",
                             Category = 4,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("37e40200-edc1-4d1b-9900-5753ccc9da4c"),
+                            AssetID = new Guid("3622c4a0-e603-4bab-aa75-9753d1a282b7"),
                             AssetName = "Asset 6",
                             BarcodeNumber = "100000000005",
                             Category = 5,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("70728466-501c-4329-a864-c59f216dc59a"),
+                            AssetID = new Guid("50e1846e-73ec-49ac-996c-c1658018df8d"),
                             AssetName = "Asset 7",
                             BarcodeNumber = "100000000006",
                             Category = 6,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("2e785176-95ec-40b7-a2e8-180eee14d508"),
+                            AssetID = new Guid("930a252b-6644-4ea5-87c7-0b022b11ef86"),
                             AssetName = "Asset 8",
                             BarcodeNumber = "100000000007",
                             Category = 0,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("ce80d41e-7f73-42e8-a915-56e87e9ba142"),
+                            AssetID = new Guid("4d29b9c7-321a-4aaa-ba08-04dbba2f05e6"),
                             AssetName = "Asset 9",
                             BarcodeNumber = "100000000008",
                             Category = 1,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("17b5e3c2-dfac-47e3-aaa6-27d7e6ae30e6"),
+                            AssetID = new Guid("f29c42c8-4719-447c-a931-1179e5813e5f"),
                             AssetName = "Asset 10",
                             BarcodeNumber = "100000000009",
                             Category = 2,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("b878f242-26fb-4988-b186-28d0f4893d5c"),
+                            AssetID = new Guid("5c10b2d5-60f4-4c88-b870-2cc2237a5997"),
                             AssetName = "Asset 11",
                             BarcodeNumber = "100000000010",
                             Category = 3,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("c9a077cc-106e-4d6a-8e9c-68d54376ec23"),
+                            AssetID = new Guid("83b39df9-51c2-490f-8c2e-8899a8d252a5"),
                             AssetName = "Asset 12",
                             BarcodeNumber = "100000000011",
                             Category = 4,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("d0146e74-12a1-456e-a96b-e686112db05f"),
+                            AssetID = new Guid("aa8f36f1-9adb-4760-bdb1-03ad935bd444"),
                             AssetName = "Asset 13",
                             BarcodeNumber = "100000000012",
                             Category = 5,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("847f1aa6-1f7a-4c0b-b6e0-d6c8945c417f"),
+                            AssetID = new Guid("e7f5116c-f5ac-467b-bd14-a3f3962d5152"),
                             AssetName = "Asset 14",
                             BarcodeNumber = "100000000013",
                             Category = 6,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("d4fd461a-c362-4113-ba19-5adc1bef5067"),
+                            AssetID = new Guid("5d613f93-f436-4cb0-a38d-2ced3615484a"),
                             AssetName = "Asset 15",
                             BarcodeNumber = "100000000014",
                             Category = 0,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("6b663dcf-f4ff-463d-a8bb-5106f5b28ddb"),
+                            AssetID = new Guid("f5d2072e-6930-4182-87bc-5f112731ea28"),
                             AssetName = "Asset 16",
                             BarcodeNumber = "100000000015",
                             Category = 1,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("7bc674c7-7b87-41c7-8b30-de899563166a"),
+                            AssetID = new Guid("460fd3f8-6c4e-4746-a169-88ac61ca050f"),
                             AssetName = "Asset 17",
                             BarcodeNumber = "100000000016",
                             Category = 2,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("0a382d18-6b61-4e18-a115-2365ae50890e"),
+                            AssetID = new Guid("e5341248-0fe8-4d6a-8465-cbaa82dfbb15"),
                             AssetName = "Asset 18",
                             BarcodeNumber = "100000000017",
                             Category = 3,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("2e0c1a09-477b-47a2-aebd-83213ccfe057"),
+                            AssetID = new Guid("1556423d-4026-4e5b-b303-cd6146ecd0a0"),
                             AssetName = "Asset 19",
                             BarcodeNumber = "100000000018",
                             Category = 4,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("6ec68573-ffdd-41ca-9a8d-12fe291709cb"),
+                            AssetID = new Guid("c825e4cf-5482-44ba-98ee-d90bdbd35c90"),
                             AssetName = "Asset 20",
                             BarcodeNumber = "100000000019",
                             Category = 5,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("245a86e7-da9c-4aac-88e3-8bbbd20d7909"),
+                            AssetID = new Guid("e47c009b-7c5d-4560-93f4-df9e43d7f5d6"),
                             AssetName = "Asset 21",
                             BarcodeNumber = "100000000020",
                             Category = 6,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("0e0524ca-4107-446c-9914-198d174feacb"),
+                            AssetID = new Guid("9e16b78b-6e97-4a98-870d-98ae92da8f5e"),
                             AssetName = "Asset 22",
                             BarcodeNumber = "100000000021",
                             Category = 0,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("9d998ba7-598b-4114-915b-d97e356a58ab"),
+                            AssetID = new Guid("cc993244-4143-4dcb-b83c-e97075b591f5"),
                             AssetName = "Asset 23",
                             BarcodeNumber = "100000000022",
                             Category = 1,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("c9a1eef1-ddd0-49b0-b82c-dd08aa5b3939"),
+                            AssetID = new Guid("3d4f4a87-9b6f-448f-862f-f53b14ed9ece"),
                             AssetName = "Asset 24",
                             BarcodeNumber = "100000000023",
                             Category = 2,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("c36aedf3-45fe-4c4f-a5ce-82c24e305b1b"),
+                            AssetID = new Guid("9f49aa02-7c01-4ff2-827e-a5b0f82baaf3"),
                             AssetName = "Asset 25",
                             BarcodeNumber = "100000000024",
                             Category = 3,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("9d70afb9-ad97-4b14-8dde-f5b860a7318c"),
+                            AssetID = new Guid("87316992-cec8-4cd9-9ecc-b8b73db9af41"),
                             AssetName = "Asset 26",
                             BarcodeNumber = "100000000025",
                             Category = 4,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("36da6a90-3c55-42ea-a781-8e182152031a"),
+                            AssetID = new Guid("7852446c-006c-4a0a-8a82-6e4c912efcb6"),
                             AssetName = "Asset 27",
                             BarcodeNumber = "100000000026",
                             Category = 5,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("56fa6cab-814f-4a67-8c70-b2c2c6150786"),
+                            AssetID = new Guid("632d29b0-157d-474e-b31b-b3fbfdb429c2"),
                             AssetName = "Asset 28",
                             BarcodeNumber = "100000000027",
                             Category = 6,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("fcbd35e0-4667-4f96-a58e-2bcee2668ebc"),
+                            AssetID = new Guid("34f26894-01d6-4993-bb83-73fee8112442"),
                             AssetName = "Asset 29",
                             BarcodeNumber = "100000000028",
                             Category = 0,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("8cac5e32-8c82-4a40-ad7d-6ac37580db13"),
+                            AssetID = new Guid("ddf068e0-550c-4f49-a1c8-1d08201843a7"),
                             AssetName = "Asset 30",
                             BarcodeNumber = "100000000029",
                             Category = 1,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("1f3f6ed3-0822-42cc-aad4-b8015648474f"),
+                            AssetID = new Guid("02a4a27e-7e45-4c42-9612-f7d3ca5c338a"),
                             AssetName = "Asset 31",
                             BarcodeNumber = "100000000030",
                             Category = 2,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("05357daf-2998-4825-b762-d2166c1b52af"),
+                            AssetID = new Guid("aa80d222-649e-430d-8e6b-7c9beb44417a"),
                             AssetName = "Asset 32",
                             BarcodeNumber = "100000000031",
                             Category = 3,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("806b6861-cc8f-4e0e-9a4b-5c227c7a32f9"),
+                            AssetID = new Guid("6d77f137-d21b-4249-80a0-e070a12a662b"),
                             AssetName = "Asset 33",
                             BarcodeNumber = "100000000032",
                             Category = 4,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("7a24f7a3-b945-4c71-802b-f9b4b75ef984"),
+                            AssetID = new Guid("8310153c-4a89-4355-ba3e-2b36a63cba83"),
                             AssetName = "Asset 34",
                             BarcodeNumber = "100000000033",
                             Category = 5,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("4b4f88dd-b06a-42f3-8af6-f118397167a4"),
+                            AssetID = new Guid("6343d6b8-ae7c-4047-87b6-7239486303f2"),
                             AssetName = "Asset 35",
                             BarcodeNumber = "100000000034",
                             Category = 6,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("80bf9c45-e501-441e-88f9-ea3e073e23dd"),
+                            AssetID = new Guid("939ed4c2-98eb-4810-b7f0-9c4def0074f7"),
                             AssetName = "Asset 36",
                             BarcodeNumber = "100000000035",
                             Category = 0,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("b9abffe0-572b-476d-b755-2ea59a4604b9"),
+                            AssetID = new Guid("752e5f92-49d8-429b-817b-389000822878"),
                             AssetName = "Asset 37",
                             BarcodeNumber = "100000000036",
                             Category = 1,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("f9858adf-48f8-4a11-afd4-7d40980b278b"),
+                            AssetID = new Guid("22b6cd9a-699d-4b7c-b2ea-31581853a2bc"),
                             AssetName = "Asset 38",
                             BarcodeNumber = "100000000037",
                             Category = 2,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("4a18e383-008a-414f-9c91-5725f1ea1bb3"),
+                            AssetID = new Guid("77da9325-2b90-4ba9-bed4-d8aa60377471"),
                             AssetName = "Asset 39",
                             BarcodeNumber = "100000000038",
                             Category = 3,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("4986d0d5-468c-4779-bcf5-5fe36354e98a"),
+                            AssetID = new Guid("bda1f4f5-34c0-4f96-92aa-648f833b82a9"),
                             AssetName = "Asset 40",
                             BarcodeNumber = "100000000039",
                             Category = 4,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("fe513cc0-8b3b-46c1-9d63-9570c34d1424"),
+                            AssetID = new Guid("75723bb5-3fd5-4892-a5f3-e46fbd7b0b72"),
                             AssetName = "Asset 41",
                             BarcodeNumber = "100000000040",
                             Category = 5,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("78d80821-1e08-4eac-973b-b61f82787319"),
+                            AssetID = new Guid("05c6ddb4-32bb-4f30-bb9d-4efd6fc4e46a"),
                             AssetName = "Asset 42",
                             BarcodeNumber = "100000000041",
                             Category = 6,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("a5ee8988-df25-48d4-955b-4b4683ac60f3"),
+                            AssetID = new Guid("69dc650d-2cd9-42eb-a6bf-801421a10624"),
                             AssetName = "Asset 43",
                             BarcodeNumber = "100000000042",
                             Category = 0,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("840aa942-7ceb-4a2b-8e9e-7c01b64e10df"),
+                            AssetID = new Guid("89b3ac4e-f9c0-47e2-a973-0969f5854479"),
                             AssetName = "Asset 44",
                             BarcodeNumber = "100000000043",
                             Category = 1,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("e7a771a8-8823-48e9-9de5-9462904bd6e4"),
+                            AssetID = new Guid("26b75071-9eb0-4995-9bd1-47822b8b7429"),
                             AssetName = "Asset 45",
                             BarcodeNumber = "100000000044",
                             Category = 2,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("2f68af6f-2ee9-4b2d-b85b-35118228f24d"),
+                            AssetID = new Guid("4eedaaca-79fe-40f4-ab00-90f691fd1ee8"),
                             AssetName = "Asset 46",
                             BarcodeNumber = "100000000045",
                             Category = 3,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("fa51ab64-043e-46f4-846a-ee6350c32c46"),
+                            AssetID = new Guid("90c5805c-c3c4-4ab6-b8b3-c599f178b0af"),
                             AssetName = "Asset 47",
                             BarcodeNumber = "100000000046",
                             Category = 4,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("6dfab923-f635-4412-b755-2f7ffbea19b5"),
+                            AssetID = new Guid("73871bba-51d6-4ebc-8be4-376b20c87c30"),
                             AssetName = "Asset 48",
                             BarcodeNumber = "100000000047",
                             Category = 5,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("77ec83bf-ffae-4418-952d-9a5b78cf1ce8"),
+                            AssetID = new Guid("948fc11c-caac-4102-8bee-58c5e71d19cf"),
                             AssetName = "Asset 49",
                             BarcodeNumber = "100000000048",
                             Category = 6,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("506982e9-788d-4af5-8e45-e587aedc194f"),
+                            AssetID = new Guid("0b365b58-554a-4bfe-a7dc-db648b54ee8f"),
                             AssetName = "Asset 50",
                             BarcodeNumber = "100000000049",
                             Category = 0,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("3e886cec-052f-40ca-8bc4-1383752a794e"),
+                            AssetID = new Guid("159a6204-cfb2-4a66-9143-c37d9f2a933b"),
                             AssetName = "Asset 51",
                             BarcodeNumber = "100000000050",
                             Category = 1,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("41971553-b815-4dfc-a315-5930935bfb30"),
+                            AssetID = new Guid("aa545c29-1800-4fcb-a93b-5a5205d66d74"),
                             AssetName = "Asset 52",
                             BarcodeNumber = "100000000051",
                             Category = 2,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("0e6a5b82-ed68-41c3-8328-9d1bd1673c6d"),
+                            AssetID = new Guid("bde73ad4-7181-49e4-830f-4b3284ba69d3"),
                             AssetName = "Asset 53",
                             BarcodeNumber = "100000000052",
                             Category = 3,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("2c59d7f1-6939-4049-ac5a-92664370c8e2"),
+                            AssetID = new Guid("fc802ac3-d7ed-4b84-aef1-268fa1c9dcfd"),
                             AssetName = "Asset 54",
                             BarcodeNumber = "100000000053",
                             Category = 4,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("536e3e9e-d6ec-4050-8d7f-925e93279cf0"),
+                            AssetID = new Guid("67a0d724-62df-497f-9f4b-c9bffe108f3c"),
                             AssetName = "Asset 55",
                             BarcodeNumber = "100000000054",
                             Category = 5,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("b0e05cdd-42b6-4ba6-a963-8f43a3fbe0d8"),
+                            AssetID = new Guid("688f2310-385c-426c-88e7-78ff58bef9a9"),
                             AssetName = "Asset 56",
                             BarcodeNumber = "100000000055",
                             Category = 6,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("241967b0-0c6d-44c1-b488-7e7487d30b90"),
+                            AssetID = new Guid("e451a5e1-d70a-41c9-93aa-937cdc02b354"),
                             AssetName = "Asset 57",
                             BarcodeNumber = "100000000056",
                             Category = 0,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("f2d39c63-4ea3-4551-8299-c8fbfff83a50"),
+                            AssetID = new Guid("389c30e1-26bf-442d-b104-93b26868b48e"),
                             AssetName = "Asset 58",
                             BarcodeNumber = "100000000057",
                             Category = 1,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("ed62fc23-045c-4719-8e30-fcb9354238e1"),
+                            AssetID = new Guid("dff8a8c2-07c9-444b-91f8-58f50d3b1776"),
                             AssetName = "Asset 59",
                             BarcodeNumber = "100000000058",
                             Category = 2,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("b59bbbb7-6729-42c3-95a6-a688e6e34e7a"),
+                            AssetID = new Guid("187f6ce6-b525-4b94-aa70-7e19663ff292"),
                             AssetName = "Asset 60",
                             BarcodeNumber = "100000000059",
                             Category = 3,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("b5650011-5761-438a-9606-c15bfb70680a"),
+                            AssetID = new Guid("57984842-a88a-4d68-9ea1-fe191db449ab"),
                             AssetName = "Asset 61",
                             BarcodeNumber = "100000000060",
                             Category = 4,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("c399f0bf-1198-4500-ae88-708bb12e0349"),
+                            AssetID = new Guid("dcbce81c-6c60-474e-9aa5-b186ce5311ec"),
                             AssetName = "Asset 62",
                             BarcodeNumber = "100000000061",
                             Category = 5,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("20b056a9-6c06-4b89-bca9-ae908269952c"),
+                            AssetID = new Guid("9d724b80-ef49-4702-a593-56a7ce69e4b4"),
                             AssetName = "Asset 63",
                             BarcodeNumber = "100000000062",
                             Category = 6,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("5bba0835-4983-4914-b237-657a7b3d126d"),
+                            AssetID = new Guid("d2ad11e4-bc07-448d-8c53-301a1e3a78cc"),
                             AssetName = "Asset 64",
                             BarcodeNumber = "100000000063",
                             Category = 0,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("0e7f8e71-c523-499c-81db-75d49eac2acd"),
+                            AssetID = new Guid("b118bc9a-1ace-4da7-a9ff-f8e645c0ebd1"),
                             AssetName = "Asset 65",
                             BarcodeNumber = "100000000064",
                             Category = 1,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("8e8341be-d5e0-4c64-b04d-8f1a82b3e043"),
+                            AssetID = new Guid("39ac23cc-58ae-4b51-bfc7-c084d880b257"),
                             AssetName = "Asset 66",
                             BarcodeNumber = "100000000065",
                             Category = 2,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("3ac3dbaf-0fd3-4141-ae82-805f99bbaa12"),
+                            AssetID = new Guid("c9b1b90e-10b1-425e-ae7b-6e91fe3b39f5"),
                             AssetName = "Asset 67",
                             BarcodeNumber = "100000000066",
                             Category = 3,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         },
                         new
                         {
-                            AssetID = new Guid("203c872a-7dec-4611-8716-d16e2f66e619"),
+                            AssetID = new Guid("b2428a24-8eed-48c1-a9a7-49f85b640b7c"),
                             AssetName = "Asset 68",
                             BarcodeNumber = "100000000067",
                             Category = 4,
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68")
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662")
                         },
                         new
                         {
-                            AssetID = new Guid("a29c46ff-bde7-420d-b029-980ddcee9703"),
+                            AssetID = new Guid("a75c7231-a970-4b1f-b186-c749593ef287"),
                             AssetName = "Asset 69",
                             BarcodeNumber = "100000000068",
                             Category = 5,
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5")
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476")
                         },
                         new
                         {
-                            AssetID = new Guid("afb7ffdf-e2d5-492e-b723-877bc7e42b48"),
+                            AssetID = new Guid("b3d5df89-f2dc-44bc-9b84-b5923f45b578"),
                             AssetName = "Asset 70",
                             BarcodeNumber = "100000000069",
                             Category = 6,
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b")
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7")
                         });
                 });
 
@@ -705,17 +708,17 @@ namespace TracklyApi.Migrations
                     b.HasData(
                         new
                         {
-                            DepartmentID = new Guid("8e3b98ef-2431-4591-97fa-0d6313938514"),
+                            DepartmentID = new Guid("74465917-ca30-460c-8894-dc8a2ab94686"),
                             DepartmentName = 0
                         },
                         new
                         {
-                            DepartmentID = new Guid("21ee7b1b-1b4e-4789-b1ec-52011f8c62f9"),
+                            DepartmentID = new Guid("91815b19-2e25-48ea-812f-8c29d3ade9b6"),
                             DepartmentName = 1
                         },
                         new
                         {
-                            DepartmentID = new Guid("8232bb8a-5db5-413f-b4e3-2382eb895467"),
+                            DepartmentID = new Guid("5fa7eb54-20c1-4233-ae0b-f50988c117e9"),
                             DepartmentName = 2
                         });
                 });
@@ -736,17 +739,17 @@ namespace TracklyApi.Migrations
                     b.HasData(
                         new
                         {
-                            LocationID = new Guid("19c601ac-6786-47dc-a9fb-5b688ed74a6b"),
+                            LocationID = new Guid("5f014624-2826-4929-a4a2-96aeff7d8cb7"),
                             LocationName = 0
                         },
                         new
                         {
-                            LocationID = new Guid("86fef623-048a-4831-8c2b-a71131b1bb68"),
+                            LocationID = new Guid("b5850ede-7d95-4eb5-b38b-ef2525e11662"),
                             LocationName = 1
                         },
                         new
                         {
-                            LocationID = new Guid("dcb1ea2d-8938-42f0-8e9f-7c3a627ccad5"),
+                            LocationID = new Guid("b82d893b-87d0-47a5-b8a7-035007e79476"),
                             LocationName = 2
                         });
                 });
@@ -789,8 +792,8 @@ namespace TracklyApi.Migrations
                     b.HasData(
                         new
                         {
-                            TicketId = new Guid("de5c3620-85d4-41a0-95f0-3b5dff196002"),
-                            AssetId = new Guid("fd62104c-6a9c-4f8f-9e5b-5ba9f2168f12"),
+                            TicketId = new Guid("61002d93-a74c-4d81-ab8b-de76e8cc2a89"),
+                            AssetId = new Guid("bbb1006f-2b5b-43ba-9dc6-59af443f7eb4"),
                             Category = 0,
                             Description = "Description for Ticket 1",
                             Priority = 0,
@@ -799,8 +802,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0c0f7c09-9b56-441a-81f2-89eb5fac809c"),
-                            AssetId = new Guid("749a85b6-848e-468c-b1d4-515c0d87330e"),
+                            TicketId = new Guid("3230b78c-dbdf-428a-a013-1dd140d35f86"),
+                            AssetId = new Guid("47875709-4afa-4e22-a3ce-72c7b90c920c"),
                             Category = 1,
                             Description = "Description for Ticket 2",
                             Priority = 1,
@@ -809,8 +812,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("049e6d01-60e5-40f3-8a0d-bc4f57eca87c"),
-                            AssetId = new Guid("810a164e-120e-4a24-a0bc-8f9e569f771a"),
+                            TicketId = new Guid("6c7f3921-ed3d-4afe-a54c-fb6bd24cf0ed"),
+                            AssetId = new Guid("a08bd44b-06b0-4e52-8cf4-6733c53fb2ad"),
                             Category = 2,
                             Description = "Description for Ticket 3",
                             Priority = 2,
@@ -819,8 +822,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("240ec268-fe01-494c-98c2-941bf1c9c634"),
-                            AssetId = new Guid("9206bdc9-0a0c-4fbd-9153-daaf74a44977"),
+                            TicketId = new Guid("8574bc4a-2387-4fad-ae55-d47bd75c141f"),
+                            AssetId = new Guid("91b78a0d-a3c3-4e4c-b1e3-b1e3d214b5f3"),
                             Category = 3,
                             Description = "Description for Ticket 4",
                             Priority = 0,
@@ -829,8 +832,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("04e625f9-1581-43fe-b14e-d9675e49f9ed"),
-                            AssetId = new Guid("c6396b2b-3c18-4fb9-aad4-b4e7820ce9db"),
+                            TicketId = new Guid("e866f1af-ae17-4ac2-a4e2-af0315e51d9f"),
+                            AssetId = new Guid("3e6b4977-5e35-4199-b4ee-956e1b92db0e"),
                             Category = 0,
                             Description = "Description for Ticket 5",
                             Priority = 1,
@@ -839,8 +842,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3323fd4b-347a-47e8-8907-838ec65ec1f5"),
-                            AssetId = new Guid("37e40200-edc1-4d1b-9900-5753ccc9da4c"),
+                            TicketId = new Guid("b1cb215e-e81a-423d-afa8-6f603dbc6d60"),
+                            AssetId = new Guid("3622c4a0-e603-4bab-aa75-9753d1a282b7"),
                             Category = 1,
                             Description = "Description for Ticket 6",
                             Priority = 2,
@@ -849,8 +852,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("04df3a11-c7fb-4882-be80-f12171373804"),
-                            AssetId = new Guid("70728466-501c-4329-a864-c59f216dc59a"),
+                            TicketId = new Guid("be82fdd2-10b6-4888-8007-e392bffbbf4f"),
+                            AssetId = new Guid("50e1846e-73ec-49ac-996c-c1658018df8d"),
                             Category = 2,
                             Description = "Description for Ticket 7",
                             Priority = 0,
@@ -859,8 +862,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0bc3fd33-68a1-4062-8794-b550b691c84c"),
-                            AssetId = new Guid("2e785176-95ec-40b7-a2e8-180eee14d508"),
+                            TicketId = new Guid("edab08ac-096a-4397-94b5-d8a6457761ae"),
+                            AssetId = new Guid("930a252b-6644-4ea5-87c7-0b022b11ef86"),
                             Category = 3,
                             Description = "Description for Ticket 8",
                             Priority = 1,
@@ -869,8 +872,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6261a679-c7b5-44bc-8265-bf03b3f8a2e5"),
-                            AssetId = new Guid("ce80d41e-7f73-42e8-a915-56e87e9ba142"),
+                            TicketId = new Guid("68753faa-2340-4ecc-a384-c7a7c643f432"),
+                            AssetId = new Guid("4d29b9c7-321a-4aaa-ba08-04dbba2f05e6"),
                             Category = 0,
                             Description = "Description for Ticket 9",
                             Priority = 2,
@@ -879,8 +882,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("530b8fac-2cb2-4643-af0b-1d7e98681c51"),
-                            AssetId = new Guid("17b5e3c2-dfac-47e3-aaa6-27d7e6ae30e6"),
+                            TicketId = new Guid("bddd616b-c2f7-4691-9ca0-490496a29642"),
+                            AssetId = new Guid("f29c42c8-4719-447c-a931-1179e5813e5f"),
                             Category = 1,
                             Description = "Description for Ticket 10",
                             Priority = 0,
@@ -889,8 +892,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f3bd5f1f-abd7-46ab-9ad3-b22f4108fa43"),
-                            AssetId = new Guid("b878f242-26fb-4988-b186-28d0f4893d5c"),
+                            TicketId = new Guid("5c266b98-8849-479f-bfe3-3c17f6b31e45"),
+                            AssetId = new Guid("5c10b2d5-60f4-4c88-b870-2cc2237a5997"),
                             Category = 2,
                             Description = "Description for Ticket 11",
                             Priority = 1,
@@ -899,8 +902,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("51b7cfac-657f-48f7-8971-7d48497f3f4c"),
-                            AssetId = new Guid("c9a077cc-106e-4d6a-8e9c-68d54376ec23"),
+                            TicketId = new Guid("554661bd-0cfd-4de2-b312-e69d102453f8"),
+                            AssetId = new Guid("83b39df9-51c2-490f-8c2e-8899a8d252a5"),
                             Category = 3,
                             Description = "Description for Ticket 12",
                             Priority = 2,
@@ -909,8 +912,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("24b1bf7e-3218-4937-af91-e197ff72133e"),
-                            AssetId = new Guid("d0146e74-12a1-456e-a96b-e686112db05f"),
+                            TicketId = new Guid("4cce5a9f-e782-42a0-bc08-f1fed4ca11ab"),
+                            AssetId = new Guid("aa8f36f1-9adb-4760-bdb1-03ad935bd444"),
                             Category = 0,
                             Description = "Description for Ticket 13",
                             Priority = 0,
@@ -919,8 +922,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7ec2e947-5201-414d-a5ad-8d8078dab1a7"),
-                            AssetId = new Guid("847f1aa6-1f7a-4c0b-b6e0-d6c8945c417f"),
+                            TicketId = new Guid("2493d42f-3f2d-422d-bcc0-697c2ef48216"),
+                            AssetId = new Guid("e7f5116c-f5ac-467b-bd14-a3f3962d5152"),
                             Category = 1,
                             Description = "Description for Ticket 14",
                             Priority = 1,
@@ -929,8 +932,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3f8f5e84-8686-42c1-bc2e-6f91eadb63f6"),
-                            AssetId = new Guid("d4fd461a-c362-4113-ba19-5adc1bef5067"),
+                            TicketId = new Guid("31825a2a-5d89-47d0-ac15-daf23a5df65a"),
+                            AssetId = new Guid("5d613f93-f436-4cb0-a38d-2ced3615484a"),
                             Category = 2,
                             Description = "Description for Ticket 15",
                             Priority = 2,
@@ -939,8 +942,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d9a08cc6-81c7-468c-bc51-57322aa1158f"),
-                            AssetId = new Guid("6b663dcf-f4ff-463d-a8bb-5106f5b28ddb"),
+                            TicketId = new Guid("bdfe0085-f1cb-44dc-b281-7c5897b8c06a"),
+                            AssetId = new Guid("f5d2072e-6930-4182-87bc-5f112731ea28"),
                             Category = 3,
                             Description = "Description for Ticket 16",
                             Priority = 0,
@@ -949,8 +952,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c1080c2e-5b0c-4b07-a310-2f8da9b98333"),
-                            AssetId = new Guid("7bc674c7-7b87-41c7-8b30-de899563166a"),
+                            TicketId = new Guid("835b7dd3-3c85-4e7a-8ab3-8c4ae75653ac"),
+                            AssetId = new Guid("460fd3f8-6c4e-4746-a169-88ac61ca050f"),
                             Category = 0,
                             Description = "Description for Ticket 17",
                             Priority = 1,
@@ -959,8 +962,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3b589e6b-4e89-4e85-aeae-de692390873e"),
-                            AssetId = new Guid("0a382d18-6b61-4e18-a115-2365ae50890e"),
+                            TicketId = new Guid("1186e1b7-ccbe-47d2-8ab9-054e067e96e1"),
+                            AssetId = new Guid("e5341248-0fe8-4d6a-8465-cbaa82dfbb15"),
                             Category = 1,
                             Description = "Description for Ticket 18",
                             Priority = 2,
@@ -969,8 +972,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("81e92940-425f-4ac3-a9f5-9a1815115541"),
-                            AssetId = new Guid("2e0c1a09-477b-47a2-aebd-83213ccfe057"),
+                            TicketId = new Guid("c0f26955-6e1b-4204-89f3-63f5aec411de"),
+                            AssetId = new Guid("1556423d-4026-4e5b-b303-cd6146ecd0a0"),
                             Category = 2,
                             Description = "Description for Ticket 19",
                             Priority = 0,
@@ -979,8 +982,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("13b2bc81-f1cf-4959-9026-b87b822c921d"),
-                            AssetId = new Guid("6ec68573-ffdd-41ca-9a8d-12fe291709cb"),
+                            TicketId = new Guid("32896123-dea1-4323-9388-c898dbd47ac6"),
+                            AssetId = new Guid("c825e4cf-5482-44ba-98ee-d90bdbd35c90"),
                             Category = 3,
                             Description = "Description for Ticket 20",
                             Priority = 1,
@@ -989,8 +992,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("47017228-fa26-4d9e-8511-f0ef47264172"),
-                            AssetId = new Guid("245a86e7-da9c-4aac-88e3-8bbbd20d7909"),
+                            TicketId = new Guid("d4c81482-de94-4b2c-b8b0-d34399439a0e"),
+                            AssetId = new Guid("e47c009b-7c5d-4560-93f4-df9e43d7f5d6"),
                             Category = 0,
                             Description = "Description for Ticket 21",
                             Priority = 2,
@@ -999,8 +1002,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("62f71479-a30c-4780-b9ad-1752358b7116"),
-                            AssetId = new Guid("0e0524ca-4107-446c-9914-198d174feacb"),
+                            TicketId = new Guid("a22e453f-3577-43ca-90dd-2b5b035327a1"),
+                            AssetId = new Guid("9e16b78b-6e97-4a98-870d-98ae92da8f5e"),
                             Category = 1,
                             Description = "Description for Ticket 22",
                             Priority = 0,
@@ -1009,8 +1012,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("88ff0806-13d3-4d5b-9973-d8f6b0d8cce6"),
-                            AssetId = new Guid("9d998ba7-598b-4114-915b-d97e356a58ab"),
+                            TicketId = new Guid("7c8957b3-29f5-465f-a5ce-a62c33d3983e"),
+                            AssetId = new Guid("cc993244-4143-4dcb-b83c-e97075b591f5"),
                             Category = 2,
                             Description = "Description for Ticket 23",
                             Priority = 1,
@@ -1019,8 +1022,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("4be4bc35-5212-4881-aa21-feb577d2eb22"),
-                            AssetId = new Guid("c9a1eef1-ddd0-49b0-b82c-dd08aa5b3939"),
+                            TicketId = new Guid("255738ac-61f9-4f9c-8fd8-54abbaac6c70"),
+                            AssetId = new Guid("3d4f4a87-9b6f-448f-862f-f53b14ed9ece"),
                             Category = 3,
                             Description = "Description for Ticket 24",
                             Priority = 2,
@@ -1029,8 +1032,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3f2f7c09-6a01-4f14-8a8a-eca05b914290"),
-                            AssetId = new Guid("c36aedf3-45fe-4c4f-a5ce-82c24e305b1b"),
+                            TicketId = new Guid("6b9454c3-ddc5-469b-abf9-2f11b0c7d7ef"),
+                            AssetId = new Guid("9f49aa02-7c01-4ff2-827e-a5b0f82baaf3"),
                             Category = 0,
                             Description = "Description for Ticket 25",
                             Priority = 0,
@@ -1039,8 +1042,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("75718937-bc09-4f5f-be52-276e14887470"),
-                            AssetId = new Guid("9d70afb9-ad97-4b14-8dde-f5b860a7318c"),
+                            TicketId = new Guid("23692762-05ca-4896-b988-db1989b9f971"),
+                            AssetId = new Guid("87316992-cec8-4cd9-9ecc-b8b73db9af41"),
                             Category = 1,
                             Description = "Description for Ticket 26",
                             Priority = 1,
@@ -1049,8 +1052,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("10448ff2-8b53-41f1-bf4d-712eae2a8c0a"),
-                            AssetId = new Guid("36da6a90-3c55-42ea-a781-8e182152031a"),
+                            TicketId = new Guid("17ca2fb6-f02e-4c7c-9ff0-dfa0b4cd38b5"),
+                            AssetId = new Guid("7852446c-006c-4a0a-8a82-6e4c912efcb6"),
                             Category = 2,
                             Description = "Description for Ticket 27",
                             Priority = 2,
@@ -1059,8 +1062,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7a147c2f-819e-4148-b655-d6a6085c1da8"),
-                            AssetId = new Guid("56fa6cab-814f-4a67-8c70-b2c2c6150786"),
+                            TicketId = new Guid("9e3fab26-9300-4ee6-baa8-5b6e8aa8f832"),
+                            AssetId = new Guid("632d29b0-157d-474e-b31b-b3fbfdb429c2"),
                             Category = 3,
                             Description = "Description for Ticket 28",
                             Priority = 0,
@@ -1069,8 +1072,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("12ef19b5-1795-4091-be62-514081a16073"),
-                            AssetId = new Guid("fcbd35e0-4667-4f96-a58e-2bcee2668ebc"),
+                            TicketId = new Guid("7a5069ff-6b88-42b3-9b2a-d7acfe64ac77"),
+                            AssetId = new Guid("34f26894-01d6-4993-bb83-73fee8112442"),
                             Category = 0,
                             Description = "Description for Ticket 29",
                             Priority = 1,
@@ -1079,8 +1082,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c00bf597-e25c-47c5-91d1-353d349c225f"),
-                            AssetId = new Guid("8cac5e32-8c82-4a40-ad7d-6ac37580db13"),
+                            TicketId = new Guid("d06495d7-f6b8-4e44-906e-bdb1833170eb"),
+                            AssetId = new Guid("ddf068e0-550c-4f49-a1c8-1d08201843a7"),
                             Category = 1,
                             Description = "Description for Ticket 30",
                             Priority = 2,
@@ -1089,8 +1092,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fe9e664e-b251-4824-93d4-d5ca86ba4202"),
-                            AssetId = new Guid("1f3f6ed3-0822-42cc-aad4-b8015648474f"),
+                            TicketId = new Guid("e7e9f91f-2828-428d-ba9f-636b4717e04a"),
+                            AssetId = new Guid("bbb1006f-2b5b-43ba-9dc6-59af443f7eb4"),
                             Category = 2,
                             Description = "Description for Ticket 31",
                             Priority = 0,
@@ -1099,8 +1102,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7a843f2d-eee3-4a56-a3ba-372080fa589e"),
-                            AssetId = new Guid("05357daf-2998-4825-b762-d2166c1b52af"),
+                            TicketId = new Guid("c3628024-3bde-4937-9ccc-d2271590e8cd"),
+                            AssetId = new Guid("47875709-4afa-4e22-a3ce-72c7b90c920c"),
                             Category = 3,
                             Description = "Description for Ticket 32",
                             Priority = 1,
@@ -1109,8 +1112,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e3c3a650-ad88-4e08-b04b-20a838396e35"),
-                            AssetId = new Guid("806b6861-cc8f-4e0e-9a4b-5c227c7a32f9"),
+                            TicketId = new Guid("80e4db44-a147-4ab7-83b1-94448bb96f2b"),
+                            AssetId = new Guid("a08bd44b-06b0-4e52-8cf4-6733c53fb2ad"),
                             Category = 0,
                             Description = "Description for Ticket 33",
                             Priority = 2,
@@ -1119,8 +1122,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3d1cc107-c000-4174-a3bd-003cbeb57878"),
-                            AssetId = new Guid("7a24f7a3-b945-4c71-802b-f9b4b75ef984"),
+                            TicketId = new Guid("6be541ed-81f4-476e-956a-56fcf9953ef3"),
+                            AssetId = new Guid("91b78a0d-a3c3-4e4c-b1e3-b1e3d214b5f3"),
                             Category = 1,
                             Description = "Description for Ticket 34",
                             Priority = 0,
@@ -1129,8 +1132,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f75d2ef8-4bb4-4a76-abe6-ffd431f19531"),
-                            AssetId = new Guid("4b4f88dd-b06a-42f3-8af6-f118397167a4"),
+                            TicketId = new Guid("d02d80db-28cc-40b5-9e14-d1a72bd829fb"),
+                            AssetId = new Guid("3e6b4977-5e35-4199-b4ee-956e1b92db0e"),
                             Category = 2,
                             Description = "Description for Ticket 35",
                             Priority = 1,
@@ -1139,8 +1142,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("cc7e81f7-4da1-4491-9c91-12c69f81a39d"),
-                            AssetId = new Guid("80bf9c45-e501-441e-88f9-ea3e073e23dd"),
+                            TicketId = new Guid("1bcbc167-24c6-4d6e-9f49-c5bd65b330cc"),
+                            AssetId = new Guid("3622c4a0-e603-4bab-aa75-9753d1a282b7"),
                             Category = 3,
                             Description = "Description for Ticket 36",
                             Priority = 2,
@@ -1149,8 +1152,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("9a120b9d-f2eb-4f62-932f-9f8a84483c0f"),
-                            AssetId = new Guid("b9abffe0-572b-476d-b755-2ea59a4604b9"),
+                            TicketId = new Guid("0f4a188b-841e-4682-abc6-41ddc5bd6675"),
+                            AssetId = new Guid("50e1846e-73ec-49ac-996c-c1658018df8d"),
                             Category = 0,
                             Description = "Description for Ticket 37",
                             Priority = 0,
@@ -1159,8 +1162,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6d432920-fba8-4d68-8175-cce682053d7e"),
-                            AssetId = new Guid("f9858adf-48f8-4a11-afd4-7d40980b278b"),
+                            TicketId = new Guid("6baddf36-2b86-4b5f-b539-ca10a7fa73f3"),
+                            AssetId = new Guid("930a252b-6644-4ea5-87c7-0b022b11ef86"),
                             Category = 1,
                             Description = "Description for Ticket 38",
                             Priority = 1,
@@ -1169,8 +1172,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b6491f5f-13a5-4b6e-afa3-98bb6dcba1c4"),
-                            AssetId = new Guid("4a18e383-008a-414f-9c91-5725f1ea1bb3"),
+                            TicketId = new Guid("0220183e-0a96-4586-a813-5474e813cef4"),
+                            AssetId = new Guid("4d29b9c7-321a-4aaa-ba08-04dbba2f05e6"),
                             Category = 2,
                             Description = "Description for Ticket 39",
                             Priority = 2,
@@ -1179,8 +1182,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("8ffc04e4-29da-4acf-8f00-267e4647b351"),
-                            AssetId = new Guid("4986d0d5-468c-4779-bcf5-5fe36354e98a"),
+                            TicketId = new Guid("fa8cc0a1-c39b-43e0-ae9b-efb343aeed6a"),
+                            AssetId = new Guid("f29c42c8-4719-447c-a931-1179e5813e5f"),
                             Category = 3,
                             Description = "Description for Ticket 40",
                             Priority = 0,
@@ -1189,8 +1192,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f642074b-34d8-4281-a90e-12ca6bcbd332"),
-                            AssetId = new Guid("fe513cc0-8b3b-46c1-9d63-9570c34d1424"),
+                            TicketId = new Guid("a71b4b3c-90c9-4e13-b0dd-ebd430af4430"),
+                            AssetId = new Guid("5c10b2d5-60f4-4c88-b870-2cc2237a5997"),
                             Category = 0,
                             Description = "Description for Ticket 41",
                             Priority = 1,
@@ -1199,8 +1202,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("27b05cd8-b57a-4da7-a761-7a2fe129fe57"),
-                            AssetId = new Guid("78d80821-1e08-4eac-973b-b61f82787319"),
+                            TicketId = new Guid("48618b59-ce87-4c1f-8c0a-c47d78c4fc95"),
+                            AssetId = new Guid("83b39df9-51c2-490f-8c2e-8899a8d252a5"),
                             Category = 1,
                             Description = "Description for Ticket 42",
                             Priority = 2,
@@ -1209,8 +1212,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6bf26de8-c40b-4fed-9765-545204ce29c2"),
-                            AssetId = new Guid("a5ee8988-df25-48d4-955b-4b4683ac60f3"),
+                            TicketId = new Guid("ec1c37eb-04f1-4779-8dfe-0d7b18498feb"),
+                            AssetId = new Guid("aa8f36f1-9adb-4760-bdb1-03ad935bd444"),
                             Category = 2,
                             Description = "Description for Ticket 43",
                             Priority = 0,
@@ -1219,8 +1222,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e814faab-cb2b-4237-804c-728a6c18b6e4"),
-                            AssetId = new Guid("840aa942-7ceb-4a2b-8e9e-7c01b64e10df"),
+                            TicketId = new Guid("35c24d0d-a741-459b-884d-ed6af4b3d1ea"),
+                            AssetId = new Guid("e7f5116c-f5ac-467b-bd14-a3f3962d5152"),
                             Category = 3,
                             Description = "Description for Ticket 44",
                             Priority = 1,
@@ -1229,8 +1232,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("8f393d7f-b6f2-49e2-bfc4-85e05caf0123"),
-                            AssetId = new Guid("e7a771a8-8823-48e9-9de5-9462904bd6e4"),
+                            TicketId = new Guid("618a32a7-5cb0-4a1e-bd81-5e1c18ce1bae"),
+                            AssetId = new Guid("5d613f93-f436-4cb0-a38d-2ced3615484a"),
                             Category = 0,
                             Description = "Description for Ticket 45",
                             Priority = 2,
@@ -1239,8 +1242,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c137a0d3-7de5-4dc8-9e1f-67d708af7499"),
-                            AssetId = new Guid("2f68af6f-2ee9-4b2d-b85b-35118228f24d"),
+                            TicketId = new Guid("ca1d9182-b38f-440c-b340-fcf93a2205d7"),
+                            AssetId = new Guid("f5d2072e-6930-4182-87bc-5f112731ea28"),
                             Category = 1,
                             Description = "Description for Ticket 46",
                             Priority = 0,
@@ -1249,8 +1252,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c06a7e9a-3ffc-4673-8c7b-a8f8a440012d"),
-                            AssetId = new Guid("fa51ab64-043e-46f4-846a-ee6350c32c46"),
+                            TicketId = new Guid("7da8fead-5a9d-467a-8443-b2795f4dd598"),
+                            AssetId = new Guid("460fd3f8-6c4e-4746-a169-88ac61ca050f"),
                             Category = 2,
                             Description = "Description for Ticket 47",
                             Priority = 1,
@@ -1259,8 +1262,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("15216b47-7d29-4aa4-a7f3-91e96a6606da"),
-                            AssetId = new Guid("6dfab923-f635-4412-b755-2f7ffbea19b5"),
+                            TicketId = new Guid("0852e1ee-3a00-4058-be7d-2f8a3271f3ab"),
+                            AssetId = new Guid("e5341248-0fe8-4d6a-8465-cbaa82dfbb15"),
                             Category = 3,
                             Description = "Description for Ticket 48",
                             Priority = 2,
@@ -1269,8 +1272,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("715c80b3-0d70-45b4-8566-597baf41ae3a"),
-                            AssetId = new Guid("77ec83bf-ffae-4418-952d-9a5b78cf1ce8"),
+                            TicketId = new Guid("05503f88-21b1-4649-968d-1adb6f983a9f"),
+                            AssetId = new Guid("1556423d-4026-4e5b-b303-cd6146ecd0a0"),
                             Category = 0,
                             Description = "Description for Ticket 49",
                             Priority = 0,
@@ -1279,8 +1282,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d2734d36-6dc1-47a2-85ba-5fc296a99dc1"),
-                            AssetId = new Guid("506982e9-788d-4af5-8e45-e587aedc194f"),
+                            TicketId = new Guid("f2d1dcf4-2fee-4364-bb62-ef7c1dd8b96f"),
+                            AssetId = new Guid("c825e4cf-5482-44ba-98ee-d90bdbd35c90"),
                             Category = 1,
                             Description = "Description for Ticket 50",
                             Priority = 1,
@@ -1289,8 +1292,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("74f59928-abb6-4fad-b5af-940978b07d3b"),
-                            AssetId = new Guid("3e886cec-052f-40ca-8bc4-1383752a794e"),
+                            TicketId = new Guid("538b5c67-c1a5-4a4e-82af-a9ffd45a213d"),
+                            AssetId = new Guid("e47c009b-7c5d-4560-93f4-df9e43d7f5d6"),
                             Category = 2,
                             Description = "Description for Ticket 51",
                             Priority = 2,
@@ -1299,8 +1302,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("35577710-80f7-40a9-963d-d90bf49c1486"),
-                            AssetId = new Guid("41971553-b815-4dfc-a315-5930935bfb30"),
+                            TicketId = new Guid("13cbe484-1c6b-4425-89bd-0214f5bfd5e5"),
+                            AssetId = new Guid("9e16b78b-6e97-4a98-870d-98ae92da8f5e"),
                             Category = 3,
                             Description = "Description for Ticket 52",
                             Priority = 0,
@@ -1309,8 +1312,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ea7843dd-122f-4254-a546-e7a92f8e9d6b"),
-                            AssetId = new Guid("0e6a5b82-ed68-41c3-8328-9d1bd1673c6d"),
+                            TicketId = new Guid("bf2393ee-3d6d-484d-89e2-5a4310a67afc"),
+                            AssetId = new Guid("cc993244-4143-4dcb-b83c-e97075b591f5"),
                             Category = 0,
                             Description = "Description for Ticket 53",
                             Priority = 1,
@@ -1319,8 +1322,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("162c3016-0e7a-4de7-b1df-93e909f6c739"),
-                            AssetId = new Guid("2c59d7f1-6939-4049-ac5a-92664370c8e2"),
+                            TicketId = new Guid("4aa8bd08-098d-4950-b672-da4398b8c88d"),
+                            AssetId = new Guid("3d4f4a87-9b6f-448f-862f-f53b14ed9ece"),
                             Category = 1,
                             Description = "Description for Ticket 54",
                             Priority = 2,
@@ -1329,8 +1332,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7bf05ff3-c95c-4e3b-9ca0-33fca730551f"),
-                            AssetId = new Guid("536e3e9e-d6ec-4050-8d7f-925e93279cf0"),
+                            TicketId = new Guid("56e2f119-7204-42e8-a755-5239fd443d72"),
+                            AssetId = new Guid("9f49aa02-7c01-4ff2-827e-a5b0f82baaf3"),
                             Category = 2,
                             Description = "Description for Ticket 55",
                             Priority = 0,
@@ -1339,8 +1342,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bc812d2a-9f2a-45d5-ad21-f48e3c0c28e3"),
-                            AssetId = new Guid("b0e05cdd-42b6-4ba6-a963-8f43a3fbe0d8"),
+                            TicketId = new Guid("91f20e30-9243-46bb-994f-ff0c0a339eea"),
+                            AssetId = new Guid("87316992-cec8-4cd9-9ecc-b8b73db9af41"),
                             Category = 3,
                             Description = "Description for Ticket 56",
                             Priority = 1,
@@ -1349,8 +1352,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("9d897fa7-9228-4721-bbbe-4928fed4e5a4"),
-                            AssetId = new Guid("241967b0-0c6d-44c1-b488-7e7487d30b90"),
+                            TicketId = new Guid("97036491-257d-4639-95ab-b53d8c0a420e"),
+                            AssetId = new Guid("7852446c-006c-4a0a-8a82-6e4c912efcb6"),
                             Category = 0,
                             Description = "Description for Ticket 57",
                             Priority = 2,
@@ -1359,8 +1362,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("48335841-e02e-4f10-932e-acb2fbd0da49"),
-                            AssetId = new Guid("f2d39c63-4ea3-4551-8299-c8fbfff83a50"),
+                            TicketId = new Guid("3d9628ed-2acc-4d95-9517-03252fc728ee"),
+                            AssetId = new Guid("632d29b0-157d-474e-b31b-b3fbfdb429c2"),
                             Category = 1,
                             Description = "Description for Ticket 58",
                             Priority = 0,
@@ -1369,8 +1372,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("4c6ddc23-7805-4723-b889-84619799b05e"),
-                            AssetId = new Guid("ed62fc23-045c-4719-8e30-fcb9354238e1"),
+                            TicketId = new Guid("4b472f0d-7fc5-4eef-b948-5ee979f882ac"),
+                            AssetId = new Guid("34f26894-01d6-4993-bb83-73fee8112442"),
                             Category = 2,
                             Description = "Description for Ticket 59",
                             Priority = 1,
@@ -1379,8 +1382,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e4ea2945-f968-4c05-b9f5-fb95ed78580b"),
-                            AssetId = new Guid("b59bbbb7-6729-42c3-95a6-a688e6e34e7a"),
+                            TicketId = new Guid("511eadef-2e51-4809-a322-7a938283635a"),
+                            AssetId = new Guid("ddf068e0-550c-4f49-a1c8-1d08201843a7"),
                             Category = 3,
                             Description = "Description for Ticket 60",
                             Priority = 2,
@@ -1389,8 +1392,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7118909f-38e2-4e2f-b44e-c895237d2fa2"),
-                            AssetId = new Guid("b5650011-5761-438a-9606-c15bfb70680a"),
+                            TicketId = new Guid("378b8ef1-b7aa-4fae-83e0-d2d3109dddfc"),
+                            AssetId = new Guid("bbb1006f-2b5b-43ba-9dc6-59af443f7eb4"),
                             Category = 0,
                             Description = "Description for Ticket 61",
                             Priority = 0,
@@ -1399,8 +1402,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d8ec0006-3ba5-4235-a5e2-4a15489fa851"),
-                            AssetId = new Guid("c399f0bf-1198-4500-ae88-708bb12e0349"),
+                            TicketId = new Guid("e023320a-2435-465b-a17c-5e2f4a2438a7"),
+                            AssetId = new Guid("47875709-4afa-4e22-a3ce-72c7b90c920c"),
                             Category = 1,
                             Description = "Description for Ticket 62",
                             Priority = 1,
@@ -1409,8 +1412,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("027d3ccd-737f-4eba-8ed0-61dcf96ec7d5"),
-                            AssetId = new Guid("20b056a9-6c06-4b89-bca9-ae908269952c"),
+                            TicketId = new Guid("e24d7032-ff74-4065-9102-2e9f9cb4a8c9"),
+                            AssetId = new Guid("a08bd44b-06b0-4e52-8cf4-6733c53fb2ad"),
                             Category = 2,
                             Description = "Description for Ticket 63",
                             Priority = 2,
@@ -1419,8 +1422,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("72daecec-ba1b-4f10-bac6-d4b995b65a18"),
-                            AssetId = new Guid("5bba0835-4983-4914-b237-657a7b3d126d"),
+                            TicketId = new Guid("8e9c847c-e412-4123-aeb3-f0875f2ea2b9"),
+                            AssetId = new Guid("91b78a0d-a3c3-4e4c-b1e3-b1e3d214b5f3"),
                             Category = 3,
                             Description = "Description for Ticket 64",
                             Priority = 0,
@@ -1429,8 +1432,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("dacff062-4d62-45cd-b427-90647933dcc0"),
-                            AssetId = new Guid("0e7f8e71-c523-499c-81db-75d49eac2acd"),
+                            TicketId = new Guid("38428b34-3a97-47eb-b750-1d0a47e9f9b7"),
+                            AssetId = new Guid("3e6b4977-5e35-4199-b4ee-956e1b92db0e"),
                             Category = 0,
                             Description = "Description for Ticket 65",
                             Priority = 1,
@@ -1439,8 +1442,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("9587df50-5356-45f2-be31-46503a07498c"),
-                            AssetId = new Guid("8e8341be-d5e0-4c64-b04d-8f1a82b3e043"),
+                            TicketId = new Guid("a3bc0900-0cd8-4cc0-a0f2-e06874a31053"),
+                            AssetId = new Guid("3622c4a0-e603-4bab-aa75-9753d1a282b7"),
                             Category = 1,
                             Description = "Description for Ticket 66",
                             Priority = 2,
@@ -1449,8 +1452,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fad1155a-ef99-41a4-8e95-dca5bd2308c1"),
-                            AssetId = new Guid("3ac3dbaf-0fd3-4141-ae82-805f99bbaa12"),
+                            TicketId = new Guid("f4781b11-382b-45a0-a4f7-59d4bc3efc19"),
+                            AssetId = new Guid("50e1846e-73ec-49ac-996c-c1658018df8d"),
                             Category = 2,
                             Description = "Description for Ticket 67",
                             Priority = 0,
@@ -1459,8 +1462,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7d4e4728-51cb-49c6-ab2a-3f58fa94eb69"),
-                            AssetId = new Guid("203c872a-7dec-4611-8716-d16e2f66e619"),
+                            TicketId = new Guid("379dbb2d-2eca-4b1b-8201-29e2b1d81397"),
+                            AssetId = new Guid("930a252b-6644-4ea5-87c7-0b022b11ef86"),
                             Category = 3,
                             Description = "Description for Ticket 68",
                             Priority = 1,
@@ -1469,8 +1472,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f939f766-ba7c-4592-b913-5d043bc9ede1"),
-                            AssetId = new Guid("a29c46ff-bde7-420d-b029-980ddcee9703"),
+                            TicketId = new Guid("d7158c48-38b9-408f-9d53-ca767c5bde7c"),
+                            AssetId = new Guid("4d29b9c7-321a-4aaa-ba08-04dbba2f05e6"),
                             Category = 0,
                             Description = "Description for Ticket 69",
                             Priority = 2,
@@ -1479,8 +1482,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("129fea93-58ef-417c-a5fb-cf6df94b0f5b"),
-                            AssetId = new Guid("afb7ffdf-e2d5-492e-b723-877bc7e42b48"),
+                            TicketId = new Guid("1a1ef4ee-27af-4e68-ba75-10e37e724670"),
+                            AssetId = new Guid("f29c42c8-4719-447c-a931-1179e5813e5f"),
                             Category = 1,
                             Description = "Description for Ticket 70",
                             Priority = 0,
@@ -1489,8 +1492,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("982173d2-1001-40e6-a0ed-f29bfcef4552"),
-                            AssetId = new Guid("fd62104c-6a9c-4f8f-9e5b-5ba9f2168f12"),
+                            TicketId = new Guid("f439bc58-2f24-4b85-a126-a05a35a82d1c"),
+                            AssetId = new Guid("5c10b2d5-60f4-4c88-b870-2cc2237a5997"),
                             Category = 2,
                             Description = "Description for Ticket 71",
                             Priority = 1,
@@ -1499,8 +1502,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e1d9ca9e-1896-4946-b5a3-63a9bd0c3f68"),
-                            AssetId = new Guid("749a85b6-848e-468c-b1d4-515c0d87330e"),
+                            TicketId = new Guid("61ac069c-138d-4ed0-88f1-1fe74f21c968"),
+                            AssetId = new Guid("83b39df9-51c2-490f-8c2e-8899a8d252a5"),
                             Category = 3,
                             Description = "Description for Ticket 72",
                             Priority = 2,
@@ -1509,8 +1512,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fbc31cb6-97e3-4e56-b853-dd258c925dbe"),
-                            AssetId = new Guid("810a164e-120e-4a24-a0bc-8f9e569f771a"),
+                            TicketId = new Guid("e0352387-5030-4aa4-b520-0e612b29beed"),
+                            AssetId = new Guid("aa8f36f1-9adb-4760-bdb1-03ad935bd444"),
                             Category = 0,
                             Description = "Description for Ticket 73",
                             Priority = 0,
@@ -1519,8 +1522,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a0fe7c16-f61f-4f04-b3b0-cd38e75d1f39"),
-                            AssetId = new Guid("9206bdc9-0a0c-4fbd-9153-daaf74a44977"),
+                            TicketId = new Guid("e204876f-17ec-4869-bd96-05bd07bb5e5f"),
+                            AssetId = new Guid("e7f5116c-f5ac-467b-bd14-a3f3962d5152"),
                             Category = 1,
                             Description = "Description for Ticket 74",
                             Priority = 1,
@@ -1529,8 +1532,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b4bd1cbc-8148-4192-9b92-652423c83a86"),
-                            AssetId = new Guid("c6396b2b-3c18-4fb9-aad4-b4e7820ce9db"),
+                            TicketId = new Guid("e4246740-6da1-46d2-b918-6d9744b2c628"),
+                            AssetId = new Guid("5d613f93-f436-4cb0-a38d-2ced3615484a"),
                             Category = 2,
                             Description = "Description for Ticket 75",
                             Priority = 2,
@@ -1539,8 +1542,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("42c8a065-ce33-4088-b1d0-71d26860055a"),
-                            AssetId = new Guid("37e40200-edc1-4d1b-9900-5753ccc9da4c"),
+                            TicketId = new Guid("325747f9-ca9d-4866-b3fc-ee29e65b6ece"),
+                            AssetId = new Guid("f5d2072e-6930-4182-87bc-5f112731ea28"),
                             Category = 3,
                             Description = "Description for Ticket 76",
                             Priority = 0,
@@ -1549,8 +1552,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("2a66e2df-d606-4189-bc7a-6d14bdd04a59"),
-                            AssetId = new Guid("70728466-501c-4329-a864-c59f216dc59a"),
+                            TicketId = new Guid("37282417-314b-40b4-a572-072dfb9cb7e2"),
+                            AssetId = new Guid("460fd3f8-6c4e-4746-a169-88ac61ca050f"),
                             Category = 0,
                             Description = "Description for Ticket 77",
                             Priority = 1,
@@ -1559,8 +1562,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d87f70ce-a8c9-4484-b99b-06b486697420"),
-                            AssetId = new Guid("2e785176-95ec-40b7-a2e8-180eee14d508"),
+                            TicketId = new Guid("e1fdd5a0-5d9d-41d9-8921-c23cdc3805db"),
+                            AssetId = new Guid("e5341248-0fe8-4d6a-8465-cbaa82dfbb15"),
                             Category = 1,
                             Description = "Description for Ticket 78",
                             Priority = 2,
@@ -1569,8 +1572,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("887be680-c8c4-4e22-9efb-be275c708a07"),
-                            AssetId = new Guid("ce80d41e-7f73-42e8-a915-56e87e9ba142"),
+                            TicketId = new Guid("087c0ac6-7dfc-4a31-89ee-d39b78bfd878"),
+                            AssetId = new Guid("1556423d-4026-4e5b-b303-cd6146ecd0a0"),
                             Category = 2,
                             Description = "Description for Ticket 79",
                             Priority = 0,
@@ -1579,8 +1582,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("10d9309b-38a6-43e4-bc33-0c9b4677e3f3"),
-                            AssetId = new Guid("17b5e3c2-dfac-47e3-aaa6-27d7e6ae30e6"),
+                            TicketId = new Guid("778ecfc6-1fbc-4b21-95d4-91d210f4bd43"),
+                            AssetId = new Guid("c825e4cf-5482-44ba-98ee-d90bdbd35c90"),
                             Category = 3,
                             Description = "Description for Ticket 80",
                             Priority = 1,
@@ -1589,8 +1592,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("297f5c59-535e-4885-9a54-2921c2d742c7"),
-                            AssetId = new Guid("b878f242-26fb-4988-b186-28d0f4893d5c"),
+                            TicketId = new Guid("15251638-c7c1-402a-afd4-9f9e7fc2ca71"),
+                            AssetId = new Guid("e47c009b-7c5d-4560-93f4-df9e43d7f5d6"),
                             Category = 0,
                             Description = "Description for Ticket 81",
                             Priority = 2,
@@ -1599,8 +1602,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1e496094-4cb1-4c4a-a70b-3bc1bcca6982"),
-                            AssetId = new Guid("c9a077cc-106e-4d6a-8e9c-68d54376ec23"),
+                            TicketId = new Guid("9df469a7-eb23-43d2-bd0a-1072e0fac02b"),
+                            AssetId = new Guid("9e16b78b-6e97-4a98-870d-98ae92da8f5e"),
                             Category = 1,
                             Description = "Description for Ticket 82",
                             Priority = 0,
@@ -1609,8 +1612,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("148c73e1-6c39-4f71-beae-55d4cf465c6e"),
-                            AssetId = new Guid("d0146e74-12a1-456e-a96b-e686112db05f"),
+                            TicketId = new Guid("15545af6-873f-489a-aa63-9d2769838f6f"),
+                            AssetId = new Guid("cc993244-4143-4dcb-b83c-e97075b591f5"),
                             Category = 2,
                             Description = "Description for Ticket 83",
                             Priority = 1,
@@ -1619,8 +1622,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("57ab8f30-21ab-4650-aae6-1ba618eaccad"),
-                            AssetId = new Guid("847f1aa6-1f7a-4c0b-b6e0-d6c8945c417f"),
+                            TicketId = new Guid("093dbfc6-6b6d-4728-a858-386d09915c3a"),
+                            AssetId = new Guid("3d4f4a87-9b6f-448f-862f-f53b14ed9ece"),
                             Category = 3,
                             Description = "Description for Ticket 84",
                             Priority = 2,
@@ -1629,8 +1632,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("af5d0585-c786-439d-83f5-91a5d2ff06b0"),
-                            AssetId = new Guid("d4fd461a-c362-4113-ba19-5adc1bef5067"),
+                            TicketId = new Guid("17a07698-6849-49e8-9e51-456efaa8a741"),
+                            AssetId = new Guid("9f49aa02-7c01-4ff2-827e-a5b0f82baaf3"),
                             Category = 0,
                             Description = "Description for Ticket 85",
                             Priority = 0,
@@ -1639,8 +1642,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("455e4cc9-7253-4899-b685-ad40fd43e6d1"),
-                            AssetId = new Guid("6b663dcf-f4ff-463d-a8bb-5106f5b28ddb"),
+                            TicketId = new Guid("568f5794-46b4-498a-9989-a7d21869ca21"),
+                            AssetId = new Guid("87316992-cec8-4cd9-9ecc-b8b73db9af41"),
                             Category = 1,
                             Description = "Description for Ticket 86",
                             Priority = 1,
@@ -1649,8 +1652,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d54b80f1-cec4-4132-864a-c3900cf351e5"),
-                            AssetId = new Guid("7bc674c7-7b87-41c7-8b30-de899563166a"),
+                            TicketId = new Guid("b2b76d91-27c1-4332-9238-70e6f4ed8945"),
+                            AssetId = new Guid("7852446c-006c-4a0a-8a82-6e4c912efcb6"),
                             Category = 2,
                             Description = "Description for Ticket 87",
                             Priority = 2,
@@ -1659,8 +1662,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e8598238-00da-435d-8ec1-e37f8d7c8912"),
-                            AssetId = new Guid("0a382d18-6b61-4e18-a115-2365ae50890e"),
+                            TicketId = new Guid("bd4ca750-4cf7-4e5a-9265-d2b08cc683d6"),
+                            AssetId = new Guid("632d29b0-157d-474e-b31b-b3fbfdb429c2"),
                             Category = 3,
                             Description = "Description for Ticket 88",
                             Priority = 0,
@@ -1669,8 +1672,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("df65c6ff-33a7-41a1-a4ca-7f6f5af81785"),
-                            AssetId = new Guid("2e0c1a09-477b-47a2-aebd-83213ccfe057"),
+                            TicketId = new Guid("b0f15e66-7484-492a-9a27-ff2f14745d63"),
+                            AssetId = new Guid("34f26894-01d6-4993-bb83-73fee8112442"),
                             Category = 0,
                             Description = "Description for Ticket 89",
                             Priority = 1,
@@ -1679,8 +1682,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d827235d-229c-4d2f-861e-4e60abbab5c5"),
-                            AssetId = new Guid("6ec68573-ffdd-41ca-9a8d-12fe291709cb"),
+                            TicketId = new Guid("b26b921f-5c12-4c8a-b1ce-aec4bac4c30f"),
+                            AssetId = new Guid("ddf068e0-550c-4f49-a1c8-1d08201843a7"),
                             Category = 1,
                             Description = "Description for Ticket 90",
                             Priority = 2,
@@ -1689,8 +1692,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7657c33c-b2e1-412e-a1a2-40a0d2bb3267"),
-                            AssetId = new Guid("245a86e7-da9c-4aac-88e3-8bbbd20d7909"),
+                            TicketId = new Guid("170d1a68-39fc-47e4-93a3-3c1c88f07202"),
+                            AssetId = new Guid("bbb1006f-2b5b-43ba-9dc6-59af443f7eb4"),
                             Category = 2,
                             Description = "Description for Ticket 91",
                             Priority = 0,
@@ -1699,8 +1702,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d2b92e71-6137-446b-b129-ff6fcea152f5"),
-                            AssetId = new Guid("0e0524ca-4107-446c-9914-198d174feacb"),
+                            TicketId = new Guid("fbffca3a-0970-4de9-8b02-58722e7c8c07"),
+                            AssetId = new Guid("47875709-4afa-4e22-a3ce-72c7b90c920c"),
                             Category = 3,
                             Description = "Description for Ticket 92",
                             Priority = 1,
@@ -1709,8 +1712,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("66f21692-6c49-45ec-8b96-d271616a26eb"),
-                            AssetId = new Guid("9d998ba7-598b-4114-915b-d97e356a58ab"),
+                            TicketId = new Guid("76c8683e-9f2d-4e21-9a9f-06cfb01a89cb"),
+                            AssetId = new Guid("a08bd44b-06b0-4e52-8cf4-6733c53fb2ad"),
                             Category = 0,
                             Description = "Description for Ticket 93",
                             Priority = 2,
@@ -1719,8 +1722,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("81c6b753-7c14-4088-85f0-7b98e05153d5"),
-                            AssetId = new Guid("c9a1eef1-ddd0-49b0-b82c-dd08aa5b3939"),
+                            TicketId = new Guid("addb098d-beff-4798-945a-7a511d614c84"),
+                            AssetId = new Guid("91b78a0d-a3c3-4e4c-b1e3-b1e3d214b5f3"),
                             Category = 1,
                             Description = "Description for Ticket 94",
                             Priority = 0,
@@ -1729,8 +1732,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("33d51fe2-865f-40e4-b918-b359b05ed5e0"),
-                            AssetId = new Guid("c36aedf3-45fe-4c4f-a5ce-82c24e305b1b"),
+                            TicketId = new Guid("1231febd-b6ef-4a82-aeba-055f07d9e14f"),
+                            AssetId = new Guid("3e6b4977-5e35-4199-b4ee-956e1b92db0e"),
                             Category = 2,
                             Description = "Description for Ticket 95",
                             Priority = 1,
@@ -1739,8 +1742,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("06f15b13-889a-464a-804d-17d5037c670e"),
-                            AssetId = new Guid("9d70afb9-ad97-4b14-8dde-f5b860a7318c"),
+                            TicketId = new Guid("fca32ea7-15e6-4a46-b772-e21c02ef1604"),
+                            AssetId = new Guid("3622c4a0-e603-4bab-aa75-9753d1a282b7"),
                             Category = 3,
                             Description = "Description for Ticket 96",
                             Priority = 2,
@@ -1749,8 +1752,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ebe565de-6a5d-428c-821e-755647582d0d"),
-                            AssetId = new Guid("36da6a90-3c55-42ea-a781-8e182152031a"),
+                            TicketId = new Guid("74a6902e-87df-42dc-8b6d-2b1d4bc4734e"),
+                            AssetId = new Guid("50e1846e-73ec-49ac-996c-c1658018df8d"),
                             Category = 0,
                             Description = "Description for Ticket 97",
                             Priority = 0,
@@ -1759,8 +1762,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("293d4ac9-f239-4570-a073-d3901a826878"),
-                            AssetId = new Guid("56fa6cab-814f-4a67-8c70-b2c2c6150786"),
+                            TicketId = new Guid("85d1010c-6ad7-43c0-8d8c-53577593fc4f"),
+                            AssetId = new Guid("930a252b-6644-4ea5-87c7-0b022b11ef86"),
                             Category = 1,
                             Description = "Description for Ticket 98",
                             Priority = 1,
@@ -1769,8 +1772,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("45912c9b-2fe8-4dd8-a473-fa69f30b2ea9"),
-                            AssetId = new Guid("fcbd35e0-4667-4f96-a58e-2bcee2668ebc"),
+                            TicketId = new Guid("bcfca5de-35f2-4330-98a8-68a5fc2b577c"),
+                            AssetId = new Guid("4d29b9c7-321a-4aaa-ba08-04dbba2f05e6"),
                             Category = 2,
                             Description = "Description for Ticket 99",
                             Priority = 2,
@@ -1779,8 +1782,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("35f55fb1-550c-466b-9030-ad3f01229009"),
-                            AssetId = new Guid("8cac5e32-8c82-4a40-ad7d-6ac37580db13"),
+                            TicketId = new Guid("ac7f1c37-6985-4b1d-9cbe-268768a26d6d"),
+                            AssetId = new Guid("f29c42c8-4719-447c-a931-1179e5813e5f"),
                             Category = 3,
                             Description = "Description for Ticket 100",
                             Priority = 0,
@@ -1789,8 +1792,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ae1cfc67-8ee7-48ae-8d44-c2ed923b38b8"),
-                            AssetId = new Guid("1f3f6ed3-0822-42cc-aad4-b8015648474f"),
+                            TicketId = new Guid("7f064fc2-2c08-448a-a5ee-e504972b47f0"),
+                            AssetId = new Guid("5c10b2d5-60f4-4c88-b870-2cc2237a5997"),
                             Category = 0,
                             Description = "Description for Ticket 101",
                             Priority = 1,
@@ -1799,8 +1802,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("29bb503b-c0c1-445d-ab4e-a1aa866376af"),
-                            AssetId = new Guid("05357daf-2998-4825-b762-d2166c1b52af"),
+                            TicketId = new Guid("2c8cea1b-8f58-4333-9318-7d57339be841"),
+                            AssetId = new Guid("83b39df9-51c2-490f-8c2e-8899a8d252a5"),
                             Category = 1,
                             Description = "Description for Ticket 102",
                             Priority = 2,
@@ -1809,8 +1812,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a90566f9-deb4-4832-81c5-85b57390ee98"),
-                            AssetId = new Guid("806b6861-cc8f-4e0e-9a4b-5c227c7a32f9"),
+                            TicketId = new Guid("94249b33-3df3-4829-ac7e-8a84a9423506"),
+                            AssetId = new Guid("aa8f36f1-9adb-4760-bdb1-03ad935bd444"),
                             Category = 2,
                             Description = "Description for Ticket 103",
                             Priority = 0,
@@ -1819,8 +1822,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1c42fbe4-db7c-4521-80c9-da487b1e8d3d"),
-                            AssetId = new Guid("7a24f7a3-b945-4c71-802b-f9b4b75ef984"),
+                            TicketId = new Guid("0d6a58ba-499e-413f-be0f-41752dc7e744"),
+                            AssetId = new Guid("e7f5116c-f5ac-467b-bd14-a3f3962d5152"),
                             Category = 3,
                             Description = "Description for Ticket 104",
                             Priority = 1,
@@ -1829,8 +1832,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5e7e4125-0ff3-41e5-abb0-deb27c72c446"),
-                            AssetId = new Guid("4b4f88dd-b06a-42f3-8af6-f118397167a4"),
+                            TicketId = new Guid("c0f55e91-ec87-4fca-ae60-e909c5d65e1c"),
+                            AssetId = new Guid("5d613f93-f436-4cb0-a38d-2ced3615484a"),
                             Category = 0,
                             Description = "Description for Ticket 105",
                             Priority = 2,
@@ -1839,8 +1842,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("997a6694-99c0-493f-b44c-ce8e382a4c99"),
-                            AssetId = new Guid("80bf9c45-e501-441e-88f9-ea3e073e23dd"),
+                            TicketId = new Guid("0f4b1d8a-b08a-4e7a-9f2b-db844f331d75"),
+                            AssetId = new Guid("f5d2072e-6930-4182-87bc-5f112731ea28"),
                             Category = 1,
                             Description = "Description for Ticket 106",
                             Priority = 0,
@@ -1849,8 +1852,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6e98446a-e8d1-4489-b330-bce8099b2e76"),
-                            AssetId = new Guid("b9abffe0-572b-476d-b755-2ea59a4604b9"),
+                            TicketId = new Guid("b362d699-21a4-41e2-b8e3-95125e79a01c"),
+                            AssetId = new Guid("460fd3f8-6c4e-4746-a169-88ac61ca050f"),
                             Category = 2,
                             Description = "Description for Ticket 107",
                             Priority = 1,
@@ -1859,8 +1862,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e61038c9-ebda-41f9-8e0f-490ad0561f95"),
-                            AssetId = new Guid("f9858adf-48f8-4a11-afd4-7d40980b278b"),
+                            TicketId = new Guid("dee7748c-03d2-4073-847b-d597118d8ef6"),
+                            AssetId = new Guid("e5341248-0fe8-4d6a-8465-cbaa82dfbb15"),
                             Category = 3,
                             Description = "Description for Ticket 108",
                             Priority = 2,
@@ -1869,8 +1872,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("2126b8ff-21c1-4476-be53-6d668c2feb48"),
-                            AssetId = new Guid("4a18e383-008a-414f-9c91-5725f1ea1bb3"),
+                            TicketId = new Guid("a1d051a5-4be3-48f6-b8ff-6b44af1f8a00"),
+                            AssetId = new Guid("1556423d-4026-4e5b-b303-cd6146ecd0a0"),
                             Category = 0,
                             Description = "Description for Ticket 109",
                             Priority = 0,
@@ -1879,8 +1882,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ddf617df-263a-4477-b158-9be608e95992"),
-                            AssetId = new Guid("4986d0d5-468c-4779-bcf5-5fe36354e98a"),
+                            TicketId = new Guid("3380cdf6-219b-4c60-88fd-f570517bdff8"),
+                            AssetId = new Guid("c825e4cf-5482-44ba-98ee-d90bdbd35c90"),
                             Category = 1,
                             Description = "Description for Ticket 110",
                             Priority = 1,
@@ -1889,8 +1892,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ae10272f-ed8f-4b7e-999d-0fc0cce1a4d2"),
-                            AssetId = new Guid("fe513cc0-8b3b-46c1-9d63-9570c34d1424"),
+                            TicketId = new Guid("926fa17c-c420-49e1-ba08-a49618a69814"),
+                            AssetId = new Guid("e47c009b-7c5d-4560-93f4-df9e43d7f5d6"),
                             Category = 2,
                             Description = "Description for Ticket 111",
                             Priority = 2,
@@ -1899,8 +1902,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("16ed1f38-a0a3-4f0f-8289-9068ff876e7c"),
-                            AssetId = new Guid("78d80821-1e08-4eac-973b-b61f82787319"),
+                            TicketId = new Guid("3afd8e09-d8c5-4d6d-82aa-9f97d812553f"),
+                            AssetId = new Guid("9e16b78b-6e97-4a98-870d-98ae92da8f5e"),
                             Category = 3,
                             Description = "Description for Ticket 112",
                             Priority = 0,
@@ -1909,8 +1912,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d6a77aba-08a7-463e-b9f0-1c583803a01d"),
-                            AssetId = new Guid("a5ee8988-df25-48d4-955b-4b4683ac60f3"),
+                            TicketId = new Guid("997b80bf-1da1-4291-a6f0-5093ac132996"),
+                            AssetId = new Guid("cc993244-4143-4dcb-b83c-e97075b591f5"),
                             Category = 0,
                             Description = "Description for Ticket 113",
                             Priority = 1,
@@ -1919,8 +1922,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7ebf76c8-233e-4208-8f7d-00828e40ba0e"),
-                            AssetId = new Guid("840aa942-7ceb-4a2b-8e9e-7c01b64e10df"),
+                            TicketId = new Guid("0510d9db-2f11-470c-80b1-ccdc2f3d9289"),
+                            AssetId = new Guid("3d4f4a87-9b6f-448f-862f-f53b14ed9ece"),
                             Category = 1,
                             Description = "Description for Ticket 114",
                             Priority = 2,
@@ -1929,8 +1932,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f0605338-18d1-46b2-af02-0554d5ba10f3"),
-                            AssetId = new Guid("e7a771a8-8823-48e9-9de5-9462904bd6e4"),
+                            TicketId = new Guid("b9353d98-56c8-42a0-9db9-095fb308cbd5"),
+                            AssetId = new Guid("9f49aa02-7c01-4ff2-827e-a5b0f82baaf3"),
                             Category = 2,
                             Description = "Description for Ticket 115",
                             Priority = 0,
@@ -1939,8 +1942,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5220dbe5-6007-4648-91db-99e27a7deb08"),
-                            AssetId = new Guid("2f68af6f-2ee9-4b2d-b85b-35118228f24d"),
+                            TicketId = new Guid("6b57152f-2faa-4d6b-bc4a-c255649055c1"),
+                            AssetId = new Guid("87316992-cec8-4cd9-9ecc-b8b73db9af41"),
                             Category = 3,
                             Description = "Description for Ticket 116",
                             Priority = 1,
@@ -1949,8 +1952,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("19a5a874-f345-40c9-ba92-2d4f88131a84"),
-                            AssetId = new Guid("fa51ab64-043e-46f4-846a-ee6350c32c46"),
+                            TicketId = new Guid("df79ec63-b1c2-4d6c-95fd-5bae4089b7e7"),
+                            AssetId = new Guid("7852446c-006c-4a0a-8a82-6e4c912efcb6"),
                             Category = 0,
                             Description = "Description for Ticket 117",
                             Priority = 2,
@@ -1959,8 +1962,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1694413a-9064-4859-94e8-b14226437e16"),
-                            AssetId = new Guid("6dfab923-f635-4412-b755-2f7ffbea19b5"),
+                            TicketId = new Guid("6e6e84b1-5179-46f1-939e-f394b4cd0869"),
+                            AssetId = new Guid("632d29b0-157d-474e-b31b-b3fbfdb429c2"),
                             Category = 1,
                             Description = "Description for Ticket 118",
                             Priority = 0,
@@ -1969,8 +1972,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a179b452-a645-4ed8-b474-59eff5884d6e"),
-                            AssetId = new Guid("77ec83bf-ffae-4418-952d-9a5b78cf1ce8"),
+                            TicketId = new Guid("d4345819-444e-466a-a7c9-5280a50820d5"),
+                            AssetId = new Guid("34f26894-01d6-4993-bb83-73fee8112442"),
                             Category = 2,
                             Description = "Description for Ticket 119",
                             Priority = 1,
@@ -1979,8 +1982,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("536134dc-cfc1-452f-839e-daf8c9998c90"),
-                            AssetId = new Guid("506982e9-788d-4af5-8e45-e587aedc194f"),
+                            TicketId = new Guid("985e56fa-94ed-44fe-9fb0-244a92f5d2bd"),
+                            AssetId = new Guid("ddf068e0-550c-4f49-a1c8-1d08201843a7"),
                             Category = 3,
                             Description = "Description for Ticket 120",
                             Priority = 2,
@@ -1989,8 +1992,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("807e049b-8cbd-49ce-8e15-1437702a267d"),
-                            AssetId = new Guid("3e886cec-052f-40ca-8bc4-1383752a794e"),
+                            TicketId = new Guid("b2078aa6-a63d-421a-a403-ddeaae3a2cb0"),
+                            AssetId = new Guid("bbb1006f-2b5b-43ba-9dc6-59af443f7eb4"),
                             Category = 0,
                             Description = "Description for Ticket 121",
                             Priority = 0,
@@ -1999,8 +2002,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("12c5bed3-44ba-423f-8299-833d7d6c2440"),
-                            AssetId = new Guid("41971553-b815-4dfc-a315-5930935bfb30"),
+                            TicketId = new Guid("c73d5c2f-037c-4390-93c6-0dd27ea2f0fe"),
+                            AssetId = new Guid("47875709-4afa-4e22-a3ce-72c7b90c920c"),
                             Category = 1,
                             Description = "Description for Ticket 122",
                             Priority = 1,
@@ -2009,8 +2012,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("84c7e147-5a45-410a-a0e1-576cc325ea8d"),
-                            AssetId = new Guid("0e6a5b82-ed68-41c3-8328-9d1bd1673c6d"),
+                            TicketId = new Guid("495d3c9e-efaa-487e-9e2e-9f9fb1341e17"),
+                            AssetId = new Guid("a08bd44b-06b0-4e52-8cf4-6733c53fb2ad"),
                             Category = 2,
                             Description = "Description for Ticket 123",
                             Priority = 2,
@@ -2019,8 +2022,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("14dc4346-af1e-4da2-92bf-f668c32503c0"),
-                            AssetId = new Guid("2c59d7f1-6939-4049-ac5a-92664370c8e2"),
+                            TicketId = new Guid("f92f6537-e42a-40b8-bff9-7ad4afcc4757"),
+                            AssetId = new Guid("91b78a0d-a3c3-4e4c-b1e3-b1e3d214b5f3"),
                             Category = 3,
                             Description = "Description for Ticket 124",
                             Priority = 0,
@@ -2029,8 +2032,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5a5d062c-80e3-4914-97da-04e4beb8fad4"),
-                            AssetId = new Guid("536e3e9e-d6ec-4050-8d7f-925e93279cf0"),
+                            TicketId = new Guid("ccc1d37a-6e8c-4a71-b724-d32728f4ac08"),
+                            AssetId = new Guid("3e6b4977-5e35-4199-b4ee-956e1b92db0e"),
                             Category = 0,
                             Description = "Description for Ticket 125",
                             Priority = 1,
@@ -2039,8 +2042,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("787e2efe-fd33-495e-a1a6-12c9b68f5ff9"),
-                            AssetId = new Guid("b0e05cdd-42b6-4ba6-a963-8f43a3fbe0d8"),
+                            TicketId = new Guid("5fd2a89d-1fd0-4132-9f1b-670c8c714f48"),
+                            AssetId = new Guid("3622c4a0-e603-4bab-aa75-9753d1a282b7"),
                             Category = 1,
                             Description = "Description for Ticket 126",
                             Priority = 2,
@@ -2049,8 +2052,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("31275553-3d5a-4a91-b8aa-eeff8ff94971"),
-                            AssetId = new Guid("241967b0-0c6d-44c1-b488-7e7487d30b90"),
+                            TicketId = new Guid("64d9aac8-2577-4c15-9133-e42dbc5382df"),
+                            AssetId = new Guid("50e1846e-73ec-49ac-996c-c1658018df8d"),
                             Category = 2,
                             Description = "Description for Ticket 127",
                             Priority = 0,
@@ -2059,8 +2062,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a89100b9-8fab-47ee-9b0b-39dbfa27fbe3"),
-                            AssetId = new Guid("f2d39c63-4ea3-4551-8299-c8fbfff83a50"),
+                            TicketId = new Guid("c23a3692-5df1-4d5a-ac9b-eeda07343aff"),
+                            AssetId = new Guid("930a252b-6644-4ea5-87c7-0b022b11ef86"),
                             Category = 3,
                             Description = "Description for Ticket 128",
                             Priority = 1,
@@ -2069,8 +2072,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("67f51de6-a74c-4f1f-88a4-7d9f21cf77e2"),
-                            AssetId = new Guid("ed62fc23-045c-4719-8e30-fcb9354238e1"),
+                            TicketId = new Guid("4aeaef20-1205-49ad-a8c7-dd5a69531fcc"),
+                            AssetId = new Guid("4d29b9c7-321a-4aaa-ba08-04dbba2f05e6"),
                             Category = 0,
                             Description = "Description for Ticket 129",
                             Priority = 2,
@@ -2079,8 +2082,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("8e1ad277-fd66-4bdc-a78d-bdb1c08d9197"),
-                            AssetId = new Guid("b59bbbb7-6729-42c3-95a6-a688e6e34e7a"),
+                            TicketId = new Guid("1103528f-fa1a-48a9-b908-52d5f0e79e14"),
+                            AssetId = new Guid("f29c42c8-4719-447c-a931-1179e5813e5f"),
                             Category = 1,
                             Description = "Description for Ticket 130",
                             Priority = 0,
@@ -2089,8 +2092,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c3b70bfa-728f-4166-9ce5-17d0583e636f"),
-                            AssetId = new Guid("b5650011-5761-438a-9606-c15bfb70680a"),
+                            TicketId = new Guid("7ac1e4d3-60bc-45e7-a42a-0c468659d90f"),
+                            AssetId = new Guid("5c10b2d5-60f4-4c88-b870-2cc2237a5997"),
                             Category = 2,
                             Description = "Description for Ticket 131",
                             Priority = 1,
@@ -2099,8 +2102,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5a7ed6fe-dcd4-4751-8fa2-72c082e504a7"),
-                            AssetId = new Guid("c399f0bf-1198-4500-ae88-708bb12e0349"),
+                            TicketId = new Guid("645e669c-5272-42cc-a949-4c458a41213c"),
+                            AssetId = new Guid("83b39df9-51c2-490f-8c2e-8899a8d252a5"),
                             Category = 3,
                             Description = "Description for Ticket 132",
                             Priority = 2,
@@ -2109,8 +2112,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fffaa5d3-1c3e-475c-bd7f-98bef36b4670"),
-                            AssetId = new Guid("20b056a9-6c06-4b89-bca9-ae908269952c"),
+                            TicketId = new Guid("e4b0f28a-272f-4d3c-91e3-7b8df64938f2"),
+                            AssetId = new Guid("aa8f36f1-9adb-4760-bdb1-03ad935bd444"),
                             Category = 0,
                             Description = "Description for Ticket 133",
                             Priority = 0,
@@ -2119,8 +2122,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b182f04d-33b7-4249-ac0a-78f20c9c79f0"),
-                            AssetId = new Guid("5bba0835-4983-4914-b237-657a7b3d126d"),
+                            TicketId = new Guid("cabe99c3-4619-49fd-95c9-c9721a8ab3ad"),
+                            AssetId = new Guid("e7f5116c-f5ac-467b-bd14-a3f3962d5152"),
                             Category = 1,
                             Description = "Description for Ticket 134",
                             Priority = 1,
@@ -2129,8 +2132,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3dd07fb6-bd2c-499e-8092-532890e2bc27"),
-                            AssetId = new Guid("0e7f8e71-c523-499c-81db-75d49eac2acd"),
+                            TicketId = new Guid("74029b1f-7a05-4819-8c31-580285c5fd71"),
+                            AssetId = new Guid("5d613f93-f436-4cb0-a38d-2ced3615484a"),
                             Category = 2,
                             Description = "Description for Ticket 135",
                             Priority = 2,
@@ -2139,8 +2142,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("81994985-8c79-404c-9ebf-777949ff39b4"),
-                            AssetId = new Guid("8e8341be-d5e0-4c64-b04d-8f1a82b3e043"),
+                            TicketId = new Guid("c28b2ec5-e23b-4623-ba45-28cd4520d0c4"),
+                            AssetId = new Guid("f5d2072e-6930-4182-87bc-5f112731ea28"),
                             Category = 3,
                             Description = "Description for Ticket 136",
                             Priority = 0,
@@ -2149,8 +2152,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("cb3b9c60-2a37-4718-986f-263f9182920b"),
-                            AssetId = new Guid("3ac3dbaf-0fd3-4141-ae82-805f99bbaa12"),
+                            TicketId = new Guid("49bff63b-0ab3-4a60-8556-ee969d17e287"),
+                            AssetId = new Guid("460fd3f8-6c4e-4746-a169-88ac61ca050f"),
                             Category = 0,
                             Description = "Description for Ticket 137",
                             Priority = 1,
@@ -2159,8 +2162,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6844bdbc-c48e-4fbc-bd7d-471f6dccd358"),
-                            AssetId = new Guid("203c872a-7dec-4611-8716-d16e2f66e619"),
+                            TicketId = new Guid("842d907c-d613-43c3-ad8b-ba847590ce40"),
+                            AssetId = new Guid("e5341248-0fe8-4d6a-8465-cbaa82dfbb15"),
                             Category = 1,
                             Description = "Description for Ticket 138",
                             Priority = 2,
@@ -2169,8 +2172,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6ecb4508-8012-41da-b010-bdaf1f69a5e3"),
-                            AssetId = new Guid("a29c46ff-bde7-420d-b029-980ddcee9703"),
+                            TicketId = new Guid("fd6eabb3-46c5-42ee-af6c-7b1213ab00b1"),
+                            AssetId = new Guid("1556423d-4026-4e5b-b303-cd6146ecd0a0"),
                             Category = 2,
                             Description = "Description for Ticket 139",
                             Priority = 0,
@@ -2179,8 +2182,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("8fb322d1-ed67-4872-97f7-1701044eb358"),
-                            AssetId = new Guid("afb7ffdf-e2d5-492e-b723-877bc7e42b48"),
+                            TicketId = new Guid("513fd729-4b03-42b4-af18-9bad0087c920"),
+                            AssetId = new Guid("c825e4cf-5482-44ba-98ee-d90bdbd35c90"),
                             Category = 3,
                             Description = "Description for Ticket 140",
                             Priority = 1,
@@ -2189,8 +2192,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("43515df8-88bb-4932-b34a-7c50c0a579e9"),
-                            AssetId = new Guid("fd62104c-6a9c-4f8f-9e5b-5ba9f2168f12"),
+                            TicketId = new Guid("d3a7d214-dc37-440f-845a-d5c8b3e1ea7d"),
+                            AssetId = new Guid("e47c009b-7c5d-4560-93f4-df9e43d7f5d6"),
                             Category = 0,
                             Description = "Description for Ticket 141",
                             Priority = 2,
@@ -2199,8 +2202,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("465ee548-5052-4fa5-9b3d-6628f353210c"),
-                            AssetId = new Guid("749a85b6-848e-468c-b1d4-515c0d87330e"),
+                            TicketId = new Guid("6e171387-1019-43ea-b47a-133951b99640"),
+                            AssetId = new Guid("9e16b78b-6e97-4a98-870d-98ae92da8f5e"),
                             Category = 1,
                             Description = "Description for Ticket 142",
                             Priority = 0,
@@ -2209,8 +2212,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("28360b8a-e4b3-4021-ab10-23d6f744ce78"),
-                            AssetId = new Guid("810a164e-120e-4a24-a0bc-8f9e569f771a"),
+                            TicketId = new Guid("858262c5-9a90-4c91-b0f1-d9d0cc681804"),
+                            AssetId = new Guid("cc993244-4143-4dcb-b83c-e97075b591f5"),
                             Category = 2,
                             Description = "Description for Ticket 143",
                             Priority = 1,
@@ -2219,8 +2222,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("af875fc9-224f-4d5b-b4c2-ebb4c25d14bb"),
-                            AssetId = new Guid("9206bdc9-0a0c-4fbd-9153-daaf74a44977"),
+                            TicketId = new Guid("042674d9-8047-42ed-bf4e-afdd57cad52c"),
+                            AssetId = new Guid("3d4f4a87-9b6f-448f-862f-f53b14ed9ece"),
                             Category = 3,
                             Description = "Description for Ticket 144",
                             Priority = 2,
@@ -2229,8 +2232,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("4566cef3-a07f-410e-93a0-5c4f54b1c5ab"),
-                            AssetId = new Guid("c6396b2b-3c18-4fb9-aad4-b4e7820ce9db"),
+                            TicketId = new Guid("2bc3933a-4e81-4b30-80f5-0562f1088cd0"),
+                            AssetId = new Guid("9f49aa02-7c01-4ff2-827e-a5b0f82baaf3"),
                             Category = 0,
                             Description = "Description for Ticket 145",
                             Priority = 0,
@@ -2239,8 +2242,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1d33928c-4c26-456e-b223-cbe98e4a0189"),
-                            AssetId = new Guid("37e40200-edc1-4d1b-9900-5753ccc9da4c"),
+                            TicketId = new Guid("8fee9ee8-3a93-4ac0-af83-3e549e178d18"),
+                            AssetId = new Guid("87316992-cec8-4cd9-9ecc-b8b73db9af41"),
                             Category = 1,
                             Description = "Description for Ticket 146",
                             Priority = 1,
@@ -2249,8 +2252,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6e25be97-fa89-4f3a-befe-62625d5651be"),
-                            AssetId = new Guid("70728466-501c-4329-a864-c59f216dc59a"),
+                            TicketId = new Guid("2e54dbea-e884-4aa2-8146-30bca1fd6098"),
+                            AssetId = new Guid("7852446c-006c-4a0a-8a82-6e4c912efcb6"),
                             Category = 2,
                             Description = "Description for Ticket 147",
                             Priority = 2,
@@ -2259,8 +2262,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("09e7adfa-6bed-4ede-91a5-8d5f90f6b0b6"),
-                            AssetId = new Guid("2e785176-95ec-40b7-a2e8-180eee14d508"),
+                            TicketId = new Guid("230b1b4e-38e8-4a29-a000-6d8c587788b0"),
+                            AssetId = new Guid("632d29b0-157d-474e-b31b-b3fbfdb429c2"),
                             Category = 3,
                             Description = "Description for Ticket 148",
                             Priority = 0,
@@ -2269,8 +2272,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f709b155-f9b4-4291-a0f6-0fb7cb309ff0"),
-                            AssetId = new Guid("ce80d41e-7f73-42e8-a915-56e87e9ba142"),
+                            TicketId = new Guid("fb245535-203d-46ef-a352-de958b431a01"),
+                            AssetId = new Guid("34f26894-01d6-4993-bb83-73fee8112442"),
                             Category = 0,
                             Description = "Description for Ticket 149",
                             Priority = 1,
@@ -2279,8 +2282,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f8462a33-c646-436e-9cdf-23af52178887"),
-                            AssetId = new Guid("17b5e3c2-dfac-47e3-aaa6-27d7e6ae30e6"),
+                            TicketId = new Guid("5b1929fd-677c-4dec-8df9-dd9b0182ffc9"),
+                            AssetId = new Guid("ddf068e0-550c-4f49-a1c8-1d08201843a7"),
                             Category = 1,
                             Description = "Description for Ticket 150",
                             Priority = 2,
@@ -2289,8 +2292,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bc17da7b-a48b-45da-b1ef-3416a03e759a"),
-                            AssetId = new Guid("b878f242-26fb-4988-b186-28d0f4893d5c"),
+                            TicketId = new Guid("254baf85-f3d6-4718-83a0-faf38f51b9ac"),
+                            AssetId = new Guid("bbb1006f-2b5b-43ba-9dc6-59af443f7eb4"),
                             Category = 2,
                             Description = "Description for Ticket 151",
                             Priority = 0,
@@ -2299,8 +2302,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("118ef773-4a19-43e4-997d-8b79881e538e"),
-                            AssetId = new Guid("c9a077cc-106e-4d6a-8e9c-68d54376ec23"),
+                            TicketId = new Guid("04fa87ce-36f3-4cc2-9eef-b582855ee731"),
+                            AssetId = new Guid("47875709-4afa-4e22-a3ce-72c7b90c920c"),
                             Category = 3,
                             Description = "Description for Ticket 152",
                             Priority = 1,
@@ -2309,8 +2312,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("01d6381d-250d-47d2-9a80-f83111801349"),
-                            AssetId = new Guid("d0146e74-12a1-456e-a96b-e686112db05f"),
+                            TicketId = new Guid("20e7aef3-153b-4a06-a814-f5448a08e4b8"),
+                            AssetId = new Guid("a08bd44b-06b0-4e52-8cf4-6733c53fb2ad"),
                             Category = 0,
                             Description = "Description for Ticket 153",
                             Priority = 2,
@@ -2319,8 +2322,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3b6689f2-f7e5-4813-88d7-cd422afff9c0"),
-                            AssetId = new Guid("847f1aa6-1f7a-4c0b-b6e0-d6c8945c417f"),
+                            TicketId = new Guid("311e076c-16cc-410e-87bd-9fbf09b77b9c"),
+                            AssetId = new Guid("91b78a0d-a3c3-4e4c-b1e3-b1e3d214b5f3"),
                             Category = 1,
                             Description = "Description for Ticket 154",
                             Priority = 0,
@@ -2329,8 +2332,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("98bf41be-2060-4da1-b172-3b10f90e443a"),
-                            AssetId = new Guid("d4fd461a-c362-4113-ba19-5adc1bef5067"),
+                            TicketId = new Guid("237ba7fb-1df0-4feb-9959-d6791ccb17ba"),
+                            AssetId = new Guid("3e6b4977-5e35-4199-b4ee-956e1b92db0e"),
                             Category = 2,
                             Description = "Description for Ticket 155",
                             Priority = 1,
@@ -2339,8 +2342,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b8d40b83-78d6-43dc-b16d-75b9fff777de"),
-                            AssetId = new Guid("6b663dcf-f4ff-463d-a8bb-5106f5b28ddb"),
+                            TicketId = new Guid("44a0e4e5-1ec6-4b47-b7d8-a6888a3d8410"),
+                            AssetId = new Guid("3622c4a0-e603-4bab-aa75-9753d1a282b7"),
                             Category = 3,
                             Description = "Description for Ticket 156",
                             Priority = 2,
@@ -2349,8 +2352,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1931d44c-e293-4ee4-a559-958122dd594c"),
-                            AssetId = new Guid("7bc674c7-7b87-41c7-8b30-de899563166a"),
+                            TicketId = new Guid("1f5d026c-40ab-4c6f-a6c6-a83436ecef22"),
+                            AssetId = new Guid("50e1846e-73ec-49ac-996c-c1658018df8d"),
                             Category = 0,
                             Description = "Description for Ticket 157",
                             Priority = 0,
@@ -2359,8 +2362,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d6e8acf7-5f0b-42d5-ad5e-4620f4ab435f"),
-                            AssetId = new Guid("0a382d18-6b61-4e18-a115-2365ae50890e"),
+                            TicketId = new Guid("2e6726a1-0283-4d58-b67f-c98198a5238c"),
+                            AssetId = new Guid("930a252b-6644-4ea5-87c7-0b022b11ef86"),
                             Category = 1,
                             Description = "Description for Ticket 158",
                             Priority = 1,
@@ -2369,8 +2372,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3bdc2a3a-b544-466a-aa93-3a3a419b9a44"),
-                            AssetId = new Guid("2e0c1a09-477b-47a2-aebd-83213ccfe057"),
+                            TicketId = new Guid("994d760c-fdbc-4074-a781-e6cf9ffd16cd"),
+                            AssetId = new Guid("4d29b9c7-321a-4aaa-ba08-04dbba2f05e6"),
                             Category = 2,
                             Description = "Description for Ticket 159",
                             Priority = 2,
@@ -2379,8 +2382,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("82140157-4275-41bb-8f39-b1ff09b467fb"),
-                            AssetId = new Guid("6ec68573-ffdd-41ca-9a8d-12fe291709cb"),
+                            TicketId = new Guid("1fda9029-c865-43c8-a018-fc5c49e7ccd5"),
+                            AssetId = new Guid("f29c42c8-4719-447c-a931-1179e5813e5f"),
                             Category = 3,
                             Description = "Description for Ticket 160",
                             Priority = 0,
@@ -2389,8 +2392,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("28d37801-9057-4be9-b1be-938f3a586749"),
-                            AssetId = new Guid("245a86e7-da9c-4aac-88e3-8bbbd20d7909"),
+                            TicketId = new Guid("b8bed662-45ca-40d8-953a-5809ad494ec7"),
+                            AssetId = new Guid("5c10b2d5-60f4-4c88-b870-2cc2237a5997"),
                             Category = 0,
                             Description = "Description for Ticket 161",
                             Priority = 1,
@@ -2399,8 +2402,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b591eaa1-e2b0-4dfa-906e-d1aafb9b6220"),
-                            AssetId = new Guid("0e0524ca-4107-446c-9914-198d174feacb"),
+                            TicketId = new Guid("8796e795-6ce0-490c-aed8-f13f8c88d1f7"),
+                            AssetId = new Guid("83b39df9-51c2-490f-8c2e-8899a8d252a5"),
                             Category = 1,
                             Description = "Description for Ticket 162",
                             Priority = 2,
@@ -2409,8 +2412,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("2ede24a1-2600-4e96-af02-c57679544575"),
-                            AssetId = new Guid("9d998ba7-598b-4114-915b-d97e356a58ab"),
+                            TicketId = new Guid("c3ca0e5b-5507-4eb4-8404-b0522fbcd28d"),
+                            AssetId = new Guid("aa8f36f1-9adb-4760-bdb1-03ad935bd444"),
                             Category = 2,
                             Description = "Description for Ticket 163",
                             Priority = 0,
@@ -2419,8 +2422,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bce23e33-0c92-4a36-a12e-e8d6639210e6"),
-                            AssetId = new Guid("c9a1eef1-ddd0-49b0-b82c-dd08aa5b3939"),
+                            TicketId = new Guid("4d34e701-fc26-4a3b-8140-bb75d6e2b4ef"),
+                            AssetId = new Guid("e7f5116c-f5ac-467b-bd14-a3f3962d5152"),
                             Category = 3,
                             Description = "Description for Ticket 164",
                             Priority = 1,
@@ -2429,8 +2432,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("2582dff2-11b0-482c-a16e-afbca9165ea4"),
-                            AssetId = new Guid("c36aedf3-45fe-4c4f-a5ce-82c24e305b1b"),
+                            TicketId = new Guid("e1fbbb7a-542e-463a-b695-1b287826e28e"),
+                            AssetId = new Guid("5d613f93-f436-4cb0-a38d-2ced3615484a"),
                             Category = 0,
                             Description = "Description for Ticket 165",
                             Priority = 2,
@@ -2439,8 +2442,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ff60ef2f-4604-4201-8a90-f4d595c560af"),
-                            AssetId = new Guid("9d70afb9-ad97-4b14-8dde-f5b860a7318c"),
+                            TicketId = new Guid("8fe1f10f-7ecb-4cd9-bc5f-99d9fd5a2d6c"),
+                            AssetId = new Guid("f5d2072e-6930-4182-87bc-5f112731ea28"),
                             Category = 1,
                             Description = "Description for Ticket 166",
                             Priority = 0,
@@ -2449,8 +2452,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("9430f34d-e397-4b46-bf0b-0cb86f564c2b"),
-                            AssetId = new Guid("36da6a90-3c55-42ea-a781-8e182152031a"),
+                            TicketId = new Guid("fa95f386-1e36-48a8-ac1d-57ae2ea16334"),
+                            AssetId = new Guid("460fd3f8-6c4e-4746-a169-88ac61ca050f"),
                             Category = 2,
                             Description = "Description for Ticket 167",
                             Priority = 1,
@@ -2459,8 +2462,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7c38b93a-1925-4b5a-ab19-cedfc9031dc3"),
-                            AssetId = new Guid("56fa6cab-814f-4a67-8c70-b2c2c6150786"),
+                            TicketId = new Guid("9265da65-4360-463f-a597-e097c7b7511c"),
+                            AssetId = new Guid("e5341248-0fe8-4d6a-8465-cbaa82dfbb15"),
                             Category = 3,
                             Description = "Description for Ticket 168",
                             Priority = 2,
@@ -2469,8 +2472,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("9e407d9a-4ae8-452d-8350-1efe8bfa4a54"),
-                            AssetId = new Guid("fcbd35e0-4667-4f96-a58e-2bcee2668ebc"),
+                            TicketId = new Guid("62732971-6809-4a47-a4a5-8fe81d869507"),
+                            AssetId = new Guid("1556423d-4026-4e5b-b303-cd6146ecd0a0"),
                             Category = 0,
                             Description = "Description for Ticket 169",
                             Priority = 0,
@@ -2479,8 +2482,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c2ffb054-73ae-4efb-bd25-8b5eede87787"),
-                            AssetId = new Guid("8cac5e32-8c82-4a40-ad7d-6ac37580db13"),
+                            TicketId = new Guid("f27e4b36-77d7-4e45-b31b-b4f6553a832e"),
+                            AssetId = new Guid("c825e4cf-5482-44ba-98ee-d90bdbd35c90"),
                             Category = 1,
                             Description = "Description for Ticket 170",
                             Priority = 1,
@@ -2489,8 +2492,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("dadf545b-d680-4027-b9c3-ffa9ceadeb2f"),
-                            AssetId = new Guid("1f3f6ed3-0822-42cc-aad4-b8015648474f"),
+                            TicketId = new Guid("337e35e0-dbce-4b48-8f86-9cba42ee94e1"),
+                            AssetId = new Guid("e47c009b-7c5d-4560-93f4-df9e43d7f5d6"),
                             Category = 2,
                             Description = "Description for Ticket 171",
                             Priority = 2,
@@ -2499,8 +2502,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("230d7935-2f7e-458c-b67a-e35722d91993"),
-                            AssetId = new Guid("05357daf-2998-4825-b762-d2166c1b52af"),
+                            TicketId = new Guid("eb66e55e-0382-4b4d-b675-444e2bf61e0f"),
+                            AssetId = new Guid("9e16b78b-6e97-4a98-870d-98ae92da8f5e"),
                             Category = 3,
                             Description = "Description for Ticket 172",
                             Priority = 0,
@@ -2509,8 +2512,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("11b6985d-6117-4260-b624-3e797c0c0974"),
-                            AssetId = new Guid("806b6861-cc8f-4e0e-9a4b-5c227c7a32f9"),
+                            TicketId = new Guid("004b7bf6-f73f-46ca-a191-93d9ce17e197"),
+                            AssetId = new Guid("cc993244-4143-4dcb-b83c-e97075b591f5"),
                             Category = 0,
                             Description = "Description for Ticket 173",
                             Priority = 1,
@@ -2519,8 +2522,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("62866cd4-c83c-4a11-a64c-0e516980a448"),
-                            AssetId = new Guid("7a24f7a3-b945-4c71-802b-f9b4b75ef984"),
+                            TicketId = new Guid("8e9ebbf1-b9cd-4ba9-ab2b-0c8fc2d078ea"),
+                            AssetId = new Guid("3d4f4a87-9b6f-448f-862f-f53b14ed9ece"),
                             Category = 1,
                             Description = "Description for Ticket 174",
                             Priority = 2,
@@ -2529,8 +2532,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("35613003-30f8-4815-84d5-185aad5a86b0"),
-                            AssetId = new Guid("4b4f88dd-b06a-42f3-8af6-f118397167a4"),
+                            TicketId = new Guid("6dc98b07-aea3-49e6-b477-2e4e15760645"),
+                            AssetId = new Guid("9f49aa02-7c01-4ff2-827e-a5b0f82baaf3"),
                             Category = 2,
                             Description = "Description for Ticket 175",
                             Priority = 0,
@@ -2539,8 +2542,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0d312f36-9f6a-47e2-b1f3-942c85fe966c"),
-                            AssetId = new Guid("80bf9c45-e501-441e-88f9-ea3e073e23dd"),
+                            TicketId = new Guid("4ac0315e-4c23-40eb-abd0-6b462ff56bfa"),
+                            AssetId = new Guid("87316992-cec8-4cd9-9ecc-b8b73db9af41"),
                             Category = 3,
                             Description = "Description for Ticket 176",
                             Priority = 1,
@@ -2549,8 +2552,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e6514627-ee0f-4dc3-8d1f-18147f42452a"),
-                            AssetId = new Guid("b9abffe0-572b-476d-b755-2ea59a4604b9"),
+                            TicketId = new Guid("fae74053-4044-4c70-b375-b2ad3615e460"),
+                            AssetId = new Guid("7852446c-006c-4a0a-8a82-6e4c912efcb6"),
                             Category = 0,
                             Description = "Description for Ticket 177",
                             Priority = 2,
@@ -2559,8 +2562,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d6194d3f-2886-4fbf-b1eb-1ce9bde5ea68"),
-                            AssetId = new Guid("f9858adf-48f8-4a11-afd4-7d40980b278b"),
+                            TicketId = new Guid("999903f1-f4e2-4c83-8860-3f8c6f7b03a0"),
+                            AssetId = new Guid("632d29b0-157d-474e-b31b-b3fbfdb429c2"),
                             Category = 1,
                             Description = "Description for Ticket 178",
                             Priority = 0,
@@ -2569,8 +2572,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("defcf3c5-b423-41ea-87c0-f9d364745262"),
-                            AssetId = new Guid("4a18e383-008a-414f-9c91-5725f1ea1bb3"),
+                            TicketId = new Guid("545d0f73-f6c8-453d-8507-c5d2cec037fd"),
+                            AssetId = new Guid("34f26894-01d6-4993-bb83-73fee8112442"),
                             Category = 2,
                             Description = "Description for Ticket 179",
                             Priority = 1,
@@ -2579,8 +2582,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ea2db436-160a-4f05-bd8e-f87d73e92ff9"),
-                            AssetId = new Guid("4986d0d5-468c-4779-bcf5-5fe36354e98a"),
+                            TicketId = new Guid("7eabfb08-02c6-4611-b3a8-bc3a0cc50559"),
+                            AssetId = new Guid("ddf068e0-550c-4f49-a1c8-1d08201843a7"),
                             Category = 3,
                             Description = "Description for Ticket 180",
                             Priority = 2,
@@ -2589,8 +2592,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fe21a252-1c6c-4449-aec1-fecbb32eafae"),
-                            AssetId = new Guid("fe513cc0-8b3b-46c1-9d63-9570c34d1424"),
+                            TicketId = new Guid("21763b91-dea0-4807-879a-22842c025854"),
+                            AssetId = new Guid("bbb1006f-2b5b-43ba-9dc6-59af443f7eb4"),
                             Category = 0,
                             Description = "Description for Ticket 181",
                             Priority = 0,
@@ -2599,8 +2602,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7c8fb663-7930-4577-8e37-ed54533b5fd4"),
-                            AssetId = new Guid("78d80821-1e08-4eac-973b-b61f82787319"),
+                            TicketId = new Guid("4a87e876-dcda-4f0d-8d69-d2422f17fe18"),
+                            AssetId = new Guid("47875709-4afa-4e22-a3ce-72c7b90c920c"),
                             Category = 1,
                             Description = "Description for Ticket 182",
                             Priority = 1,
@@ -2609,8 +2612,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("330fe623-452e-452e-9bb4-cfc88d7e4e5f"),
-                            AssetId = new Guid("a5ee8988-df25-48d4-955b-4b4683ac60f3"),
+                            TicketId = new Guid("7ad248c6-4781-4e78-a922-03c6d2eda4be"),
+                            AssetId = new Guid("a08bd44b-06b0-4e52-8cf4-6733c53fb2ad"),
                             Category = 2,
                             Description = "Description for Ticket 183",
                             Priority = 2,
@@ -2619,8 +2622,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0ef863fd-54e1-428d-88bd-2226e3dce70c"),
-                            AssetId = new Guid("840aa942-7ceb-4a2b-8e9e-7c01b64e10df"),
+                            TicketId = new Guid("c167a4a4-2978-4667-ab90-dd00e3becbd9"),
+                            AssetId = new Guid("91b78a0d-a3c3-4e4c-b1e3-b1e3d214b5f3"),
                             Category = 3,
                             Description = "Description for Ticket 184",
                             Priority = 0,
@@ -2629,8 +2632,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f46bc787-3dc0-4de6-a69b-dec465be9ec9"),
-                            AssetId = new Guid("e7a771a8-8823-48e9-9de5-9462904bd6e4"),
+                            TicketId = new Guid("b093739b-ea67-46cc-b2ba-9d27b966c122"),
+                            AssetId = new Guid("3e6b4977-5e35-4199-b4ee-956e1b92db0e"),
                             Category = 0,
                             Description = "Description for Ticket 185",
                             Priority = 1,
@@ -2639,8 +2642,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("64ff597e-b510-4518-b449-240471126fa5"),
-                            AssetId = new Guid("2f68af6f-2ee9-4b2d-b85b-35118228f24d"),
+                            TicketId = new Guid("1111b542-a83a-4601-8e7e-cdb40bf921f7"),
+                            AssetId = new Guid("3622c4a0-e603-4bab-aa75-9753d1a282b7"),
                             Category = 1,
                             Description = "Description for Ticket 186",
                             Priority = 2,
@@ -2649,8 +2652,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0a1739b1-7e97-4f0e-9c60-f1aa3f9515d2"),
-                            AssetId = new Guid("fa51ab64-043e-46f4-846a-ee6350c32c46"),
+                            TicketId = new Guid("88b24af6-3a3d-4dac-a75f-9f7a1f197bdb"),
+                            AssetId = new Guid("50e1846e-73ec-49ac-996c-c1658018df8d"),
                             Category = 2,
                             Description = "Description for Ticket 187",
                             Priority = 0,
@@ -2659,8 +2662,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("473ed323-d374-4145-892c-f3640f8261ae"),
-                            AssetId = new Guid("6dfab923-f635-4412-b755-2f7ffbea19b5"),
+                            TicketId = new Guid("1950ee03-2819-45ba-b618-0798406cca7b"),
+                            AssetId = new Guid("930a252b-6644-4ea5-87c7-0b022b11ef86"),
                             Category = 3,
                             Description = "Description for Ticket 188",
                             Priority = 1,
@@ -2669,8 +2672,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0bc5b463-e328-4f86-b295-ca919d4f74df"),
-                            AssetId = new Guid("77ec83bf-ffae-4418-952d-9a5b78cf1ce8"),
+                            TicketId = new Guid("3e1ee04d-531c-4b42-b063-d26d8cd85092"),
+                            AssetId = new Guid("4d29b9c7-321a-4aaa-ba08-04dbba2f05e6"),
                             Category = 0,
                             Description = "Description for Ticket 189",
                             Priority = 2,
@@ -2679,8 +2682,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bdd60e56-054b-40cf-b9b2-604198c1b930"),
-                            AssetId = new Guid("506982e9-788d-4af5-8e45-e587aedc194f"),
+                            TicketId = new Guid("bff95ae0-e8c4-4b3e-add0-6c6627a2791b"),
+                            AssetId = new Guid("f29c42c8-4719-447c-a931-1179e5813e5f"),
                             Category = 1,
                             Description = "Description for Ticket 190",
                             Priority = 0,
@@ -2689,8 +2692,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("eed3af71-711b-4d2e-b297-ead3e1474da0"),
-                            AssetId = new Guid("3e886cec-052f-40ca-8bc4-1383752a794e"),
+                            TicketId = new Guid("42fdb9ca-f8f7-4768-8784-cbf2b8680b06"),
+                            AssetId = new Guid("5c10b2d5-60f4-4c88-b870-2cc2237a5997"),
                             Category = 2,
                             Description = "Description for Ticket 191",
                             Priority = 1,
@@ -2699,8 +2702,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b0d1fa1c-af15-497d-b101-c052da83052d"),
-                            AssetId = new Guid("41971553-b815-4dfc-a315-5930935bfb30"),
+                            TicketId = new Guid("30cbb508-4a4d-464c-a089-cb4de9f820be"),
+                            AssetId = new Guid("83b39df9-51c2-490f-8c2e-8899a8d252a5"),
                             Category = 3,
                             Description = "Description for Ticket 192",
                             Priority = 2,
@@ -2709,8 +2712,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("264a86fb-0bee-4ad4-876f-17f3e129b0e4"),
-                            AssetId = new Guid("0e6a5b82-ed68-41c3-8328-9d1bd1673c6d"),
+                            TicketId = new Guid("ae948edc-3c9d-4492-8121-9a78b5054ef0"),
+                            AssetId = new Guid("aa8f36f1-9adb-4760-bdb1-03ad935bd444"),
                             Category = 0,
                             Description = "Description for Ticket 193",
                             Priority = 0,
@@ -2719,8 +2722,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ce03441a-ee73-4aea-a7bd-de7acc147491"),
-                            AssetId = new Guid("2c59d7f1-6939-4049-ac5a-92664370c8e2"),
+                            TicketId = new Guid("edbdbcb7-6114-4ed3-a856-2faf18053ce5"),
+                            AssetId = new Guid("e7f5116c-f5ac-467b-bd14-a3f3962d5152"),
                             Category = 1,
                             Description = "Description for Ticket 194",
                             Priority = 1,
@@ -2729,8 +2732,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("20935244-e1ea-42ed-b816-7fc26d47dc80"),
-                            AssetId = new Guid("536e3e9e-d6ec-4050-8d7f-925e93279cf0"),
+                            TicketId = new Guid("b720e36c-7620-4999-a0fb-18fd54d796c9"),
+                            AssetId = new Guid("5d613f93-f436-4cb0-a38d-2ced3615484a"),
                             Category = 2,
                             Description = "Description for Ticket 195",
                             Priority = 2,
@@ -2739,8 +2742,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6e41f6b6-1b7a-4910-8d52-0d07a1739001"),
-                            AssetId = new Guid("b0e05cdd-42b6-4ba6-a963-8f43a3fbe0d8"),
+                            TicketId = new Guid("34d73071-159a-4ac0-ac93-26504439816d"),
+                            AssetId = new Guid("f5d2072e-6930-4182-87bc-5f112731ea28"),
                             Category = 3,
                             Description = "Description for Ticket 196",
                             Priority = 0,
@@ -2749,8 +2752,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ec93081a-0c15-4331-a2fd-9ef7c3fb3293"),
-                            AssetId = new Guid("241967b0-0c6d-44c1-b488-7e7487d30b90"),
+                            TicketId = new Guid("f694fb83-4dac-4ea8-b0bd-2972d8ede1cb"),
+                            AssetId = new Guid("460fd3f8-6c4e-4746-a169-88ac61ca050f"),
                             Category = 0,
                             Description = "Description for Ticket 197",
                             Priority = 1,
@@ -2759,8 +2762,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("113726fc-5f67-4324-8a1e-770a6103b89b"),
-                            AssetId = new Guid("f2d39c63-4ea3-4551-8299-c8fbfff83a50"),
+                            TicketId = new Guid("914fea09-1791-4361-aced-aa9557b345a3"),
+                            AssetId = new Guid("e5341248-0fe8-4d6a-8465-cbaa82dfbb15"),
                             Category = 1,
                             Description = "Description for Ticket 198",
                             Priority = 2,
@@ -2769,8 +2772,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("29ad37df-5c8c-45a3-8e24-0c168e8e60c3"),
-                            AssetId = new Guid("ed62fc23-045c-4719-8e30-fcb9354238e1"),
+                            TicketId = new Guid("252ec480-266a-400a-82ff-0ce9ec01cda9"),
+                            AssetId = new Guid("1556423d-4026-4e5b-b303-cd6146ecd0a0"),
                             Category = 2,
                             Description = "Description for Ticket 199",
                             Priority = 0,
@@ -2779,8 +2782,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("507629a6-c1ac-4a73-87f7-5799b0acea3d"),
-                            AssetId = new Guid("b59bbbb7-6729-42c3-95a6-a688e6e34e7a"),
+                            TicketId = new Guid("5d2ea1e8-6c45-42d9-8c9a-aa6a035ea7cd"),
+                            AssetId = new Guid("c825e4cf-5482-44ba-98ee-d90bdbd35c90"),
                             Category = 3,
                             Description = "Description for Ticket 200",
                             Priority = 1,
@@ -2789,8 +2792,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("400931a6-a19c-4fb5-9a4d-c953f62b6b9c"),
-                            AssetId = new Guid("b5650011-5761-438a-9606-c15bfb70680a"),
+                            TicketId = new Guid("a784eb18-0189-4e53-bf47-327c8c7f8fc9"),
+                            AssetId = new Guid("e47c009b-7c5d-4560-93f4-df9e43d7f5d6"),
                             Category = 0,
                             Description = "Description for Ticket 201",
                             Priority = 2,
@@ -2799,8 +2802,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("faacbfd8-de35-43df-873f-2ce8894c8447"),
-                            AssetId = new Guid("c399f0bf-1198-4500-ae88-708bb12e0349"),
+                            TicketId = new Guid("c13f0b4d-d290-4d69-92b6-e9dd843ab5fb"),
+                            AssetId = new Guid("9e16b78b-6e97-4a98-870d-98ae92da8f5e"),
                             Category = 1,
                             Description = "Description for Ticket 202",
                             Priority = 0,
@@ -2809,8 +2812,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("59284331-9916-4919-8ceb-1cb12bb92587"),
-                            AssetId = new Guid("20b056a9-6c06-4b89-bca9-ae908269952c"),
+                            TicketId = new Guid("f6a9b746-d7b2-4dd5-bd3c-9c14cb967956"),
+                            AssetId = new Guid("cc993244-4143-4dcb-b83c-e97075b591f5"),
                             Category = 2,
                             Description = "Description for Ticket 203",
                             Priority = 1,
@@ -2819,8 +2822,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("92900466-2f20-4c27-8c9b-24d8d39b3207"),
-                            AssetId = new Guid("5bba0835-4983-4914-b237-657a7b3d126d"),
+                            TicketId = new Guid("ab0817f1-fb10-40f2-9615-af1302859024"),
+                            AssetId = new Guid("3d4f4a87-9b6f-448f-862f-f53b14ed9ece"),
                             Category = 3,
                             Description = "Description for Ticket 204",
                             Priority = 2,
@@ -2829,8 +2832,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("48baa10a-679b-4d18-82f9-362539f95d18"),
-                            AssetId = new Guid("0e7f8e71-c523-499c-81db-75d49eac2acd"),
+                            TicketId = new Guid("92d4a8f7-580a-4082-a067-a5ba69e3a6f1"),
+                            AssetId = new Guid("9f49aa02-7c01-4ff2-827e-a5b0f82baaf3"),
                             Category = 0,
                             Description = "Description for Ticket 205",
                             Priority = 0,
@@ -2839,8 +2842,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("260c2dd2-536a-4bd3-88cf-0ebe83a2807f"),
-                            AssetId = new Guid("8e8341be-d5e0-4c64-b04d-8f1a82b3e043"),
+                            TicketId = new Guid("83301aa5-55f6-4dbe-8372-d393625add41"),
+                            AssetId = new Guid("87316992-cec8-4cd9-9ecc-b8b73db9af41"),
                             Category = 1,
                             Description = "Description for Ticket 206",
                             Priority = 1,
@@ -2849,8 +2852,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("9fd80646-f727-4389-bb16-1ade83624220"),
-                            AssetId = new Guid("3ac3dbaf-0fd3-4141-ae82-805f99bbaa12"),
+                            TicketId = new Guid("e6e07dc5-93ca-4c96-b657-03ae3b0b627c"),
+                            AssetId = new Guid("7852446c-006c-4a0a-8a82-6e4c912efcb6"),
                             Category = 2,
                             Description = "Description for Ticket 207",
                             Priority = 2,
@@ -2859,8 +2862,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ad0e27be-0681-46fe-87b6-4665abe9b19c"),
-                            AssetId = new Guid("203c872a-7dec-4611-8716-d16e2f66e619"),
+                            TicketId = new Guid("99dea283-44f2-46a5-8b3f-76dd08864bcf"),
+                            AssetId = new Guid("632d29b0-157d-474e-b31b-b3fbfdb429c2"),
                             Category = 3,
                             Description = "Description for Ticket 208",
                             Priority = 0,
@@ -2869,8 +2872,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5f772b17-ce48-4f51-ada4-1d8d43e2f600"),
-                            AssetId = new Guid("a29c46ff-bde7-420d-b029-980ddcee9703"),
+                            TicketId = new Guid("dadfe64d-d798-45bd-a783-f71968c25454"),
+                            AssetId = new Guid("34f26894-01d6-4993-bb83-73fee8112442"),
                             Category = 0,
                             Description = "Description for Ticket 209",
                             Priority = 1,
@@ -2879,8 +2882,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e311f056-dd59-417e-8698-54bdcd77db96"),
-                            AssetId = new Guid("afb7ffdf-e2d5-492e-b723-877bc7e42b48"),
+                            TicketId = new Guid("b104a38f-6732-4c7e-8b5f-72108773ee1c"),
+                            AssetId = new Guid("ddf068e0-550c-4f49-a1c8-1d08201843a7"),
                             Category = 1,
                             Description = "Description for Ticket 210",
                             Priority = 2,
@@ -2889,8 +2892,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ce9ca0fb-6279-4bab-92fe-22aaf735fc0d"),
-                            AssetId = new Guid("fd62104c-6a9c-4f8f-9e5b-5ba9f2168f12"),
+                            TicketId = new Guid("521e662e-a891-4952-97c6-cd8b4230325d"),
+                            AssetId = new Guid("bbb1006f-2b5b-43ba-9dc6-59af443f7eb4"),
                             Category = 2,
                             Description = "Description for Ticket 211",
                             Priority = 0,
@@ -2899,8 +2902,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("25b34eac-686d-4843-a6a3-fd38f8d32f10"),
-                            AssetId = new Guid("749a85b6-848e-468c-b1d4-515c0d87330e"),
+                            TicketId = new Guid("293c9a95-a2ef-468c-a30b-bb58546654f8"),
+                            AssetId = new Guid("47875709-4afa-4e22-a3ce-72c7b90c920c"),
                             Category = 3,
                             Description = "Description for Ticket 212",
                             Priority = 1,
@@ -2909,8 +2912,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("04d38d60-dae8-4231-9c6e-71c0f88c0063"),
-                            AssetId = new Guid("810a164e-120e-4a24-a0bc-8f9e569f771a"),
+                            TicketId = new Guid("59468269-bd07-4608-b544-7e9cb9ecac8d"),
+                            AssetId = new Guid("a08bd44b-06b0-4e52-8cf4-6733c53fb2ad"),
                             Category = 0,
                             Description = "Description for Ticket 213",
                             Priority = 2,
@@ -2919,8 +2922,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f2deded8-6516-4dd8-b2e3-ee8ada6e54e3"),
-                            AssetId = new Guid("9206bdc9-0a0c-4fbd-9153-daaf74a44977"),
+                            TicketId = new Guid("960dd4b8-95a8-45be-856f-3aad3fac9b6a"),
+                            AssetId = new Guid("91b78a0d-a3c3-4e4c-b1e3-b1e3d214b5f3"),
                             Category = 1,
                             Description = "Description for Ticket 214",
                             Priority = 0,
@@ -2929,8 +2932,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("79813e80-7441-4916-8455-7a84fbd517df"),
-                            AssetId = new Guid("c6396b2b-3c18-4fb9-aad4-b4e7820ce9db"),
+                            TicketId = new Guid("897ab118-3b5c-4a2d-b60e-7fb8fd9f198c"),
+                            AssetId = new Guid("3e6b4977-5e35-4199-b4ee-956e1b92db0e"),
                             Category = 2,
                             Description = "Description for Ticket 215",
                             Priority = 1,
@@ -2939,8 +2942,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("910e4201-c3d5-4019-8f16-251ed3910190"),
-                            AssetId = new Guid("37e40200-edc1-4d1b-9900-5753ccc9da4c"),
+                            TicketId = new Guid("655bde52-9c25-405f-96e0-45c49ea34582"),
+                            AssetId = new Guid("3622c4a0-e603-4bab-aa75-9753d1a282b7"),
                             Category = 3,
                             Description = "Description for Ticket 216",
                             Priority = 2,
@@ -2949,8 +2952,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("50f6625e-0d56-43a5-8d7b-284703de5799"),
-                            AssetId = new Guid("70728466-501c-4329-a864-c59f216dc59a"),
+                            TicketId = new Guid("1adf2115-563d-4bef-bbe3-5ceb1730fb89"),
+                            AssetId = new Guid("50e1846e-73ec-49ac-996c-c1658018df8d"),
                             Category = 0,
                             Description = "Description for Ticket 217",
                             Priority = 0,
@@ -2959,8 +2962,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("df54b208-dbc5-4f2a-99b7-a393e580f720"),
-                            AssetId = new Guid("2e785176-95ec-40b7-a2e8-180eee14d508"),
+                            TicketId = new Guid("7df3d0a6-1b2e-4c22-a055-3c8b5976a835"),
+                            AssetId = new Guid("930a252b-6644-4ea5-87c7-0b022b11ef86"),
                             Category = 1,
                             Description = "Description for Ticket 218",
                             Priority = 1,
@@ -2969,8 +2972,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("cc91c0cd-447f-4a4b-af7c-7b74d122f903"),
-                            AssetId = new Guid("ce80d41e-7f73-42e8-a915-56e87e9ba142"),
+                            TicketId = new Guid("095b29d7-0b2c-4fd4-9204-7a6c1ab260ae"),
+                            AssetId = new Guid("4d29b9c7-321a-4aaa-ba08-04dbba2f05e6"),
                             Category = 2,
                             Description = "Description for Ticket 219",
                             Priority = 2,
@@ -2979,8 +2982,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f10a4552-b645-4bff-b1e8-119da6105c74"),
-                            AssetId = new Guid("17b5e3c2-dfac-47e3-aaa6-27d7e6ae30e6"),
+                            TicketId = new Guid("7c8d1a61-2ee2-4a09-9f0a-fd8b089de81b"),
+                            AssetId = new Guid("f29c42c8-4719-447c-a931-1179e5813e5f"),
                             Category = 3,
                             Description = "Description for Ticket 220",
                             Priority = 0,
@@ -2989,8 +2992,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ab99562a-7e88-45dd-85d4-936354804e55"),
-                            AssetId = new Guid("b878f242-26fb-4988-b186-28d0f4893d5c"),
+                            TicketId = new Guid("20195c4c-1d36-4728-ab89-f5c1000282bf"),
+                            AssetId = new Guid("5c10b2d5-60f4-4c88-b870-2cc2237a5997"),
                             Category = 0,
                             Description = "Description for Ticket 221",
                             Priority = 1,
@@ -2999,8 +3002,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bafe64d0-b889-43b0-90e5-04cd4b79b17a"),
-                            AssetId = new Guid("c9a077cc-106e-4d6a-8e9c-68d54376ec23"),
+                            TicketId = new Guid("0df5c132-29f4-4fdc-aaa6-d6bfe334c48c"),
+                            AssetId = new Guid("83b39df9-51c2-490f-8c2e-8899a8d252a5"),
                             Category = 1,
                             Description = "Description for Ticket 222",
                             Priority = 2,
@@ -3009,8 +3012,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("634d1095-ac9e-49a6-abe9-8f6071e60459"),
-                            AssetId = new Guid("d0146e74-12a1-456e-a96b-e686112db05f"),
+                            TicketId = new Guid("71c061de-4dc5-41e6-b098-85d3e68396d4"),
+                            AssetId = new Guid("aa8f36f1-9adb-4760-bdb1-03ad935bd444"),
                             Category = 2,
                             Description = "Description for Ticket 223",
                             Priority = 0,
@@ -3019,8 +3022,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("589c4414-9a20-44cb-9f6c-417feac0003a"),
-                            AssetId = new Guid("847f1aa6-1f7a-4c0b-b6e0-d6c8945c417f"),
+                            TicketId = new Guid("1dc15a30-7713-47e1-9eae-56d1f0046356"),
+                            AssetId = new Guid("e7f5116c-f5ac-467b-bd14-a3f3962d5152"),
                             Category = 3,
                             Description = "Description for Ticket 224",
                             Priority = 1,
@@ -3029,8 +3032,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("92f37b2c-b4b3-4234-8692-729ab7c3642e"),
-                            AssetId = new Guid("d4fd461a-c362-4113-ba19-5adc1bef5067"),
+                            TicketId = new Guid("579fe723-5725-42f4-94e0-0653aeeb38e1"),
+                            AssetId = new Guid("5d613f93-f436-4cb0-a38d-2ced3615484a"),
                             Category = 0,
                             Description = "Description for Ticket 225",
                             Priority = 2,
@@ -3039,8 +3042,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ff1fc5f4-a7d4-44dd-8aa2-c2e087a7ad51"),
-                            AssetId = new Guid("6b663dcf-f4ff-463d-a8bb-5106f5b28ddb"),
+                            TicketId = new Guid("d8f2d0e3-bd0d-4e01-ad6f-ccb953a1bcb4"),
+                            AssetId = new Guid("f5d2072e-6930-4182-87bc-5f112731ea28"),
                             Category = 1,
                             Description = "Description for Ticket 226",
                             Priority = 0,
@@ -3049,8 +3052,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3b2d7e85-0817-4117-aa8b-68c77a27dafc"),
-                            AssetId = new Guid("7bc674c7-7b87-41c7-8b30-de899563166a"),
+                            TicketId = new Guid("1bda2934-3927-464b-a338-e6202e971f60"),
+                            AssetId = new Guid("460fd3f8-6c4e-4746-a169-88ac61ca050f"),
                             Category = 2,
                             Description = "Description for Ticket 227",
                             Priority = 1,
@@ -3059,8 +3062,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c5c219c7-0edb-4d8a-9cdc-99108e1b7c04"),
-                            AssetId = new Guid("0a382d18-6b61-4e18-a115-2365ae50890e"),
+                            TicketId = new Guid("7c728957-c10a-4a71-837d-43be9d82e47f"),
+                            AssetId = new Guid("e5341248-0fe8-4d6a-8465-cbaa82dfbb15"),
                             Category = 3,
                             Description = "Description for Ticket 228",
                             Priority = 2,
@@ -3069,8 +3072,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("2d708ebb-ed2d-4ae9-83c0-114cdb6f8b22"),
-                            AssetId = new Guid("2e0c1a09-477b-47a2-aebd-83213ccfe057"),
+                            TicketId = new Guid("c19b0b65-2be5-49ae-a997-67ff15438c1b"),
+                            AssetId = new Guid("1556423d-4026-4e5b-b303-cd6146ecd0a0"),
                             Category = 0,
                             Description = "Description for Ticket 229",
                             Priority = 0,
@@ -3079,8 +3082,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d53fb8f1-79bb-4ab6-bcb4-790fb50b9909"),
-                            AssetId = new Guid("6ec68573-ffdd-41ca-9a8d-12fe291709cb"),
+                            TicketId = new Guid("2a0ab751-5b32-4a2d-9bfc-206cf2a96e4d"),
+                            AssetId = new Guid("c825e4cf-5482-44ba-98ee-d90bdbd35c90"),
                             Category = 1,
                             Description = "Description for Ticket 230",
                             Priority = 1,
@@ -3089,8 +3092,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("104b7872-a919-40f6-aa5b-113e32b50841"),
-                            AssetId = new Guid("245a86e7-da9c-4aac-88e3-8bbbd20d7909"),
+                            TicketId = new Guid("33c841d3-0d9c-4f2e-baa8-44fab34371a0"),
+                            AssetId = new Guid("e47c009b-7c5d-4560-93f4-df9e43d7f5d6"),
                             Category = 2,
                             Description = "Description for Ticket 231",
                             Priority = 2,
@@ -3099,8 +3102,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("4a148515-7a94-4789-86ec-31522629e6c5"),
-                            AssetId = new Guid("0e0524ca-4107-446c-9914-198d174feacb"),
+                            TicketId = new Guid("b85cc653-74bd-40e8-9079-bab6a6b81aa9"),
+                            AssetId = new Guid("9e16b78b-6e97-4a98-870d-98ae92da8f5e"),
                             Category = 3,
                             Description = "Description for Ticket 232",
                             Priority = 0,
@@ -3109,8 +3112,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c69cd8c0-37de-4eaa-ad91-3b087de4b36e"),
-                            AssetId = new Guid("9d998ba7-598b-4114-915b-d97e356a58ab"),
+                            TicketId = new Guid("fb02b260-222e-44d2-8f81-852c9a7fab8b"),
+                            AssetId = new Guid("cc993244-4143-4dcb-b83c-e97075b591f5"),
                             Category = 0,
                             Description = "Description for Ticket 233",
                             Priority = 1,
@@ -3119,8 +3122,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d22bbd18-eb76-4f21-8b79-e4aedbc614ae"),
-                            AssetId = new Guid("c9a1eef1-ddd0-49b0-b82c-dd08aa5b3939"),
+                            TicketId = new Guid("503759a3-13d9-42ac-a2ae-c98f361ad9e7"),
+                            AssetId = new Guid("3d4f4a87-9b6f-448f-862f-f53b14ed9ece"),
                             Category = 1,
                             Description = "Description for Ticket 234",
                             Priority = 2,
@@ -3129,8 +3132,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c2a616e5-a7b8-4385-ad5d-0d21e6657d6e"),
-                            AssetId = new Guid("c36aedf3-45fe-4c4f-a5ce-82c24e305b1b"),
+                            TicketId = new Guid("4c37aa3b-602a-445b-a91b-4441cba172e0"),
+                            AssetId = new Guid("9f49aa02-7c01-4ff2-827e-a5b0f82baaf3"),
                             Category = 2,
                             Description = "Description for Ticket 235",
                             Priority = 0,
@@ -3139,8 +3142,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("edec7a30-4586-4c3f-a371-0681f48ee0a3"),
-                            AssetId = new Guid("9d70afb9-ad97-4b14-8dde-f5b860a7318c"),
+                            TicketId = new Guid("948008df-2660-4b57-869b-6b5d3f371399"),
+                            AssetId = new Guid("87316992-cec8-4cd9-9ecc-b8b73db9af41"),
                             Category = 3,
                             Description = "Description for Ticket 236",
                             Priority = 1,
@@ -3149,8 +3152,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1fdd6e7e-1bbb-4489-8809-508e15c6251e"),
-                            AssetId = new Guid("36da6a90-3c55-42ea-a781-8e182152031a"),
+                            TicketId = new Guid("f00ab6f6-2dda-46a2-b920-4aea839b4354"),
+                            AssetId = new Guid("7852446c-006c-4a0a-8a82-6e4c912efcb6"),
                             Category = 0,
                             Description = "Description for Ticket 237",
                             Priority = 2,
@@ -3159,8 +3162,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d6ad6e81-8a73-4478-9b5c-83107b6d8150"),
-                            AssetId = new Guid("56fa6cab-814f-4a67-8c70-b2c2c6150786"),
+                            TicketId = new Guid("16754035-8d45-47be-84d6-58870efcc92c"),
+                            AssetId = new Guid("632d29b0-157d-474e-b31b-b3fbfdb429c2"),
                             Category = 1,
                             Description = "Description for Ticket 238",
                             Priority = 0,
@@ -3169,8 +3172,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0a18579b-143e-46c3-a88a-692acfe75572"),
-                            AssetId = new Guid("fcbd35e0-4667-4f96-a58e-2bcee2668ebc"),
+                            TicketId = new Guid("94fcba4c-7353-4bd6-984e-e6a4dd6d8419"),
+                            AssetId = new Guid("34f26894-01d6-4993-bb83-73fee8112442"),
                             Category = 2,
                             Description = "Description for Ticket 239",
                             Priority = 1,
@@ -3179,8 +3182,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("62720a4b-7ba5-4040-b543-189701e85449"),
-                            AssetId = new Guid("8cac5e32-8c82-4a40-ad7d-6ac37580db13"),
+                            TicketId = new Guid("a48ed17e-e381-4afa-b037-67fd181516b6"),
+                            AssetId = new Guid("ddf068e0-550c-4f49-a1c8-1d08201843a7"),
                             Category = 3,
                             Description = "Description for Ticket 240",
                             Priority = 2,
@@ -3189,8 +3192,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("31422d96-abea-40be-a979-7688e6e49b80"),
-                            AssetId = new Guid("1f3f6ed3-0822-42cc-aad4-b8015648474f"),
+                            TicketId = new Guid("0db180c2-70d0-4fd5-85da-3db669595c24"),
+                            AssetId = new Guid("bbb1006f-2b5b-43ba-9dc6-59af443f7eb4"),
                             Category = 0,
                             Description = "Description for Ticket 241",
                             Priority = 0,
@@ -3199,8 +3202,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("cf8e7fc3-e767-4017-8a67-08be049f8692"),
-                            AssetId = new Guid("05357daf-2998-4825-b762-d2166c1b52af"),
+                            TicketId = new Guid("58202458-b561-4ebd-8b20-2eed0de15826"),
+                            AssetId = new Guid("47875709-4afa-4e22-a3ce-72c7b90c920c"),
                             Category = 1,
                             Description = "Description for Ticket 242",
                             Priority = 1,
@@ -3209,8 +3212,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("81d41fea-73a1-47f3-bbac-3f9b73acfc9c"),
-                            AssetId = new Guid("806b6861-cc8f-4e0e-9a4b-5c227c7a32f9"),
+                            TicketId = new Guid("33228769-2215-4f40-879c-c7cbd53a008a"),
+                            AssetId = new Guid("a08bd44b-06b0-4e52-8cf4-6733c53fb2ad"),
                             Category = 2,
                             Description = "Description for Ticket 243",
                             Priority = 2,
@@ -3219,8 +3222,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("34e76b69-c23c-4f69-801d-fcfcb7741eda"),
-                            AssetId = new Guid("7a24f7a3-b945-4c71-802b-f9b4b75ef984"),
+                            TicketId = new Guid("db7071c1-7eb3-4b59-a862-1430e7815d82"),
+                            AssetId = new Guid("91b78a0d-a3c3-4e4c-b1e3-b1e3d214b5f3"),
                             Category = 3,
                             Description = "Description for Ticket 244",
                             Priority = 0,
@@ -3229,8 +3232,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e5e84566-3a13-494a-b0cf-642ffd7bdb78"),
-                            AssetId = new Guid("4b4f88dd-b06a-42f3-8af6-f118397167a4"),
+                            TicketId = new Guid("0a650bd2-702c-49e8-ab40-add862d2c224"),
+                            AssetId = new Guid("3e6b4977-5e35-4199-b4ee-956e1b92db0e"),
                             Category = 0,
                             Description = "Description for Ticket 245",
                             Priority = 1,
@@ -3239,8 +3242,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("131db5e5-7569-4cd1-a46e-5ba73a91d6bf"),
-                            AssetId = new Guid("80bf9c45-e501-441e-88f9-ea3e073e23dd"),
+                            TicketId = new Guid("732e3eb0-2267-42ef-ba7c-e33bb9a3c1a6"),
+                            AssetId = new Guid("3622c4a0-e603-4bab-aa75-9753d1a282b7"),
                             Category = 1,
                             Description = "Description for Ticket 246",
                             Priority = 2,
@@ -3249,8 +3252,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ee79320b-b181-45a9-a805-089a05d3d43d"),
-                            AssetId = new Guid("b9abffe0-572b-476d-b755-2ea59a4604b9"),
+                            TicketId = new Guid("01414390-5585-4913-9ea7-d0c145568156"),
+                            AssetId = new Guid("50e1846e-73ec-49ac-996c-c1658018df8d"),
                             Category = 2,
                             Description = "Description for Ticket 247",
                             Priority = 0,
@@ -3259,8 +3262,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("92eb376b-ba0d-4601-87ed-748dd525dd22"),
-                            AssetId = new Guid("f9858adf-48f8-4a11-afd4-7d40980b278b"),
+                            TicketId = new Guid("6b3bac1a-3680-4378-ad08-d3a8fb422e77"),
+                            AssetId = new Guid("930a252b-6644-4ea5-87c7-0b022b11ef86"),
                             Category = 3,
                             Description = "Description for Ticket 248",
                             Priority = 1,
@@ -3269,8 +3272,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("74b576ad-003a-476f-a736-ff2fef819793"),
-                            AssetId = new Guid("4a18e383-008a-414f-9c91-5725f1ea1bb3"),
+                            TicketId = new Guid("d923c998-8a30-468c-ba62-29a8de564719"),
+                            AssetId = new Guid("4d29b9c7-321a-4aaa-ba08-04dbba2f05e6"),
                             Category = 0,
                             Description = "Description for Ticket 249",
                             Priority = 2,
@@ -3279,8 +3282,8 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fa5d85ae-2646-4a9b-a3d1-a4043d8bf404"),
-                            AssetId = new Guid("4986d0d5-468c-4779-bcf5-5fe36354e98a"),
+                            TicketId = new Guid("232861a3-00d4-4edf-83f8-0de86b03a8c2"),
+                            AssetId = new Guid("f29c42c8-4719-447c-a931-1179e5813e5f"),
                             Category = 1,
                             Description = "Description for Ticket 250",
                             Priority = 0,
