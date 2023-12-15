@@ -22,7 +22,7 @@ namespace TracklyApi.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Asset>()
+            modelBuilder.Entity<Asset>()                
                 .HasIndex(a => a.BarcodeNumber)
                 .IsUnique();
 
@@ -75,9 +75,9 @@ namespace TracklyApi.Data
             }
             modelBuilder.Entity<Asset>().HasData(assets);
 
-            // Seed Tickets (50 entries)
+            // Seed Tickets (250 entries)
             var tickets = new List<Ticket>();
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 250; i++)
             {
                 tickets.Add(new Ticket
                 {
@@ -88,7 +88,7 @@ namespace TracklyApi.Data
                     Priority = (Priority)(i % Enum.GetValues(typeof(Priority)).Length),
                     Category = (TicketCategory)(i % Enum.GetValues(typeof(TicketCategory)).Length),
                     AssignedUserID = null, // Set AssignedUserID as null for now
-                    AssetId = assetGuids[i % 30] // Use Asset ID
+                    AssetId = assetGuids[i % 70] // Use Asset ID
                 });
             }
             modelBuilder.Entity<Ticket>().HasData(tickets);
