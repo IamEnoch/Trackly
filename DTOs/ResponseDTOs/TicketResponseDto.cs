@@ -1,8 +1,8 @@
 ﻿using static TracklyApi.Helpers.EnumHelper;
 
-namespace TracklyApi.DTOs
+namespace TracklyApi.DTOs.ResponseDTOs
 {
-    public class TicketDto
+    public class TicketResponseDto
     {
         public string Title { get; set; }
         public string Description { get; set; }
@@ -11,14 +11,14 @@ namespace TracklyApi.DTOs
         public string Category { get; set; }
         public string? AssignedUser { get; set; }
 
-        public TicketDto(string title, string description, TicketStatus status, Priority priority, TicketCategory category, Guid? assignedUserID)
+        public TicketResponseDto(string title, string description, TicketStatus status, Priority priority, TicketCategory category, Guid? assignedUserID)
         {
             Title = title;
             Description = description;
             Status = status.ToString();
             Priority = priority.ToString();
             Category = category.ToString();
-            AssignedUser = assignedUserID.ToString();            
+            AssignedUser = assignedUserID.ToString();
         }
     }
 }
