@@ -96,7 +96,7 @@ namespace TracklyApi.Controllers
             var assetExists = await _context.Assets.AnyAsync(a => a.BarcodeNumber == assetRequestDto.BarcodeNumber);
             if (assetExists)
             {
-                return BadRequest("Asset already exists");
+                return BadRequest("Asset already exist");
             }
 
             //wrap in try catch
