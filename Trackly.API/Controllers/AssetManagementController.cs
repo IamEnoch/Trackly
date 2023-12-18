@@ -87,6 +87,7 @@ namespace TracklyApi.Controllers
         /// <param name="id"></param>
         /// <returns> Asset </returns>
         [HttpGet("assets/id/{id}")]
+        [Authorize]
         public async Task<ActionResult<AssetResponseDto>> GetAssetById(string id)
         {
             //use asset dto
