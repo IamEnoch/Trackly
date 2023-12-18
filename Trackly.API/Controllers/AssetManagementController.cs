@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TracklyApi.Data;
@@ -26,9 +27,31 @@ namespace TracklyApi.Controllers
         /// </summary>
         /// <returns>List of assets</returns>
         [HttpGet("assets")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Asset>>> GetAssets()
         {
-            var response = await _context.Assets.ToListAsync(); 
+            // Fetching assets with their tickets separately
+            var assets = await _context.Assets
+                .Include(x => x.Department)
+                .Include(x => x.Location)
+                .ToListAsync();
+
+            var assetIds = assets.Select(a => a.AssetID).ToList();
+
+            // Fetching tickets for the fetched assets
+            var tickets = await _context.Tickets
+                .Where(t => assetIds.Contains(t.AssetId))
+                .ToListAsync();
+
+            // Constructing the response using the fetched data
+            var response = assets.Select(asset => new AssetResponseDto(
+                asset.BarcodeNumber,
+                asset.AssetName,
+                asset.Category,
+                asset.Department.DepartmentName,
+                asset.Location.LocationName,
+                tickets.Where(t => t.AssetId == asset.AssetID).ToList()
+            )).ToList();
             return Ok(response);
         }
 
@@ -63,7 +86,7 @@ namespace TracklyApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns> Asset </returns>
-        [HttpGet("assets/{id}")]
+        [HttpGet("assets/id/{id}")]
         public async Task<ActionResult<AssetResponseDto>> GetAssetById(string id)
         {
             //use asset dto
@@ -90,6 +113,7 @@ namespace TracklyApi.Controllers
         /// <param name="assetRequestDto"></param>
         /// <returns>Return created asset details</returns>
         [HttpPost("assets/")]
+        [Authorize]
         public async Task<ActionResult<AssetResponseDto>> CreateAsset([FromBody] AssetRequestDto assetRequestDto) 
         {
             //check if asset already exists
