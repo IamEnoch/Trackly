@@ -1,6 +1,20 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesManager {
+  //Use only one instance of SharedPreferences.getInstance() in the following methods
+  //This is done by using a singleton pattern
+
+  // Singleton instance of SharedPreferencesManager
+  static final SharedPreferencesManager _instance =
+      SharedPreferencesManager._internal();
+
+  SharedPreferencesManager._internal();
+
+  // Factory method to provide the single instance of SharedPreferencesManager
+  factory SharedPreferencesManager() {
+    return _instance;
+  }
+
   Future<bool> isLoggedIn() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool('is_logged_in') ?? false;
