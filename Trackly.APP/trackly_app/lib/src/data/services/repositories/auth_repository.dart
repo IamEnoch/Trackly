@@ -53,24 +53,26 @@ class AuthRepository {
 
 Future<void> storeUserData(Credentials credentials, bool loginStatus) async {
   //Intialize SharedPreferences manager
-  SharedPreferencesManager sharedPreferencesManager =
-      SharedPreferencesManager();
+
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  //Store using SharedPreferences.getInstance() instead
+  //of using SharedPreferencesManager() to avoid
+  //multiple instances of SharedPreferences
+
+  // Storing user data from Credentials.user
+  await prefs.setBool('is_logged_in', loginStatus);
+  await prefs.setString('userId', credentials.user.sub);
+  await prefs.setString('userName', credentials.user.name ?? '');
+  await prefs.setString('userEmail', credentials.user.email ?? '');
+  await prefs.setString('userPhoneNumber', credentials.user.phoneNumber ?? '');
+  await prefs.setString(
+      'pictureUrl', credentials.user.pictureUrl?.toString() ?? '');
 
   // Storing auth credentials from Credentials
-  sharedPreferencesManager.setLoggedIn(value: loginStatus);
-  sharedPreferencesManager.setAuthAccessToken(value: credentials.accessToken);
-  sharedPreferencesManager.setAuthIdToken(value: credentials.idToken);
-  sharedPreferencesManager.setAuthRefreshToken(
-      value: credentials.refreshToken ?? '');
-  sharedPreferencesManager.setAuthTokenType(value: credentials.tokenType);
-  sharedPreferencesManager.setAuthScopes(value: credentials.scopes.toList());
-
-  // Storing user profile data from Credentials
-  sharedPreferencesManager.setUserId(value: credentials.user.sub);
-  sharedPreferencesManager.setUserName(value: credentials.user.name ?? '');
-  sharedPreferencesManager.setUserEmail(value: credentials.user.email ?? '');
-  sharedPreferencesManager.setUserPhoneNumber(
-      value: credentials.user.phoneNumber ?? '');
-  sharedPreferencesManager.setPictureUrl(
-      value: credentials.user.pictureUrl?.toString() ?? '');
+  await prefs.setString('refreshToken', credentials.refreshToken ?? '');
+  await prefs.setString('accessToken', credentials.accessToken);
+  await prefs.setString('idToken', credentials.idToken);
+  await prefs.setString('tokenType', credentials.tokenType);
+  await prefs.setStringList('scopes', credentials.scopes.toList());
 }

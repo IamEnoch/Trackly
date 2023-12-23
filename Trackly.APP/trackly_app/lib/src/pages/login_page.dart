@@ -32,7 +32,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
       listener: (context, state) {
         // TODO: implement listener
         if (state is LoginSuccess) {
-          Navigator.of(context).pushReplacementNamed(homePageRoute);
+          Navigator.of(context).pushReplacementNamed(tabPageRoute);
         }
       },
       child: Scaffold(

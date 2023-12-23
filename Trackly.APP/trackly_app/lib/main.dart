@@ -1,4 +1,3 @@
-import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +6,7 @@ import 'package:trackly_app/src/bloc/auth/authentication_bloc/authentication_blo
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/login_page.dart';
 import 'package:trackly_app/src/utils/routes.dart';
+import 'package:trackly_app/tab_page.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: ".env");
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           builder: (context, state) {
         final Widget startPage;
         if (state is AuthenticationAuthenticated) {
-          startPage = const HomePage();
+          startPage = const TabPage();
         } else if (state is AuthenticationUnauthenticated) {
           startPage = const MyLoginPage(
             title: 'This is the home page',
@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
             signInRoute: (context) => const MyLoginPage(
                   title: 'This is the login screen',
                 ),
+            tabPageRoute: (context) => const TabPage(),
           },
         );
       }),
