@@ -104,15 +104,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
 
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.05,
+                      height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     Text(
                       userName,
                       textAlign: TextAlign.center,
-                      style: AppResources().appStyles.textStyles.headineH5,
+                      style: AppResources().appStyles.textStyles.headineH6,
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.02,
                     ),
                     //card view for profile details(email, phone number, email, role). Use card widget
                     Card(
@@ -131,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.3,
+                                      MediaQuery.of(context).size.width * 0.2,
                                   child: Text(
                                     'Email',
                                     style: AppResources()
@@ -147,7 +147,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 //email text with predifined length
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.4,
+                                      MediaQuery.of(context).size.width * 0.55,
                                   //ellipsis for text if it is too long
                                   child: Text(
                                     userEmail,
@@ -170,9 +170,9 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.3,
+                                      MediaQuery.of(context).size.width * 0.2,
                                   child: Text(
-                                    'Phone Number',
+                                    'Mobile',
                                     style: AppResources()
                                         .appStyles
                                         .textStyles
@@ -185,7 +185,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 //phone number text
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.4,
+                                      MediaQuery.of(context).size.width * 0.55,
                                   child: Text(
                                     userPhoneNumber,
                                     style: AppResources()
@@ -207,7 +207,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               children: [
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.3,
+                                      MediaQuery.of(context).size.width * 0.2,
                                   child: Text(
                                     'Role',
                                     style: AppResources()
@@ -222,7 +222,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 //role text
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.4,
+                                      MediaQuery.of(context).size.width * 0.55,
                                   child: Text(
                                     'Admin',
                                     style: AppResources()
