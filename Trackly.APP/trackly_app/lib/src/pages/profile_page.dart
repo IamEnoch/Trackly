@@ -50,66 +50,66 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Center(
                 child: Column(
                   children: [
-                    // SizedBox(
-                    //   height: MediaQuery.of(context).size.height * 0.15,
-                    // ),
-                    Container(
-                      height: 200,
-                      color: Colors.red,
-                    ),
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Container(
-                          height: 200,
-                          alignment: Alignment.center,
-                          color: Colors.blue,
-                        ),
-                        Positioned(
-                          top: 0,
-                          left: 0,
-                          child: Stack(
-                            children: [
-                              const CircleAvatar(
-                                radius: 50,
-                                backgroundImage: NetworkImage(
-                                    "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      child: Stack(
+                        clipBehavior: Clip.none,
+                        alignment: Alignment.topCenter,
+                        children: [
+                          ClipPath(
+                            clipper: BottomHalfClipper(),
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.4,
+                              alignment: Alignment.center,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFFEBF0F0),
                               ),
-                              //edit icon with on press pressible for profile picture
-                              Positioned(
-                                bottom: 0,
-                                right: 0,
-                                child: Container(
-                                  height: 25,
-                                  width: 25,
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20)),
-                                  child: InkWell(
-                                    onTap: () {},
-                                    child: const Icon(
-                                      Icons.edit,
-                                      color: Colors.black,
+                            ),
+                          ),
+                          Positioned(
+                            top: MediaQuery.of(context).size.height * 0.28,
+                            left: MediaQuery.of(context).size.width * 0.37,
+                            child: Stack(
+                              children: [
+                                const CircleAvatar(
+                                  radius: 50,
+                                  backgroundImage: NetworkImage(
+                                      "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"),
+                                ),
+                                //edit icon with on press pressible for profile picture
+                                Positioned(
+                                  bottom: 0,
+                                  right: 0,
+                                  child: Container(
+                                    height: 25,
+                                    width: 25,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                    child: InkWell(
+                                      onTap: () {},
+                                      child: const Icon(
+                                        Icons.edit,
+                                        color: Colors.black,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
 
-                    const SizedBox(
-                      height: 5,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.05,
                     ),
                     Text(
                       userName,
                       textAlign: TextAlign.center,
                       style: AppResources().appStyles.textStyles.headineH5,
-                    ),
-                    const SizedBox(
-                      height: 1,
                     ),
                     const SizedBox(
                       height: 20,
@@ -264,7 +264,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               .componentsButtonDefault,
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               )),
