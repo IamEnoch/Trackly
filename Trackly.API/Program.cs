@@ -5,20 +5,19 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using TracklyApi.Data;
 using TracklyApi.Models.Auth;
+using Azure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("TracklyDbConnectionString");
-var domain = builder.Configuration["Auth0:Domain"];
-var apiIdentifier = builder.Configuration["Auth0:ApiIdentifier"];
-
-// Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("TracklyDbConnectionString");
+var domain = builder.Configuration["Auth0:Domain"];
+var apiIdentifier = builder.Configuration["Auth0:ApiIdentifier"];
 
 //Configure DbContext with sql
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
@@ -60,7 +59,6 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 app.UseSwagger();
 app.UseSwaggerUI();
-
 
 app.UseHttpsRedirection();
 
