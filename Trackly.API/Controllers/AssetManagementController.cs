@@ -27,7 +27,7 @@ namespace TracklyApi.Controllers
         /// </summary>
         /// <returns>List of assets</returns>
         [HttpGet("assets")]
-        [Authorize]
+
         public async Task<ActionResult<IEnumerable<Asset>>> GetAssets()
         {
             // Fetching assets with their tickets separately
@@ -61,7 +61,6 @@ namespace TracklyApi.Controllers
         /// <param name="barcodeNumber"></param>
         /// <returns>An asset based on barcode number</returns>
         [HttpGet("assets/{barcodeNumber}")]
-        [Authorize]
         public async Task<ActionResult<AssetResponseDto>> GetAssetByBarcodeNumber(string barcodeNumber)
         {
             //use asset dto
@@ -88,7 +87,6 @@ namespace TracklyApi.Controllers
         /// <param name="id"></param>
         /// <returns> Asset </returns>
         [HttpGet("assets/id/{id}")]
-        [Authorize]
         public async Task<ActionResult<AssetResponseDto>> GetAssetById(string id)
         {
             //use asset dto
@@ -115,7 +113,6 @@ namespace TracklyApi.Controllers
         /// <param name="assetRequestDto"></param>
         /// <returns>Return created asset details</returns>
         [HttpPost("assets/")]
-        [Authorize()]
         public async Task<ActionResult<AssetResponseDto>> CreateAsset([FromBody] AssetRequestDto assetRequestDto) 
         {
             //check if asset already exists
