@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
-import 'package:trackly_app/src/pages/profile_page.dart';
+import 'package:trackly_app/src/pages/auth/profile_page.dart';
+import 'package:trackly_app/src/pages/scan_page.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 
@@ -38,10 +39,10 @@ class _TabPageState extends State<TabPage> {
           onPageChanged: (index) {
             setState(() => _currentIndex = index);
           },
-          children: const <Widget>[
+          children: <Widget>[
             HomePage(),
             HomePage(),
-            HomePage(),
+            ScanPage(),
             HomePage(),
             ProfilePage()
           ],

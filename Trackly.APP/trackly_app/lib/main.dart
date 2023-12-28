@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/authentication_bloc/authentication_bloc.dart';
+import 'package:trackly_app/src/pages/assets/assets_success_page.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
-import 'package:trackly_app/src/pages/login_page.dart';
+import 'package:trackly_app/src/pages/auth/login_page.dart';
+import 'package:trackly_app/src/pages/scan_page.dart';
 import 'package:trackly_app/src/utils/routes.dart';
 import 'package:trackly_app/tab_page.dart';
 
@@ -29,6 +32,7 @@ class MyApp extends StatelessWidget {
           lazy: false,
           create: (context) => AuthBloc(),
         ),
+        BlocProvider(create: (context) => AssetCubit())
       ],
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
           builder: (context, state) {
@@ -58,6 +62,8 @@ class MyApp extends StatelessWidget {
                   title: 'This is the login screen',
                 ),
             tabPageRoute: (context) => const TabPage(),
+            assetSuccssPageRoute: (context) => const AssetsSuccessPage(),
+            ScanPageRoute: (context) => ScanPage(),
           },
         );
       }),
