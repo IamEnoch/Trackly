@@ -2,7 +2,6 @@ import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:trackly_app/src/data/localstorage/shared_reference_manager.dart';
 
 class AuthRepository {
   late String domain;
