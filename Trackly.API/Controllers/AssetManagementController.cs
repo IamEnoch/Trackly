@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using TracklyApi.Data;
 using TracklyApi.DTOs;
 using TracklyApi.DTOs.RequestDTOs;
-using TracklyApi.Models;
+using TracklyApi.Models.Assets;
 
 namespace TracklyApi.Controllers
 {
@@ -40,7 +40,7 @@ namespace TracklyApi.Controllers
 
             // Fetching tickets for the fetched assets
             var tickets = await _context.Tickets
-                .Where(t => assetIds.Contains(t.AssetId))
+                .Where(t => assetIds.Contains(t.AssetID))
                 .ToListAsync();
 
             // Constructing the response using the fetched data
@@ -50,7 +50,7 @@ namespace TracklyApi.Controllers
                 asset.Category,
                 asset.Department.DepartmentName,
                 asset.Location.LocationName,
-                tickets.Where(t => t.AssetId == asset.AssetID).ToList()
+                tickets.Where(t => t.AssetID == asset.AssetID).ToList()
             )).ToList();
             return Ok(response);
         }
@@ -75,7 +75,7 @@ namespace TracklyApi.Controllers
             }
 
             var tickets = await _context.Tickets
-                .Where(t => t.AssetId == asset.AssetID)
+                .Where(t => t.AssetID == asset.AssetID)
                 .ToListAsync();
 
             return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName, tickets));
@@ -101,7 +101,7 @@ namespace TracklyApi.Controllers
             }
 
             var tickets = await _context.Tickets
-                .Where(t => t.AssetId == asset.AssetID)
+                .Where(t => t.AssetID == asset.AssetID)
                 .ToListAsync();
 
             return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName, tickets));
