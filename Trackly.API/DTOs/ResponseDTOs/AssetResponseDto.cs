@@ -1,5 +1,5 @@
 ﻿using TracklyApi.DTOs.ResponseDTOs;
-using TracklyApi.Models;
+using TracklyApi.Models.Tickets;
 using static TracklyApi.Helpers.EnumHelper;
 
 namespace TracklyApi.DTOs
@@ -20,7 +20,7 @@ namespace TracklyApi.DTOs
             Category = category.ToString();
             DepartmentName = departmentName.ToString();
             LocationName = locationName.ToString();
-            Tickets = tickets.Select(t => new TicketResponseDto(t.Title, t.Description, t.Status, t.Priority, t.Category, t.AssignedUserID))
+            Tickets = tickets.Select(t => new TicketResponseDto(t.Title, t.Description, t.Status, t.Priority, t.Category, t.AssignedUserID, t.CreatedAt))
                 .ToList();
         }
     }
