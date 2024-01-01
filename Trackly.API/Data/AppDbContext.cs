@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TracklyApi.Models;
+using TracklyApi.Models.Assets;
+using TracklyApi.Models.Tickets;
 using static TracklyApi.Helpers.EnumHelper;
 
 namespace TracklyApi.Data
@@ -19,6 +20,7 @@ namespace TracklyApi.Data
         public DbSet<Department> Departments { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<WorkItem> WorkItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -75,6 +77,24 @@ namespace TracklyApi.Data
             }
             modelBuilder.Entity<Asset>().HasData(assets);
 
+            //seed work items
+            var workItems = new List<WorkItem>();
+            for (int i = 0; i < 400; i++)
+            {
+                workItems.Add(new WorkItem
+                {
+                    WorkItemId = Guid.NewGuid(),
+                    Title = $"WorkItem {i + 1}",
+                    Description = $"Description for WorkItem {i + 1}",
+                    Status = (WorkItemStatus)(i % Enum.GetValues(typeof(WorkItemStatus)).Length),
+                    Priority = (Priority)(i % Enum.GetValues(typeof(Priority)).Length),
+                    Category = (TicketCategory)(i % Enum.GetValues(typeof(TicketCategory)).Length),
+                    CreatorUserID = null, // Set CreatorUserID as null for now
+                    AssetId = assetGuids[i % 70], // Use Asset ID
+                    CreatedAt = DateTime.Now.AddDays(-i)
+                });
+            }
+
             // Seed Tickets (250 entries)
             var tickets = new List<Ticket>();
             for (int i = 0; i < 250; i++)
@@ -88,7 +108,8 @@ namespace TracklyApi.Data
                     Priority = (Priority)(i % Enum.GetValues(typeof(Priority)).Length),
                     Category = (TicketCategory)(i % Enum.GetValues(typeof(TicketCategory)).Length),
                     AssignedUserID = null, // Set AssignedUserID as null for now
-                    AssetId = assetGuids[i % 70] // Use Asset ID
+                    AssetID = assetGuids[i % 70], // Use Asset ID
+                    CreatedAt = DateTime.Now.AddDays(-i)
                 });
             }
             modelBuilder.Entity<Ticket>().HasData(tickets);
