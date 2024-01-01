@@ -1,6 +1,6 @@
 ﻿using static TracklyApi.Helpers.EnumHelper;
 
-namespace TracklyApi.Models
+namespace TracklyApi.Models.Assets
 {
     public class Location
     {

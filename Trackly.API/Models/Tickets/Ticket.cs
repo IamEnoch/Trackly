@@ -1,6 +1,7 @@
-﻿using static TracklyApi.Helpers.EnumHelper;
+﻿using TracklyApi.Models.Assets;
+using static TracklyApi.Helpers.EnumHelper;
 
-namespace TracklyApi.Models
+namespace TracklyApi.Models.Tickets
 {
     public class Ticket
     {
@@ -11,7 +12,10 @@ namespace TracklyApi.Models
         public Priority Priority { get; set; }
         public TicketCategory Category { get; set; }
         public Guid? AssignedUserID { get; set; }
-        public Guid AssetId { get; set; }
+        public Guid AssetID { get; set; }
+
+        //Time created for the ticket
+        public DateTime CreatedAt { get; set; }
 
         // Navigation properties
         public virtual Asset Asset { get; set; }

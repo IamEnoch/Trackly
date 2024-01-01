@@ -34,6 +34,14 @@
             Closed
         }
 
+        //Work item status
+        public enum WorkItemStatus
+        {
+            Pending,
+            Approved,
+            Rejected,
+        }
+
         public enum TicketCategory
         {
             Hardware,
