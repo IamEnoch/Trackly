@@ -9,7 +9,6 @@ using TracklyApi.Models.Assets;
 namespace TracklyApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class AssetManagementController : ControllerBase
     {
 
