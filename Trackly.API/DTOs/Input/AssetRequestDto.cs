@@ -1,6 +1,6 @@
-﻿using TracklyApi.DTOs.ResponseDTOs;
+﻿
 
-namespace TracklyApi.DTOs.RequestDTOs
+namespace TracklyApi.DTOs
 {
     public class AssetRequestDto
     {
