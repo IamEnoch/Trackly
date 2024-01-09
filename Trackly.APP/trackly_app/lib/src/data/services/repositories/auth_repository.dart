@@ -2,11 +2,15 @@ import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:trackly_app/Logging/logger.dart';
 
 class AuthRepository {
   late String domain;
   late String clientId;
   late Auth0 auth0;
+
+  //logger
+  final log = logger(AuthRepository);
 
   AuthRepository() {
     domain = dotenv.env['AUTH0_DOMAIN'] ?? '';
@@ -22,6 +26,14 @@ class AuthRepository {
       if (credentials != null) {
         await storeUserData(credentials, true);
         debugPrint("Login Successful");
+        //log all the credentials details
+        log.i('The access token is ${credentials.accessToken}');
+        log.i('The id token is${credentials.idToken}');
+        log.i('The refresh token is ${credentials.refreshToken}');
+        log.i('The token type${credentials.tokenType}');
+        log.i('The user is ${credentials.user}');
+        log.i('The scopes are ${credentials.scopes}');
+
         return true;
       } else {
         debugPrint("Login failed");
