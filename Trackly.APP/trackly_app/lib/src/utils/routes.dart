@@ -6,3 +6,8 @@ const ScanPageRoute = '/scan-page/';
 //assets paths
 const assetSuccssPageRoute = '/asset-succes-page/';
 const assetFailurePageRoute = '/asset-failure-page/';
+const assetDetailsPageRoute = '/asset-details-page/';
+
+//tickets paths
+const ticketDetailsPageRoute = '/ticket-details-page/';
+const workItemPageRoute = '/work-item-page/';
