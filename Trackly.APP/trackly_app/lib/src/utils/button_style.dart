@@ -4,6 +4,7 @@ import 'package:trackly_app/src/utils/app_resources.dart';
 class ButtonStyles {
   ButtonStyle buttonStyle({
     required Color backgroundColor,
+    Color textColor = Colors.white,
   }) {
     return OutlinedButton.styleFrom(
       minimumSize: const Size(70, 55),
@@ -15,7 +16,7 @@ class ButtonStyles {
       backgroundColor: backgroundColor,
       textStyle:
           AppResources().appStyles.textStyles.componentsButtonDefault.copyWith(
-                color: Colors.white,
+                color: textColor,
               ),
     );
   }

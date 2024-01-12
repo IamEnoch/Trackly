@@ -7,6 +7,7 @@ import 'package:trackly_app/Logging/logger.dart';
 class AuthRepository {
   late String domain;
   late String clientId;
+  late String audience;
   late Auth0 auth0;
 
   //logger
@@ -15,13 +16,15 @@ class AuthRepository {
   AuthRepository() {
     domain = dotenv.env['AUTH0_DOMAIN'] ?? '';
     clientId = dotenv.env['AUTH0_CLIENT_ID'] ?? '';
+    audience = dotenv.env['AUTH0_AUDIENCE'] ?? '';
     auth0 = Auth0(domain, clientId);
   }
 
   //Login user by opening Auth0 login page in a browser and storing user data in SharedPreferences
   Future<bool> loginUser() async {
     try {
-      final credentials = await auth0.webAuthentication().login();
+      final credentials =
+          await auth0.webAuthentication().login(audience: audience);
 
       if (credentials != null) {
         await storeUserData(credentials, true);
