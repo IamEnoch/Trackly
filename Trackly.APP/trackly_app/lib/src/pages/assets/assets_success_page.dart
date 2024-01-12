@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 
 class AssetsSuccessPage extends StatefulWidget {
@@ -86,24 +87,16 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                           ),
                           Text(
                             'Asset Found',
-                            style: TextStyle(
-                              fontFamily: GoogleFonts.poppins().fontFamily,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                              color: const Color(0xff474747),
-                            ),
+                            style:
+                                AppResources().appStyles.textStyles.bodyDefault,
                           ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.009,
                           ),
                           Text(
                             arguments['assetName'],
-                            style: TextStyle(
-                              fontFamily: GoogleFonts.poppins().fontFamily,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 24,
-                              color: const Color(0xff121212),
-                            ),
+                            style:
+                                AppResources().appStyles.textStyles.headineH4,
                           ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.037,
@@ -143,13 +136,10 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                                 child: Text(
                                   arguments['assetName'],
                                   textAlign: TextAlign.end,
-                                  style: TextStyle(
-                                    fontFamily:
-                                        GoogleFonts.poppins().fontFamily,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 14,
-                                    color: const Color(0xff121212),
-                                  ),
+                                  style: AppResources()
+                                      .appStyles
+                                      .textStyles
+                                      .bodyInterlined,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                 ),
@@ -157,7 +147,7 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                             ],
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.016,
+                            height: MediaQuery.of(context).size.height * 0.005,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -185,7 +175,7 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                             ],
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.016,
+                            height: MediaQuery.of(context).size.height * 0.005,
                           ),
                           Container(
                             color: const Color(0xffEDEDED),
@@ -193,7 +183,7 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                             width: MediaQuery.of(context).size.width,
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.0187,
+                            height: MediaQuery.of(context).size.height * 0.005,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -233,7 +223,7 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                             ],
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.016,
+                            height: MediaQuery.of(context).size.height * 0.005,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -261,7 +251,7 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                             ],
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.016,
+                            height: MediaQuery.of(context).size.height * 0.005,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -305,50 +295,88 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                     ),
                   ),
                 ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.height * 0.0387,
+                // ),
+                // Center(
+                //   child: DecoratedBox(
+                //     decoration: const BoxDecoration(
+                //       color: Color(0xffDEDEDE),
+                //       borderRadius: BorderRadius.all(Radius.circular(23)),
+                //     ),
+                //     child: Container(
+                //       margin: const EdgeInsets.all(0.05),
+                //       width: MediaQuery.of(context).size.width,
+                //       child: TextButton.icon(
+                //         style: AppResources()
+                //             .buttonStyles
+                //             .buttonStyle(backgroundColor: Color(0xffDEDEDE)),
+                //         onPressed: () async {
+                //           showModalBottomSheet(
+                //             context: context,
+                //             builder: (context) {
+                //               return SingleChildScrollView(
+                //                 child: SizedBox(
+                //                   child: Padding(
+                //                     padding: const EdgeInsets.all(50.0),
+                //                     child: Center(
+                //                       child: Column(
+                //                         mainAxisAlignment:
+                //                             MainAxisAlignment.end,
+                //                         mainAxisSize: MainAxisSize.min,
+                //                         children: <Widget>[
+                //                           Text(arguments['assetName']),
+                //                         ],
+                //                       ),
+                //                     ),
+                //                   ),
+                //                 ),
+                //               );
+                //             },
+                //           );
+                //         },
+                //         icon: const Icon(
+                //           Icons.copy,
+                //           color: Color(0xff3D3D3D),
+                //         ),
+                //         label: const Text(
+                //           'Inflate more details',
+                //           style: TextStyle(color: Color(0xff3D3D3D)),
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.0387,
+                  height: MediaQuery.of(context).size.height * 0.0187,
                 ),
-                DecoratedBox(
-                  decoration: const BoxDecoration(
-                    color: Color(0xffDEDEDE),
-                    borderRadius: BorderRadius.all(Radius.circular(23)),
-                  ),
-                  child: Container(
-                    margin: const EdgeInsets.all(0.05),
-                    child: TextButton.icon(
-                      style: AppResources()
-                          .buttonStyles
-                          .buttonStyle(backgroundColor: Colors.black),
-                      onPressed: () async {
-                        showModalBottomSheet(
-                          context: context,
-                          builder: (context) {
-                            return SingleChildScrollView(
-                              child: SizedBox(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(50.0),
-                                  child: Center(
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                        Text(arguments['assetName']),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                      icon: const Icon(
-                        Icons.copy,
-                        color: Color(0xff3D3D3D),
-                      ),
-                      label: const Text(
-                        'Inflate more details',
-                        style: TextStyle(color: Color(0xff3D3D3D)),
+                Center(
+                  child: DecoratedBox(
+                    decoration: const BoxDecoration(
+                      color: Color(0xffDEDEDE),
+                      borderRadius: BorderRadius.all(Radius.circular(23)),
+                    ),
+                    child: Container(
+                      margin: const EdgeInsets.all(0.05),
+                      width: MediaQuery.of(context).size.width,
+                      child: TextButton.icon(
+                        style: AppResources()
+                            .buttonStyles
+                            .buttonStyle(backgroundColor: Color(0xffDEDEDE)),
+                        onPressed: () async {
+                          // Add your button action here
+                          String assetDetails =
+                              'Asset name: ${arguments['assetName']}\nAsset tag: ${arguments['assetName']}\nSerial number: ${arguments['assetName']}\nCondition: ${arguments['assetName']}\nRam: ${arguments['assetName']}\n';
+                          _onShare(context, assetDetails);
+                        },
+                        icon: const Icon(
+                          Icons.share,
+                          color: Color(0xff3D3D3D),
+                        ),
+                        label: const Text(
+                          'Share Asset Details',
+                          style: TextStyle(color: Color(0xff3D3D3D)),
+                        ),
                       ),
                     ),
                   ),
@@ -356,66 +384,38 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.0187,
                 ),
-                DecoratedBox(
-                  decoration: const BoxDecoration(
-                    color: Color(0xffDEDEDE),
-                    borderRadius: BorderRadius.all(Radius.circular(23)),
-                  ),
-                  child: Container(
-                    margin: const EdgeInsets.all(0.05),
-                    child: TextButton.icon(
-                      style: AppResources()
-                          .buttonStyles
-                          .buttonStyle(backgroundColor: Colors.black),
-                      onPressed: () async {
-                        // Add your button action here
-                        String assetDetails =
-                            'Asset name: ${arguments['assetName']}\nAsset tag: ${arguments['assetName']}\nSerial number: ${arguments['assetName']}\nCondition: ${arguments['assetName']}\nRam: ${arguments['assetName']}\n';
-                        _onShare(context, assetDetails);
-                      },
-                      icon: const Icon(
-                        Icons.share,
-                        color: Color(0xff3D3D3D),
-                      ),
-                      label: const Text(
-                        'Share Asset Details',
-                        style: TextStyle(color: Color(0xff3D3D3D)),
-                      ),
+                Center(
+                  child: DecoratedBox(
+                    decoration: const BoxDecoration(
+                      color: Color(0xffDEDEDE),
+                      borderRadius: BorderRadius.all(Radius.circular(23)),
                     ),
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.0187,
-                ),
-                DecoratedBox(
-                  decoration: const BoxDecoration(
-                    color: Color(0xffDEDEDE),
-                    borderRadius: BorderRadius.all(Radius.circular(23)),
-                  ),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    margin: const EdgeInsets.all(0.05),
-                    child: TextButton.icon(
-                      style: AppResources()
-                          .buttonStyles
-                          .buttonStyle(backgroundColor: Colors.black),
-                      onPressed: () async {
-                        // Add your button action here
-                        // Navigator.of(context).pushNamed(
-                        //   assetDetailsPageRoute,
-                        //   arguments: {
-                        //     'tickets': arguments['tickets'],
-                        //     'deviceName': arguments['deviceName']
-                        //   },
-                        // );
-                      },
-                      icon: const Icon(
-                        Icons.notes_outlined,
-                        color: Color(0xff3D3D3D),
-                      ),
-                      label: const Text(
-                        'Asset Details',
-                        style: TextStyle(color: Color(0xff3D3D3D)),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: const EdgeInsets.all(0.05),
+                      child: TextButton.icon(
+                        style: AppResources()
+                            .buttonStyles
+                            .buttonStyle(backgroundColor: Color(0xffDEDEDE)),
+                        onPressed: () async {
+                          // Add your button action here
+                          Navigator.of(context).pushNamed(
+                            assetDetailsPageRoute,
+                            arguments: {
+                              'tickets': arguments['tickets'],
+                              'assetName': arguments['assetName'],
+                              'department': arguments['assetDepartment'],
+                            },
+                          );
+                        },
+                        icon: const Icon(
+                          Icons.notes_outlined,
+                          color: Color(0xff3D3D3D),
+                        ),
+                        label: const Text(
+                          'Asset Details',
+                          style: TextStyle(color: Color(0xff3D3D3D)),
+                        ),
                       ),
                     ),
                   ),
