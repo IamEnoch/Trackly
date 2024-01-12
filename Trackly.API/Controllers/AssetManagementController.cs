@@ -26,7 +26,7 @@ namespace TracklyApi.Controllers
         /// </summary>
         /// <returns>List of assets</returns>
         [HttpGet("assets")]
-
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Asset>>> GetAssets()
         {
             // Fetching assets with their tickets separately
