@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 using TracklyApi.Models.Tickets;
 using static TracklyApi.Helpers.EnumHelper;
 
@@ -17,9 +18,13 @@ namespace TracklyApi.Models.Assets
         public Guid LocationID { get; set; }
 
         // Navigation properties
+        [JsonIgnore]
         public virtual Department Department { get; set; }
+        [JsonIgnore]
         public virtual Location Location { get; set; }
+        [JsonIgnore]
         public virtual ICollection<WorkItem> WorkItems { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Ticket> Tickets { get; set; }
 
     }

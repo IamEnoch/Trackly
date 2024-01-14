@@ -1,4 +1,5 @@
-﻿using TracklyApi.Models.Assets;
+﻿using Newtonsoft.Json;
+using TracklyApi.Models.Assets;
 using static TracklyApi.Helpers.EnumHelper;
 
 namespace TracklyApi.Models.Tickets
@@ -18,6 +19,7 @@ namespace TracklyApi.Models.Tickets
         public DateTime CreatedAt { get; set; }
 
         // Navigation properties
+        [JsonIgnore]    
         public virtual Asset Asset { get; set; }
     }
 }
