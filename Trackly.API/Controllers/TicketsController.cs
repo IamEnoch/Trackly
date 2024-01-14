@@ -22,11 +22,30 @@ namespace TracklyApi.Controllers
             _logger = logger;
             _context = context;
         }
+        //get work item by id
+        [HttpGet("Workitem/{workItemId}")]
+        public async Task<ActionResult<WorkItem>> GetWorkItemById(string workItemId)
+        {
+            try
+            {
+                var workItem = await _context.WorkItems.FindAsync(Guid.Parse(workItemId));
+                if (workItem == null)
+                {
+                    return NotFound("Work item not found");
+                }
+
+                return Ok(workItem);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
 
         //create a work item independent of ticket model class
         //ticket created when the work item is approved
         [HttpPost("Workitem")]
-        public async Task<ActionResult<WorkItem>> CreateWorkItem(WorkItemRequestDto workItemRequestDto)
+        public async Task<ActionResult<WorkItem>> CreateWorkItem([FromBody]WorkItemRequestDto workItemRequestDto)
         {
             try
             {
@@ -51,7 +70,9 @@ namespace TracklyApi.Controllers
                 _context.WorkItems.Add(workItem);
                 await _context.SaveChangesAsync();
 
-                return Ok(workItem);
+
+                var resultId = new { id = workItem.WorkItemId};
+                return await GetWorkItemById(resultId.id.ToString());
             }
             catch (Exception e)
             {
