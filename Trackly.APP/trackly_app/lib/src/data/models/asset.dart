@@ -2,6 +2,7 @@ import 'package:trackly_app/src/data/models/ticket.dart';
 
 class Asset {
   String barcodeNumber;
+  String assetId;
   String assetName;
   String category;
   String departmentName;
@@ -11,6 +12,7 @@ class Asset {
   Asset({
     required this.barcodeNumber,
     required this.assetName,
+    required this.assetId,
     required this.category,
     required this.departmentName,
     required this.locationName,
@@ -24,6 +26,7 @@ class Asset {
 
     return Asset(
       barcodeNumber: json['barcodeNumber'],
+      assetId: json['assetId'],
       assetName: json['assetName'],
       category: json['category'],
       departmentName: json['departmentName'],
