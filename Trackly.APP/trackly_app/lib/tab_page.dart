@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/profile_page.dart';
 import 'package:trackly_app/src/pages/scan_page.dart';
+import 'package:trackly_app/src/pages/tickets/work_item_page.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 
@@ -38,10 +39,14 @@ class _TabPageState extends State<TabPage> {
           controller: _pageController,
           onPageChanged: (index) {
             setState(() => _currentIndex = index);
+            //dispose the previous page when the index changes
+            if (index == 0) {
+              _pageController.dispose();
+            }
           },
           children: <Widget>[
             HomePage(),
-            HomePage(),
+            WorkItemPage(),
             ScanPage(),
             HomePage(),
             ProfilePage()
