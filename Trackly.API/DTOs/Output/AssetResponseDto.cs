@@ -6,15 +6,17 @@ namespace TracklyApi.DTOs
     public class AssetResponseDto
     {
         public string BarcodeNumber { get; set; }
+        public string AssetId { get; set; }
         public string AssetName { get; set; }
         public string Category { get; set; }
         public string DepartmentName { get; set; }
         public string LocationName { get; set; }
         public IList<TicketDto>? Tickets { get; set; }
 
-        public AssetResponseDto(string barcodeNumber, string assetName, AssetCategory category, DepartmentEnum departmentName, LocationEnum locationName, ICollection<Ticket> tickets)
+        public AssetResponseDto(string barcodeNumber, Guid assetId, string assetName, AssetCategory category, DepartmentEnum departmentName, LocationEnum locationName, ICollection<Ticket> tickets)
         {
             BarcodeNumber = barcodeNumber;
+            AssetId = assetId.ToString();
             AssetName = assetName;
             Category = category.ToString();
             DepartmentName = departmentName.ToString();
