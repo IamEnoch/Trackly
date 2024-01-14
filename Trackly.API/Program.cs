@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using System.Text.Json.Serialization;
 using TracklyApi.Data;
 using TracklyApi.Models.Auth;
 using Azure.Identity;
@@ -18,6 +19,12 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("TracklyDbConnectionString");
 var domain = builder.Configuration["Auth0:Domain"];
 var apiIdentifier = builder.Configuration["Auth0:ApiIdentifier"];
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+    });
 
 //Configure DbContext with sql
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
