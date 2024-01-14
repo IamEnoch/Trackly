@@ -24,7 +24,7 @@ class AssetRepository {
 
     try {
       //Make a GET request to the API
-      var uri = Uri.https(basicUrl, 'AssetManagement/assets/$barcodeNumber');
+      var uri = Uri.https(basicUrl, '/assets/$barcodeNumber');
       response = await http.get(
         Uri.parse(
           uri.toString(),
