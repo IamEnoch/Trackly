@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/workItems/workt_item_cubit.dart';
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/authentication_bloc/authentication_bloc.dart';
 import 'package:trackly_app/src/pages/assets/asset_details_page.dart';
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
           lazy: false,
           create: (context) => AuthBloc(),
         ),
-        BlocProvider(create: (context) => AssetCubit())
+        BlocProvider(create: (context) => AssetCubit()),
+        BlocProvider(create: (context) => WorkItemCubit()),
       ],
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
           builder: (context, state) {
