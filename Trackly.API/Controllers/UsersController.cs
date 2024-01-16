@@ -6,12 +6,12 @@ using TracklyApi.DTOs;
 namespace TracklyApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("users")]
     public class UsersController : ControllerBase
     {
-        private readonly ILogger<AssetManagementController> _logger;
+        private readonly ILogger<AssetsController> _logger;
         private readonly AppDbContext _context;
-        public UsersController(ILogger<AssetManagementController> logger, AppDbContext context)
+        public UsersController(ILogger<AssetsController> logger, AppDbContext context)
         {
             _logger = logger;
             _context = context;
