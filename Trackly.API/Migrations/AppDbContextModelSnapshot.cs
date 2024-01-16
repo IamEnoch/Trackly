@@ -17,7 +17,7 @@ namespace TracklyApi.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "8.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -59,633 +59,633 @@ namespace TracklyApi.Migrations
                     b.HasData(
                         new
                         {
-                            AssetID = new Guid("9264bfc7-2a04-41e8-8a82-fc212e003efa"),
+                            AssetID = new Guid("aa13da17-47cc-41ee-9c80-36ffb79d6df6"),
                             AssetName = "Asset 1",
                             BarcodeNumber = "100000000000",
                             Category = 0,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("31630389-f081-42c9-9916-d9e0de380e67"),
+                            AssetID = new Guid("64801f5b-1e2a-483d-8b27-4204a6ca6ce3"),
                             AssetName = "Asset 2",
                             BarcodeNumber = "100000000001",
                             Category = 1,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("c5411f95-3578-4056-9ccc-697bdbcb3444"),
+                            AssetID = new Guid("f30cee27-a0ac-491c-b024-73de7039bb2e"),
                             AssetName = "Asset 3",
                             BarcodeNumber = "100000000002",
                             Category = 2,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("a39366ab-52b4-4353-8149-840f0e65fd53"),
+                            AssetID = new Guid("ed7b09b3-e6dd-4e89-8751-0f7929f494c6"),
                             AssetName = "Asset 4",
                             BarcodeNumber = "100000000003",
                             Category = 3,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("88a02658-6691-49c9-a617-47a3b9cbaa21"),
+                            AssetID = new Guid("21e66af0-23fa-412a-8f59-107438de1d07"),
                             AssetName = "Asset 5",
                             BarcodeNumber = "100000000004",
                             Category = 4,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("26563f3b-42ff-4eed-8a4a-fb0d03d11ff0"),
+                            AssetID = new Guid("4f465fb3-23e5-4b7f-803c-a94ef1812ce0"),
                             AssetName = "Asset 6",
                             BarcodeNumber = "100000000005",
                             Category = 5,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("db42d35b-dcbe-4ef0-b306-1c1dda9ecc1e"),
+                            AssetID = new Guid("760f4c2e-2f4d-4e06-a793-aa69c5dd3d23"),
                             AssetName = "Asset 7",
                             BarcodeNumber = "100000000006",
                             Category = 6,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("62471ddb-07f1-4794-9efc-a33626470605"),
+                            AssetID = new Guid("d4fecb34-670b-43a5-8518-cb650375678a"),
                             AssetName = "Asset 8",
                             BarcodeNumber = "100000000007",
                             Category = 0,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("548e6919-14cc-4658-b787-c78242286c3d"),
+                            AssetID = new Guid("f085def7-2104-4a4a-a386-e5aad89e5c63"),
                             AssetName = "Asset 9",
                             BarcodeNumber = "100000000008",
                             Category = 1,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("0056b30a-e1df-4efd-bc3e-6093120cb871"),
+                            AssetID = new Guid("3644404d-aea7-428d-af2a-7e34ed945f24"),
                             AssetName = "Asset 10",
                             BarcodeNumber = "100000000009",
                             Category = 2,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("1b2477b5-e225-4f9a-9b8b-e9684e54aa2c"),
+                            AssetID = new Guid("d909c885-19de-4e29-b174-55eaa198ddaa"),
                             AssetName = "Asset 11",
                             BarcodeNumber = "100000000010",
                             Category = 3,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("5f41bf29-aa96-4460-be16-2a106e0798b2"),
+                            AssetID = new Guid("24946f50-a702-4208-8e79-a4f695730fd9"),
                             AssetName = "Asset 12",
                             BarcodeNumber = "100000000011",
                             Category = 4,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("a03d5308-2dbb-40af-a138-277771f7deb6"),
+                            AssetID = new Guid("ecb73a43-4a03-4454-a3a3-5a22f746e5a1"),
                             AssetName = "Asset 13",
                             BarcodeNumber = "100000000012",
                             Category = 5,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("c3ad68a7-8bee-4eeb-94d5-f271809d5b30"),
+                            AssetID = new Guid("42e905a1-7ed1-43ca-bd0e-07c52a2b8c99"),
                             AssetName = "Asset 14",
                             BarcodeNumber = "100000000013",
                             Category = 6,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("2faace28-cf62-40ad-9ddd-6f1d5ef6f1df"),
+                            AssetID = new Guid("30e5de85-a1e0-487d-aee4-f78298a814ef"),
                             AssetName = "Asset 15",
                             BarcodeNumber = "100000000014",
                             Category = 0,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("6117b27a-03c1-4c40-9ca1-ec69ce505cae"),
+                            AssetID = new Guid("a2ab2024-d27b-4bd8-943d-9f6abd583ccc"),
                             AssetName = "Asset 16",
                             BarcodeNumber = "100000000015",
                             Category = 1,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("04b1b138-6397-4062-9e38-537ca161c1da"),
+                            AssetID = new Guid("0c363f46-1c93-4c78-a37e-81b4e7e5cd06"),
                             AssetName = "Asset 17",
                             BarcodeNumber = "100000000016",
                             Category = 2,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("0ee57408-a701-4710-9bc6-dba6332335cc"),
+                            AssetID = new Guid("642616aa-2303-47fc-8e34-29b78e12fc10"),
                             AssetName = "Asset 18",
                             BarcodeNumber = "100000000017",
                             Category = 3,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("5bc50449-2015-47d7-b4ff-ea4e7f16b024"),
+                            AssetID = new Guid("8167c47f-98c6-4e21-b18c-0bacb8665d35"),
                             AssetName = "Asset 19",
                             BarcodeNumber = "100000000018",
                             Category = 4,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("46c5c2b0-110c-4187-8e2f-13cd9c047c3d"),
+                            AssetID = new Guid("e90edde1-19d9-47bb-bfc2-734b52b5dfb1"),
                             AssetName = "Asset 20",
                             BarcodeNumber = "100000000019",
                             Category = 5,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("7957e8e0-1624-4cfc-9cdc-14909e700120"),
+                            AssetID = new Guid("badf964f-a0ba-4efb-97cc-ba66e5818f09"),
                             AssetName = "Asset 21",
                             BarcodeNumber = "100000000020",
                             Category = 6,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("cee9a32c-614e-4240-8ab7-caff4d4fdbfd"),
+                            AssetID = new Guid("7192db25-a9b2-41ad-9ffd-9f71da552a66"),
                             AssetName = "Asset 22",
                             BarcodeNumber = "100000000021",
                             Category = 0,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("44c62471-a823-4da1-b969-673b33771727"),
+                            AssetID = new Guid("04d69223-7891-4b38-b74a-bbc9cdc54553"),
                             AssetName = "Asset 23",
                             BarcodeNumber = "100000000022",
                             Category = 1,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("be928e80-e187-4c71-8338-5c5f469c14e2"),
+                            AssetID = new Guid("07ec0ff5-8c82-4d25-b0e4-c777753837ca"),
                             AssetName = "Asset 24",
                             BarcodeNumber = "100000000023",
                             Category = 2,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("a0f84582-77e3-462d-860e-66037897df21"),
+                            AssetID = new Guid("b996e44d-e2bb-4474-9ae2-5096361eb0f4"),
                             AssetName = "Asset 25",
                             BarcodeNumber = "100000000024",
                             Category = 3,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("20e09b01-c231-4bb5-b112-9e2b218047da"),
+                            AssetID = new Guid("bbf2ebdd-02a6-4e7a-8c78-468da5893215"),
                             AssetName = "Asset 26",
                             BarcodeNumber = "100000000025",
                             Category = 4,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("b5a5c2ef-ba30-45cd-b69a-7542b6e1225d"),
+                            AssetID = new Guid("797823e5-a0e4-4ad9-90cf-40d6f2feb9a0"),
                             AssetName = "Asset 27",
                             BarcodeNumber = "100000000026",
                             Category = 5,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("d3632d7b-c9e0-4d01-9757-ff659ebbbdd9"),
+                            AssetID = new Guid("3020bb85-ab4f-4018-a9c0-1cc4d6b2bbef"),
                             AssetName = "Asset 28",
                             BarcodeNumber = "100000000027",
                             Category = 6,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("5d3ce4a9-dfe1-4ba5-a024-086aa86fdeb9"),
+                            AssetID = new Guid("72c49d2a-49e0-4a42-996f-00c4b84574c9"),
                             AssetName = "Asset 29",
                             BarcodeNumber = "100000000028",
                             Category = 0,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("a4902ad1-f16a-4186-9291-76caebcf2827"),
+                            AssetID = new Guid("cb8e7509-eb48-4e1d-aff3-7727435ecf1c"),
                             AssetName = "Asset 30",
                             BarcodeNumber = "100000000029",
                             Category = 1,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("78719898-28c7-4e82-ac3c-d7cdbb21b8c4"),
+                            AssetID = new Guid("5f06b624-79cd-46f0-a1b5-eb01a3b33579"),
                             AssetName = "Asset 31",
                             BarcodeNumber = "100000000030",
                             Category = 2,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("5c4bd001-2790-4490-af94-29729ba2211b"),
+                            AssetID = new Guid("c34edb5a-870f-4083-9654-e90546053a37"),
                             AssetName = "Asset 32",
                             BarcodeNumber = "100000000031",
                             Category = 3,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("a1a44f62-3095-4a1a-ba87-cadd4f996fb6"),
+                            AssetID = new Guid("d8a6993c-4c45-4857-b4fe-eecf56081312"),
                             AssetName = "Asset 33",
                             BarcodeNumber = "100000000032",
                             Category = 4,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("81bcca65-038d-4880-9418-ab52a2fe031c"),
+                            AssetID = new Guid("1fb71b9d-4fab-4fd9-80dd-527a30558a96"),
                             AssetName = "Asset 34",
                             BarcodeNumber = "100000000033",
                             Category = 5,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("5bc72dba-f0f6-4197-a6fd-3e26d20fb4e6"),
+                            AssetID = new Guid("691a33fa-daa4-4d12-bc8d-b571dff658b8"),
                             AssetName = "Asset 35",
                             BarcodeNumber = "100000000034",
                             Category = 6,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("4aee48d9-4a25-4d95-a69f-416a46f3e2c8"),
+                            AssetID = new Guid("8f2698c5-18be-422e-8a6c-6a011b765a02"),
                             AssetName = "Asset 36",
                             BarcodeNumber = "100000000035",
                             Category = 0,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("b560b1ab-aa94-477c-957e-b93f96dcf73b"),
+                            AssetID = new Guid("12cedc23-a645-43c2-9fa4-56fc38c4a6eb"),
                             AssetName = "Asset 37",
                             BarcodeNumber = "100000000036",
                             Category = 1,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("92c83e8d-94b6-4c94-86aa-20b78674a960"),
+                            AssetID = new Guid("179cf458-ded2-494f-bdae-d526d9d89920"),
                             AssetName = "Asset 38",
                             BarcodeNumber = "100000000037",
                             Category = 2,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("51b9e1e7-be46-4c8d-b739-b4d13e0731ec"),
+                            AssetID = new Guid("23e20066-9910-4fd0-85b1-2bd688286beb"),
                             AssetName = "Asset 39",
                             BarcodeNumber = "100000000038",
                             Category = 3,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("28d6de2e-d6e5-43b2-bde5-1f7efab0dafc"),
+                            AssetID = new Guid("38efee85-0eb9-479a-89e0-03888e457de8"),
                             AssetName = "Asset 40",
                             BarcodeNumber = "100000000039",
                             Category = 4,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("5f34e2a4-69d7-4a73-8c43-8763221e031c"),
+                            AssetID = new Guid("af87b104-8f2d-451a-ab5b-24e1ea163baf"),
                             AssetName = "Asset 41",
                             BarcodeNumber = "100000000040",
                             Category = 5,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("544a0ef2-14fb-4e36-a7c3-ba5b433b9a8c"),
+                            AssetID = new Guid("90f51d03-d3c0-4518-a08b-bdf7fa88b3a0"),
                             AssetName = "Asset 42",
                             BarcodeNumber = "100000000041",
                             Category = 6,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("56e654fc-6fa0-483b-bc85-51b57cc38062"),
+                            AssetID = new Guid("b43b44e5-eb98-4276-8635-c805bab736c0"),
                             AssetName = "Asset 43",
                             BarcodeNumber = "100000000042",
                             Category = 0,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("66229280-def8-4159-b496-63fa6a4b3863"),
+                            AssetID = new Guid("4b3b7d4b-3767-41c7-a24f-39e3b7381174"),
                             AssetName = "Asset 44",
                             BarcodeNumber = "100000000043",
                             Category = 1,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("3285b21d-9cce-4fe2-bd89-578c31da9e49"),
+                            AssetID = new Guid("bfb8bdc8-42fe-4193-b72e-b727254e67f0"),
                             AssetName = "Asset 45",
                             BarcodeNumber = "100000000044",
                             Category = 2,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("8de70f65-1c32-4860-8b60-73b64054e994"),
+                            AssetID = new Guid("a90e2750-47a4-43c2-a6dd-f0c2da104767"),
                             AssetName = "Asset 46",
                             BarcodeNumber = "100000000045",
                             Category = 3,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("944ec632-8ed2-4b07-b4d5-d44a50cadceb"),
+                            AssetID = new Guid("0a06d3b0-9b9e-4920-b4db-fdface9cb7cd"),
                             AssetName = "Asset 47",
                             BarcodeNumber = "100000000046",
                             Category = 4,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("6e276381-7eb8-4567-8477-645fc84e9cef"),
+                            AssetID = new Guid("bf518c45-2659-4804-8189-09359079ad1e"),
                             AssetName = "Asset 48",
                             BarcodeNumber = "100000000047",
                             Category = 5,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("fbb9028f-315e-4ae5-b63e-c93e3406eb71"),
+                            AssetID = new Guid("83659498-2ca9-487c-aebd-1a94fcbf9d7a"),
                             AssetName = "Asset 49",
                             BarcodeNumber = "100000000048",
                             Category = 6,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("656d70d9-65ad-434e-ba33-79515cc93282"),
+                            AssetID = new Guid("6465bc75-8e76-40a7-bc11-d8291b23b82c"),
                             AssetName = "Asset 50",
                             BarcodeNumber = "100000000049",
                             Category = 0,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("f5a92fa3-1709-4f49-b81d-33b5877b158f"),
+                            AssetID = new Guid("71f1f8d5-7da6-4212-a0a8-e7d3746e0479"),
                             AssetName = "Asset 51",
                             BarcodeNumber = "100000000050",
                             Category = 1,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("2cb82dbd-8391-4046-acf0-8de663e04f36"),
+                            AssetID = new Guid("3f58bd8f-9c9d-45b6-83c6-7727e2f91558"),
                             AssetName = "Asset 52",
                             BarcodeNumber = "100000000051",
                             Category = 2,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("7e4d675e-f94a-40cc-afd0-66a20dbd018c"),
+                            AssetID = new Guid("7778e7a0-b27a-4c0d-abd6-78e95e713fb6"),
                             AssetName = "Asset 53",
                             BarcodeNumber = "100000000052",
                             Category = 3,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("b91e96a7-3994-4636-93fb-3afd9eff757a"),
+                            AssetID = new Guid("2672244a-529f-4e72-b8cd-71668e45ccc3"),
                             AssetName = "Asset 54",
                             BarcodeNumber = "100000000053",
                             Category = 4,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("cab1cee3-26b2-495f-8b4c-136380a02e63"),
+                            AssetID = new Guid("edb8c422-12ea-4898-bf27-b3344ff77383"),
                             AssetName = "Asset 55",
                             BarcodeNumber = "100000000054",
                             Category = 5,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("9d55b16d-14d8-4345-a067-30be4122ccbe"),
+                            AssetID = new Guid("677b4008-6e8f-43c9-9647-b1e56380b6fe"),
                             AssetName = "Asset 56",
                             BarcodeNumber = "100000000055",
                             Category = 6,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("6b4b3744-f22f-4a10-b60d-f87cbb676462"),
+                            AssetID = new Guid("b3345638-1de5-4ffa-8722-5968c7d82308"),
                             AssetName = "Asset 57",
                             BarcodeNumber = "100000000056",
                             Category = 0,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("21ba0292-2cd8-4047-ba5d-184d24a29877"),
+                            AssetID = new Guid("eb796b3d-af54-46ef-b81f-3b01441eaa2a"),
                             AssetName = "Asset 58",
                             BarcodeNumber = "100000000057",
                             Category = 1,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("903fde5f-8b2a-40ea-bfad-1c5be5505831"),
+                            AssetID = new Guid("bee9461b-281c-4ae0-87be-dbceb00df2ba"),
                             AssetName = "Asset 59",
                             BarcodeNumber = "100000000058",
                             Category = 2,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("c7e9d74c-b613-422d-b7ac-6bb8ebd28d59"),
+                            AssetID = new Guid("1948e7d2-c13f-4e12-85f6-a40976c979ab"),
                             AssetName = "Asset 60",
                             BarcodeNumber = "100000000059",
                             Category = 3,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("b09b730f-479d-420a-a4b4-60f0831682a3"),
+                            AssetID = new Guid("0e266d34-a38c-4a28-81c4-8093c84a7197"),
                             AssetName = "Asset 61",
                             BarcodeNumber = "100000000060",
                             Category = 4,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("eaf79b1e-b12a-4ec0-8e48-5e8ff1c3be01"),
+                            AssetID = new Guid("e92a63b9-1191-4639-9f87-ca0c43b51f95"),
                             AssetName = "Asset 62",
                             BarcodeNumber = "100000000061",
                             Category = 5,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("49b158ee-531f-44a6-b4ac-1e5afcc5594b"),
+                            AssetID = new Guid("56aeda3e-e9ac-424a-8339-92b722a819c9"),
                             AssetName = "Asset 63",
                             BarcodeNumber = "100000000062",
                             Category = 6,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("477ae5df-9673-439b-96f6-133ec112527c"),
+                            AssetID = new Guid("d3d06354-56f3-434f-8d32-8afe36ee1260"),
                             AssetName = "Asset 64",
                             BarcodeNumber = "100000000063",
                             Category = 0,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("28349c17-6fd4-4600-a21c-113dbe2647f7"),
+                            AssetID = new Guid("288173c3-c9f1-4b20-b209-2aaecf08ce11"),
                             AssetName = "Asset 65",
                             BarcodeNumber = "100000000064",
                             Category = 1,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("07a7f193-758c-4d54-8d67-5fefea708497"),
+                            AssetID = new Guid("bfdfbd81-5bae-4c27-827b-a7512f1e9ee9"),
                             AssetName = "Asset 66",
                             BarcodeNumber = "100000000065",
                             Category = 2,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("25242f77-fdb8-47d6-80fa-01c226c38a36"),
+                            AssetID = new Guid("0bb2f3fb-76a8-49ec-91d5-8a0e19afd84e"),
                             AssetName = "Asset 67",
                             BarcodeNumber = "100000000066",
                             Category = 3,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         },
                         new
                         {
-                            AssetID = new Guid("9d64707b-ab3f-4516-bce1-bed489adc112"),
+                            AssetID = new Guid("fa5cbabc-2c51-478d-a082-79a5932eae09"),
                             AssetName = "Asset 68",
                             BarcodeNumber = "100000000067",
                             Category = 4,
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a")
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5")
                         },
                         new
                         {
-                            AssetID = new Guid("c1c210aa-03af-41b4-80dc-8a7785eac2bd"),
+                            AssetID = new Guid("5593797c-b0d0-4b1b-b1db-8e33c19dd2e9"),
                             AssetName = "Asset 69",
                             BarcodeNumber = "100000000068",
                             Category = 5,
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf")
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28")
                         },
                         new
                         {
-                            AssetID = new Guid("dc68b9c0-a916-4b63-ac54-c1b5c5983551"),
+                            AssetID = new Guid("a9323ee2-0ab0-4524-b1e9-77f661b11f18"),
                             AssetName = "Asset 70",
                             BarcodeNumber = "100000000069",
                             Category = 6,
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa")
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c")
                         });
                 });
 
@@ -705,17 +705,17 @@ namespace TracklyApi.Migrations
                     b.HasData(
                         new
                         {
-                            DepartmentID = new Guid("3cfda5f3-bf5d-4b9c-a0c0-434b50cdca95"),
+                            DepartmentID = new Guid("d2e101bd-23a0-4424-be64-4fe6dcc08714"),
                             DepartmentName = 0
                         },
                         new
                         {
-                            DepartmentID = new Guid("e28294f2-e9a2-4a73-b902-2f02f2e75e63"),
+                            DepartmentID = new Guid("938db3a8-ae98-4ca0-a5ab-1735bccf8db3"),
                             DepartmentName = 1
                         },
                         new
                         {
-                            DepartmentID = new Guid("6a7a3122-1599-4314-86c0-754e95976fe6"),
+                            DepartmentID = new Guid("c61c45e7-6a78-4239-ac4f-f132354e8962"),
                             DepartmentName = 2
                         });
                 });
@@ -736,17 +736,17 @@ namespace TracklyApi.Migrations
                     b.HasData(
                         new
                         {
-                            LocationID = new Guid("1dae9f97-b3a3-46d2-b5c7-ce367dfc87fa"),
+                            LocationID = new Guid("01a89e40-aef4-4746-b05a-2168cb07ab9c"),
                             LocationName = 0
                         },
                         new
                         {
-                            LocationID = new Guid("4d111e8b-d0a5-44f6-9206-03dceaa4e75a"),
+                            LocationID = new Guid("fa2911ba-ee22-41bd-8ca2-cc5e433716e5"),
                             LocationName = 1
                         },
                         new
                         {
-                            LocationID = new Guid("8d1436a6-8422-4a31-8d6b-0501bcd44abf"),
+                            LocationID = new Guid("99d0249b-9173-4a4d-8395-b4f3203eac28"),
                             LocationName = 2
                         });
                 });
@@ -765,6 +765,9 @@ namespace TracklyApi.Migrations
 
                     b.Property<int>("Category")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("ClosedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -792,10 +795,10 @@ namespace TracklyApi.Migrations
                     b.HasData(
                         new
                         {
-                            TicketId = new Guid("bb7388c0-406a-4591-97fb-6814bb4a40b7"),
-                            AssetID = new Guid("9264bfc7-2a04-41e8-8a82-fc212e003efa"),
+                            TicketId = new Guid("79ccc839-bcdf-4241-84e7-f8d8b6b3064a"),
+                            AssetID = new Guid("aa13da17-47cc-41ee-9c80-36ffb79d6df6"),
                             Category = 0,
-                            CreatedAt = new DateTime(2024, 1, 1, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4651),
+                            CreatedAt = new DateTime(2024, 1, 15, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(2935),
                             Description = "Description for Ticket 1",
                             Priority = 0,
                             Status = 0,
@@ -803,10 +806,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e57fbf48-eaef-4bac-9a5d-769c1073caca"),
-                            AssetID = new Guid("31630389-f081-42c9-9916-d9e0de380e67"),
+                            TicketId = new Guid("c7341000-6714-47f6-8fcf-01a0f3bf776a"),
+                            AssetID = new Guid("64801f5b-1e2a-483d-8b27-4204a6ca6ce3"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 12, 31, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4682),
+                            CreatedAt = new DateTime(2024, 1, 14, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(2951),
                             Description = "Description for Ticket 2",
                             Priority = 1,
                             Status = 1,
@@ -814,10 +817,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("96b86362-f38e-47d8-8957-3a3dbec577ab"),
-                            AssetID = new Guid("c5411f95-3578-4056-9ccc-697bdbcb3444"),
+                            TicketId = new Guid("2bd2ffe9-ab4d-4afa-a9fd-b6368fe78ea8"),
+                            AssetID = new Guid("f30cee27-a0ac-491c-b024-73de7039bb2e"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 12, 30, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4698),
+                            CreatedAt = new DateTime(2024, 1, 13, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(2961),
                             Description = "Description for Ticket 3",
                             Priority = 2,
                             Status = 2,
@@ -825,10 +828,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("333ce836-4ddd-432c-ab18-9f2b426e7a94"),
-                            AssetID = new Guid("a39366ab-52b4-4353-8149-840f0e65fd53"),
+                            TicketId = new Guid("c8e1b3ea-c4cd-46ab-b754-6079d5bae15f"),
+                            AssetID = new Guid("ed7b09b3-e6dd-4e89-8751-0f7929f494c6"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 12, 29, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4717),
+                            CreatedAt = new DateTime(2024, 1, 12, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(2972),
                             Description = "Description for Ticket 4",
                             Priority = 0,
                             Status = 3,
@@ -836,10 +839,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c4f5ec25-8d4e-4fb7-91e7-e453f57f1988"),
-                            AssetID = new Guid("88a02658-6691-49c9-a617-47a3b9cbaa21"),
+                            TicketId = new Guid("49913cb2-37a6-4123-bb9a-8ff0b136d71a"),
+                            AssetID = new Guid("21e66af0-23fa-412a-8f59-107438de1d07"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 12, 28, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4731),
+                            CreatedAt = new DateTime(2024, 1, 11, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(2982),
                             Description = "Description for Ticket 5",
                             Priority = 1,
                             Status = 0,
@@ -847,10 +850,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d92578cf-2af6-4cf0-9415-5c490ea4f8b9"),
-                            AssetID = new Guid("26563f3b-42ff-4eed-8a4a-fb0d03d11ff0"),
+                            TicketId = new Guid("2305b147-b5ae-4d06-86cd-4e0603f4249c"),
+                            AssetID = new Guid("4f465fb3-23e5-4b7f-803c-a94ef1812ce0"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 12, 27, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4746),
+                            CreatedAt = new DateTime(2024, 1, 10, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3032),
                             Description = "Description for Ticket 6",
                             Priority = 2,
                             Status = 1,
@@ -858,10 +861,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c63d8a3b-be4f-41ca-9be8-b8160eebb8aa"),
-                            AssetID = new Guid("db42d35b-dcbe-4ef0-b306-1c1dda9ecc1e"),
+                            TicketId = new Guid("3ddb4b17-b919-4a50-bc74-07c57fb7d434"),
+                            AssetID = new Guid("760f4c2e-2f4d-4e06-a793-aa69c5dd3d23"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 12, 26, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4758),
+                            CreatedAt = new DateTime(2024, 1, 9, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3042),
                             Description = "Description for Ticket 7",
                             Priority = 0,
                             Status = 2,
@@ -869,10 +872,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3a4a5ff5-2b88-4a76-b0a0-69cf0daf4341"),
-                            AssetID = new Guid("62471ddb-07f1-4794-9efc-a33626470605"),
+                            TicketId = new Guid("6fa19560-291d-4828-8eb7-f77866f85763"),
+                            AssetID = new Guid("d4fecb34-670b-43a5-8518-cb650375678a"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 12, 25, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4876),
+                            CreatedAt = new DateTime(2024, 1, 8, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3052),
                             Description = "Description for Ticket 8",
                             Priority = 1,
                             Status = 3,
@@ -880,10 +883,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a7305097-d7ef-4471-8b7f-4a752c029584"),
-                            AssetID = new Guid("548e6919-14cc-4658-b787-c78242286c3d"),
+                            TicketId = new Guid("e461be3e-4da4-48b3-87ba-8f3cfdd25ead"),
+                            AssetID = new Guid("f085def7-2104-4a4a-a386-e5aad89e5c63"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 12, 24, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4896),
+                            CreatedAt = new DateTime(2024, 1, 7, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3062),
                             Description = "Description for Ticket 9",
                             Priority = 2,
                             Status = 0,
@@ -891,10 +894,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e16bbe16-c753-454b-81ca-7c5b79e09dd3"),
-                            AssetID = new Guid("0056b30a-e1df-4efd-bc3e-6093120cb871"),
+                            TicketId = new Guid("a210cfa6-8d6c-422c-8fa0-687d8239b1a7"),
+                            AssetID = new Guid("3644404d-aea7-428d-af2a-7e34ed945f24"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 12, 23, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4914),
+                            CreatedAt = new DateTime(2024, 1, 6, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3074),
                             Description = "Description for Ticket 10",
                             Priority = 0,
                             Status = 1,
@@ -902,10 +905,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b2dfbf9b-33ce-43e7-b676-69c74ffc4b7f"),
-                            AssetID = new Guid("1b2477b5-e225-4f9a-9b8b-e9684e54aa2c"),
+                            TicketId = new Guid("b239830a-a4b9-4a64-a7e4-636372d72a78"),
+                            AssetID = new Guid("d909c885-19de-4e29-b174-55eaa198ddaa"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 12, 22, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4929),
+                            CreatedAt = new DateTime(2024, 1, 5, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3084),
                             Description = "Description for Ticket 11",
                             Priority = 1,
                             Status = 2,
@@ -913,10 +916,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("81689c88-36aa-46c8-9372-f103d7d0a1e1"),
-                            AssetID = new Guid("5f41bf29-aa96-4460-be16-2a106e0798b2"),
+                            TicketId = new Guid("f4559900-5704-497b-b9e2-b5a4527d47ec"),
+                            AssetID = new Guid("24946f50-a702-4208-8e79-a4f695730fd9"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 12, 21, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4949),
+                            CreatedAt = new DateTime(2024, 1, 4, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3094),
                             Description = "Description for Ticket 12",
                             Priority = 2,
                             Status = 3,
@@ -924,10 +927,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5bb03d24-c128-457f-8fbd-4d56fdd3211e"),
-                            AssetID = new Guid("a03d5308-2dbb-40af-a138-277771f7deb6"),
+                            TicketId = new Guid("fb621dcd-b578-4319-a823-4a76e693c3f2"),
+                            AssetID = new Guid("ecb73a43-4a03-4454-a3a3-5a22f746e5a1"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 12, 20, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4963),
+                            CreatedAt = new DateTime(2024, 1, 3, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3104),
                             Description = "Description for Ticket 13",
                             Priority = 0,
                             Status = 0,
@@ -935,10 +938,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b1c3ebaf-8dbd-497e-a6d8-4e0e8bb71d84"),
-                            AssetID = new Guid("c3ad68a7-8bee-4eeb-94d5-f271809d5b30"),
+                            TicketId = new Guid("a70eb39c-7b3a-48cd-9892-7af14f1ac715"),
+                            AssetID = new Guid("42e905a1-7ed1-43ca-bd0e-07c52a2b8c99"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 12, 19, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4976),
+                            CreatedAt = new DateTime(2024, 1, 2, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3117),
                             Description = "Description for Ticket 14",
                             Priority = 1,
                             Status = 1,
@@ -946,10 +949,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ba6eb139-23ce-487b-9a17-4439cad9f7b5"),
-                            AssetID = new Guid("2faace28-cf62-40ad-9ddd-6f1d5ef6f1df"),
+                            TicketId = new Guid("bea0d0a5-082d-4eff-b381-48368f4e1569"),
+                            AssetID = new Guid("30e5de85-a1e0-487d-aee4-f78298a814ef"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 12, 18, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(4990),
+                            CreatedAt = new DateTime(2024, 1, 1, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3127),
                             Description = "Description for Ticket 15",
                             Priority = 2,
                             Status = 2,
@@ -957,10 +960,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("84e59391-c8b3-4a27-978b-ce6c5929285f"),
-                            AssetID = new Guid("6117b27a-03c1-4c40-9ca1-ec69ce505cae"),
+                            TicketId = new Guid("e322df70-8df7-4114-b1bf-2977cc128d43"),
+                            AssetID = new Guid("a2ab2024-d27b-4bd8-943d-9f6abd583ccc"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 12, 17, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5004),
+                            CreatedAt = new DateTime(2023, 12, 31, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3137),
                             Description = "Description for Ticket 16",
                             Priority = 0,
                             Status = 3,
@@ -968,10 +971,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ad85c91e-a7ce-4419-a145-4d7cc84726c3"),
-                            AssetID = new Guid("04b1b138-6397-4062-9e38-537ca161c1da"),
+                            TicketId = new Guid("302ee7cf-5783-4c34-a260-b6cc477fd9d4"),
+                            AssetID = new Guid("0c363f46-1c93-4c78-a37e-81b4e7e5cd06"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 12, 16, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5017),
+                            CreatedAt = new DateTime(2023, 12, 30, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3147),
                             Description = "Description for Ticket 17",
                             Priority = 1,
                             Status = 0,
@@ -979,10 +982,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("eafc3626-e6ed-46e9-b351-4aaf88f6129a"),
-                            AssetID = new Guid("0ee57408-a701-4710-9bc6-dba6332335cc"),
+                            TicketId = new Guid("d4bec176-b35d-434d-83a9-b74c9e4ca9de"),
+                            AssetID = new Guid("642616aa-2303-47fc-8e34-29b78e12fc10"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 12, 15, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5100),
+                            CreatedAt = new DateTime(2023, 12, 29, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3159),
                             Description = "Description for Ticket 18",
                             Priority = 2,
                             Status = 1,
@@ -990,10 +993,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("512b2e42-142c-45a2-aac1-f485dbc522c4"),
-                            AssetID = new Guid("5bc50449-2015-47d7-b4ff-ea4e7f16b024"),
+                            TicketId = new Guid("10c8ea46-57dc-4f87-a40c-c63c434ab2df"),
+                            AssetID = new Guid("8167c47f-98c6-4e21-b18c-0bacb8665d35"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 12, 14, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5114),
+                            CreatedAt = new DateTime(2023, 12, 28, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3169),
                             Description = "Description for Ticket 19",
                             Priority = 0,
                             Status = 2,
@@ -1001,10 +1004,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3cb6faa1-58b5-4702-a7fa-c43b8028cd0c"),
-                            AssetID = new Guid("46c5c2b0-110c-4187-8e2f-13cd9c047c3d"),
+                            TicketId = new Guid("58961502-dc15-4ed7-8497-9fba9826c024"),
+                            AssetID = new Guid("e90edde1-19d9-47bb-bfc2-734b52b5dfb1"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 12, 13, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5131),
+                            CreatedAt = new DateTime(2023, 12, 27, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3179),
                             Description = "Description for Ticket 20",
                             Priority = 1,
                             Status = 3,
@@ -1012,10 +1015,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("74c06a7a-6e47-4998-81e3-7dbbc6390eec"),
-                            AssetID = new Guid("7957e8e0-1624-4cfc-9cdc-14909e700120"),
+                            TicketId = new Guid("6394fe4d-5def-462e-aafb-3cdc97d887cc"),
+                            AssetID = new Guid("badf964f-a0ba-4efb-97cc-ba66e5818f09"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 12, 12, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5143),
+                            CreatedAt = new DateTime(2023, 12, 26, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3188),
                             Description = "Description for Ticket 21",
                             Priority = 2,
                             Status = 0,
@@ -1023,10 +1026,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e039c88e-f7b7-47ac-9047-0deb3e6991ed"),
-                            AssetID = new Guid("cee9a32c-614e-4240-8ab7-caff4d4fdbfd"),
+                            TicketId = new Guid("5d14abf7-2ef4-41a8-b6e2-3727a9c4e715"),
+                            AssetID = new Guid("7192db25-a9b2-41ad-9ffd-9f71da552a66"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 12, 11, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5155),
+                            CreatedAt = new DateTime(2023, 12, 25, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3201),
                             Description = "Description for Ticket 22",
                             Priority = 0,
                             Status = 1,
@@ -1034,10 +1037,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6ce58b0d-7ca1-42e4-a125-11151f84ee6b"),
-                            AssetID = new Guid("44c62471-a823-4da1-b969-673b33771727"),
+                            TicketId = new Guid("9a1c6ec2-2166-48fc-948e-faf8f2ecb85c"),
+                            AssetID = new Guid("04d69223-7891-4b38-b74a-bbc9cdc54553"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 12, 10, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5167),
+                            CreatedAt = new DateTime(2023, 12, 24, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3211),
                             Description = "Description for Ticket 23",
                             Priority = 1,
                             Status = 2,
@@ -1045,10 +1048,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("90ceaae6-cbed-43a3-b7c7-00ead83a6a68"),
-                            AssetID = new Guid("be928e80-e187-4c71-8338-5c5f469c14e2"),
+                            TicketId = new Guid("f4e2ed2c-ce34-4fb4-ad97-4ea734f99baf"),
+                            AssetID = new Guid("07ec0ff5-8c82-4d25-b0e4-c777753837ca"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 12, 9, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5179),
+                            CreatedAt = new DateTime(2023, 12, 23, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3221),
                             Description = "Description for Ticket 24",
                             Priority = 2,
                             Status = 3,
@@ -1056,10 +1059,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fae91161-b85a-476d-8199-97754b8e1c68"),
-                            AssetID = new Guid("a0f84582-77e3-462d-860e-66037897df21"),
+                            TicketId = new Guid("23178a09-3c03-4548-b70b-713723413315"),
+                            AssetID = new Guid("b996e44d-e2bb-4474-9ae2-5096361eb0f4"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 12, 8, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5191),
+                            CreatedAt = new DateTime(2023, 12, 22, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3231),
                             Description = "Description for Ticket 25",
                             Priority = 0,
                             Status = 0,
@@ -1067,10 +1070,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("9b938d3d-85c1-4f05-8133-dad3b9d5472e"),
-                            AssetID = new Guid("20e09b01-c231-4bb5-b112-9e2b218047da"),
+                            TicketId = new Guid("e9cc7d08-ba1a-4d68-90ae-b69809962f1d"),
+                            AssetID = new Guid("bbf2ebdd-02a6-4e7a-8c78-468da5893215"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 12, 7, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5202),
+                            CreatedAt = new DateTime(2023, 12, 21, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3241),
                             Description = "Description for Ticket 26",
                             Priority = 1,
                             Status = 1,
@@ -1078,10 +1081,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("09ce97a3-7dc1-440e-a8d6-f5965670bb7e"),
-                            AssetID = new Guid("b5a5c2ef-ba30-45cd-b69a-7542b6e1225d"),
+                            TicketId = new Guid("a31aba22-5176-4359-adb0-fe38a1a7d3e7"),
+                            AssetID = new Guid("797823e5-a0e4-4ad9-90cf-40d6f2feb9a0"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 12, 6, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5215),
+                            CreatedAt = new DateTime(2023, 12, 20, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3281),
                             Description = "Description for Ticket 27",
                             Priority = 2,
                             Status = 2,
@@ -1089,10 +1092,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("47718485-ea5e-4f21-bc30-6ac06ca4e614"),
-                            AssetID = new Guid("d3632d7b-c9e0-4d01-9757-ff659ebbbdd9"),
+                            TicketId = new Guid("6c3146d7-f619-4e08-b6fd-715e31bc4c57"),
+                            AssetID = new Guid("3020bb85-ab4f-4018-a9c0-1cc4d6b2bbef"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 12, 5, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5230),
+                            CreatedAt = new DateTime(2023, 12, 19, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3291),
                             Description = "Description for Ticket 28",
                             Priority = 0,
                             Status = 3,
@@ -1100,10 +1103,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f0c4bd33-5520-41eb-88b1-34e05635f153"),
-                            AssetID = new Guid("5d3ce4a9-dfe1-4ba5-a024-086aa86fdeb9"),
+                            TicketId = new Guid("040e88bb-1fea-409b-bde5-cd2a21d687b7"),
+                            AssetID = new Guid("72c49d2a-49e0-4a42-996f-00c4b84574c9"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 12, 4, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5243),
+                            CreatedAt = new DateTime(2023, 12, 18, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3301),
                             Description = "Description for Ticket 29",
                             Priority = 1,
                             Status = 0,
@@ -1111,10 +1114,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c4098849-80b3-4461-bcc2-81b37efb5bb3"),
-                            AssetID = new Guid("a4902ad1-f16a-4186-9291-76caebcf2827"),
+                            TicketId = new Guid("7a7feb72-3eec-40f6-8556-1b6acc13ab8b"),
+                            AssetID = new Guid("cb8e7509-eb48-4e1d-aff3-7727435ecf1c"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 12, 3, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5255),
+                            CreatedAt = new DateTime(2023, 12, 17, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3315),
                             Description = "Description for Ticket 30",
                             Priority = 2,
                             Status = 1,
@@ -1122,10 +1125,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("2df71499-4b15-4a5d-92e8-de04750ff8cb"),
-                            AssetID = new Guid("78719898-28c7-4e82-ac3c-d7cdbb21b8c4"),
+                            TicketId = new Guid("83ae44be-b748-4a80-af62-2927d756e429"),
+                            AssetID = new Guid("5f06b624-79cd-46f0-a1b5-eb01a3b33579"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 12, 2, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5267),
+                            CreatedAt = new DateTime(2023, 12, 16, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3325),
                             Description = "Description for Ticket 31",
                             Priority = 0,
                             Status = 2,
@@ -1133,10 +1136,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a2b82ae6-3a04-441f-9d09-1f34be82b6c7"),
-                            AssetID = new Guid("5c4bd001-2790-4490-af94-29729ba2211b"),
+                            TicketId = new Guid("64308d4d-fb2a-465b-9a31-b7ec32325ae3"),
+                            AssetID = new Guid("c34edb5a-870f-4083-9654-e90546053a37"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 12, 1, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5279),
+                            CreatedAt = new DateTime(2023, 12, 15, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3335),
                             Description = "Description for Ticket 32",
                             Priority = 1,
                             Status = 3,
@@ -1144,10 +1147,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b78b632a-8304-428e-a59f-0d354e059513"),
-                            AssetID = new Guid("a1a44f62-3095-4a1a-ba87-cadd4f996fb6"),
+                            TicketId = new Guid("87f0bea7-4339-4ffd-a198-52dc44de7204"),
+                            AssetID = new Guid("d8a6993c-4c45-4857-b4fe-eecf56081312"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 11, 30, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5292),
+                            CreatedAt = new DateTime(2023, 12, 14, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3345),
                             Description = "Description for Ticket 33",
                             Priority = 2,
                             Status = 0,
@@ -1155,10 +1158,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e3f1d1c0-bcef-4bf7-962b-b628757b4f34"),
-                            AssetID = new Guid("81bcca65-038d-4880-9418-ab52a2fe031c"),
+                            TicketId = new Guid("82cb60ab-0d7c-43dd-bd55-bb3f86db85e4"),
+                            AssetID = new Guid("1fb71b9d-4fab-4fd9-80dd-527a30558a96"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 11, 29, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5307),
+                            CreatedAt = new DateTime(2023, 12, 13, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3357),
                             Description = "Description for Ticket 34",
                             Priority = 0,
                             Status = 1,
@@ -1166,10 +1169,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("53a49455-34a2-440e-b47b-ce0e1681a119"),
-                            AssetID = new Guid("5bc72dba-f0f6-4197-a6fd-3e26d20fb4e6"),
+                            TicketId = new Guid("e017e87d-f1a6-4646-a5a0-a76e4d0bf861"),
+                            AssetID = new Guid("691a33fa-daa4-4d12-bc8d-b571dff658b8"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 11, 28, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5319),
+                            CreatedAt = new DateTime(2023, 12, 12, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3367),
                             Description = "Description for Ticket 35",
                             Priority = 1,
                             Status = 2,
@@ -1177,10 +1180,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("656f4c98-f08b-4cc7-812f-7e1311db632d"),
-                            AssetID = new Guid("4aee48d9-4a25-4d95-a69f-416a46f3e2c8"),
+                            TicketId = new Guid("b9dc21d0-ad75-40da-affc-b0d0de990cfc"),
+                            AssetID = new Guid("8f2698c5-18be-422e-8a6c-6a011b765a02"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 11, 27, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5335),
+                            CreatedAt = new DateTime(2023, 12, 11, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3377),
                             Description = "Description for Ticket 36",
                             Priority = 2,
                             Status = 3,
@@ -1188,10 +1191,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3d1db4ee-03e6-4d03-86b0-09d977101ce2"),
-                            AssetID = new Guid("b560b1ab-aa94-477c-957e-b93f96dcf73b"),
+                            TicketId = new Guid("3c2fe821-85ac-4fc4-b665-0d100f0f5412"),
+                            AssetID = new Guid("12cedc23-a645-43c2-9fa4-56fc38c4a6eb"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 11, 26, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5347),
+                            CreatedAt = new DateTime(2023, 12, 10, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3387),
                             Description = "Description for Ticket 37",
                             Priority = 0,
                             Status = 0,
@@ -1199,10 +1202,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c417d87d-5e42-4659-8201-4ed028a7a1cb"),
-                            AssetID = new Guid("92c83e8d-94b6-4c94-86aa-20b78674a960"),
+                            TicketId = new Guid("4af9f86e-208b-4811-a992-adf829fcb133"),
+                            AssetID = new Guid("179cf458-ded2-494f-bdae-d526d9d89920"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 11, 25, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5359),
+                            CreatedAt = new DateTime(2023, 12, 9, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3400),
                             Description = "Description for Ticket 38",
                             Priority = 1,
                             Status = 1,
@@ -1210,10 +1213,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("29325b2a-92c3-40b6-adaa-03206ed7f70c"),
-                            AssetID = new Guid("51b9e1e7-be46-4c8d-b739-b4d13e0731ec"),
+                            TicketId = new Guid("78db41f8-4875-4897-b0bd-66005aae3091"),
+                            AssetID = new Guid("23e20066-9910-4fd0-85b1-2bd688286beb"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 11, 24, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5371),
+                            CreatedAt = new DateTime(2023, 12, 8, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3409),
                             Description = "Description for Ticket 39",
                             Priority = 2,
                             Status = 2,
@@ -1221,10 +1224,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b5b57016-c5c4-45cc-9f8f-ab40427252f7"),
-                            AssetID = new Guid("28d6de2e-d6e5-43b2-bde5-1f7efab0dafc"),
+                            TicketId = new Guid("762447b4-2fc0-4406-810e-a9b054814498"),
+                            AssetID = new Guid("38efee85-0eb9-479a-89e0-03888e457de8"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 11, 23, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5434),
+                            CreatedAt = new DateTime(2023, 12, 7, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3420),
                             Description = "Description for Ticket 40",
                             Priority = 0,
                             Status = 3,
@@ -1232,10 +1235,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("588af101-54f8-4407-b606-bfab4bf14e1e"),
-                            AssetID = new Guid("5f34e2a4-69d7-4a73-8c43-8763221e031c"),
+                            TicketId = new Guid("bb1cd66f-2df1-4fe8-b651-a666b92d4704"),
+                            AssetID = new Guid("af87b104-8f2d-451a-ab5b-24e1ea163baf"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 11, 22, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5447),
+                            CreatedAt = new DateTime(2023, 12, 6, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3430),
                             Description = "Description for Ticket 41",
                             Priority = 1,
                             Status = 0,
@@ -1243,10 +1246,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c2130614-4843-4593-b448-82a18b77ebd0"),
-                            AssetID = new Guid("544a0ef2-14fb-4e36-a7c3-ba5b433b9a8c"),
+                            TicketId = new Guid("351db178-f85c-42cd-b61d-c93c772e007f"),
+                            AssetID = new Guid("90f51d03-d3c0-4518-a08b-bdf7fa88b3a0"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 11, 21, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5459),
+                            CreatedAt = new DateTime(2023, 12, 5, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3439),
                             Description = "Description for Ticket 42",
                             Priority = 2,
                             Status = 1,
@@ -1254,10 +1257,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("db6c9ac7-a9f6-4ba2-aec4-eb8643238882"),
-                            AssetID = new Guid("56e654fc-6fa0-483b-bc85-51b57cc38062"),
+                            TicketId = new Guid("611e2bb9-607b-431a-8962-d97732527a3d"),
+                            AssetID = new Guid("b43b44e5-eb98-4276-8635-c805bab736c0"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 11, 20, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5470),
+                            CreatedAt = new DateTime(2023, 12, 4, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3449),
                             Description = "Description for Ticket 43",
                             Priority = 0,
                             Status = 2,
@@ -1265,10 +1268,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5932678d-41db-4e95-82d0-a52ee890a8d5"),
-                            AssetID = new Guid("66229280-def8-4159-b496-63fa6a4b3863"),
+                            TicketId = new Guid("32cbce1e-40e3-4a55-9080-89017861c503"),
+                            AssetID = new Guid("4b3b7d4b-3767-41c7-a24f-39e3b7381174"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 11, 19, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5486),
+                            CreatedAt = new DateTime(2023, 12, 3, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3459),
                             Description = "Description for Ticket 44",
                             Priority = 1,
                             Status = 3,
@@ -1276,10 +1279,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f0abba3a-7c03-44cd-9b94-b17d64afcbe8"),
-                            AssetID = new Guid("3285b21d-9cce-4fe2-bd89-578c31da9e49"),
+                            TicketId = new Guid("6f4bf005-13f8-473f-b05c-7b79a0cf8dc7"),
+                            AssetID = new Guid("bfb8bdc8-42fe-4193-b72e-b727254e67f0"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 11, 18, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5499),
+                            CreatedAt = new DateTime(2023, 12, 2, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3469),
                             Description = "Description for Ticket 45",
                             Priority = 2,
                             Status = 0,
@@ -1287,10 +1290,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a963f362-1985-4a8d-bf6e-8624ffa88f68"),
-                            AssetID = new Guid("8de70f65-1c32-4860-8b60-73b64054e994"),
+                            TicketId = new Guid("1efb118b-1506-4cbf-8dae-50f6a784bfd2"),
+                            AssetID = new Guid("a90e2750-47a4-43c2-a6dd-f0c2da104767"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 11, 17, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5511),
+                            CreatedAt = new DateTime(2023, 12, 1, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3482),
                             Description = "Description for Ticket 46",
                             Priority = 0,
                             Status = 1,
@@ -1298,10 +1301,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("8b628c40-4cb1-4290-8819-5e887000a76f"),
-                            AssetID = new Guid("944ec632-8ed2-4b07-b4d5-d44a50cadceb"),
+                            TicketId = new Guid("01e60e5a-21a1-4bf3-9634-f526251103e6"),
+                            AssetID = new Guid("0a06d3b0-9b9e-4920-b4db-fdface9cb7cd"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 11, 16, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5524),
+                            CreatedAt = new DateTime(2023, 11, 30, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3493),
                             Description = "Description for Ticket 47",
                             Priority = 1,
                             Status = 2,
@@ -1309,10 +1312,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("44535567-ca6b-4066-a98b-617e00aab0ac"),
-                            AssetID = new Guid("6e276381-7eb8-4567-8477-645fc84e9cef"),
+                            TicketId = new Guid("0728111e-0ce0-432b-b45a-ada05a624fbe"),
+                            AssetID = new Guid("bf518c45-2659-4804-8189-09359079ad1e"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 11, 15, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5541),
+                            CreatedAt = new DateTime(2023, 11, 29, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3503),
                             Description = "Description for Ticket 48",
                             Priority = 2,
                             Status = 3,
@@ -1320,10 +1323,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a63d1f9a-8fd9-431b-85ff-3cf585b3fa39"),
-                            AssetID = new Guid("fbb9028f-315e-4ae5-b63e-c93e3406eb71"),
+                            TicketId = new Guid("0bb21c1f-63da-424a-80aa-c6519e0f4245"),
+                            AssetID = new Guid("83659498-2ca9-487c-aebd-1a94fcbf9d7a"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 11, 14, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5554),
+                            CreatedAt = new DateTime(2023, 11, 28, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3544),
                             Description = "Description for Ticket 49",
                             Priority = 0,
                             Status = 0,
@@ -1331,10 +1334,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b2e11e21-3e37-41c5-85f2-7c35b320cdbf"),
-                            AssetID = new Guid("656d70d9-65ad-434e-ba33-79515cc93282"),
+                            TicketId = new Guid("5bf19957-7efc-4a6d-8015-1cec85c1079e"),
+                            AssetID = new Guid("6465bc75-8e76-40a7-bc11-d8291b23b82c"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 11, 13, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5568),
+                            CreatedAt = new DateTime(2023, 11, 27, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3554),
                             Description = "Description for Ticket 50",
                             Priority = 1,
                             Status = 1,
@@ -1342,10 +1345,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("aa7c1177-3666-467f-b5a6-989d16203e4e"),
-                            AssetID = new Guid("f5a92fa3-1709-4f49-b81d-33b5877b158f"),
+                            TicketId = new Guid("26776a3f-acc9-4058-b5ee-6fdaca00429e"),
+                            AssetID = new Guid("71f1f8d5-7da6-4212-a0a8-e7d3746e0479"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 11, 12, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5580),
+                            CreatedAt = new DateTime(2023, 11, 26, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3564),
                             Description = "Description for Ticket 51",
                             Priority = 2,
                             Status = 2,
@@ -1353,10 +1356,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("98926671-e215-42d6-a241-34932d4e21fb"),
-                            AssetID = new Guid("2cb82dbd-8391-4046-acf0-8de663e04f36"),
+                            TicketId = new Guid("7ccf74e9-79b8-4cac-b860-ea210f17677a"),
+                            AssetID = new Guid("3f58bd8f-9c9d-45b6-83c6-7727e2f91558"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 11, 11, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5596),
+                            CreatedAt = new DateTime(2023, 11, 25, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3574),
                             Description = "Description for Ticket 52",
                             Priority = 0,
                             Status = 3,
@@ -1364,10 +1367,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("733d0080-b8ed-4c5e-aba5-2fbb0f9ef85a"),
-                            AssetID = new Guid("7e4d675e-f94a-40cc-afd0-66a20dbd018c"),
+                            TicketId = new Guid("c85b0c7b-65f7-43d9-b7eb-8ae6dddfd1e7"),
+                            AssetID = new Guid("7778e7a0-b27a-4c0d-abd6-78e95e713fb6"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 11, 10, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5610),
+                            CreatedAt = new DateTime(2023, 11, 24, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3584),
                             Description = "Description for Ticket 53",
                             Priority = 1,
                             Status = 0,
@@ -1375,10 +1378,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("8c1c24dd-ec02-41b1-bc6d-7eb79cc5cccf"),
-                            AssetID = new Guid("b91e96a7-3994-4636-93fb-3afd9eff757a"),
+                            TicketId = new Guid("65cf946c-a6d9-4d8b-b55d-9889bda5368c"),
+                            AssetID = new Guid("2672244a-529f-4e72-b8cd-71668e45ccc3"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 11, 9, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5623),
+                            CreatedAt = new DateTime(2023, 11, 23, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3597),
                             Description = "Description for Ticket 54",
                             Priority = 2,
                             Status = 1,
@@ -1386,10 +1389,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e8921ee4-1fd9-49e5-bdfa-78341c189161"),
-                            AssetID = new Guid("cab1cee3-26b2-495f-8b4c-136380a02e63"),
+                            TicketId = new Guid("b4ac387d-d610-4aaf-a356-4e498178cc3f"),
+                            AssetID = new Guid("edb8c422-12ea-4898-bf27-b3344ff77383"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 11, 8, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5637),
+                            CreatedAt = new DateTime(2023, 11, 22, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3607),
                             Description = "Description for Ticket 55",
                             Priority = 0,
                             Status = 2,
@@ -1397,10 +1400,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("221b1f2b-638e-4f99-97f0-aead23d2a183"),
-                            AssetID = new Guid("9d55b16d-14d8-4345-a067-30be4122ccbe"),
+                            TicketId = new Guid("d9b336cd-b089-477b-8027-e10fd4f12dfe"),
+                            AssetID = new Guid("677b4008-6e8f-43c9-9647-b1e56380b6fe"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 11, 7, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5650),
+                            CreatedAt = new DateTime(2023, 11, 21, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3617),
                             Description = "Description for Ticket 56",
                             Priority = 1,
                             Status = 3,
@@ -1408,10 +1411,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("cfada576-d255-4e3f-bbc1-b4da144c610c"),
-                            AssetID = new Guid("6b4b3744-f22f-4a10-b60d-f87cbb676462"),
+                            TicketId = new Guid("3638b252-51eb-40fd-a956-0e68ae3c3ace"),
+                            AssetID = new Guid("b3345638-1de5-4ffa-8722-5968c7d82308"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 11, 6, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5663),
+                            CreatedAt = new DateTime(2023, 11, 20, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3627),
                             Description = "Description for Ticket 57",
                             Priority = 2,
                             Status = 0,
@@ -1419,10 +1422,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ab3147e9-cfff-476a-a2a9-ff58e73426ed"),
-                            AssetID = new Guid("21ba0292-2cd8-4047-ba5d-184d24a29877"),
+                            TicketId = new Guid("398ae877-e4c8-42e4-a278-3bcc60ad5ef8"),
+                            AssetID = new Guid("eb796b3d-af54-46ef-b81f-3b01441eaa2a"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 11, 5, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5675),
+                            CreatedAt = new DateTime(2023, 11, 19, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3637),
                             Description = "Description for Ticket 58",
                             Priority = 0,
                             Status = 1,
@@ -1430,10 +1433,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("66520326-8f13-48d6-98a7-a95ba6dda57e"),
-                            AssetID = new Guid("903fde5f-8b2a-40ea-bfad-1c5be5505831"),
+                            TicketId = new Guid("945f802d-6341-4572-80db-cb4b99d4d819"),
+                            AssetID = new Guid("bee9461b-281c-4ae0-87be-dbceb00df2ba"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 11, 4, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5686),
+                            CreatedAt = new DateTime(2023, 11, 18, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3647),
                             Description = "Description for Ticket 59",
                             Priority = 1,
                             Status = 2,
@@ -1441,10 +1444,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7197b1e8-9848-4316-91c9-e7a975974168"),
-                            AssetID = new Guid("c7e9d74c-b613-422d-b7ac-6bb8ebd28d59"),
+                            TicketId = new Guid("ec288dd2-bf28-41bc-94d0-bd644b0f6098"),
+                            AssetID = new Guid("1948e7d2-c13f-4e12-85f6-a40976c979ab"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 11, 3, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5703),
+                            CreatedAt = new DateTime(2023, 11, 17, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3657),
                             Description = "Description for Ticket 60",
                             Priority = 2,
                             Status = 3,
@@ -1452,10 +1455,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("03bd545a-6af4-4b58-b564-65e10c7ac151"),
-                            AssetID = new Guid("b09b730f-479d-420a-a4b4-60f0831682a3"),
+                            TicketId = new Guid("d96d54b9-937f-47ad-ae25-c1e315130ba3"),
+                            AssetID = new Guid("0e266d34-a38c-4a28-81c4-8093c84a7197"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 11, 2, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5715),
+                            CreatedAt = new DateTime(2023, 11, 16, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3667),
                             Description = "Description for Ticket 61",
                             Priority = 0,
                             Status = 0,
@@ -1463,10 +1466,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("51f128f0-432e-49e5-b59a-2bc8882be4c6"),
-                            AssetID = new Guid("eaf79b1e-b12a-4ec0-8e48-5e8ff1c3be01"),
+                            TicketId = new Guid("ab0bb31c-b598-4fa4-80ab-ade093637d70"),
+                            AssetID = new Guid("e92a63b9-1191-4639-9f87-ca0c43b51f95"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 11, 1, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5728),
+                            CreatedAt = new DateTime(2023, 11, 15, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3680),
                             Description = "Description for Ticket 62",
                             Priority = 1,
                             Status = 1,
@@ -1474,10 +1477,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7ba47b93-2917-4eb9-b3b1-23c1408b7098"),
-                            AssetID = new Guid("49b158ee-531f-44a6-b4ac-1e5afcc5594b"),
+                            TicketId = new Guid("99208732-97d2-4def-af75-beffc623190a"),
+                            AssetID = new Guid("56aeda3e-e9ac-424a-8339-92b722a819c9"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 10, 31, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5776),
+                            CreatedAt = new DateTime(2023, 11, 14, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3690),
                             Description = "Description for Ticket 63",
                             Priority = 2,
                             Status = 2,
@@ -1485,10 +1488,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a9ddcc7d-75a9-4e35-93f3-19f1a50317f7"),
-                            AssetID = new Guid("477ae5df-9673-439b-96f6-133ec112527c"),
+                            TicketId = new Guid("a55e322d-fdef-4f13-8d9e-9de1346563c2"),
+                            AssetID = new Guid("d3d06354-56f3-434f-8d32-8afe36ee1260"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 10, 30, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5792),
+                            CreatedAt = new DateTime(2023, 11, 13, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3700),
                             Description = "Description for Ticket 64",
                             Priority = 0,
                             Status = 3,
@@ -1496,10 +1499,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f4bdbe20-3ab7-4428-bb32-f91992811328"),
-                            AssetID = new Guid("28349c17-6fd4-4600-a21c-113dbe2647f7"),
+                            TicketId = new Guid("320828b6-ac2f-4aa1-bb29-78378dd3d9cd"),
+                            AssetID = new Guid("288173c3-c9f1-4b20-b209-2aaecf08ce11"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 10, 29, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5806),
+                            CreatedAt = new DateTime(2023, 11, 12, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3709),
                             Description = "Description for Ticket 65",
                             Priority = 1,
                             Status = 0,
@@ -1507,10 +1510,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f2a53b02-abda-421f-b084-cd8c97fabe3c"),
-                            AssetID = new Guid("07a7f193-758c-4d54-8d67-5fefea708497"),
+                            TicketId = new Guid("c7c670bc-9e48-42fa-8f85-0eabad0372f7"),
+                            AssetID = new Guid("bfdfbd81-5bae-4c27-827b-a7512f1e9ee9"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 10, 28, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5824),
+                            CreatedAt = new DateTime(2023, 11, 11, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3721),
                             Description = "Description for Ticket 66",
                             Priority = 2,
                             Status = 1,
@@ -1518,10 +1521,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ce17553e-55e4-4f5e-bbaa-268928ec83fb"),
-                            AssetID = new Guid("25242f77-fdb8-47d6-80fa-01c226c38a36"),
+                            TicketId = new Guid("c5147915-0e2b-4c42-9830-58bcc78d0cf6"),
+                            AssetID = new Guid("0bb2f3fb-76a8-49ec-91d5-8a0e19afd84e"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 10, 27, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5835),
+                            CreatedAt = new DateTime(2023, 11, 10, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3730),
                             Description = "Description for Ticket 67",
                             Priority = 0,
                             Status = 2,
@@ -1529,10 +1532,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("9e8a2f62-8acd-472a-8294-e00f1f41b2ea"),
-                            AssetID = new Guid("9d64707b-ab3f-4516-bce1-bed489adc112"),
+                            TicketId = new Guid("01e77836-d342-4f9f-a4f8-c87388a04507"),
+                            AssetID = new Guid("fa5cbabc-2c51-478d-a082-79a5932eae09"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 10, 26, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5851),
+                            CreatedAt = new DateTime(2023, 11, 9, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3770),
                             Description = "Description for Ticket 68",
                             Priority = 1,
                             Status = 3,
@@ -1540,10 +1543,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5d145f8a-f195-4cb1-b006-7cea623487b1"),
-                            AssetID = new Guid("c1c210aa-03af-41b4-80dc-8a7785eac2bd"),
+                            TicketId = new Guid("47a7ee6e-9f69-4019-a30f-a3bb2ff77134"),
+                            AssetID = new Guid("5593797c-b0d0-4b1b-b1db-8e33c19dd2e9"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 10, 25, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5863),
+                            CreatedAt = new DateTime(2023, 11, 8, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3780),
                             Description = "Description for Ticket 69",
                             Priority = 2,
                             Status = 0,
@@ -1551,10 +1554,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("65853766-f1f2-4980-8c66-e0aa623ce2f2"),
-                            AssetID = new Guid("dc68b9c0-a916-4b63-ac54-c1b5c5983551"),
+                            TicketId = new Guid("f5d2ba06-6d3b-4a08-bcb7-6a98679134d5"),
+                            AssetID = new Guid("a9323ee2-0ab0-4524-b1e9-77f661b11f18"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 10, 24, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5875),
+                            CreatedAt = new DateTime(2023, 11, 7, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3793),
                             Description = "Description for Ticket 70",
                             Priority = 0,
                             Status = 1,
@@ -1562,10 +1565,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ac7cb728-d9b2-4871-9af5-d4fd3a438d34"),
-                            AssetID = new Guid("9264bfc7-2a04-41e8-8a82-fc212e003efa"),
+                            TicketId = new Guid("0109201e-26dc-4c68-9751-8de60c3ef193"),
+                            AssetID = new Guid("aa13da17-47cc-41ee-9c80-36ffb79d6df6"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 10, 23, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5887),
+                            CreatedAt = new DateTime(2023, 11, 6, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3803),
                             Description = "Description for Ticket 71",
                             Priority = 1,
                             Status = 2,
@@ -1573,10 +1576,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b641e944-d789-42d6-b02b-18b7479fae4b"),
-                            AssetID = new Guid("31630389-f081-42c9-9916-d9e0de380e67"),
+                            TicketId = new Guid("1c63a2ec-22e9-4ad1-acab-4da04cba8123"),
+                            AssetID = new Guid("64801f5b-1e2a-483d-8b27-4204a6ca6ce3"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 10, 22, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5900),
+                            CreatedAt = new DateTime(2023, 11, 5, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3813),
                             Description = "Description for Ticket 72",
                             Priority = 2,
                             Status = 3,
@@ -1584,10 +1587,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("546a7f40-790a-4d9a-8671-9facddaac0fe"),
-                            AssetID = new Guid("c5411f95-3578-4056-9ccc-697bdbcb3444"),
+                            TicketId = new Guid("077c77d9-4605-476c-952c-9f85e7a49909"),
+                            AssetID = new Guid("f30cee27-a0ac-491c-b024-73de7039bb2e"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 10, 21, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5912),
+                            CreatedAt = new DateTime(2023, 11, 4, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3823),
                             Description = "Description for Ticket 73",
                             Priority = 0,
                             Status = 0,
@@ -1595,10 +1598,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5e528668-3be3-40ac-a84e-17389f3e1a1e"),
-                            AssetID = new Guid("a39366ab-52b4-4353-8149-840f0e65fd53"),
+                            TicketId = new Guid("28039fe3-34a3-4a3e-ac3d-555597fac2f0"),
+                            AssetID = new Guid("ed7b09b3-e6dd-4e89-8751-0f7929f494c6"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 10, 20, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5926),
+                            CreatedAt = new DateTime(2023, 11, 3, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3833),
                             Description = "Description for Ticket 74",
                             Priority = 1,
                             Status = 1,
@@ -1606,10 +1609,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("342d7a58-795e-48cc-a50d-f15788769d12"),
-                            AssetID = new Guid("88a02658-6691-49c9-a617-47a3b9cbaa21"),
+                            TicketId = new Guid("82412765-316d-4115-b0f7-9fdb80a86207"),
+                            AssetID = new Guid("21e66af0-23fa-412a-8f59-107438de1d07"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 10, 19, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5939),
+                            CreatedAt = new DateTime(2023, 11, 2, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3843),
                             Description = "Description for Ticket 75",
                             Priority = 2,
                             Status = 2,
@@ -1617,10 +1620,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7bc71534-4e59-49a9-a096-62f55708559a"),
-                            AssetID = new Guid("26563f3b-42ff-4eed-8a4a-fb0d03d11ff0"),
+                            TicketId = new Guid("8ffaf720-b3a3-4428-9ef2-3e91126f75ee"),
+                            AssetID = new Guid("4f465fb3-23e5-4b7f-803c-a94ef1812ce0"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 10, 18, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5956),
+                            CreatedAt = new DateTime(2023, 11, 1, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3852),
                             Description = "Description for Ticket 76",
                             Priority = 0,
                             Status = 3,
@@ -1628,10 +1631,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("aa1f47ac-8832-45b9-9566-1ef9e01f9e5a"),
-                            AssetID = new Guid("db42d35b-dcbe-4ef0-b306-1c1dda9ecc1e"),
+                            TicketId = new Guid("df1495c6-e254-4b79-aa61-636fbc6d3b23"),
+                            AssetID = new Guid("760f4c2e-2f4d-4e06-a793-aa69c5dd3d23"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 10, 17, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5970),
+                            CreatedAt = new DateTime(2023, 10, 31, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3862),
                             Description = "Description for Ticket 77",
                             Priority = 1,
                             Status = 0,
@@ -1639,10 +1642,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("2342ebee-a163-418d-b024-25594cdbafa1"),
-                            AssetID = new Guid("62471ddb-07f1-4794-9efc-a33626470605"),
+                            TicketId = new Guid("72bb4ae9-9101-44f6-a5b5-3eab4c69018b"),
+                            AssetID = new Guid("d4fecb34-670b-43a5-8518-cb650375678a"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 10, 16, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5982),
+                            CreatedAt = new DateTime(2023, 10, 30, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3875),
                             Description = "Description for Ticket 78",
                             Priority = 2,
                             Status = 1,
@@ -1650,10 +1653,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0beebcce-74bf-4cd8-9c85-47002bfd41a7"),
-                            AssetID = new Guid("548e6919-14cc-4658-b787-c78242286c3d"),
+                            TicketId = new Guid("f194fc42-578b-4650-bc43-ba7b78f3d414"),
+                            AssetID = new Guid("f085def7-2104-4a4a-a386-e5aad89e5c63"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 10, 15, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(5995),
+                            CreatedAt = new DateTime(2023, 10, 29, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3885),
                             Description = "Description for Ticket 79",
                             Priority = 0,
                             Status = 2,
@@ -1661,10 +1664,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("74d2c0dc-fb41-4270-9550-8631ddf2750c"),
-                            AssetID = new Guid("0056b30a-e1df-4efd-bc3e-6093120cb871"),
+                            TicketId = new Guid("85f1dc88-0224-4205-b027-8bf4e4b0723a"),
+                            AssetID = new Guid("3644404d-aea7-428d-af2a-7e34ed945f24"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 10, 14, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6007),
+                            CreatedAt = new DateTime(2023, 10, 28, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3895),
                             Description = "Description for Ticket 80",
                             Priority = 1,
                             Status = 3,
@@ -1672,10 +1675,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ae25913a-8c7d-4e38-8a6d-781cfe895316"),
-                            AssetID = new Guid("1b2477b5-e225-4f9a-9b8b-e9684e54aa2c"),
+                            TicketId = new Guid("98852cf9-267c-449c-845f-568b78359bed"),
+                            AssetID = new Guid("d909c885-19de-4e29-b174-55eaa198ddaa"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 10, 13, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6021),
+                            CreatedAt = new DateTime(2023, 10, 27, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3905),
                             Description = "Description for Ticket 81",
                             Priority = 2,
                             Status = 0,
@@ -1683,10 +1686,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("67fa2b00-40b7-47e8-ad92-7def9cbf080a"),
-                            AssetID = new Guid("5f41bf29-aa96-4460-be16-2a106e0798b2"),
+                            TicketId = new Guid("48be9773-10b0-4fa9-90b6-b9965fb703db"),
+                            AssetID = new Guid("24946f50-a702-4208-8e79-a4f695730fd9"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 10, 12, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6038),
+                            CreatedAt = new DateTime(2023, 10, 26, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3915),
                             Description = "Description for Ticket 82",
                             Priority = 0,
                             Status = 1,
@@ -1694,10 +1697,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bc8a24c5-0118-411b-9234-1392d2ea95e8"),
-                            AssetID = new Guid("a03d5308-2dbb-40af-a138-277771f7deb6"),
+                            TicketId = new Guid("e50a523c-1c4f-48d8-9ef1-4e53c0912f91"),
+                            AssetID = new Guid("ecb73a43-4a03-4454-a3a3-5a22f746e5a1"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 10, 11, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6051),
+                            CreatedAt = new DateTime(2023, 10, 25, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3925),
                             Description = "Description for Ticket 83",
                             Priority = 1,
                             Status = 2,
@@ -1705,10 +1708,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("011ca563-252b-45e6-a19d-c64b869eec63"),
-                            AssetID = new Guid("c3ad68a7-8bee-4eeb-94d5-f271809d5b30"),
+                            TicketId = new Guid("0331a349-da1c-4966-a096-728267f72e6a"),
+                            AssetID = new Guid("42e905a1-7ed1-43ca-bd0e-07c52a2b8c99"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 10, 10, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6102),
+                            CreatedAt = new DateTime(2023, 10, 24, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3936),
                             Description = "Description for Ticket 84",
                             Priority = 2,
                             Status = 3,
@@ -1716,10 +1719,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("7b1409c2-956b-4c16-81be-c949d0b65930"),
-                            AssetID = new Guid("2faace28-cf62-40ad-9ddd-6f1d5ef6f1df"),
+                            TicketId = new Guid("09511b14-ef1d-4bca-b341-2b36793eae14"),
+                            AssetID = new Guid("30e5de85-a1e0-487d-aee4-f78298a814ef"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 10, 9, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6119),
+                            CreatedAt = new DateTime(2023, 10, 23, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3945),
                             Description = "Description for Ticket 85",
                             Priority = 0,
                             Status = 0,
@@ -1727,10 +1730,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c9115cce-0f33-4ae4-b059-9a80a785b6ad"),
-                            AssetID = new Guid("6117b27a-03c1-4c40-9ca1-ec69ce505cae"),
+                            TicketId = new Guid("717d6127-1406-4fed-bfd6-2d92314834c1"),
+                            AssetID = new Guid("a2ab2024-d27b-4bd8-943d-9f6abd583ccc"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 10, 8, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6132),
+                            CreatedAt = new DateTime(2023, 10, 22, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3959),
                             Description = "Description for Ticket 86",
                             Priority = 1,
                             Status = 1,
@@ -1738,10 +1741,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("80d647f0-ad4e-4a87-9137-2a9278180c22"),
-                            AssetID = new Guid("04b1b138-6397-4062-9e38-537ca161c1da"),
+                            TicketId = new Guid("327c98d2-180b-4580-917f-243e08c5da99"),
+                            AssetID = new Guid("0c363f46-1c93-4c78-a37e-81b4e7e5cd06"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 10, 7, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6299),
+                            CreatedAt = new DateTime(2023, 10, 21, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3968),
                             Description = "Description for Ticket 87",
                             Priority = 2,
                             Status = 2,
@@ -1749,10 +1752,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("262b6145-d7cf-4da7-b706-9dc8fe4cbcf4"),
-                            AssetID = new Guid("0ee57408-a701-4710-9bc6-dba6332335cc"),
+                            TicketId = new Guid("8f73e9cb-bd54-4e56-907a-02fc9950ea0d"),
+                            AssetID = new Guid("642616aa-2303-47fc-8e34-29b78e12fc10"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 10, 6, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6313),
+                            CreatedAt = new DateTime(2023, 10, 20, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3979),
                             Description = "Description for Ticket 88",
                             Priority = 0,
                             Status = 3,
@@ -1760,10 +1763,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("56a39e43-5092-4be7-b34e-91bd9cfb7566"),
-                            AssetID = new Guid("5bc50449-2015-47d7-b4ff-ea4e7f16b024"),
+                            TicketId = new Guid("014c6999-e731-4ed2-b5ec-04260fadb29d"),
+                            AssetID = new Guid("8167c47f-98c6-4e21-b18c-0bacb8665d35"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 10, 5, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6326),
+                            CreatedAt = new DateTime(2023, 10, 19, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3988),
                             Description = "Description for Ticket 89",
                             Priority = 1,
                             Status = 0,
@@ -1771,10 +1774,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("192d1341-a2f0-4021-a4c7-00537934bb2b"),
-                            AssetID = new Guid("46c5c2b0-110c-4187-8e2f-13cd9c047c3d"),
+                            TicketId = new Guid("23043dbb-eac3-407a-b85c-4613f3724b98"),
+                            AssetID = new Guid("e90edde1-19d9-47bb-bfc2-734b52b5dfb1"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 10, 4, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6337),
+                            CreatedAt = new DateTime(2023, 10, 18, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(3998),
                             Description = "Description for Ticket 90",
                             Priority = 2,
                             Status = 1,
@@ -1782,10 +1785,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bdb27c1f-5e18-4df6-aa9b-ce69047e3460"),
-                            AssetID = new Guid("7957e8e0-1624-4cfc-9cdc-14909e700120"),
+                            TicketId = new Guid("ca201e5e-91a3-4d7b-a066-b36d8fa3f573"),
+                            AssetID = new Guid("badf964f-a0ba-4efb-97cc-ba66e5818f09"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 10, 3, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6350),
+                            CreatedAt = new DateTime(2023, 10, 17, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4031),
                             Description = "Description for Ticket 91",
                             Priority = 0,
                             Status = 2,
@@ -1793,10 +1796,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d3692c1e-608d-4126-ae17-00724916ebce"),
-                            AssetID = new Guid("cee9a32c-614e-4240-8ab7-caff4d4fdbfd"),
+                            TicketId = new Guid("fdc47bbb-5435-45a1-bed8-075edd97047e"),
+                            AssetID = new Guid("7192db25-a9b2-41ad-9ffd-9f71da552a66"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 10, 2, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6675),
+                            CreatedAt = new DateTime(2023, 10, 16, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4041),
                             Description = "Description for Ticket 92",
                             Priority = 1,
                             Status = 3,
@@ -1804,10 +1807,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c63d6087-166f-4ab6-bbb7-f57557f238c7"),
-                            AssetID = new Guid("44c62471-a823-4da1-b969-673b33771727"),
+                            TicketId = new Guid("66d7aac6-8c73-48b4-91b1-676a51986095"),
+                            AssetID = new Guid("04d69223-7891-4b38-b74a-bbc9cdc54553"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 10, 1, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6700),
+                            CreatedAt = new DateTime(2023, 10, 15, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4051),
                             Description = "Description for Ticket 93",
                             Priority = 2,
                             Status = 0,
@@ -1815,10 +1818,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b8a03744-41b6-4d7d-98b7-4a579731ded3"),
-                            AssetID = new Guid("be928e80-e187-4c71-8338-5c5f469c14e2"),
+                            TicketId = new Guid("f5b171b6-e389-4db7-a4c5-b85ee4681064"),
+                            AssetID = new Guid("07ec0ff5-8c82-4d25-b0e4-c777753837ca"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 9, 30, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6709),
+                            CreatedAt = new DateTime(2023, 10, 14, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4064),
                             Description = "Description for Ticket 94",
                             Priority = 0,
                             Status = 1,
@@ -1826,10 +1829,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c7d61ae3-f993-4a67-9f28-c0233db5b83f"),
-                            AssetID = new Guid("a0f84582-77e3-462d-860e-66037897df21"),
+                            TicketId = new Guid("17b6a203-fb8b-46c0-930a-73063ebec915"),
+                            AssetID = new Guid("b996e44d-e2bb-4474-9ae2-5096361eb0f4"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 9, 29, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6717),
+                            CreatedAt = new DateTime(2023, 10, 13, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4074),
                             Description = "Description for Ticket 95",
                             Priority = 1,
                             Status = 2,
@@ -1837,10 +1840,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("2ffafc4b-b28f-46e8-9fc5-86879fd03a92"),
-                            AssetID = new Guid("20e09b01-c231-4bb5-b112-9e2b218047da"),
+                            TicketId = new Guid("23b361d8-43ed-41b9-9709-4f85d8044e06"),
+                            AssetID = new Guid("bbf2ebdd-02a6-4e7a-8c78-468da5893215"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 9, 28, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6725),
+                            CreatedAt = new DateTime(2023, 10, 12, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4084),
                             Description = "Description for Ticket 96",
                             Priority = 2,
                             Status = 3,
@@ -1848,10 +1851,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ef022d03-9ba6-4770-9181-a8ad313139c1"),
-                            AssetID = new Guid("b5a5c2ef-ba30-45cd-b69a-7542b6e1225d"),
+                            TicketId = new Guid("b1ebc7ed-14b0-4d16-8e03-ca606e3f4ef5"),
+                            AssetID = new Guid("797823e5-a0e4-4ad9-90cf-40d6f2feb9a0"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 9, 27, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6733),
+                            CreatedAt = new DateTime(2023, 10, 11, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4094),
                             Description = "Description for Ticket 97",
                             Priority = 0,
                             Status = 0,
@@ -1859,10 +1862,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b05e8886-764b-4aa6-ac89-0905061e3e8a"),
-                            AssetID = new Guid("d3632d7b-c9e0-4d01-9757-ff659ebbbdd9"),
+                            TicketId = new Guid("67d6f1f5-a869-46a7-85b8-dd091bc74b89"),
+                            AssetID = new Guid("3020bb85-ab4f-4018-a9c0-1cc4d6b2bbef"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 9, 26, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6742),
+                            CreatedAt = new DateTime(2023, 10, 10, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4104),
                             Description = "Description for Ticket 98",
                             Priority = 1,
                             Status = 1,
@@ -1870,10 +1873,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("75734812-67a5-4e3f-be72-fb74cf4829a1"),
-                            AssetID = new Guid("5d3ce4a9-dfe1-4ba5-a024-086aa86fdeb9"),
+                            TicketId = new Guid("e55de58b-49b1-462f-a47f-e22a685cfd8d"),
+                            AssetID = new Guid("72c49d2a-49e0-4a42-996f-00c4b84574c9"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 9, 25, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6750),
+                            CreatedAt = new DateTime(2023, 10, 9, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4114),
                             Description = "Description for Ticket 99",
                             Priority = 2,
                             Status = 2,
@@ -1881,10 +1884,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c5009dc3-a9e2-490e-aef5-855a3bcd10a8"),
-                            AssetID = new Guid("a4902ad1-f16a-4186-9291-76caebcf2827"),
+                            TicketId = new Guid("4b418e67-3056-4bd5-95b6-d5e16365fc9a"),
+                            AssetID = new Guid("cb8e7509-eb48-4e1d-aff3-7727435ecf1c"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 9, 24, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6763),
+                            CreatedAt = new DateTime(2023, 10, 8, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4124),
                             Description = "Description for Ticket 100",
                             Priority = 0,
                             Status = 3,
@@ -1892,10 +1895,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("355a4f68-3089-4a9f-a716-d916a4608e90"),
-                            AssetID = new Guid("78719898-28c7-4e82-ac3c-d7cdbb21b8c4"),
+                            TicketId = new Guid("bb14741c-3dfd-4285-8395-c10f6e00bce5"),
+                            AssetID = new Guid("5f06b624-79cd-46f0-a1b5-eb01a3b33579"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 9, 23, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6771),
+                            CreatedAt = new DateTime(2023, 10, 7, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4134),
                             Description = "Description for Ticket 101",
                             Priority = 1,
                             Status = 0,
@@ -1903,10 +1906,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0f637ae4-80c4-4986-b5a5-658045a69e0d"),
-                            AssetID = new Guid("5c4bd001-2790-4490-af94-29729ba2211b"),
+                            TicketId = new Guid("c5539830-2ef4-449f-807d-302bfdd99504"),
+                            AssetID = new Guid("c34edb5a-870f-4083-9654-e90546053a37"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 9, 22, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6779),
+                            CreatedAt = new DateTime(2023, 10, 6, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4147),
                             Description = "Description for Ticket 102",
                             Priority = 2,
                             Status = 1,
@@ -1914,10 +1917,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0d3d796d-275d-465f-b859-c558f21ba9da"),
-                            AssetID = new Guid("a1a44f62-3095-4a1a-ba87-cadd4f996fb6"),
+                            TicketId = new Guid("dd07c638-7334-4d40-8441-228c3909cbb3"),
+                            AssetID = new Guid("d8a6993c-4c45-4857-b4fe-eecf56081312"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 9, 21, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6788),
+                            CreatedAt = new DateTime(2023, 10, 5, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4157),
                             Description = "Description for Ticket 103",
                             Priority = 0,
                             Status = 2,
@@ -1925,10 +1928,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6f552db3-3199-44ef-8b03-cc137ea118ee"),
-                            AssetID = new Guid("81bcca65-038d-4880-9418-ab52a2fe031c"),
+                            TicketId = new Guid("39662a50-5ecc-4226-ac6f-2776f6a9aad4"),
+                            AssetID = new Guid("1fb71b9d-4fab-4fd9-80dd-527a30558a96"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 9, 20, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6801),
+                            CreatedAt = new DateTime(2023, 10, 4, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4167),
                             Description = "Description for Ticket 104",
                             Priority = 1,
                             Status = 3,
@@ -1936,10 +1939,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5039e730-5e0b-4731-a928-6047d0bc96eb"),
-                            AssetID = new Guid("5bc72dba-f0f6-4197-a6fd-3e26d20fb4e6"),
+                            TicketId = new Guid("02b38ca9-fce5-4d14-8485-d561b2c672f3"),
+                            AssetID = new Guid("691a33fa-daa4-4d12-bc8d-b571dff658b8"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 9, 19, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6818),
+                            CreatedAt = new DateTime(2023, 10, 3, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4177),
                             Description = "Description for Ticket 105",
                             Priority = 2,
                             Status = 0,
@@ -1947,10 +1950,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d6e4c712-a1f9-4342-8069-0414f4237c3a"),
-                            AssetID = new Guid("4aee48d9-4a25-4d95-a69f-416a46f3e2c8"),
+                            TicketId = new Guid("b9c48a69-a4e9-47c7-868a-fdfddb37f26a"),
+                            AssetID = new Guid("8f2698c5-18be-422e-8a6c-6a011b765a02"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 9, 18, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6831),
+                            CreatedAt = new DateTime(2023, 10, 2, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4187),
                             Description = "Description for Ticket 106",
                             Priority = 0,
                             Status = 1,
@@ -1958,10 +1961,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c453aeb7-a061-42d8-a219-e79cfd112210"),
-                            AssetID = new Guid("b560b1ab-aa94-477c-957e-b93f96dcf73b"),
+                            TicketId = new Guid("974e0422-8c2e-4fb6-9fb5-e7f6238f713b"),
+                            AssetID = new Guid("12cedc23-a645-43c2-9fa4-56fc38c4a6eb"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 9, 17, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6846),
+                            CreatedAt = new DateTime(2023, 10, 1, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4197),
                             Description = "Description for Ticket 107",
                             Priority = 1,
                             Status = 2,
@@ -1969,10 +1972,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("79c06d7e-e626-449a-85a0-694c7e500ea2"),
-                            AssetID = new Guid("92c83e8d-94b6-4c94-86aa-20b78674a960"),
+                            TicketId = new Guid("88b0a505-42e2-446b-8891-bc4b4d77b918"),
+                            AssetID = new Guid("179cf458-ded2-494f-bdae-d526d9d89920"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 9, 16, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6943),
+                            CreatedAt = new DateTime(2023, 9, 30, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4207),
                             Description = "Description for Ticket 108",
                             Priority = 2,
                             Status = 3,
@@ -1980,10 +1983,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f54fdc74-ebf0-4339-8bbf-c8ee5a4ad3af"),
-                            AssetID = new Guid("51b9e1e7-be46-4c8d-b739-b4d13e0731ec"),
+                            TicketId = new Guid("88e760a5-da39-460f-b4af-d5f582f33183"),
+                            AssetID = new Guid("23e20066-9910-4fd0-85b1-2bd688286beb"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 9, 15, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6958),
+                            CreatedAt = new DateTime(2023, 9, 29, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4217),
                             Description = "Description for Ticket 109",
                             Priority = 0,
                             Status = 0,
@@ -1991,10 +1994,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("45aefb2f-1671-445b-aa80-785bd3a088ab"),
-                            AssetID = new Guid("28d6de2e-d6e5-43b2-bde5-1f7efab0dafc"),
+                            TicketId = new Guid("f3a0eeb6-d056-4ea8-9e75-2c22b2a487de"),
+                            AssetID = new Guid("38efee85-0eb9-479a-89e0-03888e457de8"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 9, 14, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6972),
+                            CreatedAt = new DateTime(2023, 9, 28, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4231),
                             Description = "Description for Ticket 110",
                             Priority = 1,
                             Status = 1,
@@ -2002,10 +2005,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("4664f4c4-915f-4afe-9ab0-a8b266797e00"),
-                            AssetID = new Guid("5f34e2a4-69d7-4a73-8c43-8763221e031c"),
+                            TicketId = new Guid("d61cb3f3-a1b0-49d9-9a77-1955437367a5"),
+                            AssetID = new Guid("af87b104-8f2d-451a-ab5b-24e1ea163baf"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 9, 13, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(6987),
+                            CreatedAt = new DateTime(2023, 9, 27, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4240),
                             Description = "Description for Ticket 111",
                             Priority = 2,
                             Status = 2,
@@ -2013,10 +2016,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("cae64ae7-1aa2-43b4-bae1-bd0380196062"),
-                            AssetID = new Guid("544a0ef2-14fb-4e36-a7c3-ba5b433b9a8c"),
+                            TicketId = new Guid("adba7c5a-ec6e-40ba-9b2d-3414e7604073"),
+                            AssetID = new Guid("90f51d03-d3c0-4518-a08b-bdf7fa88b3a0"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 9, 12, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7002),
+                            CreatedAt = new DateTime(2023, 9, 26, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4250),
                             Description = "Description for Ticket 112",
                             Priority = 0,
                             Status = 3,
@@ -2024,10 +2027,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("944da4df-0c29-4289-be2a-09868a3e70f9"),
-                            AssetID = new Guid("56e654fc-6fa0-483b-bc85-51b57cc38062"),
+                            TicketId = new Guid("0b464fd4-5ffe-4ca4-a4f5-7041e8c3effd"),
+                            AssetID = new Guid("b43b44e5-eb98-4276-8635-c805bab736c0"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 9, 11, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7016),
+                            CreatedAt = new DateTime(2023, 9, 25, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4309),
                             Description = "Description for Ticket 113",
                             Priority = 1,
                             Status = 0,
@@ -2035,10 +2038,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0a63ea77-5652-4522-958f-f4fe66ecd44b"),
-                            AssetID = new Guid("66229280-def8-4159-b496-63fa6a4b3863"),
+                            TicketId = new Guid("06eeec5a-755a-46ea-85e7-5ba3177576f1"),
+                            AssetID = new Guid("4b3b7d4b-3767-41c7-a24f-39e3b7381174"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 9, 10, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7031),
+                            CreatedAt = new DateTime(2023, 9, 24, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4319),
                             Description = "Description for Ticket 114",
                             Priority = 2,
                             Status = 1,
@@ -2046,10 +2049,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("868e1808-d718-4383-aec8-5f6cacfab4fe"),
-                            AssetID = new Guid("3285b21d-9cce-4fe2-bd89-578c31da9e49"),
+                            TicketId = new Guid("a83cfbfe-bf32-4793-89a9-928e2b26c8fd"),
+                            AssetID = new Guid("bfb8bdc8-42fe-4193-b72e-b727254e67f0"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 9, 9, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7046),
+                            CreatedAt = new DateTime(2023, 9, 23, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4329),
                             Description = "Description for Ticket 115",
                             Priority = 0,
                             Status = 2,
@@ -2057,10 +2060,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d89649fe-45df-4621-9856-6ebc92a02c0f"),
-                            AssetID = new Guid("8de70f65-1c32-4860-8b60-73b64054e994"),
+                            TicketId = new Guid("ed04c43c-a5ec-40b0-9d63-7b4f2d020f0f"),
+                            AssetID = new Guid("a90e2750-47a4-43c2-a6dd-f0c2da104767"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 9, 8, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7064),
+                            CreatedAt = new DateTime(2023, 9, 22, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4339),
                             Description = "Description for Ticket 116",
                             Priority = 1,
                             Status = 3,
@@ -2068,10 +2071,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5da9e056-8850-428e-a512-f91f509ee4ad"),
-                            AssetID = new Guid("944ec632-8ed2-4b07-b4d5-d44a50cadceb"),
+                            TicketId = new Guid("87b12a40-ca4c-4cb1-846b-3f3dc7b93b19"),
+                            AssetID = new Guid("0a06d3b0-9b9e-4920-b4db-fdface9cb7cd"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 9, 7, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7079),
+                            CreatedAt = new DateTime(2023, 9, 21, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4349),
                             Description = "Description for Ticket 117",
                             Priority = 2,
                             Status = 0,
@@ -2079,10 +2082,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e966d365-bb75-4606-ae5e-1469fe85974d"),
-                            AssetID = new Guid("6e276381-7eb8-4567-8477-645fc84e9cef"),
+                            TicketId = new Guid("766a92af-0cd0-47af-81b6-0299d789d13a"),
+                            AssetID = new Guid("bf518c45-2659-4804-8189-09359079ad1e"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 9, 6, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7293),
+                            CreatedAt = new DateTime(2023, 9, 20, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4363),
                             Description = "Description for Ticket 118",
                             Priority = 0,
                             Status = 1,
@@ -2090,10 +2093,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("786d235f-1d94-4b5d-93be-7714bf439d0e"),
-                            AssetID = new Guid("fbb9028f-315e-4ae5-b63e-c93e3406eb71"),
+                            TicketId = new Guid("b3b95adc-15df-4c8a-a6a4-9a786a1bb324"),
+                            AssetID = new Guid("83659498-2ca9-487c-aebd-1a94fcbf9d7a"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 9, 5, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7357),
+                            CreatedAt = new DateTime(2023, 9, 19, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4373),
                             Description = "Description for Ticket 119",
                             Priority = 1,
                             Status = 2,
@@ -2101,10 +2104,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("44e4ffb6-7b13-42d4-96a8-0b4f81d57a4f"),
-                            AssetID = new Guid("656d70d9-65ad-434e-ba33-79515cc93282"),
+                            TicketId = new Guid("790d4382-a1c0-4b0c-a619-f77812dcbfc0"),
+                            AssetID = new Guid("6465bc75-8e76-40a7-bc11-d8291b23b82c"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 9, 4, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7372),
+                            CreatedAt = new DateTime(2023, 9, 18, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4383),
                             Description = "Description for Ticket 120",
                             Priority = 2,
                             Status = 3,
@@ -2112,10 +2115,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("8616354b-25ee-48db-98e3-0f557f28895c"),
-                            AssetID = new Guid("f5a92fa3-1709-4f49-b81d-33b5877b158f"),
+                            TicketId = new Guid("b1b6f328-060c-4143-99af-30dd8b8adf82"),
+                            AssetID = new Guid("71f1f8d5-7da6-4212-a0a8-e7d3746e0479"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 9, 3, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7385),
+                            CreatedAt = new DateTime(2023, 9, 17, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4392),
                             Description = "Description for Ticket 121",
                             Priority = 0,
                             Status = 0,
@@ -2123,10 +2126,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("44b006d5-5e2f-4b1e-a884-e92439d9d78e"),
-                            AssetID = new Guid("2cb82dbd-8391-4046-acf0-8de663e04f36"),
+                            TicketId = new Guid("9e533679-185b-4330-97db-d2482abb848d"),
+                            AssetID = new Guid("3f58bd8f-9c9d-45b6-83c6-7727e2f91558"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 9, 2, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7399),
+                            CreatedAt = new DateTime(2023, 9, 16, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4402),
                             Description = "Description for Ticket 122",
                             Priority = 1,
                             Status = 1,
@@ -2134,10 +2137,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bc0a8c1b-c190-4568-9bc9-c9ee4635a26c"),
-                            AssetID = new Guid("7e4d675e-f94a-40cc-afd0-66a20dbd018c"),
+                            TicketId = new Guid("63da5660-3e01-4f29-8c7d-5208c8216b66"),
+                            AssetID = new Guid("7778e7a0-b27a-4c0d-abd6-78e95e713fb6"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 9, 1, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7412),
+                            CreatedAt = new DateTime(2023, 9, 15, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4412),
                             Description = "Description for Ticket 123",
                             Priority = 2,
                             Status = 2,
@@ -2145,10 +2148,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("583f0dff-9238-4cbc-b636-3b7cddd0ee5f"),
-                            AssetID = new Guid("b91e96a7-3994-4636-93fb-3afd9eff757a"),
+                            TicketId = new Guid("23ceba90-87d5-4d4f-aa15-48317d912355"),
+                            AssetID = new Guid("2672244a-529f-4e72-b8cd-71668e45ccc3"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 8, 31, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7436),
+                            CreatedAt = new DateTime(2023, 9, 14, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4422),
                             Description = "Description for Ticket 124",
                             Priority = 0,
                             Status = 3,
@@ -2156,10 +2159,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1c0233fa-57e0-4f8f-af88-be07087eddd0"),
-                            AssetID = new Guid("cab1cee3-26b2-495f-8b4c-136380a02e63"),
+                            TicketId = new Guid("e6e0fef4-6613-4ad0-be7d-e2cb564ba33e"),
+                            AssetID = new Guid("edb8c422-12ea-4898-bf27-b3344ff77383"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 8, 30, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7450),
+                            CreatedAt = new DateTime(2023, 9, 13, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4432),
                             Description = "Description for Ticket 125",
                             Priority = 1,
                             Status = 0,
@@ -2167,10 +2170,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("52804f06-371e-4710-a52e-f1b0933b576a"),
-                            AssetID = new Guid("9d55b16d-14d8-4345-a067-30be4122ccbe"),
+                            TicketId = new Guid("74ce14c0-2389-4761-9138-c2a8ff0b4a73"),
+                            AssetID = new Guid("677b4008-6e8f-43c9-9647-b1e56380b6fe"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 8, 29, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7463),
+                            CreatedAt = new DateTime(2023, 9, 12, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4445),
                             Description = "Description for Ticket 126",
                             Priority = 2,
                             Status = 1,
@@ -2178,10 +2181,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f21c922a-a311-4ba6-9cb1-693ab6055963"),
-                            AssetID = new Guid("6b4b3744-f22f-4a10-b60d-f87cbb676462"),
+                            TicketId = new Guid("270a0f14-affc-4c52-9ec2-437b0ca14d3c"),
+                            AssetID = new Guid("b3345638-1de5-4ffa-8722-5968c7d82308"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 8, 28, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7475),
+                            CreatedAt = new DateTime(2023, 9, 11, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4455),
                             Description = "Description for Ticket 127",
                             Priority = 0,
                             Status = 2,
@@ -2189,10 +2192,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0cc988b4-4393-4b38-8ff5-a1291913c693"),
-                            AssetID = new Guid("21ba0292-2cd8-4047-ba5d-184d24a29877"),
+                            TicketId = new Guid("41d15d15-6fdb-4485-8641-8416dbfd5754"),
+                            AssetID = new Guid("eb796b3d-af54-46ef-b81f-3b01441eaa2a"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 8, 27, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7489),
+                            CreatedAt = new DateTime(2023, 9, 10, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4465),
                             Description = "Description for Ticket 128",
                             Priority = 1,
                             Status = 3,
@@ -2200,10 +2203,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("dec7edc1-236b-46da-bc28-7786051955f3"),
-                            AssetID = new Guid("903fde5f-8b2a-40ea-bfad-1c5be5505831"),
+                            TicketId = new Guid("7d71e062-57c0-4435-a136-e484a4651f63"),
+                            AssetID = new Guid("bee9461b-281c-4ae0-87be-dbceb00df2ba"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 8, 26, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7503),
+                            CreatedAt = new DateTime(2023, 9, 9, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4475),
                             Description = "Description for Ticket 129",
                             Priority = 2,
                             Status = 0,
@@ -2211,10 +2214,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d3c36318-e648-4d1c-9c06-732fa1f8a099"),
-                            AssetID = new Guid("c7e9d74c-b613-422d-b7ac-6bb8ebd28d59"),
+                            TicketId = new Guid("915a0128-321c-448e-81a9-bbf87a215515"),
+                            AssetID = new Guid("1948e7d2-c13f-4e12-85f6-a40976c979ab"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 8, 25, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7607),
+                            CreatedAt = new DateTime(2023, 9, 8, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4530),
                             Description = "Description for Ticket 130",
                             Priority = 0,
                             Status = 1,
@@ -2222,10 +2225,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ac8ebe9d-d950-4369-a156-5d0e3dbbb38e"),
-                            AssetID = new Guid("b09b730f-479d-420a-a4b4-60f0831682a3"),
+                            TicketId = new Guid("c02e75fe-5222-42f9-a420-350f0fa84fc4"),
+                            AssetID = new Guid("0e266d34-a38c-4a28-81c4-8093c84a7197"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 8, 24, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7622),
+                            CreatedAt = new DateTime(2023, 9, 7, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4540),
                             Description = "Description for Ticket 131",
                             Priority = 1,
                             Status = 2,
@@ -2233,10 +2236,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("9d2aca59-0b71-44fa-8e3c-8a4535620257"),
-                            AssetID = new Guid("eaf79b1e-b12a-4ec0-8e48-5e8ff1c3be01"),
+                            TicketId = new Guid("5a54fda1-a5cc-4c5b-a14c-1caa20dc14f5"),
+                            AssetID = new Guid("e92a63b9-1191-4639-9f87-ca0c43b51f95"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 8, 23, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7643),
+                            CreatedAt = new DateTime(2023, 9, 6, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4550),
                             Description = "Description for Ticket 132",
                             Priority = 2,
                             Status = 3,
@@ -2244,10 +2247,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("4aa8c15f-6c70-4a44-9452-6a3f1d8c9d67"),
-                            AssetID = new Guid("49b158ee-531f-44a6-b4ac-1e5afcc5594b"),
+                            TicketId = new Guid("e656b405-38b5-4706-85d2-b170f6c7e28c"),
+                            AssetID = new Guid("56aeda3e-e9ac-424a-8339-92b722a819c9"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 8, 22, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7657),
+                            CreatedAt = new DateTime(2023, 9, 5, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4560),
                             Description = "Description for Ticket 133",
                             Priority = 0,
                             Status = 0,
@@ -2255,10 +2258,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("78271198-421a-4ebd-90f0-771d2d657ee8"),
-                            AssetID = new Guid("477ae5df-9673-439b-96f6-133ec112527c"),
+                            TicketId = new Guid("0e5616ab-381e-41da-a5a3-c78b627e6ee8"),
+                            AssetID = new Guid("d3d06354-56f3-434f-8d32-8afe36ee1260"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 8, 21, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7671),
+                            CreatedAt = new DateTime(2023, 9, 4, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4573),
                             Description = "Description for Ticket 134",
                             Priority = 1,
                             Status = 1,
@@ -2266,10 +2269,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a3775a8d-d05f-4400-bead-f6cd47f594f5"),
-                            AssetID = new Guid("28349c17-6fd4-4600-a21c-113dbe2647f7"),
+                            TicketId = new Guid("f7eca4bc-4869-43a6-b12d-adc0068f862d"),
+                            AssetID = new Guid("288173c3-c9f1-4b20-b209-2aaecf08ce11"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 8, 20, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7685),
+                            CreatedAt = new DateTime(2023, 9, 3, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4583),
                             Description = "Description for Ticket 135",
                             Priority = 2,
                             Status = 2,
@@ -2277,10 +2280,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("94b63ef4-ed55-42e2-a744-524928f46893"),
-                            AssetID = new Guid("07a7f193-758c-4d54-8d67-5fefea708497"),
+                            TicketId = new Guid("8ab0792a-bbba-4073-be25-9ee83c66f993"),
+                            AssetID = new Guid("bfdfbd81-5bae-4c27-827b-a7512f1e9ee9"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 8, 19, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7698),
+                            CreatedAt = new DateTime(2023, 9, 2, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4593),
                             Description = "Description for Ticket 136",
                             Priority = 0,
                             Status = 3,
@@ -2288,10 +2291,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e29c46b8-6aa0-4ddc-a0b1-0d957a63d05b"),
-                            AssetID = new Guid("25242f77-fdb8-47d6-80fa-01c226c38a36"),
+                            TicketId = new Guid("d30d25d0-225e-43e1-b6cc-132b840bd048"),
+                            AssetID = new Guid("0bb2f3fb-76a8-49ec-91d5-8a0e19afd84e"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 8, 18, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7711),
+                            CreatedAt = new DateTime(2023, 9, 1, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4602),
                             Description = "Description for Ticket 137",
                             Priority = 1,
                             Status = 0,
@@ -2299,10 +2302,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f58757c5-5044-4edb-8b19-83f113e460b9"),
-                            AssetID = new Guid("9d64707b-ab3f-4516-bce1-bed489adc112"),
+                            TicketId = new Guid("9dca5ad9-7e78-40b1-a80b-e14ebc2c3894"),
+                            AssetID = new Guid("fa5cbabc-2c51-478d-a082-79a5932eae09"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 8, 17, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7725),
+                            CreatedAt = new DateTime(2023, 8, 31, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4612),
                             Description = "Description for Ticket 138",
                             Priority = 2,
                             Status = 1,
@@ -2310,10 +2313,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f87fb26f-1d94-4ae2-8c24-669bd911a25f"),
-                            AssetID = new Guid("c1c210aa-03af-41b4-80dc-8a7785eac2bd"),
+                            TicketId = new Guid("4b7dfd23-bc2c-4bd3-a95b-cf1525038e49"),
+                            AssetID = new Guid("5593797c-b0d0-4b1b-b1db-8e33c19dd2e9"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 8, 16, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7738),
+                            CreatedAt = new DateTime(2023, 8, 30, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4622),
                             Description = "Description for Ticket 139",
                             Priority = 0,
                             Status = 2,
@@ -2321,10 +2324,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bbd6712b-91e4-4e4a-b435-131ce8d330a4"),
-                            AssetID = new Guid("dc68b9c0-a916-4b63-ac54-c1b5c5983551"),
+                            TicketId = new Guid("640b09d8-72c2-49e6-9ccd-fa6189be3ebf"),
+                            AssetID = new Guid("a9323ee2-0ab0-4524-b1e9-77f661b11f18"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 8, 15, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7754),
+                            CreatedAt = new DateTime(2023, 8, 29, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4632),
                             Description = "Description for Ticket 140",
                             Priority = 1,
                             Status = 3,
@@ -2332,10 +2335,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("77331ff7-6276-4bde-b689-3349b0db17a1"),
-                            AssetID = new Guid("9264bfc7-2a04-41e8-8a82-fc212e003efa"),
+                            TicketId = new Guid("637ad42f-b70c-4731-910c-35d453b5654a"),
+                            AssetID = new Guid("aa13da17-47cc-41ee-9c80-36ffb79d6df6"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 8, 14, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7769),
+                            CreatedAt = new DateTime(2023, 8, 28, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4642),
                             Description = "Description for Ticket 141",
                             Priority = 2,
                             Status = 0,
@@ -2343,10 +2346,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("32107dc2-f6fc-4043-a8b9-3bcbab13dd57"),
-                            AssetID = new Guid("31630389-f081-42c9-9916-d9e0de380e67"),
+                            TicketId = new Guid("193a65a0-6ef6-4875-a646-1a222e6e440f"),
+                            AssetID = new Guid("64801f5b-1e2a-483d-8b27-4204a6ca6ce3"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 8, 13, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7782),
+                            CreatedAt = new DateTime(2023, 8, 27, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4655),
                             Description = "Description for Ticket 142",
                             Priority = 0,
                             Status = 1,
@@ -2354,10 +2357,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d00f3305-9cef-4e76-94aa-9cc1be1b9ff5"),
-                            AssetID = new Guid("c5411f95-3578-4056-9ccc-697bdbcb3444"),
+                            TicketId = new Guid("07afd2c0-cf85-4d8e-a700-6fc4fbc8b409"),
+                            AssetID = new Guid("f30cee27-a0ac-491c-b024-73de7039bb2e"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 8, 12, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7794),
+                            CreatedAt = new DateTime(2023, 8, 26, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4665),
                             Description = "Description for Ticket 143",
                             Priority = 1,
                             Status = 2,
@@ -2365,10 +2368,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("cf2b7c00-3470-4acb-8f19-06efb16888de"),
-                            AssetID = new Guid("a39366ab-52b4-4353-8149-840f0e65fd53"),
+                            TicketId = new Guid("773be78e-9557-4fbb-b977-e160aca0f39e"),
+                            AssetID = new Guid("ed7b09b3-e6dd-4e89-8751-0f7929f494c6"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 8, 11, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7807),
+                            CreatedAt = new DateTime(2023, 8, 25, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4675),
                             Description = "Description for Ticket 144",
                             Priority = 2,
                             Status = 3,
@@ -2376,10 +2379,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e955fcbf-95a9-468f-b65f-ac352d555f9f"),
-                            AssetID = new Guid("88a02658-6691-49c9-a617-47a3b9cbaa21"),
+                            TicketId = new Guid("cb94603b-e2cd-456f-8ea1-66c4991b204c"),
+                            AssetID = new Guid("21e66af0-23fa-412a-8f59-107438de1d07"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 8, 10, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7819),
+                            CreatedAt = new DateTime(2023, 8, 24, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4685),
                             Description = "Description for Ticket 145",
                             Priority = 0,
                             Status = 0,
@@ -2387,10 +2390,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("48270fee-c51c-41c8-b3c1-0e5c26dba326"),
-                            AssetID = new Guid("26563f3b-42ff-4eed-8a4a-fb0d03d11ff0"),
+                            TicketId = new Guid("19a667ed-e84c-47d0-867e-1a2629d81d72"),
+                            AssetID = new Guid("4f465fb3-23e5-4b7f-803c-a94ef1812ce0"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 8, 9, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7831),
+                            CreatedAt = new DateTime(2023, 8, 23, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4695),
                             Description = "Description for Ticket 146",
                             Priority = 1,
                             Status = 1,
@@ -2398,10 +2401,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5ec59bb6-8642-486b-b11c-536e05ae115c"),
-                            AssetID = new Guid("db42d35b-dcbe-4ef0-b306-1c1dda9ecc1e"),
+                            TicketId = new Guid("fc43c333-1a8b-4850-af72-c389ce132561"),
+                            AssetID = new Guid("760f4c2e-2f4d-4e06-a793-aa69c5dd3d23"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 8, 8, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7881),
+                            CreatedAt = new DateTime(2023, 8, 22, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4705),
                             Description = "Description for Ticket 147",
                             Priority = 2,
                             Status = 2,
@@ -2409,10 +2412,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1f2c5a8d-c74b-4a7e-917a-84cacc89831a"),
-                            AssetID = new Guid("62471ddb-07f1-4794-9efc-a33626470605"),
+                            TicketId = new Guid("dae19465-353a-4108-a8d2-8c931cdd1251"),
+                            AssetID = new Guid("d4fecb34-670b-43a5-8518-cb650375678a"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 8, 7, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7899),
+                            CreatedAt = new DateTime(2023, 8, 21, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4714),
                             Description = "Description for Ticket 148",
                             Priority = 0,
                             Status = 3,
@@ -2420,10 +2423,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("147907a5-fc3c-4550-ad68-652ab5a006e8"),
-                            AssetID = new Guid("548e6919-14cc-4658-b787-c78242286c3d"),
+                            TicketId = new Guid("4ce2affa-b8cc-4079-a44e-dfc5ae71f2ee"),
+                            AssetID = new Guid("f085def7-2104-4a4a-a386-e5aad89e5c63"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 8, 6, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7913),
+                            CreatedAt = new DateTime(2023, 8, 20, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4724),
                             Description = "Description for Ticket 149",
                             Priority = 1,
                             Status = 0,
@@ -2431,10 +2434,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fbd73aaa-aa37-4afb-9728-56f30c204b8e"),
-                            AssetID = new Guid("0056b30a-e1df-4efd-bc3e-6093120cb871"),
+                            TicketId = new Guid("f1b7484a-c846-40ac-bcea-5c52fec2c0e5"),
+                            AssetID = new Guid("3644404d-aea7-428d-af2a-7e34ed945f24"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 8, 5, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7927),
+                            CreatedAt = new DateTime(2023, 8, 19, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4738),
                             Description = "Description for Ticket 150",
                             Priority = 2,
                             Status = 1,
@@ -2442,10 +2445,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("56880c82-1d68-4b54-827a-e87c4db7933f"),
-                            AssetID = new Guid("1b2477b5-e225-4f9a-9b8b-e9684e54aa2c"),
+                            TicketId = new Guid("a5472b1c-bc69-4781-af9e-9a89a2505181"),
+                            AssetID = new Guid("d909c885-19de-4e29-b174-55eaa198ddaa"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 8, 4, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7940),
+                            CreatedAt = new DateTime(2023, 8, 18, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4784),
                             Description = "Description for Ticket 151",
                             Priority = 0,
                             Status = 2,
@@ -2453,10 +2456,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("4170964c-860c-4143-a101-a6bb250fa9d7"),
-                            AssetID = new Guid("5f41bf29-aa96-4460-be16-2a106e0798b2"),
+                            TicketId = new Guid("4a1db980-0abe-475b-bde9-e9c7987e1bb4"),
+                            AssetID = new Guid("24946f50-a702-4208-8e79-a4f695730fd9"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 8, 3, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7954),
+                            CreatedAt = new DateTime(2023, 8, 17, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4794),
                             Description = "Description for Ticket 152",
                             Priority = 1,
                             Status = 3,
@@ -2464,10 +2467,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3d0a84ab-26ef-4564-a1dc-2808869105fb"),
-                            AssetID = new Guid("a03d5308-2dbb-40af-a138-277771f7deb6"),
+                            TicketId = new Guid("44f568e2-ca78-4032-b12e-a9625356b986"),
+                            AssetID = new Guid("ecb73a43-4a03-4454-a3a3-5a22f746e5a1"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 8, 2, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7966),
+                            CreatedAt = new DateTime(2023, 8, 16, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4804),
                             Description = "Description for Ticket 153",
                             Priority = 2,
                             Status = 0,
@@ -2475,10 +2478,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fc4a2ad4-c1a8-4f90-9092-ec45817cb51b"),
-                            AssetID = new Guid("c3ad68a7-8bee-4eeb-94d5-f271809d5b30"),
+                            TicketId = new Guid("5d4f219f-ac77-417a-8953-cba37118fb3e"),
+                            AssetID = new Guid("42e905a1-7ed1-43ca-bd0e-07c52a2b8c99"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 8, 1, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7979),
+                            CreatedAt = new DateTime(2023, 8, 15, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4814),
                             Description = "Description for Ticket 154",
                             Priority = 0,
                             Status = 1,
@@ -2486,10 +2489,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e82995a4-a8d4-40a6-9510-4252d250f21b"),
-                            AssetID = new Guid("2faace28-cf62-40ad-9ddd-6f1d5ef6f1df"),
+                            TicketId = new Guid("e6253fdf-3dac-4dec-a00b-84c287e81c0c"),
+                            AssetID = new Guid("30e5de85-a1e0-487d-aee4-f78298a814ef"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 7, 31, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(7992),
+                            CreatedAt = new DateTime(2023, 8, 14, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4824),
                             Description = "Description for Ticket 155",
                             Priority = 1,
                             Status = 2,
@@ -2497,10 +2500,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5767b59d-da15-4ff8-92da-9ea09a0fbdaf"),
-                            AssetID = new Guid("6117b27a-03c1-4c40-9ca1-ec69ce505cae"),
+                            TicketId = new Guid("dc973fd9-c3b8-4951-aa7b-c06ee26be2e1"),
+                            AssetID = new Guid("a2ab2024-d27b-4bd8-943d-9f6abd583ccc"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 7, 30, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8009),
+                            CreatedAt = new DateTime(2023, 8, 13, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4834),
                             Description = "Description for Ticket 156",
                             Priority = 2,
                             Status = 3,
@@ -2508,10 +2511,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d9721f48-81c4-4b77-a431-979586c33885"),
-                            AssetID = new Guid("04b1b138-6397-4062-9e38-537ca161c1da"),
+                            TicketId = new Guid("4b566f39-5177-4e38-8116-56ea35091905"),
+                            AssetID = new Guid("0c363f46-1c93-4c78-a37e-81b4e7e5cd06"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 7, 29, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8023),
+                            CreatedAt = new DateTime(2023, 8, 12, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4845),
                             Description = "Description for Ticket 157",
                             Priority = 0,
                             Status = 0,
@@ -2519,10 +2522,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bec263b4-d356-4caf-88ed-d9ec8e23496e"),
-                            AssetID = new Guid("0ee57408-a701-4710-9bc6-dba6332335cc"),
+                            TicketId = new Guid("1efc75b0-f1a6-48ab-bf72-23912b3df2d8"),
+                            AssetID = new Guid("642616aa-2303-47fc-8e34-29b78e12fc10"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 7, 28, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8037),
+                            CreatedAt = new DateTime(2023, 8, 11, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4858),
                             Description = "Description for Ticket 158",
                             Priority = 1,
                             Status = 1,
@@ -2530,10 +2533,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1ee0671d-a62d-4dcc-9dc3-195ca4a0dd61"),
-                            AssetID = new Guid("5bc50449-2015-47d7-b4ff-ea4e7f16b024"),
+                            TicketId = new Guid("212f7b65-efcb-4240-9c4c-084dcef105bb"),
+                            AssetID = new Guid("8167c47f-98c6-4e21-b18c-0bacb8665d35"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 7, 27, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8051),
+                            CreatedAt = new DateTime(2023, 8, 10, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4868),
                             Description = "Description for Ticket 159",
                             Priority = 2,
                             Status = 2,
@@ -2541,10 +2544,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("823fca7c-635d-442e-8eb8-606e7731aad1"),
-                            AssetID = new Guid("46c5c2b0-110c-4187-8e2f-13cd9c047c3d"),
+                            TicketId = new Guid("d774cb2b-29f5-4f21-ad60-5566a821f6e7"),
+                            AssetID = new Guid("e90edde1-19d9-47bb-bfc2-734b52b5dfb1"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 7, 26, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8067),
+                            CreatedAt = new DateTime(2023, 8, 9, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4878),
                             Description = "Description for Ticket 160",
                             Priority = 0,
                             Status = 3,
@@ -2552,10 +2555,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6ae3327f-d9a9-4aa9-9cf4-8bb9624385f6"),
-                            AssetID = new Guid("7957e8e0-1624-4cfc-9cdc-14909e700120"),
+                            TicketId = new Guid("3e8e3756-8ba9-45d7-9c12-8896a14b9d13"),
+                            AssetID = new Guid("badf964f-a0ba-4efb-97cc-ba66e5818f09"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 7, 25, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8080),
+                            CreatedAt = new DateTime(2023, 8, 8, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4888),
                             Description = "Description for Ticket 161",
                             Priority = 1,
                             Status = 0,
@@ -2563,10 +2566,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("752dda90-6b18-4ca2-89ed-7a3a4db928a7"),
-                            AssetID = new Guid("cee9a32c-614e-4240-8ab7-caff4d4fdbfd"),
+                            TicketId = new Guid("3962fde5-c76e-4f5a-8d9e-cc45d4b0e4a1"),
+                            AssetID = new Guid("7192db25-a9b2-41ad-9ffd-9f71da552a66"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 7, 24, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8094),
+                            CreatedAt = new DateTime(2023, 8, 7, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4898),
                             Description = "Description for Ticket 162",
                             Priority = 2,
                             Status = 1,
@@ -2574,10 +2577,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6601cf96-0662-4bff-88c7-bbd14bf59557"),
-                            AssetID = new Guid("44c62471-a823-4da1-b969-673b33771727"),
+                            TicketId = new Guid("0457bbc9-493f-4de1-b1e4-003f3b82708b"),
+                            AssetID = new Guid("04d69223-7891-4b38-b74a-bbc9cdc54553"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 7, 23, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8108),
+                            CreatedAt = new DateTime(2023, 8, 6, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4908),
                             Description = "Description for Ticket 163",
                             Priority = 0,
                             Status = 2,
@@ -2585,10 +2588,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c3b85311-54b4-485e-aeda-e0e9db54f438"),
-                            AssetID = new Guid("be928e80-e187-4c71-8338-5c5f469c14e2"),
+                            TicketId = new Guid("bf34acef-e262-4d34-b425-81a82485b1aa"),
+                            AssetID = new Guid("07ec0ff5-8c82-4d25-b0e4-c777753837ca"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 7, 22, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8125),
+                            CreatedAt = new DateTime(2023, 8, 5, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4918),
                             Description = "Description for Ticket 164",
                             Priority = 1,
                             Status = 3,
@@ -2596,10 +2599,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e68ce2fa-e62a-478d-b846-c67360a82f83"),
-                            AssetID = new Guid("a0f84582-77e3-462d-860e-66037897df21"),
+                            TicketId = new Guid("c569cd28-f54e-44a4-bc73-3012dd1a3e64"),
+                            AssetID = new Guid("b996e44d-e2bb-4474-9ae2-5096361eb0f4"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 7, 21, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8140),
+                            CreatedAt = new DateTime(2023, 8, 4, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4928),
                             Description = "Description for Ticket 165",
                             Priority = 2,
                             Status = 0,
@@ -2607,10 +2610,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c1dd56f7-2a54-409e-93b1-53b5ee3f7a60"),
-                            AssetID = new Guid("20e09b01-c231-4bb5-b112-9e2b218047da"),
+                            TicketId = new Guid("c3221d48-8528-4e32-a6c4-d3ff6f16586c"),
+                            AssetID = new Guid("bbf2ebdd-02a6-4e7a-8c78-468da5893215"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 7, 20, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8153),
+                            CreatedAt = new DateTime(2023, 8, 3, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4941),
                             Description = "Description for Ticket 166",
                             Priority = 0,
                             Status = 1,
@@ -2618,10 +2621,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("120bfbf8-c7a2-4eac-b158-73d593e92570"),
-                            AssetID = new Guid("b5a5c2ef-ba30-45cd-b69a-7542b6e1225d"),
+                            TicketId = new Guid("14410052-4614-4500-ab29-a4ce1df1cd80"),
+                            AssetID = new Guid("797823e5-a0e4-4ad9-90cf-40d6f2feb9a0"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 7, 19, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8168),
+                            CreatedAt = new DateTime(2023, 8, 2, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4951),
                             Description = "Description for Ticket 167",
                             Priority = 1,
                             Status = 2,
@@ -2629,10 +2632,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("366f3301-cf8c-4e31-9bd3-6ebdf7aae411"),
-                            AssetID = new Guid("d3632d7b-c9e0-4d01-9757-ff659ebbbdd9"),
+                            TicketId = new Guid("2511f6a7-663f-47e2-90c3-8971f3d22607"),
+                            AssetID = new Guid("3020bb85-ab4f-4018-a9c0-1cc4d6b2bbef"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 7, 18, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8181),
+                            CreatedAt = new DateTime(2023, 8, 1, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4961),
                             Description = "Description for Ticket 168",
                             Priority = 2,
                             Status = 3,
@@ -2640,10 +2643,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("397974e3-eb35-4033-98b2-19d41f588194"),
-                            AssetID = new Guid("5d3ce4a9-dfe1-4ba5-a024-086aa86fdeb9"),
+                            TicketId = new Guid("69395c9c-d014-47e1-aa25-6bbe60ef6013"),
+                            AssetID = new Guid("72c49d2a-49e0-4a42-996f-00c4b84574c9"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 7, 17, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8232),
+                            CreatedAt = new DateTime(2023, 7, 31, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4970),
                             Description = "Description for Ticket 169",
                             Priority = 0,
                             Status = 0,
@@ -2651,10 +2654,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1f46c81c-831a-4e54-8adf-0503de33350f"),
-                            AssetID = new Guid("a4902ad1-f16a-4186-9291-76caebcf2827"),
+                            TicketId = new Guid("7e836639-f528-45a7-87a6-48a08e412f41"),
+                            AssetID = new Guid("cb8e7509-eb48-4e1d-aff3-7727435ecf1c"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 7, 16, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8247),
+                            CreatedAt = new DateTime(2023, 7, 30, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4980),
                             Description = "Description for Ticket 170",
                             Priority = 1,
                             Status = 1,
@@ -2662,10 +2665,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3bc05c25-b2f8-4354-85af-6b9693eafbee"),
-                            AssetID = new Guid("78719898-28c7-4e82-ac3c-d7cdbb21b8c4"),
+                            TicketId = new Guid("889efbdd-fab9-4b2e-a185-90691dc07e22"),
+                            AssetID = new Guid("5f06b624-79cd-46f0-a1b5-eb01a3b33579"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 7, 15, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8261),
+                            CreatedAt = new DateTime(2023, 7, 29, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(4990),
                             Description = "Description for Ticket 171",
                             Priority = 2,
                             Status = 2,
@@ -2673,10 +2676,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("76d5b554-44a7-4d4e-8219-de4c9cd67c4e"),
-                            AssetID = new Guid("5c4bd001-2790-4490-af94-29729ba2211b"),
+                            TicketId = new Guid("cd5beccc-28eb-4413-96ad-1866e4d3009d"),
+                            AssetID = new Guid("c34edb5a-870f-4083-9654-e90546053a37"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 7, 14, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8277),
+                            CreatedAt = new DateTime(2023, 7, 28, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5000),
                             Description = "Description for Ticket 172",
                             Priority = 0,
                             Status = 3,
@@ -2684,10 +2687,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e1827274-fdd9-4977-822d-ae0f13e6730e"),
-                            AssetID = new Guid("a1a44f62-3095-4a1a-ba87-cadd4f996fb6"),
+                            TicketId = new Guid("825a34a4-4150-4f10-ac70-a4e85ea30011"),
+                            AssetID = new Guid("d8a6993c-4c45-4857-b4fe-eecf56081312"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 7, 13, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8291),
+                            CreatedAt = new DateTime(2023, 7, 27, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5045),
                             Description = "Description for Ticket 173",
                             Priority = 1,
                             Status = 0,
@@ -2695,10 +2698,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3773064b-3159-45a1-be7c-08bff1c410cf"),
-                            AssetID = new Guid("81bcca65-038d-4880-9418-ab52a2fe031c"),
+                            TicketId = new Guid("84db2b24-7830-4285-bdcd-90c105f00b84"),
+                            AssetID = new Guid("1fb71b9d-4fab-4fd9-80dd-527a30558a96"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 7, 12, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8303),
+                            CreatedAt = new DateTime(2023, 7, 26, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5058),
                             Description = "Description for Ticket 174",
                             Priority = 2,
                             Status = 1,
@@ -2706,10 +2709,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fd234cfa-cb64-4b0a-97ba-f8f3f4506b30"),
-                            AssetID = new Guid("5bc72dba-f0f6-4197-a6fd-3e26d20fb4e6"),
+                            TicketId = new Guid("804b2ea3-d161-46b3-82e5-3c0fdbf46e1e"),
+                            AssetID = new Guid("691a33fa-daa4-4d12-bc8d-b571dff658b8"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 7, 11, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8316),
+                            CreatedAt = new DateTime(2023, 7, 25, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5068),
                             Description = "Description for Ticket 175",
                             Priority = 0,
                             Status = 2,
@@ -2717,10 +2720,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("39abf9de-2086-40dd-b6c9-eee9f6c4d24e"),
-                            AssetID = new Guid("4aee48d9-4a25-4d95-a69f-416a46f3e2c8"),
+                            TicketId = new Guid("0aaa4f31-9c9f-4862-a92f-54873780e2a6"),
+                            AssetID = new Guid("8f2698c5-18be-422e-8a6c-6a011b765a02"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 7, 10, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8330),
+                            CreatedAt = new DateTime(2023, 7, 24, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5078),
                             Description = "Description for Ticket 176",
                             Priority = 1,
                             Status = 3,
@@ -2728,10 +2731,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6709b313-025e-4a74-baa7-7800cf6afd20"),
-                            AssetID = new Guid("b560b1ab-aa94-477c-957e-b93f96dcf73b"),
+                            TicketId = new Guid("a6cdcdea-9136-4794-bb67-27200ee524aa"),
+                            AssetID = new Guid("12cedc23-a645-43c2-9fa4-56fc38c4a6eb"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 7, 9, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8343),
+                            CreatedAt = new DateTime(2023, 7, 23, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5087),
                             Description = "Description for Ticket 177",
                             Priority = 2,
                             Status = 0,
@@ -2739,10 +2742,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("2c5b8f2b-3ed3-46be-8e12-2911ff3148ce"),
-                            AssetID = new Guid("92c83e8d-94b6-4c94-86aa-20b78674a960"),
+                            TicketId = new Guid("9fd0c494-76fb-4033-b047-612e81cfb699"),
+                            AssetID = new Guid("179cf458-ded2-494f-bdae-d526d9d89920"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 7, 8, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8355),
+                            CreatedAt = new DateTime(2023, 7, 22, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5098),
                             Description = "Description for Ticket 178",
                             Priority = 0,
                             Status = 1,
@@ -2750,10 +2753,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("20302490-c448-48c4-b9c3-e90694641459"),
-                            AssetID = new Guid("51b9e1e7-be46-4c8d-b739-b4d13e0731ec"),
+                            TicketId = new Guid("2a5acac1-2144-48ef-a973-1d0dd2e78efc"),
+                            AssetID = new Guid("23e20066-9910-4fd0-85b1-2bd688286beb"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 7, 7, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8368),
+                            CreatedAt = new DateTime(2023, 7, 21, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5108),
                             Description = "Description for Ticket 179",
                             Priority = 1,
                             Status = 2,
@@ -2761,10 +2764,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fc18e219-60c1-43e5-8689-27e99540e27b"),
-                            AssetID = new Guid("28d6de2e-d6e5-43b2-bde5-1f7efab0dafc"),
+                            TicketId = new Guid("efd6e8fe-ee05-49f7-9134-821e28772dab"),
+                            AssetID = new Guid("38efee85-0eb9-479a-89e0-03888e457de8"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 7, 6, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8384),
+                            CreatedAt = new DateTime(2023, 7, 20, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5118),
                             Description = "Description for Ticket 180",
                             Priority = 2,
                             Status = 3,
@@ -2772,10 +2775,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("10d9e0fc-52de-4441-abdc-21bf8778efa0"),
-                            AssetID = new Guid("5f34e2a4-69d7-4a73-8c43-8763221e031c"),
+                            TicketId = new Guid("0fef26b3-abec-476a-bb7f-356b015998b2"),
+                            AssetID = new Guid("af87b104-8f2d-451a-ab5b-24e1ea163baf"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 7, 5, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8397),
+                            CreatedAt = new DateTime(2023, 7, 19, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5128),
                             Description = "Description for Ticket 181",
                             Priority = 0,
                             Status = 0,
@@ -2783,10 +2786,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1eda4600-1230-4cc9-bf40-024eade57ef5"),
-                            AssetID = new Guid("544a0ef2-14fb-4e36-a7c3-ba5b433b9a8c"),
+                            TicketId = new Guid("0f36e5a6-b539-4adc-a47a-7f5a3984b442"),
+                            AssetID = new Guid("90f51d03-d3c0-4518-a08b-bdf7fa88b3a0"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 7, 4, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8410),
+                            CreatedAt = new DateTime(2023, 7, 18, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5141),
                             Description = "Description for Ticket 182",
                             Priority = 1,
                             Status = 1,
@@ -2794,10 +2797,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b83815bc-eee9-4329-862b-d6cb5cf65fdb"),
-                            AssetID = new Guid("56e654fc-6fa0-483b-bc85-51b57cc38062"),
+                            TicketId = new Guid("f682ee0b-bfeb-48d9-a54a-0f2e72e5591f"),
+                            AssetID = new Guid("b43b44e5-eb98-4276-8635-c805bab736c0"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 7, 3, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8425),
+                            CreatedAt = new DateTime(2023, 7, 17, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5151),
                             Description = "Description for Ticket 183",
                             Priority = 2,
                             Status = 2,
@@ -2805,10 +2808,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c573c6f2-4d28-49e5-890f-8b930ae20354"),
-                            AssetID = new Guid("66229280-def8-4159-b496-63fa6a4b3863"),
+                            TicketId = new Guid("dfc87482-0168-4ffc-958c-15ea3f48b535"),
+                            AssetID = new Guid("4b3b7d4b-3767-41c7-a24f-39e3b7381174"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 7, 2, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8438),
+                            CreatedAt = new DateTime(2023, 7, 16, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5161),
                             Description = "Description for Ticket 184",
                             Priority = 0,
                             Status = 3,
@@ -2816,10 +2819,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("64b09c0e-2a11-4c38-a9e3-4380d9d49c1e"),
-                            AssetID = new Guid("3285b21d-9cce-4fe2-bd89-578c31da9e49"),
+                            TicketId = new Guid("5ac1027d-5277-4576-b169-8fa20a97fb04"),
+                            AssetID = new Guid("bfb8bdc8-42fe-4193-b72e-b727254e67f0"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 7, 1, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8452),
+                            CreatedAt = new DateTime(2023, 7, 15, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5171),
                             Description = "Description for Ticket 185",
                             Priority = 1,
                             Status = 0,
@@ -2827,10 +2830,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5e8c8512-58b9-4828-a158-2b6210bf43ca"),
-                            AssetID = new Guid("8de70f65-1c32-4860-8b60-73b64054e994"),
+                            TicketId = new Guid("593c3929-5a5f-429f-a60e-43d113ebe0e3"),
+                            AssetID = new Guid("a90e2750-47a4-43c2-a6dd-f0c2da104767"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 6, 30, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8464),
+                            CreatedAt = new DateTime(2023, 7, 14, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5181),
                             Description = "Description for Ticket 186",
                             Priority = 2,
                             Status = 1,
@@ -2838,10 +2841,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ce6e2ebc-3e33-4bf4-ac0c-877c64d79f0b"),
-                            AssetID = new Guid("944ec632-8ed2-4b07-b4d5-d44a50cadceb"),
+                            TicketId = new Guid("3008a402-e0a9-4b01-889a-ab268db2e0e4"),
+                            AssetID = new Guid("0a06d3b0-9b9e-4920-b4db-fdface9cb7cd"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 6, 29, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8477),
+                            CreatedAt = new DateTime(2023, 7, 13, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5191),
                             Description = "Description for Ticket 187",
                             Priority = 0,
                             Status = 2,
@@ -2849,10 +2852,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("79b47d68-999c-46bb-829c-eea19e88fb73"),
-                            AssetID = new Guid("6e276381-7eb8-4567-8477-645fc84e9cef"),
+                            TicketId = new Guid("0e69de85-bbef-4ffd-950c-bb5e9894cfcb"),
+                            AssetID = new Guid("bf518c45-2659-4804-8189-09359079ad1e"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 6, 28, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8494),
+                            CreatedAt = new DateTime(2023, 7, 12, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5201),
                             Description = "Description for Ticket 188",
                             Priority = 1,
                             Status = 3,
@@ -2860,10 +2863,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("358f410f-389b-4665-b381-21b4cb3bf4ba"),
-                            AssetID = new Guid("fbb9028f-315e-4ae5-b63e-c93e3406eb71"),
+                            TicketId = new Guid("eeb95be6-03b1-4b30-8e85-f071b1f0d757"),
+                            AssetID = new Guid("83659498-2ca9-487c-aebd-1a94fcbf9d7a"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 6, 27, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8509),
+                            CreatedAt = new DateTime(2023, 7, 11, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5211),
                             Description = "Description for Ticket 189",
                             Priority = 2,
                             Status = 0,
@@ -2871,10 +2874,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("9fcb5c8d-6d5f-4382-a79a-a7d19090cd1d"),
-                            AssetID = new Guid("656d70d9-65ad-434e-ba33-79515cc93282"),
+                            TicketId = new Guid("2a5b74bd-4f17-4156-9211-d41b0c7c12cb"),
+                            AssetID = new Guid("6465bc75-8e76-40a7-bc11-d8291b23b82c"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 6, 26, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8525),
+                            CreatedAt = new DateTime(2023, 7, 10, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5224),
                             Description = "Description for Ticket 190",
                             Priority = 0,
                             Status = 1,
@@ -2882,10 +2885,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a6c9c251-eef2-405c-8e7e-b3352171c468"),
-                            AssetID = new Guid("f5a92fa3-1709-4f49-b81d-33b5877b158f"),
+                            TicketId = new Guid("c91911b1-b701-4402-b064-6fc4b6713dba"),
+                            AssetID = new Guid("71f1f8d5-7da6-4212-a0a8-e7d3746e0479"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 6, 25, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8539),
+                            CreatedAt = new DateTime(2023, 7, 9, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5234),
                             Description = "Description for Ticket 191",
                             Priority = 1,
                             Status = 2,
@@ -2893,10 +2896,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("39b5f7f4-34b2-4906-92e9-bc75c4439cc3"),
-                            AssetID = new Guid("2cb82dbd-8391-4046-acf0-8de663e04f36"),
+                            TicketId = new Guid("af33e1c9-10b1-487d-91cb-95bc9b04810d"),
+                            AssetID = new Guid("3f58bd8f-9c9d-45b6-83c6-7727e2f91558"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 6, 24, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8592),
+                            CreatedAt = new DateTime(2023, 7, 8, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5243),
                             Description = "Description for Ticket 192",
                             Priority = 2,
                             Status = 3,
@@ -2904,10 +2907,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("711549eb-8ac8-4f9e-afe0-072a8f3d281f"),
-                            AssetID = new Guid("7e4d675e-f94a-40cc-afd0-66a20dbd018c"),
+                            TicketId = new Guid("6af24e1a-b39c-4021-b8e4-ec35903205b9"),
+                            AssetID = new Guid("7778e7a0-b27a-4c0d-abd6-78e95e713fb6"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 6, 23, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8608),
+                            CreatedAt = new DateTime(2023, 7, 7, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5253),
                             Description = "Description for Ticket 193",
                             Priority = 0,
                             Status = 0,
@@ -2915,10 +2918,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5974b5e5-c3f4-44d5-9e40-241ac5d61033"),
-                            AssetID = new Guid("b91e96a7-3994-4636-93fb-3afd9eff757a"),
+                            TicketId = new Guid("4dd02840-14eb-47f9-a0f2-5af66d4aa225"),
+                            AssetID = new Guid("2672244a-529f-4e72-b8cd-71668e45ccc3"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 6, 22, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8623),
+                            CreatedAt = new DateTime(2023, 7, 6, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5314),
                             Description = "Description for Ticket 194",
                             Priority = 1,
                             Status = 1,
@@ -2926,10 +2929,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("4c5db807-222a-4fa0-8f7a-72dd1c8c3c64"),
-                            AssetID = new Guid("cab1cee3-26b2-495f-8b4c-136380a02e63"),
+                            TicketId = new Guid("cd1adc31-1618-45dc-9e62-be3399e3e99c"),
+                            AssetID = new Guid("edb8c422-12ea-4898-bf27-b3344ff77383"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 6, 21, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8638),
+                            CreatedAt = new DateTime(2023, 7, 5, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5325),
                             Description = "Description for Ticket 195",
                             Priority = 2,
                             Status = 2,
@@ -2937,10 +2940,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d60df1ea-2ef4-42c0-ac71-40b37e59963a"),
-                            AssetID = new Guid("9d55b16d-14d8-4345-a067-30be4122ccbe"),
+                            TicketId = new Guid("b4b54d5b-4b7f-4b97-ae54-e98d70d58249"),
+                            AssetID = new Guid("677b4008-6e8f-43c9-9647-b1e56380b6fe"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 6, 20, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8656),
+                            CreatedAt = new DateTime(2023, 7, 4, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5335),
                             Description = "Description for Ticket 196",
                             Priority = 0,
                             Status = 3,
@@ -2948,10 +2951,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("95bd836b-e7fc-4541-bfd3-b96c10757554"),
-                            AssetID = new Guid("6b4b3744-f22f-4a10-b60d-f87cbb676462"),
+                            TicketId = new Guid("b41e76b5-2dff-4085-8c34-994797c5fc93"),
+                            AssetID = new Guid("b3345638-1de5-4ffa-8722-5968c7d82308"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 6, 19, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8670),
+                            CreatedAt = new DateTime(2023, 7, 3, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5345),
                             Description = "Description for Ticket 197",
                             Priority = 1,
                             Status = 0,
@@ -2959,10 +2962,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3649cfe3-db03-4ada-be74-089d3d1989d9"),
-                            AssetID = new Guid("21ba0292-2cd8-4047-ba5d-184d24a29877"),
+                            TicketId = new Guid("f4955b73-bb96-429b-9719-fa6a19270682"),
+                            AssetID = new Guid("eb796b3d-af54-46ef-b81f-3b01441eaa2a"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 6, 18, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8684),
+                            CreatedAt = new DateTime(2023, 7, 2, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5359),
                             Description = "Description for Ticket 198",
                             Priority = 2,
                             Status = 1,
@@ -2970,10 +2973,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("9de25fba-1bc0-4bf6-ae3b-90e74464fe4b"),
-                            AssetID = new Guid("903fde5f-8b2a-40ea-bfad-1c5be5505831"),
+                            TicketId = new Guid("71edc9bb-24fd-4b8a-a509-a2d319ed98bb"),
+                            AssetID = new Guid("bee9461b-281c-4ae0-87be-dbceb00df2ba"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 6, 17, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8698),
+                            CreatedAt = new DateTime(2023, 7, 1, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5369),
                             Description = "Description for Ticket 199",
                             Priority = 0,
                             Status = 2,
@@ -2981,10 +2984,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6e072a43-8631-45ed-80a8-ade15635e7dc"),
-                            AssetID = new Guid("c7e9d74c-b613-422d-b7ac-6bb8ebd28d59"),
+                            TicketId = new Guid("84b09ae9-a7c4-4624-9831-99d946be5ced"),
+                            AssetID = new Guid("1948e7d2-c13f-4e12-85f6-a40976c979ab"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 6, 16, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8711),
+                            CreatedAt = new DateTime(2023, 6, 30, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5379),
                             Description = "Description for Ticket 200",
                             Priority = 1,
                             Status = 3,
@@ -2992,10 +2995,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("d5e7107c-feb0-48c0-a976-8e106db78363"),
-                            AssetID = new Guid("b09b730f-479d-420a-a4b4-60f0831682a3"),
+                            TicketId = new Guid("62159c4c-5df4-4026-b995-1b3e72040c32"),
+                            AssetID = new Guid("0e266d34-a38c-4a28-81c4-8093c84a7197"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 6, 15, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8724),
+                            CreatedAt = new DateTime(2023, 6, 29, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5389),
                             Description = "Description for Ticket 201",
                             Priority = 2,
                             Status = 0,
@@ -3003,10 +3006,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5390433b-eac9-4874-a27a-5acfa79964f5"),
-                            AssetID = new Guid("eaf79b1e-b12a-4ec0-8e48-5e8ff1c3be01"),
+                            TicketId = new Guid("1900ce3a-eb99-45fa-80af-dd78063a860e"),
+                            AssetID = new Guid("e92a63b9-1191-4639-9f87-ca0c43b51f95"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 6, 14, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8736),
+                            CreatedAt = new DateTime(2023, 6, 28, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5399),
                             Description = "Description for Ticket 202",
                             Priority = 0,
                             Status = 1,
@@ -3014,10 +3017,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3ed3929c-ed6f-4013-8887-703948ff1de0"),
-                            AssetID = new Guid("49b158ee-531f-44a6-b4ac-1e5afcc5594b"),
+                            TicketId = new Guid("ab35aa06-8e41-4ba5-bca5-bcd39528044f"),
+                            AssetID = new Guid("56aeda3e-e9ac-424a-8339-92b722a819c9"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 6, 13, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8750),
+                            CreatedAt = new DateTime(2023, 6, 27, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5409),
                             Description = "Description for Ticket 203",
                             Priority = 1,
                             Status = 2,
@@ -3025,10 +3028,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3b3e4d11-3316-462b-8f70-a70b52a677bf"),
-                            AssetID = new Guid("477ae5df-9673-439b-96f6-133ec112527c"),
+                            TicketId = new Guid("b49d1af4-4af4-4aa6-ba67-95a788792a74"),
+                            AssetID = new Guid("d3d06354-56f3-434f-8d32-8afe36ee1260"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 6, 12, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8766),
+                            CreatedAt = new DateTime(2023, 6, 26, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5419),
                             Description = "Description for Ticket 204",
                             Priority = 2,
                             Status = 3,
@@ -3036,10 +3039,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ca66ef5a-d454-42a5-a19e-ab8bd0932d17"),
-                            AssetID = new Guid("28349c17-6fd4-4600-a21c-113dbe2647f7"),
+                            TicketId = new Guid("69b6787a-f6bb-4697-a4aa-2aa119e708b7"),
+                            AssetID = new Guid("288173c3-c9f1-4b20-b209-2aaecf08ce11"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 6, 11, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8779),
+                            CreatedAt = new DateTime(2023, 6, 25, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5429),
                             Description = "Description for Ticket 205",
                             Priority = 0,
                             Status = 0,
@@ -3047,10 +3050,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("0562bf50-c04c-4c82-9b14-1235ba2c768e"),
-                            AssetID = new Guid("07a7f193-758c-4d54-8d67-5fefea708497"),
+                            TicketId = new Guid("b1741c29-896a-4765-b83d-f7b66f615bd0"),
+                            AssetID = new Guid("bfdfbd81-5bae-4c27-827b-a7512f1e9ee9"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 6, 10, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8792),
+                            CreatedAt = new DateTime(2023, 6, 24, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5442),
                             Description = "Description for Ticket 206",
                             Priority = 1,
                             Status = 1,
@@ -3058,10 +3061,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("df21e02d-fbc9-49f1-a826-7d703bde48c3"),
-                            AssetID = new Guid("25242f77-fdb8-47d6-80fa-01c226c38a36"),
+                            TicketId = new Guid("a7e92582-8715-47d4-a248-388ad0037385"),
+                            AssetID = new Guid("0bb2f3fb-76a8-49ec-91d5-8a0e19afd84e"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 6, 9, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8805),
+                            CreatedAt = new DateTime(2023, 6, 23, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5452),
                             Description = "Description for Ticket 207",
                             Priority = 2,
                             Status = 2,
@@ -3069,10 +3072,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("833a2968-eb53-4c99-b501-e63aa714297b"),
-                            AssetID = new Guid("9d64707b-ab3f-4516-bce1-bed489adc112"),
+                            TicketId = new Guid("d5450128-44f4-482d-8b95-ae8540ad1b07"),
+                            AssetID = new Guid("fa5cbabc-2c51-478d-a082-79a5932eae09"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 6, 8, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8818),
+                            CreatedAt = new DateTime(2023, 6, 22, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5462),
                             Description = "Description for Ticket 208",
                             Priority = 0,
                             Status = 3,
@@ -3080,10 +3083,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("4c795b45-4d38-4cde-93b3-53a3dfc9ff0a"),
-                            AssetID = new Guid("c1c210aa-03af-41b4-80dc-8a7785eac2bd"),
+                            TicketId = new Guid("60116333-8579-4e6b-b9b1-57ddd91b7b50"),
+                            AssetID = new Guid("5593797c-b0d0-4b1b-b1db-8e33c19dd2e9"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 6, 7, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8830),
+                            CreatedAt = new DateTime(2023, 6, 21, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5472),
                             Description = "Description for Ticket 209",
                             Priority = 1,
                             Status = 0,
@@ -3091,10 +3094,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("71cc27af-b576-475e-869a-995f4ed31a8a"),
-                            AssetID = new Guid("dc68b9c0-a916-4b63-ac54-c1b5c5983551"),
+                            TicketId = new Guid("7683a6bf-fae8-4e2e-b681-bcb760e1da92"),
+                            AssetID = new Guid("a9323ee2-0ab0-4524-b1e9-77f661b11f18"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 6, 6, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8843),
+                            CreatedAt = new DateTime(2023, 6, 20, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5482),
                             Description = "Description for Ticket 210",
                             Priority = 2,
                             Status = 1,
@@ -3102,10 +3105,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f2789e59-b14c-48d5-985a-aa3dee9f6a03"),
-                            AssetID = new Guid("9264bfc7-2a04-41e8-8a82-fc212e003efa"),
+                            TicketId = new Guid("d4a5105b-5fd7-4f4c-9912-04b6c5599068"),
+                            AssetID = new Guid("aa13da17-47cc-41ee-9c80-36ffb79d6df6"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 6, 5, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8855),
+                            CreatedAt = new DateTime(2023, 6, 19, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5493),
                             Description = "Description for Ticket 211",
                             Priority = 0,
                             Status = 2,
@@ -3113,10 +3116,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("5264bce8-a2ff-48d4-bc11-05cf1374a50d"),
-                            AssetID = new Guid("31630389-f081-42c9-9916-d9e0de380e67"),
+                            TicketId = new Guid("6eb28dcb-7943-4e2f-85e6-807ef4742e89"),
+                            AssetID = new Guid("64801f5b-1e2a-483d-8b27-4204a6ca6ce3"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 6, 4, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8871),
+                            CreatedAt = new DateTime(2023, 6, 18, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5503),
                             Description = "Description for Ticket 212",
                             Priority = 1,
                             Status = 3,
@@ -3124,10 +3127,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("625ef47a-7344-49e4-9aa0-346345a49cd6"),
-                            AssetID = new Guid("c5411f95-3578-4056-9ccc-697bdbcb3444"),
+                            TicketId = new Guid("f5403fa1-acac-44a1-886b-3bef627ae0d1"),
+                            AssetID = new Guid("f30cee27-a0ac-491c-b024-73de7039bb2e"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 6, 3, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(8884),
+                            CreatedAt = new DateTime(2023, 6, 17, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5513),
                             Description = "Description for Ticket 213",
                             Priority = 2,
                             Status = 0,
@@ -3135,10 +3138,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bdcecf0a-7478-4afc-a40d-514bf64768db"),
-                            AssetID = new Guid("a39366ab-52b4-4353-8149-840f0e65fd53"),
+                            TicketId = new Guid("008321e7-1ec3-4eb1-959f-511728e7ee77"),
+                            AssetID = new Guid("ed7b09b3-e6dd-4e89-8751-0f7929f494c6"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 6, 2, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9050),
+                            CreatedAt = new DateTime(2023, 6, 16, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5526),
                             Description = "Description for Ticket 214",
                             Priority = 0,
                             Status = 1,
@@ -3146,10 +3149,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("8cf2f545-b276-42f4-8e1a-a385cc5dfedb"),
-                            AssetID = new Guid("88a02658-6691-49c9-a617-47a3b9cbaa21"),
+                            TicketId = new Guid("8e3ec854-2ae4-43c8-951d-138a98b69212"),
+                            AssetID = new Guid("21e66af0-23fa-412a-8f59-107438de1d07"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 6, 1, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9092),
+                            CreatedAt = new DateTime(2023, 6, 15, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5536),
                             Description = "Description for Ticket 215",
                             Priority = 1,
                             Status = 2,
@@ -3157,10 +3160,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b2d2f3c6-e962-4bc2-9352-5c6101b1f4f1"),
-                            AssetID = new Guid("26563f3b-42ff-4eed-8a4a-fb0d03d11ff0"),
+                            TicketId = new Guid("ec85056f-97d7-40c1-8792-519512077813"),
+                            AssetID = new Guid("4f465fb3-23e5-4b7f-803c-a94ef1812ce0"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 5, 31, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9106),
+                            CreatedAt = new DateTime(2023, 6, 14, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5578),
                             Description = "Description for Ticket 216",
                             Priority = 2,
                             Status = 3,
@@ -3168,10 +3171,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b53723e1-1d4f-49a1-a6bd-771493e4cb5d"),
-                            AssetID = new Guid("db42d35b-dcbe-4ef0-b306-1c1dda9ecc1e"),
+                            TicketId = new Guid("5e37a650-cfc1-4f09-932e-badad4e90112"),
+                            AssetID = new Guid("760f4c2e-2f4d-4e06-a793-aa69c5dd3d23"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 5, 30, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9118),
+                            CreatedAt = new DateTime(2023, 6, 13, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5588),
                             Description = "Description for Ticket 217",
                             Priority = 0,
                             Status = 0,
@@ -3179,10 +3182,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("3af36cb1-2c4d-4c5f-a35e-6c18abd33192"),
-                            AssetID = new Guid("62471ddb-07f1-4794-9efc-a33626470605"),
+                            TicketId = new Guid("5b000d50-491e-4061-b68f-5cbcc8b15812"),
+                            AssetID = new Guid("d4fecb34-670b-43a5-8518-cb650375678a"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 5, 29, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9130),
+                            CreatedAt = new DateTime(2023, 6, 12, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5598),
                             Description = "Description for Ticket 218",
                             Priority = 1,
                             Status = 1,
@@ -3190,10 +3193,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1030e7f4-64f3-4cf6-93b1-82489d2e9d58"),
-                            AssetID = new Guid("548e6919-14cc-4658-b787-c78242286c3d"),
+                            TicketId = new Guid("3dda49a2-a444-49ea-8fff-594d195d4d6d"),
+                            AssetID = new Guid("f085def7-2104-4a4a-a386-e5aad89e5c63"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 5, 28, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9143),
+                            CreatedAt = new DateTime(2023, 6, 11, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5608),
                             Description = "Description for Ticket 219",
                             Priority = 2,
                             Status = 2,
@@ -3201,10 +3204,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a20ebda2-b092-4499-8d80-550973a7c23b"),
-                            AssetID = new Guid("0056b30a-e1df-4efd-bc3e-6093120cb871"),
+                            TicketId = new Guid("7d1886aa-6474-4b4c-a520-0b8693cca55d"),
+                            AssetID = new Guid("3644404d-aea7-428d-af2a-7e34ed945f24"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 5, 27, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9159),
+                            CreatedAt = new DateTime(2023, 6, 10, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5619),
                             Description = "Description for Ticket 220",
                             Priority = 0,
                             Status = 3,
@@ -3212,10 +3215,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("dc70e60b-e345-4bcf-9121-c5597b456f55"),
-                            AssetID = new Guid("1b2477b5-e225-4f9a-9b8b-e9684e54aa2c"),
+                            TicketId = new Guid("8ed984d1-fd13-4617-a41d-0ccd1bcafb23"),
+                            AssetID = new Guid("d909c885-19de-4e29-b174-55eaa198ddaa"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 5, 26, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9172),
+                            CreatedAt = new DateTime(2023, 6, 9, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5628),
                             Description = "Description for Ticket 221",
                             Priority = 1,
                             Status = 0,
@@ -3223,10 +3226,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("37b9c5d1-b997-4962-b234-e097e6aa5e0b"),
-                            AssetID = new Guid("5f41bf29-aa96-4460-be16-2a106e0798b2"),
+                            TicketId = new Guid("80bef6b7-b8ff-4cf4-a787-113380c6f82a"),
+                            AssetID = new Guid("24946f50-a702-4208-8e79-a4f695730fd9"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 5, 25, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9185),
+                            CreatedAt = new DateTime(2023, 6, 8, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5641),
                             Description = "Description for Ticket 222",
                             Priority = 2,
                             Status = 1,
@@ -3234,10 +3237,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("a6204ab6-28cb-41e7-bc84-41b9d7dcf730"),
-                            AssetID = new Guid("a03d5308-2dbb-40af-a138-277771f7deb6"),
+                            TicketId = new Guid("f7bbf669-1052-4b52-b3d6-67eff0efc113"),
+                            AssetID = new Guid("ecb73a43-4a03-4454-a3a3-5a22f746e5a1"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 5, 24, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9197),
+                            CreatedAt = new DateTime(2023, 6, 7, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5652),
                             Description = "Description for Ticket 223",
                             Priority = 0,
                             Status = 2,
@@ -3245,10 +3248,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("c1895c5d-6237-4f57-9d12-75546fbc029b"),
-                            AssetID = new Guid("c3ad68a7-8bee-4eeb-94d5-f271809d5b30"),
+                            TicketId = new Guid("6a6a36c4-d88c-4d55-a5ed-f7e5786a0f42"),
+                            AssetID = new Guid("42e905a1-7ed1-43ca-bd0e-07c52a2b8c99"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 5, 23, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9209),
+                            CreatedAt = new DateTime(2023, 6, 6, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5662),
                             Description = "Description for Ticket 224",
                             Priority = 1,
                             Status = 3,
@@ -3256,10 +3259,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("f4432c35-11a1-43ac-b8e6-6a41b1b88b3e"),
-                            AssetID = new Guid("2faace28-cf62-40ad-9ddd-6f1d5ef6f1df"),
+                            TicketId = new Guid("0c172f20-2eee-43e6-b1a2-e6b2f18737af"),
+                            AssetID = new Guid("30e5de85-a1e0-487d-aee4-f78298a814ef"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 5, 22, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9221),
+                            CreatedAt = new DateTime(2023, 6, 5, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5672),
                             Description = "Description for Ticket 225",
                             Priority = 2,
                             Status = 0,
@@ -3267,10 +3270,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("017c5930-0f5f-4bb3-944e-89b6775b35aa"),
-                            AssetID = new Guid("6117b27a-03c1-4c40-9ca1-ec69ce505cae"),
+                            TicketId = new Guid("44eb2dc3-4fdf-4500-b139-42f21716e47e"),
+                            AssetID = new Guid("a2ab2024-d27b-4bd8-943d-9f6abd583ccc"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 5, 21, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9234),
+                            CreatedAt = new DateTime(2023, 6, 4, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5682),
                             Description = "Description for Ticket 226",
                             Priority = 0,
                             Status = 1,
@@ -3278,10 +3281,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ce2b4f9a-5bc9-4c5a-91e6-cf96f2c6a529"),
-                            AssetID = new Guid("04b1b138-6397-4062-9e38-537ca161c1da"),
+                            TicketId = new Guid("8ce7bad2-92d3-43c1-b32c-4fffc5da0b69"),
+                            AssetID = new Guid("0c363f46-1c93-4c78-a37e-81b4e7e5cd06"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 5, 20, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9246),
+                            CreatedAt = new DateTime(2023, 6, 3, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5691),
                             Description = "Description for Ticket 227",
                             Priority = 1,
                             Status = 2,
@@ -3289,10 +3292,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("2d613196-7fcb-4cb8-9fc0-9758ce01a831"),
-                            AssetID = new Guid("0ee57408-a701-4710-9bc6-dba6332335cc"),
+                            TicketId = new Guid("652214d6-4834-4732-978d-6b0802d2eafc"),
+                            AssetID = new Guid("642616aa-2303-47fc-8e34-29b78e12fc10"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 5, 19, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9262),
+                            CreatedAt = new DateTime(2023, 6, 2, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5701),
                             Description = "Description for Ticket 228",
                             Priority = 2,
                             Status = 3,
@@ -3300,10 +3303,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bc80cce9-8687-4be5-b0e8-3e2929fd291f"),
-                            AssetID = new Guid("5bc50449-2015-47d7-b4ff-ea4e7f16b024"),
+                            TicketId = new Guid("7dd0d9d3-5ae4-406d-9e50-de7d9a5eca7f"),
+                            AssetID = new Guid("8167c47f-98c6-4e21-b18c-0bacb8665d35"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 5, 18, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9274),
+                            CreatedAt = new DateTime(2023, 6, 1, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5711),
                             Description = "Description for Ticket 229",
                             Priority = 0,
                             Status = 0,
@@ -3311,10 +3314,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("b33ed68e-0100-4de1-91cf-089e1a8b9b7e"),
-                            AssetID = new Guid("46c5c2b0-110c-4187-8e2f-13cd9c047c3d"),
+                            TicketId = new Guid("9746c399-9d98-4b5b-9709-a8a7806a5e52"),
+                            AssetID = new Guid("e90edde1-19d9-47bb-bfc2-734b52b5dfb1"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 5, 17, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9288),
+                            CreatedAt = new DateTime(2023, 5, 31, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5725),
                             Description = "Description for Ticket 230",
                             Priority = 1,
                             Status = 1,
@@ -3322,10 +3325,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("64fa5105-d07b-456a-b4ea-fcbfc6d9b513"),
-                            AssetID = new Guid("7957e8e0-1624-4cfc-9cdc-14909e700120"),
+                            TicketId = new Guid("8e08ea94-d5b7-4756-a8c8-b3e55c317acf"),
+                            AssetID = new Guid("badf964f-a0ba-4efb-97cc-ba66e5818f09"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 5, 16, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9300),
+                            CreatedAt = new DateTime(2023, 5, 30, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5735),
                             Description = "Description for Ticket 231",
                             Priority = 2,
                             Status = 2,
@@ -3333,10 +3336,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("632f9afc-3c0c-4d31-be48-6354314e0397"),
-                            AssetID = new Guid("cee9a32c-614e-4240-8ab7-caff4d4fdbfd"),
+                            TicketId = new Guid("91b0876e-2e66-4c8a-844b-6358b2ec133c"),
+                            AssetID = new Guid("7192db25-a9b2-41ad-9ffd-9f71da552a66"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 5, 15, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9313),
+                            CreatedAt = new DateTime(2023, 5, 29, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5745),
                             Description = "Description for Ticket 232",
                             Priority = 0,
                             Status = 3,
@@ -3344,10 +3347,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bd8269e7-1a11-4b4a-8d67-3ed7d58c54f8"),
-                            AssetID = new Guid("44c62471-a823-4da1-b969-673b33771727"),
+                            TicketId = new Guid("cc216877-4997-4545-b25e-4db1d05cfb56"),
+                            AssetID = new Guid("04d69223-7891-4b38-b74a-bbc9cdc54553"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 5, 14, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9326),
+                            CreatedAt = new DateTime(2023, 5, 28, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5755),
                             Description = "Description for Ticket 233",
                             Priority = 1,
                             Status = 0,
@@ -3355,10 +3358,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("ef1d7b7c-742f-427b-af2e-e03a64d8d09d"),
-                            AssetID = new Guid("be928e80-e187-4c71-8338-5c5f469c14e2"),
+                            TicketId = new Guid("a2ea1f2b-b2c8-4b29-9bf4-21ed8082b103"),
+                            AssetID = new Guid("07ec0ff5-8c82-4d25-b0e4-c777753837ca"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 5, 13, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9339),
+                            CreatedAt = new DateTime(2023, 5, 27, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5765),
                             Description = "Description for Ticket 234",
                             Priority = 2,
                             Status = 1,
@@ -3366,10 +3369,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("6163fbed-0d3f-4f92-9a1d-21195754d7de"),
-                            AssetID = new Guid("a0f84582-77e3-462d-860e-66037897df21"),
+                            TicketId = new Guid("670e82f3-bca1-4d32-9915-ec0715e8a8db"),
+                            AssetID = new Guid("b996e44d-e2bb-4474-9ae2-5096361eb0f4"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 5, 12, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9353),
+                            CreatedAt = new DateTime(2023, 5, 26, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5775),
                             Description = "Description for Ticket 235",
                             Priority = 0,
                             Status = 2,
@@ -3377,10 +3380,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("bafebffa-69ff-4182-aac9-7921c82712e9"),
-                            AssetID = new Guid("20e09b01-c231-4bb5-b112-9e2b218047da"),
+                            TicketId = new Guid("4a3ff49a-37e3-4093-8ce0-0d35c12ff12c"),
+                            AssetID = new Guid("bbf2ebdd-02a6-4e7a-8c78-468da5893215"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 5, 11, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9369),
+                            CreatedAt = new DateTime(2023, 5, 25, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5785),
                             Description = "Description for Ticket 236",
                             Priority = 1,
                             Status = 3,
@@ -3388,10 +3391,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("efddc130-4b78-4cd5-b0fa-f7e22c50c7a8"),
-                            AssetID = new Guid("b5a5c2ef-ba30-45cd-b69a-7542b6e1225d"),
+                            TicketId = new Guid("a60b0597-a93f-4379-84db-57f4b0d17121"),
+                            AssetID = new Guid("797823e5-a0e4-4ad9-90cf-40d6f2feb9a0"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 5, 10, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9381),
+                            CreatedAt = new DateTime(2023, 5, 24, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5794),
                             Description = "Description for Ticket 237",
                             Priority = 2,
                             Status = 0,
@@ -3399,10 +3402,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("aeeb5d14-7c83-414a-a610-8fa13e28d17b"),
-                            AssetID = new Guid("d3632d7b-c9e0-4d01-9757-ff659ebbbdd9"),
+                            TicketId = new Guid("b0cfdfed-331d-4280-b222-bc1bd9861ddd"),
+                            AssetID = new Guid("3020bb85-ab4f-4018-a9c0-1cc4d6b2bbef"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 5, 9, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9419),
+                            CreatedAt = new DateTime(2023, 5, 23, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5839),
                             Description = "Description for Ticket 238",
                             Priority = 0,
                             Status = 1,
@@ -3410,10 +3413,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("298a2edc-477b-4d06-b912-7a2f2e16716c"),
-                            AssetID = new Guid("5d3ce4a9-dfe1-4ba5-a024-086aa86fdeb9"),
+                            TicketId = new Guid("a370d920-616d-4ddc-a547-836ed7c80fbd"),
+                            AssetID = new Guid("72c49d2a-49e0-4a42-996f-00c4b84574c9"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 5, 8, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9433),
+                            CreatedAt = new DateTime(2023, 5, 22, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5849),
                             Description = "Description for Ticket 239",
                             Priority = 1,
                             Status = 2,
@@ -3421,10 +3424,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("cdccf910-8aa7-4b34-9901-5f35ae4857ab"),
-                            AssetID = new Guid("a4902ad1-f16a-4186-9291-76caebcf2827"),
+                            TicketId = new Guid("4b5937e0-fffa-46f3-a688-c3a0978bfe20"),
+                            AssetID = new Guid("cb8e7509-eb48-4e1d-aff3-7727435ecf1c"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 5, 7, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9447),
+                            CreatedAt = new DateTime(2023, 5, 21, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5860),
                             Description = "Description for Ticket 240",
                             Priority = 2,
                             Status = 3,
@@ -3432,10 +3435,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("e0c1f2bb-eb6e-4bf0-87ca-3fb0e3a8d293"),
-                            AssetID = new Guid("78719898-28c7-4e82-ac3c-d7cdbb21b8c4"),
+                            TicketId = new Guid("aaae708a-6bb0-4e38-a6dc-e069e393f4a9"),
+                            AssetID = new Guid("5f06b624-79cd-46f0-a1b5-eb01a3b33579"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 5, 6, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9460),
+                            CreatedAt = new DateTime(2023, 5, 20, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5870),
                             Description = "Description for Ticket 241",
                             Priority = 0,
                             Status = 0,
@@ -3443,10 +3446,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("10af1276-3fa2-420a-9f99-7ef15806ab58"),
-                            AssetID = new Guid("5c4bd001-2790-4490-af94-29729ba2211b"),
+                            TicketId = new Guid("8217d611-1ece-4be6-8b4f-78b381b7d615"),
+                            AssetID = new Guid("c34edb5a-870f-4083-9654-e90546053a37"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 5, 5, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9473),
+                            CreatedAt = new DateTime(2023, 5, 19, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5879),
                             Description = "Description for Ticket 242",
                             Priority = 1,
                             Status = 1,
@@ -3454,10 +3457,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("33e77004-01ce-41ea-ad9b-e661b5412290"),
-                            AssetID = new Guid("a1a44f62-3095-4a1a-ba87-cadd4f996fb6"),
+                            TicketId = new Guid("293f3d19-0040-4ffa-8abf-ce46f8f04250"),
+                            AssetID = new Guid("d8a6993c-4c45-4857-b4fe-eecf56081312"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 5, 4, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9485),
+                            CreatedAt = new DateTime(2023, 5, 18, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5890),
                             Description = "Description for Ticket 243",
                             Priority = 2,
                             Status = 2,
@@ -3465,10 +3468,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("435cedb6-8a44-44e4-ad03-f0c04ee7e123"),
-                            AssetID = new Guid("81bcca65-038d-4880-9418-ab52a2fe031c"),
+                            TicketId = new Guid("a9afdf88-2a81-472b-9b3c-0071e2974a38"),
+                            AssetID = new Guid("1fb71b9d-4fab-4fd9-80dd-527a30558a96"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 5, 3, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9502),
+                            CreatedAt = new DateTime(2023, 5, 17, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5900),
                             Description = "Description for Ticket 244",
                             Priority = 0,
                             Status = 3,
@@ -3476,10 +3479,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("8ba6ae32-8bab-4b5e-af8c-87ff97d958fc"),
-                            AssetID = new Guid("5bc72dba-f0f6-4197-a6fd-3e26d20fb4e6"),
+                            TicketId = new Guid("847dcaed-8c22-46f7-a79a-dab52aaeaa62"),
+                            AssetID = new Guid("691a33fa-daa4-4d12-bc8d-b571dff658b8"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 5, 2, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9516),
+                            CreatedAt = new DateTime(2023, 5, 16, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5910),
                             Description = "Description for Ticket 245",
                             Priority = 1,
                             Status = 0,
@@ -3487,10 +3490,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("65eaa1dc-d50e-408e-b1da-386b248a3399"),
-                            AssetID = new Guid("4aee48d9-4a25-4d95-a69f-416a46f3e2c8"),
+                            TicketId = new Guid("959eefe9-c7dc-4ea4-ae96-7ea5b614d58f"),
+                            AssetID = new Guid("8f2698c5-18be-422e-8a6c-6a011b765a02"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 5, 1, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9530),
+                            CreatedAt = new DateTime(2023, 5, 15, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5923),
                             Description = "Description for Ticket 246",
                             Priority = 2,
                             Status = 1,
@@ -3498,10 +3501,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("fbfa808f-88ed-4c0e-8d1e-0d86f169f8d7"),
-                            AssetID = new Guid("b560b1ab-aa94-477c-957e-b93f96dcf73b"),
+                            TicketId = new Guid("4de1fa0b-d7ef-41c8-a515-8b91e843b9bb"),
+                            AssetID = new Guid("12cedc23-a645-43c2-9fa4-56fc38c4a6eb"),
                             Category = 2,
-                            CreatedAt = new DateTime(2023, 4, 30, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9543),
+                            CreatedAt = new DateTime(2023, 5, 14, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5933),
                             Description = "Description for Ticket 247",
                             Priority = 0,
                             Status = 2,
@@ -3509,10 +3512,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("256797b5-35e0-48ad-b8e5-d470c69eeeae"),
-                            AssetID = new Guid("92c83e8d-94b6-4c94-86aa-20b78674a960"),
+                            TicketId = new Guid("af83cc31-21db-464a-b1cd-1fe561b7a00d"),
+                            AssetID = new Guid("179cf458-ded2-494f-bdae-d526d9d89920"),
                             Category = 3,
-                            CreatedAt = new DateTime(2023, 4, 29, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9555),
+                            CreatedAt = new DateTime(2023, 5, 13, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5943),
                             Description = "Description for Ticket 248",
                             Priority = 1,
                             Status = 3,
@@ -3520,10 +3523,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("1eb82d13-b5b0-441a-8286-0e7648241516"),
-                            AssetID = new Guid("51b9e1e7-be46-4c8d-b739-b4d13e0731ec"),
+                            TicketId = new Guid("8def4cfe-2d90-4132-bbda-5ad8311af667"),
+                            AssetID = new Guid("23e20066-9910-4fd0-85b1-2bd688286beb"),
                             Category = 0,
-                            CreatedAt = new DateTime(2023, 4, 28, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9568),
+                            CreatedAt = new DateTime(2023, 5, 12, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5953),
                             Description = "Description for Ticket 249",
                             Priority = 2,
                             Status = 0,
@@ -3531,10 +3534,10 @@ namespace TracklyApi.Migrations
                         },
                         new
                         {
-                            TicketId = new Guid("524245d2-0931-4fd1-a3e8-111d05657f77"),
-                            AssetID = new Guid("28d6de2e-d6e5-43b2-bde5-1f7efab0dafc"),
+                            TicketId = new Guid("c102b829-3a92-4b32-a5b8-9e9119a14aa4"),
+                            AssetID = new Guid("38efee85-0eb9-479a-89e0-03888e457de8"),
                             Category = 1,
-                            CreatedAt = new DateTime(2023, 4, 27, 20, 51, 33, 815, DateTimeKind.Local).AddTicks(9580),
+                            CreatedAt = new DateTime(2023, 5, 11, 18, 5, 49, 735, DateTimeKind.Local).AddTicks(5963),
                             Description = "Description for Ticket 250",
                             Priority = 0,
                             Status = 1,
