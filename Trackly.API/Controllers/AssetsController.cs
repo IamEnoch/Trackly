@@ -9,13 +9,13 @@ using TracklyApi.Models.Assets;
 namespace TracklyApi.Controllers
 {
     [ApiController]
-    public class AssetManagementController : ControllerBase
+    public class AssetsController : ControllerBase
     {
 
-        private readonly ILogger<AssetManagementController> _logger;
+        private readonly ILogger<AssetsController> _logger;
         private readonly AppDbContext _context;
 
-        public AssetManagementController(ILogger<AssetManagementController> logger, AppDbContext context)
+        public AssetsController(ILogger<AssetsController> logger, AppDbContext context)
         {
             _logger = logger;
             _context = context;
@@ -45,7 +45,6 @@ namespace TracklyApi.Controllers
             // Constructing the response using the fetched data
             var response = assets.Select(asset => new AssetResponseDto(
                 asset.BarcodeNumber,
-                asset.AssetID,
                 asset.AssetName,
                 asset.Category,
                 asset.Department.DepartmentName,
@@ -78,7 +77,7 @@ namespace TracklyApi.Controllers
                 .Where(t => t.AssetID == asset.AssetID)
                 .ToListAsync();
 
-            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetID, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName, tickets));
+            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName, tickets));
         }
 
         /// <summary>
@@ -104,7 +103,7 @@ namespace TracklyApi.Controllers
                 .Where(t => t.AssetID == asset.AssetID)
                 .ToListAsync();
 
-            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetID, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName, tickets));
+            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName, tickets));
         }
 
         /// <summary>

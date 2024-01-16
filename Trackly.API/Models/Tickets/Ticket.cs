@@ -17,6 +17,9 @@ namespace TracklyApi.Models.Tickets
         //Time created for the ticket
         public DateTime CreatedAt { get; set; }
 
+        //Time closed for the ticket
+        public DateTime? ClosedAt { get; set; }
+
         // Navigation properties
         public virtual Asset Asset { get; set; }
     }
