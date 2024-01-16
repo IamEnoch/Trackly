@@ -12,12 +12,12 @@ using static TracklyApi.Helpers.EnumHelper;
 namespace TracklyApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("tickets")]
     public class TicketsController : ControllerBase
     {
-        private readonly ILogger<AssetManagementController> _logger;
+        private readonly ILogger<AssetsController> _logger;
         private readonly AppDbContext _context;
-        public TicketsController(ILogger<AssetManagementController> logger, AppDbContext context)
+        public TicketsController(ILogger<AssetsController> logger, AppDbContext context)
         {
             _logger = logger;
             _context = context;
@@ -42,6 +42,7 @@ namespace TracklyApi.Controllers
             }
         }
 
+<<<<<<< Updated upstream
         //create a work item independent of ticket model class
         //ticket created when the work item is approved
         [HttpPost("Workitem")]
@@ -80,6 +81,9 @@ namespace TracklyApi.Controllers
             }
 
         }
+=======
+        
+>>>>>>> Stashed changes
 
         //put request to change the status of a ticket
         [HttpPut("{ticketId}/status")]
@@ -94,6 +98,12 @@ namespace TracklyApi.Controllers
                 }
 
                 ticket.Status = Enum.Parse<TicketStatus>(ticketStatusUpdateDto.Status);
+
+                if (ticket.Status == TicketStatus.Closed)
+                {
+                    ticket.ClosedAt = DateTime.Now;
+                }
+                
                 await _context.SaveChangesAsync();
 
                 return Ok(ticket);
