@@ -21,7 +21,7 @@ namespace TracklyApi.DTOs
             Category = category.ToString();
             DepartmentName = departmentName.ToString();
             LocationName = locationName.ToString();
-            Tickets = tickets.Select(t => new TicketDto(t.Title, t.Description, t.Status, t.Priority, t.Category, t.AssignedUserID, t.CreatedAt))
+            Tickets = tickets.Select(t => new TicketDto(t.Title, t.Description, t.Status, t.Priority, t.Category, t.AssignedUserID, t.CreatedAt, t.CompletedAt, t.ClosedAt))
                 .ToList();
         }
     }
