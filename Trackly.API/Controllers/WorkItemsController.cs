@@ -51,7 +51,7 @@ namespace TracklyApi.Controllers
         }
 
         //Change the status of the work-item
-        [HttpPut("{id}")]
+        [HttpPut("{id}/status")]
         public async Task<ActionResult<WorkItem>> UpdateWorkItemStatus(Guid id, WorkItemUpdateDto workItemUpdateDto)
         {
             try

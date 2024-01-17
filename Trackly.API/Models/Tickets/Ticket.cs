@@ -11,13 +11,12 @@ namespace TracklyApi.Models.Tickets
         public TicketStatus Status { get; set; }
         public Priority Priority { get; set; }
         public TicketCategory Category { get; set; }
+        public Guid CreatedBy { get; set; }
         public Guid? AssignedUserID { get; set; }
         public Guid AssetID { get; set; }
 
-        //Time created for the ticket
         public DateTime CreatedAt { get; set; }
-
-        //Time closed for the ticket
+        public DateTime? CompletedAt { get; set; }
         public DateTime? ClosedAt { get; set; }
 
         // Navigation properties

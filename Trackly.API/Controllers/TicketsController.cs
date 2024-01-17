@@ -23,7 +23,7 @@ namespace TracklyApi.Controllers
             _context = context;
         }
         //get work item by id
-        [HttpGet("Workitem/{workItemId}")]
+        [HttpGet("workitem/{workItemId}")]
         public async Task<ActionResult<WorkItem>> GetWorkItemById(string workItemId)
         {
             try
@@ -42,10 +42,7 @@ namespace TracklyApi.Controllers
             }
         }
 
-<<<<<<< Updated upstream
-        //create a work item independent of ticket model class
-        //ticket created when the work item is approved
-        [HttpPost("Workitem")]
+        [HttpPost("workitem")]
         public async Task<ActionResult<WorkItem>> CreateWorkItem([FromBody]WorkItemRequestDto workItemRequestDto)
         {
             try
@@ -81,27 +78,40 @@ namespace TracklyApi.Controllers
             }
 
         }
-=======
-        
->>>>>>> Stashed changes
 
         //put request to change the status of a ticket
         [HttpPut("{ticketId}/status")]
-        public async Task<ActionResult<Ticket>> ChangeTicketStatus(string ticketId, TicketStatusUpdateDto ticketStatusUpdateDto)
+        public async Task<ActionResult<Ticket>> ChangeTicketStatus(string ticketId, [FromBody]TicketStatusUpdateDto ticketStatusUpdateDto)
         {
             try
             {
                 var ticket = await _context.Tickets.FindAsync(Guid.Parse(ticketId));
-                if (ticket == null)
-                {
-                    return NotFound("Ticket not found");
-                }
 
+                if (ticket == null)
+                    return NotFound("Ticket not found");
+
+                //set the current status of the ticket
+                var previousTicketStatus = ticket.Status;
                 ticket.Status = Enum.Parse<TicketStatus>(ticketStatusUpdateDto.Status);
 
-                if (ticket.Status == TicketStatus.Closed)
+                //If previous status is completed, set to a different on => null
+                //If previous status is closed, set to a different on => null
+                if (previousTicketStatus == TicketStatus.Completed && ticket.Status != TicketStatus.Completed && ticket.Status != TicketStatus.Closed)
                 {
-                    ticket.ClosedAt = DateTime.Now;
+                    ticket.CompletedAt = null;
+                }else if (previousTicketStatus == TicketStatus.Closed && ticket.Status != TicketStatus.Closed)
+                {
+                    ticket.ClosedAt = null; 
+                }
+
+                switch (ticket.Status)
+                {
+                    case TicketStatus.Closed:
+                        ticket.ClosedAt = DateTime.Now;
+                        break;
+                    case TicketStatus.Completed:
+                        ticket.CompletedAt = DateTime.Now;
+                        break;
                 }
                 
                 await _context.SaveChangesAsync();
