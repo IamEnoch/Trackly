@@ -45,6 +45,7 @@ namespace TracklyApi.Controllers
             // Constructing the response using the fetched data
             var response = assets.Select(asset => new AssetResponseDto(
                 asset.BarcodeNumber,
+                asset.AssetID,
                 asset.AssetName,
                 asset.Category,
                 asset.Department.DepartmentName,
@@ -77,7 +78,7 @@ namespace TracklyApi.Controllers
                 .Where(t => t.AssetID == asset.AssetID)
                 .ToListAsync();
 
-            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName, tickets));
+            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetID, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName ,tickets));
         }
 
         /// <summary>
@@ -103,7 +104,7 @@ namespace TracklyApi.Controllers
                 .Where(t => t.AssetID == asset.AssetID)
                 .ToListAsync();
 
-            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName, tickets));
+            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetID, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName, tickets));
         }
 
         /// <summary>
