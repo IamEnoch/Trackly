@@ -20,11 +20,11 @@ var connectionString = builder.Configuration.GetConnectionString("TracklyDbConne
 var domain = builder.Configuration["Auth0:Domain"];
 var apiIdentifier = builder.Configuration["Auth0:ApiIdentifier"];
 
-builder.Services.AddControllers()
+/*builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-    });
+    });*/
 
 //Configure DbContext with sql
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
