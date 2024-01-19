@@ -34,7 +34,10 @@ namespace TracklyApi.Controllers
 
         }
 
-        //Get all users
+        /// <summary>
+        /// GET request to get all users
+        /// </summary>
+        /// <returns>List of users</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserDto>>> GetAllUsers()
         {
@@ -76,7 +79,11 @@ namespace TracklyApi.Controllers
             
         }
 
-        //get a particular user using id
+        /// <summary>
+        /// GET request to get a user by id
+        /// </summary>
+        /// <param name="userId">User id</param>
+        /// <returns></returns>
         [HttpGet("{userId}")]
         public async Task<ActionResult<UserDto>> GetUserById(string userId)
         {
@@ -119,9 +126,13 @@ namespace TracklyApi.Controllers
             
         }
 
-        //get a user`s role
+        /// <summary>
+        /// GET request to get a user`s role
+        /// </summary>
+        /// <param name="userId">User id</param>
+        /// <returns>List of user`s role</returns>
         [HttpGet("{userId}/role")]
-        public async Task<ActionResult<UserRole>> GetUserRole(string userId)
+        public async Task<ActionResult<IEnumerable<UserRole?>>> GetUserRole(string userId)
         {
             try
             {
@@ -144,19 +155,19 @@ namespace TracklyApi.Controllers
                 var accessToken = result.AccessToken;
 
                 //make a get request instead
-                var userRole = await httpHelper.GetAsync<UserRole?>($"{getUserUri}/users/{userId}/roles",
+                var userRoles = await httpHelper.GetAsync<IEnumerable<UserRole>?>($"{getUserUri}/users/{userId}/roles",
                     new Dictionary<string, string>
                     {
                         { "Authorization", $"Bearer {accessToken}" }
                     });
                 //var user = await managementApiClient.Users.GetAsync(userId);
-                if (userRole == null)
+                if (userRoles == null)
                 {
                     return NotFound();
                 }
 
 
-                return Ok(userRole);
+                return Ok(userRoles);
             }
             catch (Exception e)
             {
@@ -165,7 +176,12 @@ namespace TracklyApi.Controllers
             
         }
 
-        //get tickets of a particular user
+
+        /// <summary>
+        /// GET request to get tickets of a particular user
+        /// </summary>
+        /// <param name="userId">User id</param>
+        /// <returns></returns>
         [HttpGet("{userId}/tickets")]
         public async Task<ActionResult<IEnumerable<TicketDto>>> GetTicketsByUserId(string userId)
         {
