@@ -120,6 +120,50 @@ namespace TracklyApi.Controllers
         }
 
         //get a user`s role
+        [HttpGet("{userId}/role")]
+        public async Task<ActionResult<UserRole>> GetUserRole(string userId)
+        {
+            try
+            {
+                //Use http helper to get access token
+                var httpHelper = new HttpHelper();
+                //create a http uri
+                var getTokeUri = new Uri($"https://{_domain}/oauth/token");
+                var getUserUri = new Uri($"https://{_domain}/api/v2");
+                //create a request object
+                var request = new AuthManagementTokenRequest
+                {
+                    ClientId = _clientId,
+                    ClientSecret = _clientSecret,
+                    Audience = new Uri($"https://{_domain}/api/v2/"),
+                    GrantType = "client_credentials"
+                };
+                var result =
+                    await httpHelper.PostAsync<AuthManagementTokenRequest, UserAuthManagementTokenResponse>(
+                        getTokeUri.ToString(), request, new Dictionary<string, string>());
+                var accessToken = result.AccessToken;
+
+                //make a get request instead
+                var userRole = await httpHelper.GetAsync<UserRole?>($"{getUserUri}/users/{userId}/roles",
+                    new Dictionary<string, string>
+                    {
+                        { "Authorization", $"Bearer {accessToken}" }
+                    });
+                //var user = await managementApiClient.Users.GetAsync(userId);
+                if (userRole == null)
+                {
+                    return NotFound();
+                }
+
+
+                return Ok(userRole);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            
+        }
 
         //get tickets of a particular user
         [HttpGet("{userId}/tickets")]
