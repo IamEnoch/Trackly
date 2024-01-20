@@ -10,6 +10,6 @@ abstract class AuthenticationEvent extends Equatable {
 
 class AppStarted extends AuthenticationEvent {}
 
-class LoggedIn extends AuthenticationEvent {}
+class LoginEvent extends AuthenticationEvent {}
 
-class LoggedOut extends AuthenticationEvent {}
+class LogoutEvent extends AuthenticationEvent {}
