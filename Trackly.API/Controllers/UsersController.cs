@@ -34,7 +34,10 @@ namespace TracklyApi.Controllers
 
         }
 
-        //Get all users
+        /// <summary>
+        /// GET request to get all users
+        /// </summary>
+        /// <returns>List of users</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserDto>>> GetAllUsers()
         {
@@ -76,7 +79,11 @@ namespace TracklyApi.Controllers
             
         }
 
-        //get a particular user using id
+        /// <summary>
+        /// GET request to get a user by id
+        /// </summary>
+        /// <param name="userId">User id</param>
+        /// <returns></returns>
         [HttpGet("{userId}")]
         public async Task<ActionResult<UserDto>> GetUserById(string userId)
         {
@@ -119,9 +126,62 @@ namespace TracklyApi.Controllers
             
         }
 
-        //get a user`s role
+        /// <summary>
+        /// GET request to get a user`s role
+        /// </summary>
+        /// <param name="userId">User id</param>
+        /// <returns>List of user`s role</returns>
+        [HttpGet("{userId}/role")]
+        public async Task<ActionResult<IEnumerable<UserRole?>>> GetUserRole(string userId)
+        {
+            try
+            {
+                //Use http helper to get access token
+                var httpHelper = new HttpHelper();
+                //create a http uri
+                var getTokeUri = new Uri($"https://{_domain}/oauth/token");
+                var getUserUri = new Uri($"https://{_domain}/api/v2");
+                //create a request object
+                var request = new AuthManagementTokenRequest
+                {
+                    ClientId = _clientId,
+                    ClientSecret = _clientSecret,
+                    Audience = new Uri($"https://{_domain}/api/v2/"),
+                    GrantType = "client_credentials"
+                };
+                var result =
+                    await httpHelper.PostAsync<AuthManagementTokenRequest, UserAuthManagementTokenResponse>(
+                        getTokeUri.ToString(), request, new Dictionary<string, string>());
+                var accessToken = result.AccessToken;
 
-        //get tickets of a particular user
+                //make a get request instead
+                var userRoles = await httpHelper.GetAsync<IEnumerable<UserRole>?>($"{getUserUri}/users/{userId}/roles",
+                    new Dictionary<string, string>
+                    {
+                        { "Authorization", $"Bearer {accessToken}" }
+                    });
+                //var user = await managementApiClient.Users.GetAsync(userId);
+                if (userRoles == null)
+                {
+                    return NotFound();
+                }
+
+
+                return Ok(userRoles);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            
+        }
+
+
+        /// <summary>
+        /// GET request to get tickets of a particular user
+        /// </summary>
+        /// <param name="userId">User id</param>
+        /// <returns></returns>
         [HttpGet("{userId}/tickets")]
         public async Task<ActionResult<IEnumerable<TicketDto>>> GetTicketsByUserId(string userId)
         {
