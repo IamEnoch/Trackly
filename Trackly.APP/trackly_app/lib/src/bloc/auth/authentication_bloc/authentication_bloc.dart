@@ -23,13 +23,13 @@ class AuthenticationBloc
       }
     });
 
-    on<LoggedIn>((event, emit) async {
+    on<LoginEvent>((event, emit) async {
       emit(AuthenticationLoading());
       Future.delayed(const Duration(seconds: 1));
       emit(AuthenticationAuthenticated());
     });
 
-    on<LoggedOut>((event, emit) async {
+    on<LogoutEvent>((event, emit) async {
       emit(AuthenticationLoading());
       Future.delayed(const Duration(seconds: 1));
       emit(AuthenticationUnauthenticated());
