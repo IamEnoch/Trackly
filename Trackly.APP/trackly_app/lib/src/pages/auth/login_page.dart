@@ -1,13 +1,14 @@
 import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_event.dart';
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_state.dart';
-import 'package:trackly_app/src/bloc/auth/authentication_bloc/authentication_bloc.dart';
+import 'package:trackly_app/src/bloc/auth/role_bloc/role_bloc.dart';
+import 'package:trackly_app/src/bloc/auth/role_bloc/role_state.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
-import 'package:trackly_app/src/utils/routes.dart';
 
 class MyLoginPage extends StatefulWidget {
   const MyLoginPage({super.key, required this.title});
@@ -28,12 +29,33 @@ class MyLoginPage extends StatefulWidget {
 }
 
 class _MyLoginPageState extends State<MyLoginPage> {
+  //add logger
+  final log = logger(MyLoginPage);
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
-      listener: (context, state) {
-        // TODO: implement listener
-        if (state is LoginSuccess) {
+      listener: (context, authState) {
+        if (authState is LoginSuccess) {
+          log.d('Login success from login page bloc listener');
+          BlocListener<RoleBloc, RoleState>(
+            listener: (context, roleState) {
+              if (roleState is RoleAdmin) {
+                log.d(
+                    'Navigating to tab page from login page bloc listener as admin');
+                Navigator.of(context).pushReplacementNamed(tabPageRoute);
+              } else if (roleState is RoleTechnician) {
+                log.d(
+                    'Navigating to tab page from login page bloc listener as technician');
+                Navigator.of(context).pushReplacementNamed(tabPageRoute);
+              } else {
+                log.d('Logging out : Role bloc listener');
+              }
+            },
+          );
+        } else if (authState is LoginLoading) {
+          log.d('The auth state is ${authState.toString()}');
+        } else {
+          log.d('The auth state is ${authState.toString()}');
           Navigator.of(context).pushReplacementNamed(tabPageRoute);
         }
       },
