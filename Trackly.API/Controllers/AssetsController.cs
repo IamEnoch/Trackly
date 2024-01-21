@@ -1,9 +1,12 @@
+using Azure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Drawing.Printing;
 using TracklyApi.Data;
 using TracklyApi.DTOs;
 using TracklyApi.DTOs.RequestDTOs;
+using TracklyApi.Models;
 using TracklyApi.Models.Assets;
 
 namespace TracklyApi.Controllers
@@ -29,31 +32,104 @@ namespace TracklyApi.Controllers
         [Authorize]
         public async Task<ActionResult<IEnumerable<Asset>>> GetAssets()
         {
-            // Fetching assets with their tickets separately
-            var assets = await _context.Assets
-                .Include(x => x.Department)
-                .Include(x => x.Location)
-                .ToListAsync();
+            try
+            {
+                // Fetching assets with their tickets separately
+                var assets = await _context.Assets
+                    .Include(x => x.Department)
+                    .Include(x => x.Location)
+                    .ToListAsync();
 
-            var assetIds = assets.Select(a => a.AssetID).ToList();
+                var assetIds = assets.Select(a => a.AssetID).ToList();
 
-            // Fetching tickets for the fetched assets
-            var tickets = await _context.Tickets
-                .Where(t => assetIds.Contains(t.AssetID))
-                .ToListAsync();
+                // Fetching tickets for the fetched assets
+                var tickets = await _context.Tickets
+                    .Where(t => assetIds.Contains(t.AssetID))
+                    .ToListAsync();
 
-            // Constructing the response using the fetched data
-            var response = assets.Select(asset => new AssetResponseDto(
-                asset.BarcodeNumber,
-                asset.AssetID,
-                asset.AssetName,
-                asset.Category,
-                asset.Department.DepartmentName,
-                asset.Location.LocationName,
-                tickets.Where(t => t.AssetID == asset.AssetID).ToList()
-            )).ToList();
-            return Ok(response);
+                // Constructing the response using the fetched data
+                var response = assets.Select(asset => new AssetResponseDto(
+                    asset.BarcodeNumber,
+                    asset.AssetID,
+                    asset.AssetName,
+                    asset.Category,
+                    asset.Department.DepartmentName,
+                    asset.Location.LocationName,
+                    tickets.Where(t => t.AssetID == asset.AssetID).ToList()
+                )).ToList();
+
+
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                //status code 500
+                return StatusCode(500, e.Message);
+                throw;
+            }
         }
+
+        //get paged assets
+        [HttpGet("assets/paged")]
+        [Authorize]
+        public async Task<ActionResult<IEnumerable<Asset>>> GetPagedAssets([FromQuery] QueryParameters parameters)
+        {
+            try
+            {
+                int page = parameters.PageNumber;
+                int pageSize = parameters.PageSize;
+
+                // Validate and normalize page and pageSize values
+                if (parameters.PageNumber < 1) page = 1;
+                if (parameters.PageSize < 1)
+                {
+                    pageSize = 15;
+                };
+
+                // Fetching assets with their tickets separately
+                var totaNummberOfAssets = await _context.Assets.CountAsync();
+                var assets = await _context.Assets
+                    .Skip(page * pageSize)
+                    .Take(pageSize)
+                    .Include(x => x.Department)
+                    .Include(x => x.Location)
+                    .ToListAsync();
+
+                var assetIds = assets.Select(a => a.AssetID).ToList();
+
+                // Fetching tickets for the fetched assets
+                var tickets = await _context.Tickets
+                    .Where(t => assetIds.Contains(t.AssetID))
+                    .ToListAsync();
+
+                // Constructing the response using the fetched data
+                var response = assets.Select(asset => new AssetResponseDto(
+                    asset.BarcodeNumber,
+                    asset.AssetID,
+                    asset.AssetName,
+                    asset.Category,
+                    asset.Department.DepartmentName,
+                    asset.Location.LocationName,
+                    tickets.Where(t => t.AssetID == asset.AssetID).ToList()
+                )).ToList();
+
+
+                return Ok(new PagedResult<AssetResponseDto> 
+                {
+                    Items = response,
+                    TotalCount = totaNummberOfAssets,
+                    PageNumber = parameters.PageNumber,
+                    RecordNumber = parameters.PageSize
+                });
+            }
+            catch (Exception e)
+            {
+                //status code 500
+                return StatusCode(500, e.Message);
+                throw;
+            }
+        }
+
 
         /// <summary>
         /// Get asset by barcode number
