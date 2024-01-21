@@ -24,7 +24,6 @@ namespace TracklyApi.Models.Assets
         public virtual Location Location { get; set; }
         [JsonIgnore]
         public virtual ICollection<WorkItem> WorkItems { get; set; }
-        [JsonIgnore]
         public virtual ICollection<Ticket> Tickets { get; set; }
 
     }
