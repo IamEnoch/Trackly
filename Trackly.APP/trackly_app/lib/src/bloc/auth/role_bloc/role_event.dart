@@ -12,3 +12,6 @@ abstract class RoleEvent extends Equatable {
 class AddRoleEvent extends RoleEvent {}
 
 class RemoveRoleEvent extends RoleEvent {}
+
+//Event to check if user is admin or technician
+class CheckRoleEvent extends RoleEvent {}
