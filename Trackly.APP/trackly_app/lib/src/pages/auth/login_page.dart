@@ -1,4 +1,3 @@
-import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trackly_app/Logging/logger.dart';
@@ -13,15 +12,6 @@ import 'package:trackly_app/src/utils/app_resources.dart';
 class MyLoginPage extends StatefulWidget {
   const MyLoginPage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -33,32 +23,40 @@ class _MyLoginPageState extends State<MyLoginPage> {
   final log = logger(MyLoginPage);
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthBloc, AuthState>(
-      listener: (context, authState) {
-        if (authState is LoginSuccess) {
-          log.d('Login success from login page bloc listener');
-          BlocListener<RoleBloc, RoleState>(
-            listener: (context, roleState) {
-              if (roleState is RoleAdmin) {
-                log.d(
-                    'Navigating to tab page from login page bloc listener as admin');
-                Navigator.of(context).pushReplacementNamed(tabPageRoute);
-              } else if (roleState is RoleTechnician) {
-                log.d(
-                    'Navigating to tab page from login page bloc listener as technician');
-                Navigator.of(context).pushReplacementNamed(tabPageRoute);
-              } else {
-                log.d('Logging out : Role bloc listener');
-              }
-            },
-          );
-        } else if (authState is LoginLoading) {
-          log.d('The auth state is ${authState.toString()}');
-        } else {
-          log.d('The auth state is ${authState.toString()}');
-          Navigator.of(context).pushReplacementNamed(tabPageRoute);
-        }
-      },
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<AuthBloc, AuthState>(
+          bloc: AuthBloc(),
+          listener: (context, authState) {
+            if (authState is LoginSuccess) {
+              log.d('Login success from login page bloc listener');
+              log.d(
+                  'Navigating to tab page from login page bloc listener as admin');
+              Navigator.of(context).pushReplacementNamed(tabPageRoute);
+            } else if (authState is LoginLoading) {
+              log.d('The auth state is ${authState.toString()}');
+            } else {
+              log.d('The auth state is ${authState.toString()}');
+            }
+          },
+        ),
+        // BlocListener<RoleBloc, RoleState>(
+        //   listener: (context, roleState) {
+        //     if (roleState is RoleAdmin) {
+        //       log.d(
+        //           'Navigating to tab page from login page bloc listener as admin');
+        //       Navigator.of(context).pushReplacementNamed(tabPageRoute);
+        //     } else if (roleState is RoleTechnician) {
+        //       log.d(
+        //           'Navigating to tab page from login page bloc listener as technician');
+        //       Navigator.of(context).pushReplacementNamed(tabPageRoute);
+        //     } else {
+        //       Navigator.of(context).pushReplacementNamed(tabPageRoute);
+        //       log.d('Logging out : Role bloc listener');
+        //     }
+        //   },
+        // ),
+      ],
       child: Scaffold(
         body: Center(
           child: SafeArea(
@@ -100,21 +98,31 @@ class _MyLoginPageState extends State<MyLoginPage> {
                     child: OutlinedButton(
                       onPressed: () async {
                         context.read<AuthBloc>().add(
-                              const Login(),
+                              const LoginEvent(),
                             );
                       },
                       style: AppResources()
                           .buttonStyles
                           .buttonStyle(backgroundColor: Colors.black),
-                      child: Text(
-                        "LOGIN",
-                        style: AppResources()
-                            .appStyles
-                            .textStyles
-                            .componentsButtonDefault
-                            .copyWith(
+                      child: BlocBuilder<AuthBloc, AuthState>(
+                        builder: (context, state) {
+                          if (state is LoginLoading) {
+                            //return spinner
+                            return const CircularProgressIndicator(
                               color: Colors.white,
-                            ),
+                            );
+                          }
+                          return Text(
+                            "LOGIN",
+                            style: AppResources()
+                                .appStyles
+                                .textStyles
+                                .componentsButtonDefault
+                                .copyWith(
+                                  color: Colors.white,
+                                ),
+                          );
+                        },
                       ),
                     ),
                   ),

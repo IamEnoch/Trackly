@@ -250,7 +250,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                       onPressed: () async {
                         context.read<AuthBloc>().add(
-                              const Logout(),
+                              const LogoutEvent(),
                             );
                       },
                       child: Padding(

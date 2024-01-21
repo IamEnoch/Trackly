@@ -15,6 +15,17 @@ class SharedPreferencesManager {
     return _instance;
   }
 
+  //get role
+  Future<String> getRole() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('role') ?? '';
+  }
+
+  Future<bool> setRole({required String value}) async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.setString('role', value);
+  }
+
   Future<bool> isLoggedIn() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool('is_logged_in') ?? false;

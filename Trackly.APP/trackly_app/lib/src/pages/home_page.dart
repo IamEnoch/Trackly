@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
             ElevatedButton(
                 onPressed: () async {
                   context.read<AuthBloc>().add(
-                        const Logout(),
+                        const LogoutEvent(),
                       );
                 },
                 child: const Text("Log out"))
