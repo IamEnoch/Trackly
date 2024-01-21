@@ -1,6 +1,5 @@
 import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:trackly_app/Logging/logger.dart';
@@ -9,7 +8,6 @@ import 'package:trackly_app/src/data/models/Auth/user_role.dart';
 import 'package:trackly_app/src/data/models/api_response.dart';
 
 import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
 
 class AuthRepository {
   late String domain;
