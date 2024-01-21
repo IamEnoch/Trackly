@@ -96,6 +96,9 @@ namespace TracklyApi.Data
             }
 
             // Seed Tickets (250 entries)
+            // Have some tickets have closed and completed dates
+            // Must have completed before being closed
+            // Some tickets can lack both the closed and completed dates
             var tickets = new List<Ticket>();
             for (int i = 0; i < 250; i++)
             {
@@ -109,7 +112,9 @@ namespace TracklyApi.Data
                     Category = (TicketCategory)(i % Enum.GetValues(typeof(TicketCategory)).Length),
                     AssignedUserID = null, // Set AssignedUserID as null for now
                     AssetID = assetGuids[i % 70], // Use Asset ID
-                    CreatedAt = DateTime.Now.AddDays(-i)
+                    CreatedAt = DateTime.Now.AddDays(-i),
+                    CompletedAt = i % 2 == 0 ? DateTime.Now.AddDays(-i + 1) : null,
+                    ClosedAt = i % 2 == 0 ? DateTime.Now.AddDays(-i + 2) : null
                 });
             }
             modelBuilder.Entity<Ticket>().HasData(tickets);
