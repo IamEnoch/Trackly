@@ -39,13 +39,25 @@ class RoleBloc extends Bloc<RoleEvent, RoleState> {
               AuthBloc().add(const LoginFailureEvent(message: 'No role found'));
               log.e('Emmited Role failure. No role found');
             } else if (userRoles.length == 1) {
-              if (userRoles[0].name == 'admin' ||
+              if (userRoles[0].name == 'admin' &&
                   userRoles[0].name == 'technician') {
                 //set in shared preferences
                 await SharedPreferencesManager().setRole(value: 'admin');
                 emit(RoleAdmin());
                 AuthBloc().add(const LoginSuccessEvent());
                 log.i("Emmited RoleAdmin or RoleTechncian");
+              } else if (userRoles[0].name == 'technician') {
+                //set in shared preferences
+                await SharedPreferencesManager().setRole(value: 'technician');
+                emit(RoleTechnician());
+                AuthBloc().add(const LoginSuccessEvent());
+                log.i("Emmited RoleTechnician");
+              } else if (userRoles[0].name == 'admin') {
+                //set in shared preferences
+                await SharedPreferencesManager().setRole(value: 'admin');
+                emit(RoleAdmin());
+                AuthBloc().add(const LoginSuccessEvent());
+                log.i("Emmited RoleAdmin");
               } else {
                 //emit role failure
                 emit(const RoleFailure(message: 'Role failure'));

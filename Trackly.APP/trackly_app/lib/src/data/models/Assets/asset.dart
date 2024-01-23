@@ -1,4 +1,5 @@
-import 'package:trackly_app/src/data/models/ticket.dart';
+import 'package:trackly_app/src/data/enumhelper/enums.dart';
+import 'package:trackly_app/src/data/models/Tickets/ticket.dart';
 
 class Asset {
   String barcodeNumber;
@@ -20,10 +21,6 @@ class Asset {
   });
 
   factory Asset.fromJson(Map<String, dynamic> json) {
-    List<dynamic> ticketList = json['tickets'];
-    List<Ticket> parsedTickets =
-        ticketList.map((ticket) => Ticket.fromJson(ticket)).toList();
-
     return Asset(
       barcodeNumber: json['barcodeNumber'],
       assetId: json['assetId'],
@@ -31,7 +28,18 @@ class Asset {
       category: json['category'],
       departmentName: json['departmentName'],
       locationName: json['locationName'],
-      tickets: parsedTickets,
+      tickets:
+          List<Ticket>.from(json["tickets"].map((x) => Ticket.fromJson(x))),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        "barcodeNumber": barcodeNumber,
+        "assetId": assetId,
+        "assetName": assetName,
+        "category": category,
+        "departmentName": departmentNameValues.reverse[departmentName],
+        "locationName": locationNameValues.reverse[locationName],
+        "tickets": List<dynamic>.from(tickets.map((x) => x.toJson())),
+      };
 }

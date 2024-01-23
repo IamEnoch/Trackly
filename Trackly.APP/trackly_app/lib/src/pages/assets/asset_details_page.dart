@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:trackly_app/Logging/logger.dart';
-import 'package:trackly_app/src/data/models/ticket.dart';
+import 'package:trackly_app/src/data/models/Tickets/ticket.dart';
 import 'package:trackly_app/src/utils/widgets/ticket_small_card.dart';
 
 class AssetDetailsPage extends StatelessWidget {

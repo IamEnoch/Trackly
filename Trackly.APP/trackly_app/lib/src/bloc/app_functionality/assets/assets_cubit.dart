@@ -1,20 +1,63 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_state.dart';
+import 'package:trackly_app/src/data/models/Assets/asset.dart';
 import 'package:trackly_app/src/data/services/providers/asset_provider.dart';
 
-class AssetCubit extends Cubit<AssetsState> {
-  AssetCubit() : super(AssetsInitial());
-  final log = logger(AssetCubit);
+class AssetCubit extends Cubit<AssetState> {
+  final StreamController<List<Asset>> _assetStreamController =
+      StreamController<List<Asset>>.broadcast();
+  Stream<List<Asset>> get assetStream => _assetStreamController.stream;
 
-  // Future<void> fetchAssets() async {
-  //   emit(AssetsLoading());
-  //   try {
-  //     final assets = await assetProvider.();
-  //     emit(AssetsSuccess(assets: assets));
-  //   } on Exception catch (e) {
-  //     emit(AssetsFailure(message: e.toString()));
-  //   }
+  ///Singleton instanceS
+  static final AssetCubit _instance = AssetCubit._internal();
+
+  factory AssetCubit() {
+    return _instance;
+  }
+  AssetCubit._internal() : super(AssetsInitial()) {
+    //fetchNextPage();
+  }
+  final log = logger(AssetCubit);
+  final int pageSize = 10;
+  int currentPage = 1;
+  bool fetchingData = true;
+
+  void fetchNextPage() async {
+    try {
+      if (!fetchingData) return;
+      emit(AssetsLoading());
+
+      // Api call
+      var assets =
+          await AssetProvider().getPaginatedAssets(currentPage, pageSize);
+
+      // Check if there are assets. If not, do not fetch data again
+      if (assets.response!.isEmpty) {
+        fetchingData = false;
+        emit(AssetsEmpty());
+        return;
+      }
+
+      emit(AssetsSuccess());
+      // Add the new assets to the existing stream
+      _assetStreamController.add(assets.response!);
+
+      currentPage++;
+    } catch (error) {
+      // Handle errors
+      emit(AssetsFailure(message: error.toString()));
+    } finally {
+      fetchingData = false;
+    }
+  }
+
+  // @override
+  // Future<void> close() {
+  //   _assetStreamController.close();
+  //   return super.close();
   // }
 
   Future<void> fetchAsset(String id) async {
@@ -38,34 +81,4 @@ class AssetCubit extends Cubit<AssetsState> {
       emit(AssetsFailure(message: e.toString()));
     }
   }
-
-  // Future<void> createAsset(Asset asset) async {
-  //   emit(AssetsLoading());
-  //   try {
-  //     await assetProvider.createAsset(asset);
-  //     emit(AssetCreated());
-  //   } on Exception catch (e) {
-  //     emit(AssetsFailure(message: e.toString()));
-  //   }
-  // }
-
-  // Future<void> updateAsset(Asset asset) async {
-  //   emit(AssetsLoading());
-  //   try {
-  //     await assetProvider.updateAsset(asset);
-  //     emit(AssetUpdated());
-  //   } on Exception catch (e) {
-  //     emit(AssetsFailure(message: e.toString()));
-  //   }
-  // }
-
-  // Future<void> deleteAsset(String id) async {
-  //   emit(AssetsLoading());
-  //   try {
-  //     await assetProvider.deleteAsset(id);
-  //     emit(AssetDeleted());
-  //   } on Exception catch (e) {
-  //     emit(AssetsFailure(message: e.toString()));
-  //   }
-  // }
 }

@@ -7,6 +7,7 @@ import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/authentication_bloc/authentication_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/role_bloc/role_bloc.dart';
 import 'package:trackly_app/src/pages/assets/asset_details_page.dart';
+import 'package:trackly_app/src/pages/assets/assets_failure_page.dart';
 import 'package:trackly_app/src/pages/assets/assets_success_page.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/login_page.dart';
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
                 ),
             tabPageRoute: (context) => const TabPage(),
             assetSuccssPageRoute: (context) => const AssetsSuccessPage(),
+            assetFailurePageRoute: (context) => const AssetsFailurePage(),
             scanPageRoute: (context) => ScanPage(),
             assetDetailsPageRoute: (context) => AssetDetailsPage(),
             ticketDetailsPageRoute: (context) => const TicketDetailsPage(),
