@@ -77,11 +77,11 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                       ),
                       child: Column(
                         children: [
-                          // Image.asset(
-                          //   AppImages.successIcon,
-                          //   width: 56,
-                          //   height: 56,
-                          // ),
+                          Image.asset(
+                            AppAssets.successIcon,
+                            width: 56,
+                            height: 56,
+                          ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.018,
                           ),
@@ -278,7 +278,6 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                               ),
                             ],
                           ),
-
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.0187,
                           ),
