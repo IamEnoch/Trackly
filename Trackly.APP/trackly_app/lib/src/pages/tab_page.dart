@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trackly_app/src/bloc/auth/role_bloc/role_bloc.dart';
+import 'package:trackly_app/src/bloc/auth/role_bloc/role_state.dart';
+import 'package:trackly_app/src/pages/assets/assets_page.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/profile_page.dart';
 import 'package:trackly_app/src/pages/scan_page.dart';
 import 'package:trackly_app/src/pages/tickets/work_item_page.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
-
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 
 class TabPage extends StatefulWidget {
   const TabPage({Key? key}) : super(key: key);
@@ -31,73 +33,136 @@ class _TabPageState extends State<TabPage> {
     super.dispose();
   }
 
+  void _disposeTab(int tabIndex) {
+    // Add disposal logic for the tab at the given index
+    print('Disposing resources for tab $tabIndex');
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SizedBox.expand(
-        child: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() => _currentIndex = index);
-            //dispose the previous page when the index changes
-            if (index == 0) {
-              _pageController.dispose();
-            }
-          },
-          children: <Widget>[
-            HomePage(),
-            WorkItemPage(),
-            ScanPage(),
-            HomePage(),
-            ProfilePage()
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: _currentIndex,
-        showElevation: true,
-        itemCornerRadius: 24,
-        curve: Curves.easeIn,
-        onItemSelected: (index) {
-          setState(() => _currentIndex = index);
-          _pageController.jumpToPage(index);
-        },
-        items: [
-          BottomNavyBarItem(
-            icon: Icon(Icons.apps),
-            title: Text('Home'),
-            activeColor: Colors.red,
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.people),
-            title: Text('Users'),
-            activeColor: Colors.purpleAccent,
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: const ImageIcon(
-              AssetImage(AppAssets.scanIcon),
+    return BlocBuilder<RoleBloc, RoleState>(
+      builder: (context, state) {
+        if (state is RoleAdmin) {
+          return Scaffold(
+            body: SizedBox.expand(
+              child: PageView(
+                controller: _pageController,
+                onPageChanged: (index) {
+                  if (_currentIndex != index) {
+                    _disposeTab(_currentIndex);
+                  }
+                  _pageController.jumpToPage(index);
+                  setState(() => _currentIndex = index);
+                },
+                children: <Widget>[
+                  HomePage(),
+                  AssetsPage(),
+                  ScanPage(),
+                  HomePage(),
+                  ProfilePage(),
+                ],
+              ),
             ),
-            title: Text(
-              'Scan',
+            bottomNavigationBar: BottomNavigationBar(
+              selectedLabelStyle: TextStyle(
+                color: Colors.black,
+              ),
+              unselectedLabelStyle: TextStyle(
+                color: Colors.black,
+              ),
+              type: BottomNavigationBarType.fixed,
+              currentIndex: _currentIndex,
+              onTap: (index) {
+                setState(() => _currentIndex = index);
+                _pageController.jumpToPage(index);
+              },
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.apps, color: Colors.black),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.people, color: Colors.black),
+                  label: 'Users',
+                ),
+                BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    AssetImage(AppAssets.scanIcon),
+                    color: Colors.deepPurple,
+                  ),
+                  label: 'Scan',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person, color: Colors.black),
+                  label: 'Settings',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person, color: Colors.black),
+                  label: 'Settings',
+                ),
+              ],
             ),
-            activeColor: Colors.pink,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.person),
-            title: Text('Settings'),
-            activeColor: Colors.blue,
-            textAlign: TextAlign.center,
-          ),
-          BottomNavyBarItem(
-            icon: Icon(Icons.person),
-            title: Text('Settings'),
-            activeColor: Colors.blue,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+          );
+        } else {
+          return Scaffold(
+            body: SizedBox.expand(
+              child: PageView(
+                controller: _pageController,
+                onPageChanged: (index) {
+                  if (_currentIndex != index) {
+                    _disposeTab(_currentIndex);
+                  }
+                  _pageController.jumpToPage(index);
+                  setState(() => _currentIndex = index);
+                },
+                children: <Widget>[
+                  HomePage(),
+                  WorkItemPage(),
+                  ScanPage(),
+                  HomePage(),
+                  ProfilePage(),
+                ],
+              ),
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              selectedLabelStyle: TextStyle(
+                color: Colors.black,
+              ),
+              unselectedLabelStyle: TextStyle(
+                color: Colors.black,
+              ),
+              type: BottomNavigationBarType.fixed,
+              currentIndex: _currentIndex,
+              onTap: (index) {
+                setState(() => _currentIndex = index);
+                _pageController.jumpToPage(index);
+              },
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.apps, color: Colors.black),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(AppAssets.workItemIcon),
+                  label: 'Work Item',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(AppAssets.scanIcon, scale: 1.3),
+                  label: 'Scan',
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset(AppAssets.ticketsIcon),
+                  label: 'Tickets',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person, color: Colors.black),
+                  label: 'Settings',
+                ),
+              ],
+            ),
+          );
+        }
+      },
     );
   }
 }
