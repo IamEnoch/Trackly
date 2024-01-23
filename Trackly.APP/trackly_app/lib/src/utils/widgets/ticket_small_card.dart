@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:trackly_app/Logging/logger.dart';
-import 'package:trackly_app/src/data/models/ticket.dart';
+import 'package:trackly_app/src/data/models/Tickets/ticket.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/widgets/status_card.dart';
 
@@ -35,11 +35,11 @@ class _TicketSmallCardState extends State<TicketSmallCard> {
             arguments: {
               'description': widget.ticket.description,
               'createdAt': widget.ticket.createdAt,
-              'priority': widget.ticket.priority,
-              'status': widget.ticket.status,
+              'priority': widget.ticket.priority.name,
+              'status': widget.ticket.status.name,
               'title': widget.ticket.title,
-              'time': widget.ticket.time,
-              'date': widget.ticket.date,
+              'time': widget.ticket.assignedUser,
+              'date': widget.ticket.assignedUser,
             },
           );
         },
@@ -109,7 +109,7 @@ class _TicketSmallCardState extends State<TicketSmallCard> {
               Expanded(
                 flex: 1,
                 child: StatusCardWidget(
-                  status: '${widget.ticket.status}',
+                  status: widget.ticket.status.name,
                 ),
               )
             ],
