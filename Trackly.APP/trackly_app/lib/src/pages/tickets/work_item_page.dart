@@ -57,7 +57,7 @@ class _WorkItemPageState extends State<WorkItemPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocListener<AssetCubit, AssetsState>(
+      body: BlocListener<AssetCubit, AssetState>(
         listener: (context, state) {
           // TODO: implement listener
           //Fill the asset name is the asset is fetched
