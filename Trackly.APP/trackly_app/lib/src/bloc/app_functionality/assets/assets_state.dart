@@ -1,27 +1,22 @@
 import 'package:equatable/equatable.dart';
-import 'package:trackly_app/src/data/models/asset.dart';
+import 'package:trackly_app/src/data/models/Assets/asset.dart';
 
-sealed class AssetsState extends Equatable {
-  const AssetsState();
+class AssetState extends Equatable {
+  const AssetState();
 
   @override
   List<Object> get props => [];
 }
 
-final class AssetsInitial extends AssetsState {}
+final class AssetsInitial extends AssetState {}
 
-final class AssetsLoading extends AssetsState {}
+final class AssetsLoading extends AssetState {}
 
-final class AssetsSuccess extends AssetsState {
-  final List<Asset> assets;
+final class AssetsEmpty extends AssetState {}
 
-  const AssetsSuccess({required this.assets});
+final class AssetsSuccess extends AssetState {}
 
-  @override
-  List<Object> get props => [assets];
-}
-
-final class AssetFetched extends AssetsState {
+final class AssetFetched extends AssetState {
   final Asset asset;
 
   const AssetFetched({required this.asset});
@@ -30,13 +25,13 @@ final class AssetFetched extends AssetsState {
   List<Object> get props => [asset];
 }
 
-final class AssetCreated extends AssetsState {}
+final class AssetCreated extends AssetState {}
 
-final class AssetUpdated extends AssetsState {}
+final class AssetUpdated extends AssetState {}
 
-final class AssetDeleted extends AssetsState {}
+final class AssetDeleted extends AssetState {}
 
-final class AssetsFailure extends AssetsState {
+final class AssetsFailure extends AssetState {
   final String message;
 
   const AssetsFailure({required this.message});
