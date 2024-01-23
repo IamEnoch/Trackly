@@ -27,7 +27,7 @@ def authProperties = new Properties()
 authProperties.load(new FileInputStream(authPropertiesFile))
 android {
     namespace "com.example.trackly_app"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 34
     ndkVersion "25.1.8937393"
 
     compileOptions {
