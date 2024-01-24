@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trackly_app/Logging/logger.dart';
@@ -8,68 +7,52 @@ import 'package:trackly_app/src/utils/all_constants_imports.dart';
 
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-class ScanPage extends StatefulWidget {
+class ScanPage extends StatelessWidget {
   ScanPage({super.key});
 
-  @override
-  State<ScanPage> createState() => _ScanPageState();
-}
-
-class _ScanPageState extends State<ScanPage> {
   final log = logger(ScanPage);
-  MobileScannerController cameraController = MobileScannerController();
-
-  @override
-  void initState() {
-    cameraController.start();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    cameraController.dispose();
-    super.dispose();
-  }
+  // Function to reinitialize controllers
 
   @override
   Widget build(BuildContext context) {
+    //final MobileScannerController cameraController = MobileScannerController();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mobile Scanner'),
-        actions: [
-          IconButton(
-            color: Colors.white,
-            icon: ValueListenableBuilder(
-              valueListenable: cameraController.torchState,
-              builder: (context, state, child) {
-                switch (state as TorchState) {
-                  case TorchState.off:
-                    return const Icon(Icons.flash_off, color: Colors.grey);
-                  case TorchState.on:
-                    return const Icon(Icons.flash_on, color: Colors.yellow);
-                }
-              },
-            ),
-            iconSize: 32.0,
-            onPressed: () => cameraController.toggleTorch(),
-          ),
-          IconButton(
-            color: Colors.grey,
-            icon: ValueListenableBuilder(
-              valueListenable: cameraController.cameraFacingState,
-              builder: (context, state, child) {
-                switch (state as CameraFacing) {
-                  case CameraFacing.front:
-                    return const Icon(Icons.camera_front);
-                  case CameraFacing.back:
-                    return const Icon(Icons.camera_rear);
-                }
-              },
-            ),
-            iconSize: 32.0,
-            onPressed: () => cameraController.switchCamera(),
-          ),
-        ],
+        // actions: [
+        //   IconButton(
+        //     color: Colors.white,
+        //     icon: ValueListenableBuilder(
+        //       valueListenable: cameraController.torchState,
+        //       builder: (context, state, child) {
+        //         switch (state as TorchState) {
+        //           case TorchState.off:
+        //             return const Icon(Icons.flash_off, color: Colors.grey);
+        //           case TorchState.on:
+        //             return const Icon(Icons.flash_on, color: Colors.yellow);
+        //         }
+        //       },
+        //     ),
+        //     iconSize: 32.0,
+        //     onPressed: () => cameraController.toggleTorch(),
+        //   ),
+        //   IconButton(
+        //     color: Colors.grey,
+        //     icon: ValueListenableBuilder(
+        //       valueListenable: cameraController.cameraFacingState,
+        //       builder: (context, state, child) {
+        //         switch (state as CameraFacing) {
+        //           case CameraFacing.front:
+        //             return const Icon(Icons.camera_front);
+        //           case CameraFacing.back:
+        //             return const Icon(Icons.camera_rear);
+        //         }
+        //       },
+        //     ),
+        //     iconSize: 32.0,
+        //     onPressed: () => cameraController.switchCamera(),
+        //   ),
+        // ],
       ),
       body: SafeArea(
         child: BlocListener<AssetCubit, AssetState>(
@@ -102,10 +85,28 @@ class _ScanPageState extends State<ScanPage> {
               return const Center(child: CircularProgressIndicator());
             } else {
               return MobileScanner(
-                // fit: BoxFit.contain,
-                controller: cameraController,
+                //Overlay widget for barcode scanner
+                //Darken the area outside the conta
+                overlay: Center(
+                  child: Container(
+                    width: 300,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.red,
+                        width: 2,
+                      ),
+                    ),
+                  ),
+                ),
+                controller: MobileScannerController(
+                    detectionSpeed: DetectionSpeed.unrestricted,
+                    useNewCameraSelector: false),
                 onDetect: (capture) {
-                  final Barcode barcode = capture.barcodes.first;
+                  List<Barcode> barcodes = capture.barcodes;
+                  var barcode = barcodes.last;
+
+                  log.e('Detected barcode: ${barcode.rawValue}');
                   context.read<AssetCubit>().fetchAsset(barcode.rawValue!);
                 },
               );
