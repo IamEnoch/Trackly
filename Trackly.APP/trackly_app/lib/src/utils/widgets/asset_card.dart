@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:trackly_app/src/data/models/Assets/asset.dart';
 
 class AssetCard extends StatefulWidget {
-  const AssetCard({super.key});
+  const AssetCard({required this.asset, super.key});
+  final Asset asset;
 
   @override
   State<AssetCard> createState() => _AssetCardState();

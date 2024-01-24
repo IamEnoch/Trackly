@@ -4,53 +4,40 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_state.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
+import 'package:trackly_app/src/data/models/api_response.dart';
 import 'package:trackly_app/src/data/services/providers/asset_provider.dart';
 
 class AssetCubit extends Cubit<AssetState> {
-  final StreamController<List<Asset>> _assetStreamController =
-      StreamController<List<Asset>>.broadcast();
-  Stream<List<Asset>> get assetStream => _assetStreamController.stream;
-
-  ///Singleton instanceS
+  ///Singleton instance
   static final AssetCubit _instance = AssetCubit._internal();
 
   factory AssetCubit() {
     return _instance;
   }
-  AssetCubit._internal() : super(AssetsInitial()) {
-    //fetchNextPage();
-  }
+  AssetCubit._internal() : super(AssetsInitial());
   final log = logger(AssetCubit);
-  final int pageSize = 10;
-  int currentPage = 1;
-  bool fetchingData = true;
 
-  void fetchNextPage() async {
+  Future<List<Asset>> getAssets(int currentPage, int pageSize) async {
     try {
-      if (!fetchingData) return;
       emit(AssetsLoading());
 
       // Api call
-      var assets =
+      ApiResponse<List<Asset>?> assets =
           await AssetProvider().getPaginatedAssets(currentPage, pageSize);
 
       // Check if there are assets. If not, do not fetch data again
       if (assets.response!.isEmpty) {
-        fetchingData = false;
         emit(AssetsEmpty());
-        return;
+        //return an empty list of type asset
+        return <Asset>[];
       }
 
       emit(AssetsSuccess());
-      // Add the new assets to the existing stream
-      _assetStreamController.add(assets.response!);
-
-      currentPage++;
+      return assets.response!;
     } catch (error) {
       // Handle errors
       emit(AssetsFailure(message: error.toString()));
-    } finally {
-      fetchingData = false;
+      return <Asset>[];
     }
   }
 

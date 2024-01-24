@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:trackly_app/src/bloc/auth/role_bloc/role_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/role_bloc/role_state.dart';
 import 'package:trackly_app/src/pages/assets/assets_page.dart';
@@ -8,7 +9,6 @@ import 'package:trackly_app/src/pages/auth/profile_page.dart';
 import 'package:trackly_app/src/pages/scan_page.dart';
 import 'package:trackly_app/src/pages/tickets/work_item_page.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
-import 'package:trackly_app/src/utils/app_resources.dart';
 
 class TabPage extends StatefulWidget {
   const TabPage({Key? key}) : super(key: key);
@@ -20,6 +20,7 @@ class TabPage extends StatefulWidget {
 class _TabPageState extends State<TabPage> {
   int _currentIndex = 0;
   late PageController _pageController;
+  final mobileController = MobileScannerController();
 
   @override
   void initState() {
