@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
-import 'package:trackly_app/src/bloc/app_functionality/assets/assets_state.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
 import 'package:trackly_app/src/utils/widgets/asset_card.dart';
+
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class AssetsPage extends StatefulWidget {
   const AssetsPage({super.key});
@@ -14,102 +14,74 @@ class AssetsPage extends StatefulWidget {
   State<AssetsPage> createState() => _AssetsPageState();
 }
 
-class _AssetsPageState extends State<AssetsPage>
-    with SingleTickerProviderStateMixin {
-  final ScrollController _scrollController = ScrollController();
+class _AssetsPageState extends State<AssetsPage> {
+  final AssetCubit assetCubit = AssetCubit();
 
-  late final AssetCubit assetCubit;
+  static const _pageSize = 7;
 
-  late final StreamSubscription<List<Asset>> _subscription;
+  final PagingController<int, Asset> _pagingController =
+      PagingController(firstPageKey: 0);
 
   @override
   void initState() {
-    super.initState();
-    assetCubit = AssetCubit();
-    _subscription = assetCubit.assetStream.listen((data) {
-      // Handle data
-      //Listen for data
-      print('Data received: $data');
-      //data used to populate listview in streambuilder
-
-      // _assetStreamController.add(data);
+    _pagingController.addPageRequestListener((pageKey) async {
+      await _fetchPage(pageKey);
     });
+    super.initState();
   }
 
   @override
   void dispose() {
-    _subscription.cancel();
-    _scrollController.dispose();
+    _pagingController.dispose();
     super.dispose();
+  }
+
+  Future<void> _fetchPage(int pageKey) async {
+    try {
+      final newItems = await assetCubit.getAssets(pageKey, _pageSize);
+      final isLastPage = newItems.length < _pageSize;
+      if (isLastPage) {
+        _pagingController.appendLastPage(newItems);
+      } else {
+        final nextPageKey = ++pageKey;
+        _pagingController.appendPage(newItems, nextPageKey);
+      }
+    } catch (error) {
+      _pagingController.error = error;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    // Attach a listener to the scroll controller
-    _scrollController.addListener(() {
-      // when user tries to scroll
-
-      if (_scrollController.position.pixels ==
-          _scrollController.position.maxScrollExtent) {
-        assetCubit.fetchNextPage();
-      }
-    });
-
-    return SafeArea(
-      child: Scaffold(
-        body: StreamBuilder<List<Asset>>(
-          stream: assetCubit.assetStream,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              // Stream is still loading
-              assetCubit.fetchNextPage();
-              return Center(
-                child: CircularProgressIndicator(),
+    return RefreshIndicator(
+      onRefresh: () => Future.sync(
+        () => _pagingController.refresh(),
+      ),
+      child: SafeArea(
+        child: PagedListView<int, Asset>(
+          padding: EdgeInsets.fromLTRB(10, 50, 10, 0),
+          pagingController: _pagingController,
+          builderDelegate: PagedChildBuilderDelegate<Asset>(
+            itemBuilder: (context, item, index) {
+              return InkWell(
+                onTap: () {},
+                child: AssetCard(asset: item),
               );
-            } else if (snapshot.hasError) {
-              // Stream has encountered an error
-              return Center(
-                child: Text('Error: ${snapshot.error}'),
-              );
-            } else if (snapshot.hasData) {
-              // Stream has emitted data
-              final assets = snapshot.data ?? [];
-              return buildListView(assets, context);
-            } else {
-              return Center(
-                child: Text('No data'),
-              );
-            }
-          },
+            },
+            firstPageErrorIndicatorBuilder: (_) =>
+                const CircularProgressIndicator(),
+            newPageErrorIndicatorBuilder: (_) => const Text('Fetching assets'),
+            firstPageProgressIndicatorBuilder: (_) =>
+                const Text('Fetching assets'),
+            newPageProgressIndicatorBuilder: (_) =>
+                const CircularProgressIndicator(),
+            noItemsFoundIndicatorBuilder: (_) =>
+                const CircularProgressIndicator(),
+            noMoreItemsIndicatorBuilder: (_) =>
+                const CircularProgressIndicator(),
+          ),
         ),
       ),
-    );
-  }
-
-  Widget buildListView(List<Asset> assets, BuildContext context) {
-    return ListView.builder(
-      controller: _scrollController,
-      itemCount: assets.length + 1,
-      itemBuilder: (context, index) {
-        if (index < assets.length) {
-          final asset = assets[index];
-          return AssetCard(
-              // asset: asset,
-              // onTap: () {
-              //   Navigator.pushNamed(
-              //     context,
-              //     Routes.assetDetails,
-              //     arguments: asset,
-              //   );
-              // },
-              );
-        } else {
-          // Display a loading indicator at the end of the list
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-      },
     );
   }
 }

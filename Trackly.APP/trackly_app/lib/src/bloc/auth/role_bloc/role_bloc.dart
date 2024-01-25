@@ -66,6 +66,8 @@ class RoleBloc extends Bloc<RoleEvent, RoleState> {
                 log.e('Emmited Role failure: Unexpected role found');
               }
             } else {
+              //set in shared preferences
+              await SharedPreferencesManager().setRole(value: 'admin');
               emit(RoleAdmin());
               AuthBloc().add(const LoginSuccessEvent());
               log.i('Emmited RoleAdmin');

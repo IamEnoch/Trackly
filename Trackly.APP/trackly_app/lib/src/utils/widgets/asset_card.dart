@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:trackly_app/src/data/models/Assets/asset.dart';
 
 class AssetCard extends StatefulWidget {
-  const AssetCard({super.key});
+  const AssetCard({required this.asset, super.key});
+  final Asset asset;
 
   @override
   State<AssetCard> createState() => _AssetCardState();
@@ -11,7 +13,7 @@ class _AssetCardState extends State<AssetCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 0, // Set the elevation as needed
+      elevation: 0.7, // Set the elevation as needed
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       child: const Padding(
         padding: const EdgeInsets.all(8.0),
