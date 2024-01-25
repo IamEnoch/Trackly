@@ -13,7 +13,7 @@ class _AssetCardState extends State<AssetCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 0, // Set the elevation as needed
+      elevation: 0.7, // Set the elevation as needed
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       child: const Padding(
         padding: const EdgeInsets.all(8.0),
