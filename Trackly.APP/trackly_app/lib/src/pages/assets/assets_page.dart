@@ -53,30 +53,33 @@ class _AssetsPageState extends State<AssetsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: PagedListView<int, Asset>(
-        pagingController: _pagingController,
-        builderDelegate: PagedChildBuilderDelegate<Asset>(
-          itemBuilder: (context, item, index) => AssetCard(
-            asset: item,
-            // onTap: () {
-            //   Navigator.pushNamed(
-            //     context,
-            //     Routes.assetDetails,
-            //     arguments: asset,
-            //   );
-            // },
+    return RefreshIndicator(
+      onRefresh: () => Future.sync(
+        () => _pagingController.refresh(),
+      ),
+      child: SafeArea(
+        child: PagedListView<int, Asset>(
+          padding: EdgeInsets.fromLTRB(10, 50, 10, 0),
+          pagingController: _pagingController,
+          builderDelegate: PagedChildBuilderDelegate<Asset>(
+            itemBuilder: (context, item, index) {
+              return InkWell(
+                onTap: () {},
+                child: AssetCard(asset: item),
+              );
+            },
+            firstPageErrorIndicatorBuilder: (_) =>
+                const CircularProgressIndicator(),
+            newPageErrorIndicatorBuilder: (_) => const Text('Fetching assets'),
+            firstPageProgressIndicatorBuilder: (_) =>
+                const Text('Fetching assets'),
+            newPageProgressIndicatorBuilder: (_) =>
+                const CircularProgressIndicator(),
+            noItemsFoundIndicatorBuilder: (_) =>
+                const CircularProgressIndicator(),
+            noMoreItemsIndicatorBuilder: (_) =>
+                const CircularProgressIndicator(),
           ),
-          firstPageErrorIndicatorBuilder: (_) =>
-              const CircularProgressIndicator(),
-          newPageErrorIndicatorBuilder: (_) => const Text('Fetching assets'),
-          firstPageProgressIndicatorBuilder: (_) =>
-              const Text('Fetching assets'),
-          newPageProgressIndicatorBuilder: (_) =>
-              const CircularProgressIndicator(),
-          noItemsFoundIndicatorBuilder: (_) =>
-              const CircularProgressIndicator(),
-          noMoreItemsIndicatorBuilder: (_) => const CircularProgressIndicator(),
         ),
       ),
     );
