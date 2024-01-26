@@ -9,6 +9,7 @@ import 'package:trackly_app/src/pages/auth/profile_page.dart';
 import 'package:trackly_app/src/pages/scan_page.dart';
 import 'package:trackly_app/src/pages/tickets/work_item_page.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
+import 'package:trackly_app/src/utils/app_colors.dart';
 
 class TabPage extends StatefulWidget {
   const TabPage({Key? key}) : super(key: key);
@@ -77,28 +78,26 @@ class _TabPageState extends State<TabPage> {
                 setState(() => _currentIndex = index);
                 _pageController.jumpToPage(index);
               },
-              items: [
+              items: const [
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.apps, color: Colors.black),
+                  icon: Icon(Icons.home, color: AppColors.lightGreyColor),
                   label: 'Home',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.people, color: Colors.black),
-                  label: 'Users',
+                  icon: Icon(Icons.menu_book, color: AppColors.lightGreyColor),
+                  label: 'Assets',
                 ),
                 BottomNavigationBarItem(
-                  icon: ImageIcon(
-                    AssetImage(AppAssets.scanIcon),
-                    color: Colors.deepPurple,
-                  ),
-                  label: 'Scan',
+                  icon: Icon(Icons.handyman, color: AppColors.lightGreyColor),
+                  label: 'Work items',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.person, color: Colors.black),
-                  label: 'Settings',
+                  icon: Icon(Icons.list_alt_sharp,
+                      color: AppColors.lightGreyColor),
+                  label: 'Tickets',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.person, color: Colors.black),
+                  icon: Icon(Icons.person, color: AppColors.lightGreyColor),
                   label: 'Settings',
                 ),
               ],
