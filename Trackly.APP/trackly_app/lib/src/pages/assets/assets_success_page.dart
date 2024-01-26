@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_bloc.dart';
+import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_event.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 
@@ -54,6 +56,7 @@ class _AssetsSuccessPageState extends State<AssetsSuccessPage> {
                   height: 35,
                   child: IconButton(
                       onPressed: () {
+                        ScanBloc().add(CanScanEvent());
                         Navigator.of(context).pop();
                       },
                       icon: const Icon(Icons.arrow_back_sharp)),

@@ -68,4 +68,8 @@ class AssetCubit extends Cubit<AssetState> {
       emit(AssetsFailure(message: e.toString()));
     }
   }
+
+  void toAssetInitial() {
+    emit(AssetsInitial());
+  }
 }
