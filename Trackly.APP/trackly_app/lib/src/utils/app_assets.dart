@@ -7,4 +7,5 @@ class AppAssets {
   static const String ticketsIcon = "assets/images/ticketsIcon.png";
   static const String successIcon = "assets/images/successIcon.png";
   static const String failureIcon = "assets/images/failureIcon.png";
+  static const String sandwichIcon = "assets/images/sandwichIcon.png";
 }
