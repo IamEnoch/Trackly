@@ -38,14 +38,6 @@ class _AssetsPageState extends State<AssetsPage> {
     _searchController.addListener(_onSearchChanged);
   }
 
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    _searchController.dispose();
-    assetCubit.close();
-    super.dispose();
-  }
-
   // Fetches a page of assets
   Future<void> _fetchPage(int pageKey) async {
     setState(() {

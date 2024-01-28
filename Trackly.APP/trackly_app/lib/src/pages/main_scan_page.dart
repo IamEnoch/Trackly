@@ -3,22 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_bloc.dart';
 import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_event.dart';
-import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_state.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_state.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-class ScanPage extends StatefulWidget {
-  ScanPage({super.key});
+class MainScanPage extends StatefulWidget {
+  const MainScanPage({super.key});
 
   @override
-  State<ScanPage> createState() => _ScanPageState();
+  State<MainScanPage> createState() => _MainScanPageState();
 }
 
-class _ScanPageState extends State<ScanPage> {
-  final log = logger(ScanPage);
+class _MainScanPageState extends State<MainScanPage> {
+  final log = logger(MainScanPage);
 
   bool _canScan = true;
 
@@ -35,10 +34,10 @@ class _ScanPageState extends State<ScanPage> {
       body: SafeArea(
         child: BlocListener<AssetCubit, AssetState>(
           listener: (context, state) {
-            if (state is AssetsLoading) {
+            if (state is AssetLoading) {
               //show loading indicator
               log.d('Asset loading');
-            } else if (state is AssetsFailure) {
+            } else if (state is AssetFailure) {
               ScanBloc().add(CannotScanEvent());
               setState(() {
                 _canScan = false;
@@ -71,7 +70,7 @@ class _ScanPageState extends State<ScanPage> {
             }
           },
           child: BlocBuilder<AssetCubit, AssetState>(builder: (context, state) {
-            if (state is AssetsLoading) {
+            if (state is AssetLoading) {
               return const Center(child: CircularProgressIndicator());
             } else {
               return MobileScanner(
@@ -91,7 +90,7 @@ class _ScanPageState extends State<ScanPage> {
                 ),
                 controller: MobileScannerController(
                     detectionSpeed: DetectionSpeed.normal,
-                    detectionTimeoutMs: 1000,
+                    detectionTimeoutMs: 500,
                     useNewCameraSelector: false),
                 onDetect: (capture) {
                   var barcode = capture.barcodes.last;
