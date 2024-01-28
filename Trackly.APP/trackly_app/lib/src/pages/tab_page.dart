@@ -6,7 +6,7 @@ import 'package:trackly_app/src/bloc/auth/role_bloc/role_state.dart';
 import 'package:trackly_app/src/pages/assets/assets_page.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/profile_page.dart';
-import 'package:trackly_app/src/pages/scan_page.dart';
+import 'package:trackly_app/src/pages/main_scan_page.dart';
 import 'package:trackly_app/src/pages/tickets/work_item_page.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
@@ -59,7 +59,7 @@ class _TabPageState extends State<TabPage> {
                 children: <Widget>[
                   HomePage(),
                   AssetsPage(),
-                  ScanPage(),
+                  MainScanPage(),
                   HomePage(),
                   ProfilePage(),
                 ],
@@ -118,7 +118,7 @@ class _TabPageState extends State<TabPage> {
                 children: <Widget>[
                   HomePage(),
                   WorkItemPage(),
-                  ScanPage(),
+                  MainScanPage(),
                   HomePage(),
                   ProfilePage(),
                 ],

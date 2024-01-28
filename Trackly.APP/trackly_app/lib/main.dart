@@ -12,7 +12,7 @@ import 'package:trackly_app/src/pages/assets/assets_failure_page.dart';
 import 'package:trackly_app/src/pages/assets/assets_success_page.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/login_page.dart';
-import 'package:trackly_app/src/pages/scan_page.dart';
+import 'package:trackly_app/src/pages/main_scan_page.dart';
 import 'package:trackly_app/src/pages/tickets/ticket_details_page.dart';
 import 'package:trackly_app/src/pages/tickets/work_item_page.dart';
 import 'package:trackly_app/src/utils/routes.dart';
@@ -20,11 +20,11 @@ import 'package:trackly_app/src/pages/tab_page.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: ".env");
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
             tabPageRoute: (context) => const TabPage(),
             assetSuccssPageRoute: (context) => const AssetsSuccessPage(),
             assetFailurePageRoute: (context) => const AssetsFailurePage(),
-            scanPageRoute: (context) => ScanPage(),
+            mainScanPageRoute: (context) => const MainScanPage(),
             assetDetailsPageRoute: (context) => AssetDetailsPage(),
             ticketDetailsPageRoute: (context) => const TicketDetailsPage(),
             workItemPageRoute: (context) => const WorkItemPage(),

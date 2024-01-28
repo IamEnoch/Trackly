@@ -48,15 +48,15 @@ class AssetCubit extends Cubit<AssetState> {
   // }
 
   Future<void> fetchAsset(String id) async {
-    emit(AssetsLoading());
+    emit(AssetLoading());
     try {
       final response = await AssetProvider().getAssetByBarcodeNumber(id);
       if (response.error) {
-        emit(AssetsFailure(message: response.errorMessage));
+        emit(AssetFailure(message: response.errorMessage));
         log.e(response.errorMessage);
         return;
       } else if (response.response == null) {
-        emit(AssetsFailure(message: 'No asset found'));
+        emit(const AssetFailure(message: 'No asset found'));
         log.e('No asset found');
         log.e(response.errorMessage);
         return;
@@ -65,7 +65,7 @@ class AssetCubit extends Cubit<AssetState> {
         log.d('The response is ${response.response}');
       }
     } on Exception catch (e) {
-      emit(AssetsFailure(message: e.toString()));
+      emit(AssetFailure(message: e.toString()));
     }
   }
 
