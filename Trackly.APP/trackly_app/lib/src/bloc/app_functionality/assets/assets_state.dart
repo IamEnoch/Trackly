@@ -16,6 +16,24 @@ final class AssetsEmpty extends AssetState {}
 
 final class AssetsSuccess extends AssetState {}
 
+final class AssetsFailure extends AssetState {
+  final String message;
+
+  const AssetsFailure({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}
+
+//Asset related states
+final class AssetLoading extends AssetState {}
+
+final class AssetCreated extends AssetState {}
+
+final class AssetUpdated extends AssetState {}
+
+final class AssetDeleted extends AssetState {}
+
 final class AssetFetched extends AssetState {
   final Asset asset;
 
@@ -25,16 +43,10 @@ final class AssetFetched extends AssetState {
   List<Object> get props => [asset];
 }
 
-final class AssetCreated extends AssetState {}
-
-final class AssetUpdated extends AssetState {}
-
-final class AssetDeleted extends AssetState {}
-
-final class AssetsFailure extends AssetState {
+final class AssetFailure extends AssetState {
   final String message;
 
-  const AssetsFailure({required this.message});
+  const AssetFailure({required this.message});
 
   @override
   List<Object> get props => [message];
