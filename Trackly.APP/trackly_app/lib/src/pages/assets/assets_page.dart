@@ -5,7 +5,7 @@ import 'package:trackly_app/src/data/models/Assets/asset.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
-import 'package:trackly_app/src/utils/widgets/asset_card.dart';
+import 'package:trackly_app/src/utils/widgets/asset_card_small.dart';
 
 class AssetsPage extends StatefulWidget {
   const AssetsPage({super.key});
@@ -139,6 +139,10 @@ class _AssetsPageState extends State<AssetsPage> {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 //search bar
                 SearchBar(
+                  //on tap pop up keyboard
+                  onTap: () {
+                    //pop up keyboard
+                  },
                   controller: _searchController,
                   hintText: 'Search for assets',
                   onChanged: (value) {},
@@ -170,20 +174,38 @@ class _AssetsPageState extends State<AssetsPage> {
                       if (index == _assetList.length) {
                         // Loading Indicator
                         return _isLoading
-                            ? Center(
+                            ? const Center(
                                 child: CircularProgressIndicator(),
                               )
                             : Container(); // Return an empty container if not loading
                       } else {
                         // Asset Item
-                        return InkWell(
-                          onTap: () {},
-                          child: Column(
-                            children: [
-                              AssetCard(asset: _filteredAssetList[index]),
-                              SizedBox(height: 10),
-                            ],
-                          ),
+                        return Column(
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).pushNamed(
+                                  assetAdminPageRoute,
+                                  arguments: {
+                                    'barcodeNumber':
+                                        _filteredAssetList[index].barcodeNumber,
+                                    'assetName':
+                                        _filteredAssetList[index].assetName,
+                                    'assetCategory':
+                                        _filteredAssetList[index].category,
+                                    'assetDepartment': _filteredAssetList[index]
+                                        .departmentName,
+                                    'assetLocation':
+                                        _filteredAssetList[index].locationName,
+                                    'tickets': _filteredAssetList[index].tickets
+                                  },
+                                );
+                              },
+                              child: AssetCardSmall(
+                                  asset: _filteredAssetList[index]),
+                            ),
+                            const SizedBox(height: 10),
+                          ],
                         );
                       }
                     },
