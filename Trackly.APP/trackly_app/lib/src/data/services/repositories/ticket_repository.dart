@@ -23,7 +23,7 @@ class TicketRepository {
 
     try {
       //Make a POST request to the API
-      var uri = Uri.https(basicUrl, '/Tickets/Workitem');
+      var uri = Uri.http(basicUrl, '/workitems');
       log.d('The uri is ${uri.toString()}');
       response = await http.post(
         Uri.parse(

@@ -3,6 +3,7 @@ class WorkItem {
   String description;
   String priority;
   String category;
+  String creatorUserId;
   String assetId;
 
   WorkItem({
@@ -10,6 +11,7 @@ class WorkItem {
     required this.description,
     required this.priority,
     required this.category,
+    required this.creatorUserId,
     required this.assetId,
   });
 
@@ -20,6 +22,7 @@ class WorkItem {
       'description': description,
       'priority': priority,
       'category': category,
+      'creatorUserId': creatorUserId,
       'assetId': assetId,
     };
   }
@@ -31,6 +34,7 @@ class WorkItem {
       description: json['description'],
       priority: json['priority'],
       category: json['category'],
+      creatorUserId: json['creatorUserId'],
       assetId: json['assetId'],
     );
   }
