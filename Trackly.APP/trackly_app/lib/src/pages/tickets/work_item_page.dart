@@ -5,6 +5,7 @@ import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart'
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_state.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_state.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/workt_item_cubit.dart';
+import 'package:trackly_app/src/data/localstorage/shared_reference_manager.dart';
 import 'package:trackly_app/src/data/models/work_item.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
@@ -33,6 +34,7 @@ class _WorkItemPageState extends State<WorkItemPage> {
   String? _title;
   String? _priority;
   String? _category;
+  String? _creatorUserId;
 
   //Check if the form is valid
   bool _isFormValid() {
@@ -211,9 +213,12 @@ class _WorkItemPageState extends State<WorkItemPage> {
                       },
                       child: Center(
                         child: ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             if (_isFormValid()) {
                               log.e('The form is valid');
+
+                              _creatorUserId =
+                                  await SharedPreferencesManager().getUserId();
 
                               //TODO: Submit the form
                               //use cubit to submit the form
@@ -223,6 +228,7 @@ class _WorkItemPageState extends State<WorkItemPage> {
                                 description: _description!,
                                 priority: _priority!,
                                 category: _category!,
+                                creatorUserId: _creatorUserId!,
                                 assetId: _assetId!,
                               );
                               log.d(
