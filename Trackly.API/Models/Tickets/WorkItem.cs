@@ -12,7 +12,7 @@ namespace TracklyApi.Models.Tickets
         public WorkItemStatus Status { get; set; }
         public Priority Priority { get; set; }
         public TicketCategory Category { get; set; }
-        public Guid? CreatorUserID { get; set; }
+        public string? CreatorUserID { get; set; }
         public Guid AssetId { get; set; }
 
         //Time created for the ticket
