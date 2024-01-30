@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TracklyApi.Data;
 using TracklyApi.DTOs.PartialUpdate;
 using TracklyApi.DTOs.RequestDTOs;
@@ -16,7 +17,7 @@ namespace TracklyApi.Controllers
         //create a work item independent of ticket model class
         //ticket created when the work item is approved
         [HttpPost("")]
-        public async Task<ActionResult<WorkItem>> CreateWorkItem(WorkItemRequestDto workItemRequestDto)
+        public async Task<ActionResult<string>> CreateWorkItem(WorkItemRequestDto workItemRequestDto)
         {
             try
             {
@@ -34,6 +35,7 @@ namespace TracklyApi.Controllers
                     Status = EnumHelper.WorkItemStatus.Pending,
                     Priority = Enum.Parse<EnumHelper.Priority>(workItemRequestDto.Priority),
                     Category = Enum.Parse<EnumHelper.TicketCategory>(workItemRequestDto.Category),
+                    CreatorUserID = workItemRequestDto.CreatorUserId,
                     AssetId = assetId,
                     CreatedAt = DateTime.Now
                 };
@@ -41,7 +43,7 @@ namespace TracklyApi.Controllers
                 context.WorkItems.Add(workItem);
                 await context.SaveChangesAsync();
 
-                return Ok(workItem);
+                return Ok("workItem created");
             }
             catch (Exception e)
             {
@@ -83,6 +85,24 @@ namespace TracklyApi.Controllers
                 await context.SaveChangesAsync();
 
                 return Ok(workItem);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        //Get all the work-items that are pending
+        [HttpGet("pending")]
+        public async Task<ActionResult<IEnumerable<WorkItem>>> GetPendingWorkItems()
+        {
+            try
+            {
+                var workItems =  context.WorkItems
+                    .Where(w => w.Status == EnumHelper.WorkItemStatus.Pending)
+                    .AsEnumerable();
+
+                return Ok(workItems);
             }
             catch (Exception e)
             {
