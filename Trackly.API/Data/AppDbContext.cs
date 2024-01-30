@@ -94,6 +94,7 @@ namespace TracklyApi.Data
                     CreatedAt = DateTime.Now.AddDays(-i)
                 });
             }
+            modelBuilder.Entity<WorkItem>().HasData(workItems);
 
             // Seed Tickets (250 entries)
             // Have some tickets have closed and completed dates
