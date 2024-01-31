@@ -197,7 +197,9 @@ class _AssetsPageState extends State<AssetsPage> {
                                         .departmentName,
                                     'assetLocation':
                                         _filteredAssetList[index].locationName,
-                                    'tickets': _filteredAssetList[index].tickets
+                                    'tickets':
+                                        _filteredAssetList[index].tickets,
+                                    'asset': _filteredAssetList[index]
                                   },
                                 );
                               },

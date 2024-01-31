@@ -13,6 +13,7 @@ class _AssetCardSmallState extends State<AssetCardSmall> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       elevation: 0.7, // Set the elevation as needed
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       child: Padding(

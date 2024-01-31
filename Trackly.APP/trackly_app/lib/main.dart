@@ -11,6 +11,7 @@ import 'package:trackly_app/src/pages/assets/asset_admin_page.dart';
 import 'package:trackly_app/src/pages/assets/asset_details_page.dart';
 import 'package:trackly_app/src/pages/assets/assets_failure_page.dart';
 import 'package:trackly_app/src/pages/assets/assets_success_page.dart';
+import 'package:trackly_app/src/pages/assets/edit_asset_page.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/login_page.dart';
 import 'package:trackly_app/src/pages/main_scan_page.dart';
@@ -82,6 +83,7 @@ class MyApp extends StatelessWidget {
             assetDetailsPageRoute: (context) => AssetDetailsPage(),
             ticketDetailsPageRoute: (context) => const TicketDetailsPage(),
             workItemPageRoute: (context) => const WorkItemPage(),
+            editAssetPageRoute: (context) => const EditAssetPage(),
           },
         );
       }),

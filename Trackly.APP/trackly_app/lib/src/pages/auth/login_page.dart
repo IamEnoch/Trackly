@@ -4,8 +4,6 @@ import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_event.dart';
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_state.dart';
-import 'package:trackly_app/src/bloc/auth/role_bloc/role_bloc.dart';
-import 'package:trackly_app/src/bloc/auth/role_bloc/role_state.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 
