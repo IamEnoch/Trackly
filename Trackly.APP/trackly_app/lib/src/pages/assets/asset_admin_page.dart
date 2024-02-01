@@ -4,6 +4,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_bloc.dart';
 import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_event.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
+import 'package:trackly_app/src/data/enumhelper/enums.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
@@ -31,6 +32,7 @@ class _AssetsSuccessPageState extends State<AssetAdminPage> {
   Widget build(BuildContext context) {
     final arguments =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    final asset = arguments['asset'] as Asset;
     return Scaffold(
       backgroundColor: const Color(0xffF5F7FA),
       body: SafeArea(
@@ -187,7 +189,9 @@ class _AssetsSuccessPageState extends State<AssetAdminPage> {
                               Flexible(
                                 flex: 3,
                                 child: Text(
-                                  arguments['assetCategory'],
+                                  assetCategoryValues
+                                      .reverse[arguments['assetCategory']]
+                                      .toString(),
                                   textAlign: TextAlign.end,
                                   style: AppResources()
                                       .appStyles
@@ -214,7 +218,9 @@ class _AssetsSuccessPageState extends State<AssetAdminPage> {
                                     .bodySmall,
                               ),
                               Text(
-                                arguments['assetDepartment'],
+                                departmentNameValues
+                                    .reverse[arguments['assetDepartment']]
+                                    .toString(),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -238,7 +244,9 @@ class _AssetsSuccessPageState extends State<AssetAdminPage> {
                                     .bodySmall,
                               ),
                               Text(
-                                arguments['assetLocation'],
+                                locationNameValues
+                                    .reverse[arguments['assetLocation']]
+                                    .toString(),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
