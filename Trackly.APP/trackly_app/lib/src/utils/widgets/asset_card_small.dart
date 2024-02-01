@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trackly_app/src/data/enumhelper/enums.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
 
 class AssetCardSmall extends StatefulWidget {
@@ -48,7 +49,8 @@ class _AssetCardSmallState extends State<AssetCardSmall> {
                       ),
                     ),
                     Text(
-                      widget.asset.locationName,
+                      locationNameValues.reverse[widget.asset.locationName]
+                          .toString(),
                       style: const TextStyle(
                         color: Color(0xFF292D32),
                         fontSize: 13,
@@ -74,7 +76,8 @@ class _AssetCardSmallState extends State<AssetCardSmall> {
                       ),
                     ),
                     Text(
-                      widget.asset.departmentName,
+                      departmentNameValues.reverse[widget.asset.departmentName]
+                          .toString(),
                       style: const TextStyle(
                         color: Color(0xFF292D32),
                         fontSize: 13,
@@ -100,7 +103,8 @@ class _AssetCardSmallState extends State<AssetCardSmall> {
                       ),
                     ),
                     Text(
-                      widget.asset.category,
+                      assetCategoryValues.reverse[widget.asset.category]
+                          .toString(),
                       style: const TextStyle(
                         color: Color(0xFF292D32),
                         fontSize: 13,
