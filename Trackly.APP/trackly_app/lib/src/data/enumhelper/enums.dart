@@ -37,6 +37,36 @@ final statusValues = EnumValues({
   "Open": Status.open
 });
 
+enum AssetCategory {
+  DESKTOP,
+  LAPTOP,
+  MONITOR,
+  OTHER,
+  PRINTER,
+  PROJECTOR,
+  SCANNER
+}
+
+final assetCategoryValues = EnumValues({
+  "Desktop": AssetCategory.DESKTOP,
+  "Laptop": AssetCategory.LAPTOP,
+  "Monitor": AssetCategory.MONITOR,
+  "Other": AssetCategory.OTHER,
+  "Printer": AssetCategory.PRINTER,
+  "Projector": AssetCategory.PROJECTOR,
+  "Scanner": AssetCategory.SCANNER
+});
+
+enum Condition { BROKEN, FAIR, GOOD, NEW, POOR }
+
+final conditionValues = EnumValues({
+  "Broken": Condition.BROKEN,
+  "Fair": Condition.FAIR,
+  "Good": Condition.GOOD,
+  "New": Condition.NEW,
+  "Poor": Condition.POOR
+});
+
 class EnumValues<T> {
   Map<String, T> map;
   late Map<T, String> reverseMap;
