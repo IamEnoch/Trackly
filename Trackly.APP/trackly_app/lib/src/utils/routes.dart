@@ -11,6 +11,7 @@ const assetSuccssPageRoute = '/asset-succes-page/';
 const assetFailurePageRoute = '/asset-failure-page/';
 const assetDetailsPageRoute = '/asset-details-page/';
 const assetAdminPageRoute = '/asset-admin=page/';
+const editAssetPageRoute = '/edit-asset-page/';
 
 //tickets paths
 const ticketDetailsPageRoute = '/ticket-details-page/';

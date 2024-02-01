@@ -4,7 +4,9 @@ import 'package:share_plus/share_plus.dart';
 import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_bloc.dart';
 import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_event.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
+import 'package:trackly_app/src/data/models/Assets/asset.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
+import 'package:trackly_app/src/utils/app_colors.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 
 class AssetAdminPage extends StatefulWidget {
@@ -313,6 +315,55 @@ class _AssetsSuccessPageState extends State<AssetAdminPage> {
                 //     ),
                 //   ),
                 // ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.0187,
+                ),
+                Center(
+                  child: DecoratedBox(
+                    decoration: const BoxDecoration(
+                      color: Color(0xffDEDEDE),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(23),
+                      ),
+                    ),
+                    child: Container(
+                      margin: const EdgeInsets.all(0.05),
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      width: MediaQuery.of(context).size.width,
+                      child: OutlinedButton(
+                        onPressed: () async {
+                          Navigator.pushNamed(
+                            context,
+                            editAssetPageRoute,
+                            //send the asset as an argument
+                            arguments: {
+                              'assetName': arguments['assetName'],
+                              'assetCategory': arguments['assetCategory'],
+                              'assetDepartment': arguments['assetDepartment'],
+                              'assetLocation': arguments['assetLocation'],
+                              'barcodeNumber': arguments['barcodeNumber'],
+                              'asset': arguments['asset'] as Asset,
+                            },
+                          );
+                        },
+                        style: AppResources().buttonStyles.buttonStyle(
+                              backgroundColor: AppColors.pinkColor,
+                            ),
+                        child: Text(
+                          "EDIT ASSET",
+                          style: AppResources()
+                              .appStyles
+                              .textStyles
+                              .bodyDefaultBold
+                              .copyWith(
+                                color: Colors.white,
+                              ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.0187,
                 ),
