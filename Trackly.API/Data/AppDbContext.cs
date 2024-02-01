@@ -140,14 +140,10 @@ namespace TracklyApi.Data
                     Category = (TicketCategory)(i % Enum.GetValues(typeof(TicketCategory)).Length),
                     AssignedUserID = null, // Set AssignedUserID as null for now
                     AssetID = assetGuids[i % 70], // Use Asset ID
-<<<<<<< Updated upstream
-                    CreatedAt = DateTime.Now.AddDays(-i),
                     CompletedAt = i % 2 == 0 ? DateTime.Now.AddDays(-i + 1) : null,
-                    ClosedAt = i % 2 == 0 ? DateTime.Now.AddDays(-i + 2) : null
-=======
+                    ClosedAt = i % 2 == 0 ? DateTime.Now.AddDays(-i + 2) : null,
                     CreatedBy = ticketsUsersIds[i % 2],
                     CreatedAt = DateTime.Now.AddDays(-i)
->>>>>>> Stashed changes
                 });
             }
             modelBuilder.Entity<Ticket>().HasData(tickets);

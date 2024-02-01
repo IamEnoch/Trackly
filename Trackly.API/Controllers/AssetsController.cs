@@ -41,30 +41,35 @@ namespace TracklyApi.Controllers
                     .Include(x => x.Location)
                     .ToListAsync();
 
-<<<<<<< Updated upstream
-                var assetIds = assets.Select(a => a.AssetID).ToList();
-=======
             var assetIds = assets.Select(a => a.AssetId).ToList();
->>>>>>> Stashed changes
-
                 // Fetching tickets for the fetched assets
                 var tickets = await _context.Tickets
                     .Where(t => assetIds.Contains(t.AssetID))
                     .ToListAsync();
 
-<<<<<<< Updated upstream
+                // Constructing the response using the fetched data
                 // Constructing the response using the fetched data
                 var response = assets.Select(asset => new AssetResponseDto(
                     asset.BarcodeNumber,
-                    asset.AssetID,
+                    asset.AssetId,
                     asset.AssetName,
                     asset.Category,
                     asset.Department.DepartmentName,
                     asset.Location.LocationName,
-                    tickets.Where(t => t.AssetID == asset.AssetID).ToList()
+                    asset.Description,
+                    asset.CreatedAt,
+                    asset.UpdatedAt,
+                    asset.DeletedAt,
+                    asset.PurchaseDate,
+                    asset.PurchaseCost,
+                    asset.Storage,
+                    asset.Processor,
+                    asset.SerialNumber,
+                    asset.Ram,
+                    asset.AssignedTo,
+                    asset.Condition,
+                    tickets.Where(t => t.AssetID == asset.AssetId).ToList()
                 )).ToList();
-
-
                 return Ok(response);
             }
             catch (Exception e)
@@ -73,31 +78,7 @@ namespace TracklyApi.Controllers
                 return StatusCode(500, e.Message);
                 throw;
             }
-=======
-            // Constructing the response using the fetched data
-            var response = assets.Select(asset => new AssetResponseDto(
-                asset.BarcodeNumber,
-                asset.AssetId,
-                asset.AssetName,
-                asset.Category,
-                asset.Department.DepartmentName,
-                asset.Location.LocationName,
-                asset.Description,
-                asset.CreatedAt,
-                asset.UpdatedAt,
-                asset.DeletedAt,
-                asset.PurchaseDate,
-                asset.PurchaseCost,
-                asset.Storage,
-                asset.Processor,
-                asset.SerialNumber,
-                asset.Ram,
-                asset.AssignedTo,
-                asset.Condition,
-                tickets.Where(t => t.AssetID == asset.AssetId).ToList()
-            )).ToList();
-            return Ok(response);
->>>>>>> Stashed changes
+            
         }
 
         //get paged assets
@@ -126,7 +107,7 @@ namespace TracklyApi.Controllers
                     .Include(x => x.Location)
                     .ToListAsync();
 
-                var assetIds = assets.Select(a => a.AssetID).ToList();
+                var assetIds = assets.Select(a => a.AssetId).ToList();
 
                 // Fetching tickets for the fetched assets
                 var tickets = await _context.Tickets
@@ -136,12 +117,24 @@ namespace TracklyApi.Controllers
                 // Constructing the response using the fetched data
                 var response = assets.Select(asset => new AssetResponseDto(
                     asset.BarcodeNumber,
-                    asset.AssetID,
+                    asset.AssetId,
                     asset.AssetName,
                     asset.Category,
                     asset.Department.DepartmentName,
                     asset.Location.LocationName,
-                    tickets.Where(t => t.AssetID == asset.AssetID).ToList()
+                    asset.Description,
+                    asset.CreatedAt,
+                    asset.UpdatedAt,
+                    asset.DeletedAt,
+                    asset.PurchaseDate,
+                    asset.PurchaseCost,
+                    asset.Storage,
+                    asset.Processor,
+                    asset.SerialNumber,
+                    asset.Ram,
+                    asset.AssignedTo,
+                    asset.Condition,
+                    tickets.Where(t => t.AssetID == asset.AssetId).ToList()
                 )).ToList();
 
 
