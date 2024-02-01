@@ -20,7 +20,7 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Trackly API", Version = "v1" });
 
     // Include the bearer token in the Swagger UI for authorization
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    /*options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
         Description = "Enter 'Bearer' followed by a space and your token",
@@ -42,6 +42,7 @@ builder.Services.AddSwaggerGen(options =>
             new string[] { }
         }
     });
+    */
 
     /*// using System.Reflection;
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
