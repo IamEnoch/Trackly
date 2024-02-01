@@ -4,7 +4,7 @@ namespace TracklyApi.Models.Assets
 {
     public class Department
     {
-        public Guid DepartmentID { get; set; }
+        public Guid DepartmentId { get; set; }
         public DepartmentEnum DepartmentName { get; set; }
 
         //Navigation properties

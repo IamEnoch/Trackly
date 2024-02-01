@@ -2,6 +2,14 @@
 {
     public class EnumHelper
     {
+        public enum AssetCondition
+        {
+            New,
+            Good,
+            Fair,
+            Poor,
+            Broken
+        }
         public enum Priority
         {
             Low,
