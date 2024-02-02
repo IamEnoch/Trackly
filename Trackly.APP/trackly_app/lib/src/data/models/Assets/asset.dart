@@ -10,7 +10,7 @@ class Asset {
   final LocationName locationName;
   final String description;
   final DateTime createdAt;
-  final dynamic updatedAt;
+  final DateTime? updatedAt;
   final DateTime? deletedAt;
   final DateTime purchaseDate;
   final String purchaseCost;
