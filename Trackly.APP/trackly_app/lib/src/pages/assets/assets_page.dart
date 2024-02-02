@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/users/users_cubit.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
@@ -184,6 +185,7 @@ class _AssetsPageState extends State<AssetsPage> {
                           children: [
                             InkWell(
                               onTap: () {
+                                UsersCubit().toUserInitial();
                                 Navigator.of(context).pushNamed(
                                   assetAdminPageRoute,
                                   arguments: {
