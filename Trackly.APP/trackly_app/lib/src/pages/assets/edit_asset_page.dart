@@ -5,6 +5,7 @@ import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart'
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_state.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_state.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/workt_item_cubit.dart';
+import 'package:trackly_app/src/data/localstorage/shared_reference_manager.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
 import 'package:trackly_app/src/data/models/work_item.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
@@ -34,6 +35,7 @@ class _WorkItemPageState extends State<EditAssetPage> {
   String? _title;
   String? _priority;
   String? _category;
+  String? _creatorUserId;
 
   //Check if the form is valid
   bool _isFormValid() {
@@ -218,7 +220,7 @@ class _WorkItemPageState extends State<EditAssetPage> {
                       },
                       child: Center(
                         child: ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             if (_isFormValid()) {
                               log.e('The form is valid');
 
@@ -231,6 +233,8 @@ class _WorkItemPageState extends State<EditAssetPage> {
                                 priority: _priority!,
                                 category: _category!,
                                 assetId: _assetId!,
+                                creatorUserId: await SharedPreferencesManager()
+                                    .getUserId(),
                               );
                               log.d(
                                   'The create work item to be submitted is ${workItem.toJson()}');

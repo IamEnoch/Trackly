@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Drawing.Printing;
 using TracklyApi.Data;
 using TracklyApi.DTOs;
+using TracklyApi.DTOs.Output;
 using TracklyApi.DTOs.RequestDTOs;
 using TracklyApi.Models;
 using TracklyApi.Models.Assets;
@@ -40,25 +41,35 @@ namespace TracklyApi.Controllers
                     .Include(x => x.Location)
                     .ToListAsync();
 
-                var assetIds = assets.Select(a => a.AssetID).ToList();
-
+            var assetIds = assets.Select(a => a.AssetId).ToList();
                 // Fetching tickets for the fetched assets
                 var tickets = await _context.Tickets
                     .Where(t => assetIds.Contains(t.AssetID))
                     .ToListAsync();
 
                 // Constructing the response using the fetched data
+                // Constructing the response using the fetched data
                 var response = assets.Select(asset => new AssetResponseDto(
                     asset.BarcodeNumber,
-                    asset.AssetID,
+                    asset.AssetId,
                     asset.AssetName,
                     asset.Category,
                     asset.Department.DepartmentName,
                     asset.Location.LocationName,
-                    tickets.Where(t => t.AssetID == asset.AssetID).ToList()
+                    asset.Description,
+                    asset.CreatedAt,
+                    asset.UpdatedAt,
+                    asset.DeletedAt,
+                    asset.PurchaseDate,
+                    asset.PurchaseCost,
+                    asset.Storage,
+                    asset.Processor,
+                    asset.SerialNumber,
+                    asset.Ram,
+                    asset.AssignedTo,
+                    asset.Condition,
+                    tickets.Where(t => t.AssetID == asset.AssetId).ToList()
                 )).ToList();
-
-
                 return Ok(response);
             }
             catch (Exception e)
@@ -67,6 +78,7 @@ namespace TracklyApi.Controllers
                 return StatusCode(500, e.Message);
                 throw;
             }
+            
         }
 
         //get paged assets
@@ -95,7 +107,7 @@ namespace TracklyApi.Controllers
                     .Include(x => x.Location)
                     .ToListAsync();
 
-                var assetIds = assets.Select(a => a.AssetID).ToList();
+                var assetIds = assets.Select(a => a.AssetId).ToList();
 
                 // Fetching tickets for the fetched assets
                 var tickets = await _context.Tickets
@@ -105,12 +117,24 @@ namespace TracklyApi.Controllers
                 // Constructing the response using the fetched data
                 var response = assets.Select(asset => new AssetResponseDto(
                     asset.BarcodeNumber,
-                    asset.AssetID,
+                    asset.AssetId,
                     asset.AssetName,
                     asset.Category,
                     asset.Department.DepartmentName,
                     asset.Location.LocationName,
-                    tickets.Where(t => t.AssetID == asset.AssetID).ToList()
+                    asset.Description,
+                    asset.CreatedAt,
+                    asset.UpdatedAt,
+                    asset.DeletedAt,
+                    asset.PurchaseDate,
+                    asset.PurchaseCost,
+                    asset.Storage,
+                    asset.Processor,
+                    asset.SerialNumber,
+                    asset.Ram,
+                    asset.AssignedTo,
+                    asset.Condition,
+                    tickets.Where(t => t.AssetID == asset.AssetId).ToList()
                 )).ToList();
 
 
@@ -151,10 +175,13 @@ namespace TracklyApi.Controllers
             }
 
             var tickets = await _context.Tickets
-                .Where(t => t.AssetID == asset.AssetID)
+                .Where(t => t.AssetID == asset.AssetId)
                 .ToListAsync();
 
-            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetID, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName ,tickets));
+            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetId, asset.AssetName, asset.Category, 
+                asset.Department.DepartmentName, asset.Location.LocationName,
+                asset.Description, asset.CreatedAt, asset.UpdatedAt, asset.DeletedAt, asset.PurchaseDate, asset.PurchaseCost,
+                asset.Storage, asset.Processor, asset.SerialNumber, asset.Ram, asset.AssignedTo, asset.Condition,tickets));
         }
 
         /// <summary>
@@ -169,7 +196,7 @@ namespace TracklyApi.Controllers
             var asset = await _context.Assets
                 .Include(a => a.Department)
                 .Include(a => a.Location)
-                .FirstOrDefaultAsync(a => a.AssetID == Guid.Parse(id));
+                .FirstOrDefaultAsync(a => a.AssetId == Guid.Parse(id));
 
             if (asset == null)
             {
@@ -177,10 +204,13 @@ namespace TracklyApi.Controllers
             }
 
             var tickets = await _context.Tickets
-                .Where(t => t.AssetID == asset.AssetID)
+                .Where(t => t.AssetID == asset.AssetId)
                 .ToListAsync();
 
-            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetID, asset.AssetName, asset.Category, asset.Department.DepartmentName, asset.Location.LocationName, tickets));
+            return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetId, asset.AssetName, 
+                asset.Category, asset.Department.DepartmentName, asset.Location.LocationName
+                ,asset.Description, asset.CreatedAt, asset.UpdatedAt, asset.DeletedAt, asset.PurchaseDate, asset.PurchaseCost,
+                asset.Storage, asset.Processor, asset.SerialNumber, asset.Ram, asset.AssignedTo, asset.Condition,tickets));
         }
 
         /// <summary>
@@ -207,14 +237,14 @@ namespace TracklyApi.Controllers
                     AssetName = assetRequestDto.AssetName,
                     BarcodeNumber = assetRequestDto.BarcodeNumber,
                     Category = Enum.Parse<Helpers.EnumHelper.AssetCategory>(assetRequestDto.Category),
-                    DepartmentID = _context.Departments.FirstOrDefault(d => d.DepartmentName == Enum.Parse<Helpers.EnumHelper.DepartmentEnum>(assetRequestDto.DepartmentName)).DepartmentID,
-                    LocationID = _context.Locations.FirstOrDefault(l => l.LocationName == Enum.Parse<Helpers.EnumHelper.LocationEnum>(assetRequestDto.LocationName)).LocationID
+                    DepartmentId = _context.Departments.FirstOrDefault(d => d.DepartmentName == Enum.Parse<Helpers.EnumHelper.DepartmentEnum>(assetRequestDto.DepartmentName)).DepartmentId,
+                    LocationId = _context.Locations.FirstOrDefault(l => l.LocationName == Enum.Parse<Helpers.EnumHelper.LocationEnum>(assetRequestDto.LocationName)).LocationID
                 };
 
                 _context.Assets.Add(asset);
                 await _context.SaveChangesAsync();
 
-                var resultId = new { id = asset.AssetID };
+                var resultId = new { id = asset.AssetId };
                 return await GetAssetById(resultId.id.ToString());
             }
             catch (Exception ex)
@@ -230,7 +260,7 @@ namespace TracklyApi.Controllers
         //    _context.Assets.Add(asset);
         //    await _context.SaveChangesAsync();
 
-        //    return CreatedAtAction(nameof(GetAsset), new { id = asset.AssetID }, asset);
+        //    return CreatedAtAction(nameof(GetAsset), new { id = asset.AssetId }, asset);
         //}
     }
 }

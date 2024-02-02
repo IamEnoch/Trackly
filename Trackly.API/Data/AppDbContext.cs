@@ -7,10 +7,6 @@ namespace TracklyApi.Data
 {
     public class AppDbContext: DbContext
     {
-        public AppDbContext()
-        {
-            
-        }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -40,7 +36,7 @@ namespace TracklyApi.Data
                 var departmentId = Guid.NewGuid();
                 departmentGuids.Add(departmentId);
                 modelBuilder.Entity<Department>().HasData(
-                    new Department { DepartmentID = departmentId, DepartmentName = (DepartmentEnum)i }
+                    new Department { DepartmentId = departmentId, DepartmentName = (DepartmentEnum)i }
                 );
             }
 
@@ -59,6 +55,13 @@ namespace TracklyApi.Data
             var assetGuids = new List<Guid>();
             var assets = new List<Asset>();
             var barcodeStartNumber = 100000000000;
+            var usersIds = new List<String>()
+            {
+                "auth0|65b7dee72e02f54da98cd265",
+                "auth0|65a4f8d7364ff592a0792a42",
+                "auth0|65b7de875bf9ce48b47eedaa",
+                "auth0|65a4fd318d9d565392c4972a"
+            };
             for (int i = 0; i < 70; i++)
             {
                 var assetId = Guid.NewGuid();
@@ -67,14 +70,33 @@ namespace TracklyApi.Data
                 var barcodeNumber = (barcodeStartNumber + i).ToString();
                 assets.Add(new Asset
                 {
-                    AssetID = assetId,
+                    AssetId = assetId,
                     BarcodeNumber = barcodeNumber,
                     AssetName = $"Asset {i + 1}",
                     Category = (AssetCategory)(i % Enum.GetValues(typeof(AssetCategory)).Length),
-                    DepartmentID = departmentGuids[i % 3],
-                    LocationID = locationGuids[i % 3]
+                    DepartmentId = departmentGuids[i % 3],
+                    LocationId = locationGuids[i % 3],
+                    //Randomly assign assigned to from the list of users id
+                    AssignedTo = usersIds[i % 4],
+                    Condition = (AssetCondition)(i % Enum.GetValues(typeof(AssetCondition)).Length),
+                    Ram = $"{i + 1} GB",
+                    Processor = $"Intel Core i{i + 3}",
+                    Storage = $"{i + 1} TB",
+                    Description = $"Description for Asset {i + 1}",
+                    //Randomly assign purchase cost from 100 to 1000
+                    PurchaseCost = (decimal)(i + 1) * 100,
+                    //Generate serial number with a mix of letters and numbers with such format: LLLLDDDDD
+                    SerialNumber = $"{(char)('A' + i % 26)}{(char)('A' + i % 26)}{(char)('A' + i % 26)}{(char)('A' + i % 26)}{i + 1:D5}",
+                    //Purchase date should be before created at date and most of the values of deleted at should be null
+                    PurchaseDate = DateTime.Now.AddDays(-i),
+                    CreatedAt = DateTime.Now.AddDays(-i),
+                    UpdatedAt = null,
+                    DeletedAt = i % 10 == 0 ? DateTime.Now.AddDays(-i) : null
                 });
             }
+            modelBuilder.Entity<Asset>()
+                .Property(a => a.PurchaseCost)
+                .HasColumnType("decimal(18, 2)");
             modelBuilder.Entity<Asset>().HasData(assets);
 
             //seed work items
@@ -101,6 +123,11 @@ namespace TracklyApi.Data
             // Must have completed before being closed
             // Some tickets can lack both the closed and completed dates
             var tickets = new List<Ticket>();
+            var ticketsUsersIds = new List<string>()
+            {
+                "auth0|65b7dee72e02f54da98cd265",
+                "auth0|65a4f8d7364ff592a0792a42"
+            };
             for (int i = 0; i < 250; i++)
             {
                 tickets.Add(new Ticket
@@ -113,9 +140,10 @@ namespace TracklyApi.Data
                     Category = (TicketCategory)(i % Enum.GetValues(typeof(TicketCategory)).Length),
                     AssignedUserID = null, // Set AssignedUserID as null for now
                     AssetID = assetGuids[i % 70], // Use Asset ID
-                    CreatedAt = DateTime.Now.AddDays(-i),
                     CompletedAt = i % 2 == 0 ? DateTime.Now.AddDays(-i + 1) : null,
-                    ClosedAt = i % 2 == 0 ? DateTime.Now.AddDays(-i + 2) : null
+                    ClosedAt = i % 2 == 0 ? DateTime.Now.AddDays(-i + 2) : null,
+                    CreatedBy = ticketsUsersIds[i % 2],
+                    CreatedAt = DateTime.Now.AddDays(-i)
                 });
             }
             modelBuilder.Entity<Ticket>().HasData(tickets);
