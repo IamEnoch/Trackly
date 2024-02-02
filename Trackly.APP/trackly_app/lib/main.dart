@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_bloc.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/users/users_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/workt_item_cubit.dart';
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/authentication_bloc/authentication_bloc.dart';
@@ -44,6 +45,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => WorkItemCubit()),
         BlocProvider(create: (context) => RoleBloc()),
         BlocProvider(create: (context) => ScanBloc()),
+        BlocProvider(
+          create: (context) => UsersCubit(),
+        )
       ],
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
           builder: (context, state) {
@@ -78,7 +82,7 @@ class MyApp extends StatelessWidget {
             tabPageRoute: (context) => const TabPage(),
             assetSuccssPageRoute: (context) => const AssetsSuccessPage(),
             assetFailurePageRoute: (context) => const AssetsFailurePage(),
-            assetAdminPageRoute: (context) => const AssetAdminPage(),
+            assetAdminPageRoute: (context) => AssetAdminPage(),
             mainScanPageRoute: (context) => const MainScanPage(),
             assetDetailsPageRoute: (context) => AssetDetailsPage(),
             ticketDetailsPageRoute: (context) => const TicketDetailsPage(),
