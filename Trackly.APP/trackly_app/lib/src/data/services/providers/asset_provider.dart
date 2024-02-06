@@ -11,4 +11,8 @@ class AssetProvider {
       int pageNumber, int recordNumber) {
     return AssetRepository().getPaginatedAssets(pageNumber, recordNumber);
   }
+
+  Future<ApiResponse<Asset>> createAsset(Asset asset) {
+    return AssetRepository().createAsset(asset);
+  }
 }
