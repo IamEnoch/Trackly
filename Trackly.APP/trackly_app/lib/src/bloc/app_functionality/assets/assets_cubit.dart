@@ -17,6 +17,24 @@ class AssetCubit extends Cubit<AssetState> {
   AssetCubit._internal() : super(AssetsInitial());
   final log = logger(AssetCubit);
 
+  Future<void> createWorkItem(Asset asset) async {
+    emit(AssetLoading());
+    try {
+      var response = await AssetProvider().createAsset(asset);
+      if (response.error) {
+        log.e('The work item was not created');
+        emit(AssetFailure(message: response.errorMessage));
+        log.e(response.errorMessage);
+        return;
+      } else {
+        log.d('The work item was created');
+        emit(AssetCreated());
+      }
+    } on Exception catch (e) {
+      emit(AssetFailure(message: e.toString()));
+    }
+  }
+
   Future<List<Asset>> getAssets(int currentPage, int pageSize) async {
     try {
       emit(AssetsLoading());
