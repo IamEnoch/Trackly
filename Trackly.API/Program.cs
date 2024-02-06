@@ -3,11 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
-using System.Text.Json.Serialization;
 using TracklyApi.Data;
 using TracklyApi.Models.Auth;
-using Azure.Identity;
-using System.Reflection;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,7 +48,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("TracklyDbConnectionString");
+var connectionString = builder.Configuration.GetConnectionString("TracklyDbConnectionStringLocal");
 var domain = builder.Configuration["Auth0:Domain"];
 var apiIdentifier = builder.Configuration["Auth0:ApiIdentifier"];
 
