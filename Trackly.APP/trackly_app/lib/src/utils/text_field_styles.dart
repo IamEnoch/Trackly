@@ -11,4 +11,6 @@ class TextFieldStyles {
       labelStyle: AppResources().appStyles.textStyles.bodyTextInput,
     );
   }
+
+  //Style of the input field
 }
