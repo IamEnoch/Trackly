@@ -6,4 +6,8 @@ class UserProvider {
   Future<ApiResponse<User>> getUserByUserId(String userId) {
     return UserRepository().getUserByUserId(userId);
   }
+
+  Future<ApiResponse<List<User>>> getAllUsers() {
+    return UserRepository().getAllUsers();
+  }
 }

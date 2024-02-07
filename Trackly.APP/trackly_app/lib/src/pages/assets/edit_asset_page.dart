@@ -4,10 +4,13 @@ import 'package:intl/intl.dart';
 import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_state.dart';
+import 'package:trackly_app/src/bloc/app_functionality/users/users_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/users/users_state.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/workt_item_cubit.dart';
 import 'package:trackly_app/src/data/enumhelper/enums.dart';
 import 'package:trackly_app/src/data/localstorage/shared_reference_manager.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
+import 'package:trackly_app/src/data/models/Auth/user.dart';
 import 'package:trackly_app/src/data/models/work_item.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
@@ -23,6 +26,8 @@ class EditAssetPage extends StatefulWidget {
 class _WorkItemPageState extends State<EditAssetPage> {
   final _formKey = GlobalKey<FormState>();
   final log = logger(_WorkItemPageState);
+  String? _selectedUser;
+  List<User> _users = []; // List to store fetched users
 
   //text controllers for five fields
   final TextEditingController _assetNameController = TextEditingController();
@@ -38,6 +43,8 @@ class _WorkItemPageState extends State<EditAssetPage> {
   final TextEditingController _storageController = TextEditingController();
   final TextEditingController _processorController = TextEditingController();
   final TextEditingController _conditionController = TextEditingController();
+
+  final TextEditingController _userController = TextEditingController();
 
   //Values to be submitter from the form
   String? _assetId;
@@ -57,19 +64,21 @@ class _WorkItemPageState extends State<EditAssetPage> {
     _storageController.dispose();
     _processorController.dispose();
     _conditionController.dispose();
+    _userController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    UsersCubit().fetchUsers();
     final arguments =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
 
     //get asset from arguements and set the texts in the text controllers
     Asset myAsset = arguments['asset'] as Asset;
     _assetNameController.text = myAsset.assetName;
-    _departmentController.text =
-        departmentNameValues.reverse[myAsset.departmentName].toString();
+    // _departmentController.text =
+    //     departmentNameValues.reverse[myAsset.departmentName].toString();
     _categoryController.text =
         assetCategoryValues.reverse[myAsset.category].toString();
     _barcodeNumberController.text = myAsset.barcodeNumber;
@@ -85,6 +94,7 @@ class _WorkItemPageState extends State<EditAssetPage> {
     // _deletedAtController.text = myAsset.deletedAt != null
     //     ? DateFormat('yyyy-MM-dd').format(myAsset.deletedAt!)
     //     : '';
+    _userController.text = myAsset.assignedTo;
 
     return Scaffold(
       body: BlocListener<AssetCubit, AssetState>(
@@ -161,23 +171,114 @@ class _WorkItemPageState extends State<EditAssetPage> {
                       ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02),
+                      //Barcode number
+
+                      TextFormField(
+                        //vertical scrollable text field
+                        keyboardType: TextInputType.number,
+                        validator: (value) {
+                          //If not filled return error
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a barcode number';
+                          }
+                          return null;
+                        },
+                        maxLines: null,
+                        controller: _barcodeNumberController,
+                        style:
+                            AppResources().appStyles.textStyles.bodyTextInput,
+                        decoration:
+                            AppResources().textFieldStyles.inputDecoration(
+                                  labelText: 'Barcode Number',
+                                ),
+                      ),
+
+                      //Serial number
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02),
+                      TextFormField(
+                        //vertical scrollable text field
+                        validator: (value) {
+                          //If not filled return error
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a serial number';
+                          }
+                          return null;
+                        },
+                        maxLines: null,
+                        controller: _serialNumberController,
+                        style:
+                            AppResources().appStyles.textStyles.bodyTextInput,
+                        decoration:
+                            AppResources().textFieldStyles.inputDecoration(
+                                  labelText: 'Serial Number',
+                                ),
+                      ),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02),
+
+                      //Assigned to
+                      BlocListener<UsersCubit, UsersState>(
+                        listener: (context, state) {
+                          // TODO: implement listener
+                          if (state is UsersFetched) {
+                            _users = state.users;
+                          }
+                        },
+                        child: DropdownMenu<String>(
+                          // validator: (value) {
+                          //   if (value == null || value.isEmpty) {
+                          //     return 'Please select a user';
+                          //   }
+                          //   return null;
+                          // },
+                          // value: _selectedUser,
+                          // style:
+                          //     AppResources().appStyles.textStyles.bodyTextInput,
+                          enableFilter: true,
+                          controller: _userController,
+                          onSelected: (value) {
+                            _userController.text = value!;
+                          },
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          inputDecorationTheme: InputDecorationTheme(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                          dropdownMenuEntries: _users.map((user) {
+                            return DropdownMenuEntry<String>(
+                              value: user.email,
+                              label: user.email,
+                            );
+                          }).toList(),
+                          // onChanged: (value) {
+                          //   setState(() {
+                          //     _selectedUser = value as String?;
+                          //   });
+                          // },
+                        ),
+                      ),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02),
                       //Priority and category are dropdowns in the same row
                       Row(
                         children: [
                           Expanded(
                             //Drop down for priority
                             child: DropdownButtonFormField(
-                              validator: (value) {
-                                //If not filled return error
-                                if (value == null || value.isEmpty) {
-                                  return 'Please select a department';
-                                }
-                                return null;
-                              },
-                              style: AppResources()
-                                  .appStyles
-                                  .textStyles
-                                  .bodyTextInput,
+                              // validator: (value) {
+                              //   //If not filled return error
+                              //   if (value == null || value.isEmpty) {
+                              //     return 'Please select a department';
+                              //   }
+                              //   return null;
+                              // },
+                              isExpanded: true,
+                              // style: AppResources()
+                              //     .appStyles
+                              //     .textStyles
+                              //     .bodyTextInput,
                               decoration: AppResources()
                                   .textFieldStyles
                                   .inputDecoration(
@@ -193,7 +294,9 @@ class _WorkItemPageState extends State<EditAssetPage> {
                                   value: 'Medium',
                                 ),
                                 DropdownMenuItem(
-                                  child: Text('High'),
+                                  child: Text(
+                                    'High',
+                                  ),
                                   value: 'High',
                                 ),
                               ],
@@ -251,51 +354,7 @@ class _WorkItemPageState extends State<EditAssetPage> {
                           ),
                         ],
                       ),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02),
-                      //Barcode number
 
-                      TextFormField(
-                        //vertical scrollable text field
-                        keyboardType: TextInputType.number,
-                        validator: (value) {
-                          //If not filled return error
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter a barcode number';
-                          }
-                          return null;
-                        },
-                        maxLines: null,
-                        controller: _barcodeNumberController,
-                        style:
-                            AppResources().appStyles.textStyles.bodyTextInput,
-                        decoration:
-                            AppResources().textFieldStyles.inputDecoration(
-                                  labelText: 'Barcode Number',
-                                ),
-                      ),
-
-                      //Serial number
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02),
-                      TextFormField(
-                        //vertical scrollable text field
-                        validator: (value) {
-                          //If not filled return error
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter a serial number';
-                          }
-                          return null;
-                        },
-                        maxLines: null,
-                        controller: _serialNumberController,
-                        style:
-                            AppResources().appStyles.textStyles.bodyTextInput,
-                        decoration:
-                            AppResources().textFieldStyles.inputDecoration(
-                                  labelText: 'Serial Number',
-                                ),
-                      ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02),
                       //add the followinf fields to be edited
