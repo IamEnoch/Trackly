@@ -16,6 +16,15 @@ final class UsersEmpty extends UsersState {}
 
 final class UsersSuccess extends UsersState {}
 
+final class UsersFetched extends UsersState {
+  final List<User> users;
+
+  const UsersFetched({required this.users});
+
+  @override
+  List<Object> get props => [users];
+}
+
 final class UsersFailure extends UsersState {
   final String message;
 
