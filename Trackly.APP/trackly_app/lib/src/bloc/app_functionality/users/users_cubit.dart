@@ -14,6 +14,29 @@ class UsersCubit extends Cubit<UsersState> {
   UsersCubit._internal() : super(UsersInitial());
   final log = logger(UsersCubit);
 
+  //Fetch users
+  Future<void> fetchUsers() async {
+    emit(UsersLoading());
+    try {
+      final response = await UserProvider().getAllUsers();
+      if (response.error) {
+        emit(UsersFailure(message: response.errorMessage));
+        log.e(response.errorMessage);
+        return;
+      } else if (response.response == null) {
+        emit(const UsersFailure(message: 'No asset found'));
+        log.e('No asset found');
+        log.e(response.errorMessage);
+        return;
+      } else {
+        emit(UsersFetched(users: response.response!));
+        log.d('The response is ${response.response}');
+      }
+    } on Exception catch (e) {
+      emit(UsersFailure(message: e.toString()));
+    }
+  }
+
   Future<void> fetchUser(String userId) async {
     emit(UserLoading());
     try {
