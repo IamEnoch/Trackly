@@ -48,7 +48,7 @@ class AssetAdminPage extends StatelessWidget {
           return const Scaffold(
               body: Center(child: CircularProgressIndicator()));
         } else {
-          username = (state as UserFetched).user.username;
+          username = (state as UserFetched).user.username!;
           return Scaffold(
             backgroundColor: const Color(0xffF5F7FA),
             body: SafeArea(
