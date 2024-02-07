@@ -6,7 +6,7 @@ String userToJson(User data) => json.encode(data.toJson());
 
 class User {
   final String email;
-  final String username;
+  final String? username;
   final String userId;
   final DateTime createdAt;
   final DateTime updatedAt;
