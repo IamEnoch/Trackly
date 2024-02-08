@@ -49,7 +49,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("TracklyDbConnectionStringLocal");
+var connectionString = builder.Configuration.GetConnectionString("TracklyDbConnectionString");
 var domain = builder.Configuration["Auth0:Domain"];
 var apiIdentifier = builder.Configuration["Auth0:ApiIdentifier"];
 
