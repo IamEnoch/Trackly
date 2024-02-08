@@ -2,29 +2,22 @@ using Azure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Drawing.Printing;
 using TracklyApi.Data;
 using TracklyApi.DTOs;
+using TracklyApi.DTOs.Input;
 using TracklyApi.DTOs.Output;
 using TracklyApi.DTOs.RequestDTOs;
 using TracklyApi.Models;
 using TracklyApi.Models.Assets;
+using TracklyApi.Models.Tickets;
 
 namespace TracklyApi.Controllers
 {
     [ApiController]
-    public class AssetsController : ControllerBase
+    public class AssetsController(ILogger<AssetsController> _logger, AppDbContext context) : ControllerBase
     {
-
-        private readonly ILogger<AssetsController> _logger;
-        private readonly AppDbContext _context;
-
-        public AssetsController(ILogger<AssetsController> logger, AppDbContext context)
-        {
-            _logger = logger;
-            _context = context;
-        }
-
         /// <summary>
         /// Get assets
         /// </summary>
@@ -36,14 +29,14 @@ namespace TracklyApi.Controllers
             try
             {
                 // Fetching assets with their tickets separately
-                var assets = await _context.Assets
+                var assets = await context.Assets
                     .Include(x => x.Department)
                     .Include(x => x.Location)
                     .ToListAsync();
 
             var assetIds = assets.Select(a => a.AssetId).ToList();
                 // Fetching tickets for the fetched assets
-                var tickets = await _context.Tickets
+                var tickets = await context.Tickets
                     .Where(t => assetIds.Contains(t.AssetID))
                     .ToListAsync();
 
@@ -99,8 +92,8 @@ namespace TracklyApi.Controllers
                 };
 
                 // Fetching assets with their tickets separately
-                var totaNummberOfAssets = await _context.Assets.CountAsync();
-                var assets = await _context.Assets
+                var totaNummberOfAssets = await context.Assets.CountAsync();
+                var assets = await context.Assets
                     .Skip(page * pageSize)
                     .Take(pageSize)
                     .Include(x => x.Department)
@@ -110,7 +103,7 @@ namespace TracklyApi.Controllers
                 var assetIds = assets.Select(a => a.AssetId).ToList();
 
                 // Fetching tickets for the fetched assets
-                var tickets = await _context.Tickets
+                var tickets = await context.Tickets
                     .Where(t => assetIds.Contains(t.AssetID))
                     .ToListAsync();
 
@@ -150,7 +143,6 @@ namespace TracklyApi.Controllers
             {
                 //status code 500
                 return StatusCode(500, e.Message);
-                throw;
             }
         }
 
@@ -164,7 +156,7 @@ namespace TracklyApi.Controllers
         public async Task<ActionResult<AssetResponseDto>> GetAssetByBarcodeNumber(string barcodeNumber)
         {
             //use asset dto
-            var asset = await _context.Assets
+            var asset = await context.Assets
                 .Include(a => a.Department)
                 .Include(a => a.Location)
                 .FirstOrDefaultAsync(a => a.BarcodeNumber == barcodeNumber);
@@ -174,7 +166,7 @@ namespace TracklyApi.Controllers
                 return NotFound();
             }
 
-            var tickets = await _context.Tickets
+            var tickets = await context.Tickets
                 .Where(t => t.AssetID == asset.AssetId)
                 .ToListAsync();
 
@@ -193,7 +185,7 @@ namespace TracklyApi.Controllers
         public async Task<ActionResult<AssetResponseDto>> GetAssetById(string id)
         {
             //use asset dto
-            var asset = await _context.Assets
+            var asset = await context.Assets
                 .Include(a => a.Department)
                 .Include(a => a.Location)
                 .FirstOrDefaultAsync(a => a.AssetId == Guid.Parse(id));
@@ -203,7 +195,7 @@ namespace TracklyApi.Controllers
                 return NotFound();
             }
 
-            var tickets = await _context.Tickets
+            var tickets = await context.Tickets
                 .Where(t => t.AssetID == asset.AssetId)
                 .ToListAsync();
 
@@ -222,7 +214,7 @@ namespace TracklyApi.Controllers
         public async Task<ActionResult<AssetResponseDto>> CreateAsset([FromBody] AssetRequestDto assetRequestDto) 
         {
             //check if asset already exists
-            var assetExists = await _context.Assets.AnyAsync(a => a.BarcodeNumber == assetRequestDto.BarcodeNumber);
+            var assetExists = await context.Assets.AnyAsync(a => a.BarcodeNumber == assetRequestDto.BarcodeNumber);
             if (assetExists)
             {
                 return BadRequest("Asset already exist");
@@ -237,12 +229,12 @@ namespace TracklyApi.Controllers
                     AssetName = assetRequestDto.AssetName,
                     BarcodeNumber = assetRequestDto.BarcodeNumber,
                     Category = Enum.Parse<Helpers.EnumHelper.AssetCategory>(assetRequestDto.Category),
-                    DepartmentId = _context.Departments.FirstOrDefault(d => d.DepartmentName == Enum.Parse<Helpers.EnumHelper.DepartmentEnum>(assetRequestDto.DepartmentName)).DepartmentId,
-                    LocationId = _context.Locations.FirstOrDefault(l => l.LocationName == Enum.Parse<Helpers.EnumHelper.LocationEnum>(assetRequestDto.LocationName)).LocationID
+                    DepartmentId = context.Departments.FirstOrDefault(d => d.DepartmentName == Enum.Parse<Helpers.EnumHelper.DepartmentEnum>(assetRequestDto.DepartmentName)).DepartmentId,
+                    LocationId = context.Locations.FirstOrDefault(l => l.LocationName == Enum.Parse<Helpers.EnumHelper.LocationEnum>(assetRequestDto.LocationName)).LocationID
                 };
 
-                _context.Assets.Add(asset);
-                await _context.SaveChangesAsync();
+                context.Assets.Add(asset);
+                await context.SaveChangesAsync();
 
                 var resultId = new { id = asset.AssetId };
                 return await GetAssetById(resultId.id.ToString());
@@ -250,6 +242,54 @@ namespace TracklyApi.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }   
+        }
+
+        //Update an existing asset
+        [HttpPut("assets/{id}")]
+        public async Task<ActionResult<AssetResponseDto>> UpdateAsset(string id,
+            [FromBody] AssetRequestUpdateDto assetRequestUpdateDto)
+        {
+            try
+            {
+                var asset = await context.Assets.FindAsync(Guid.Parse(id));
+                if (asset == null)
+                {
+                    return NotFound();
+                }
+
+                //If assigned null and the value from db should not be null, retain the initial value
+                asset.AssetName = assetRequestUpdateDto.AssetName ?? asset.AssetName;
+                asset.BarcodeNumber = assetRequestUpdateDto.BarcodeNumber ?? asset.BarcodeNumber;
+                asset.Category = assetRequestUpdateDto.Category == null ? asset.Category : Enum.Parse<Helpers.EnumHelper.AssetCategory>(assetRequestUpdateDto.Category);
+                asset.DepartmentId = assetRequestUpdateDto.Department == null ? asset.DepartmentId : context.Departments.FirstOrDefault(d =>
+                        d.DepartmentName ==
+                        Enum.Parse<Helpers.EnumHelper.DepartmentEnum>(assetRequestUpdateDto.Department))!
+                    .DepartmentId;
+                asset.LocationId = assetRequestUpdateDto.Location == null ? asset.LocationId : context.Locations.FirstOrDefault(l =>
+                        l.LocationName == Enum.Parse<Helpers.EnumHelper.LocationEnum>(assetRequestUpdateDto.Location))!
+                    .LocationID;
+                asset.Condition = assetRequestUpdateDto.Condition == null ? asset.Condition :Enum.Parse<Helpers.EnumHelper.AssetCondition>(assetRequestUpdateDto.Condition);
+                asset.Ram = assetRequestUpdateDto.Ram;
+                asset.SerialNumber = assetRequestUpdateDto.SerialNumber ?? asset.SerialNumber;
+                asset.AssignedTo = assetRequestUpdateDto.AssignedToId;
+                asset.Processor = assetRequestUpdateDto.Processor;
+                asset.Storage = assetRequestUpdateDto.Storage;
+                asset.Description = assetRequestUpdateDto.Description;
+                asset.PurchaseCost = assetRequestUpdateDto.PurchaseCost == null ? asset.PurchaseCost : Convert.ToDecimal(assetRequestUpdateDto.PurchaseCost);
+                asset.UpdatedAt = DateTime.Now;
+                asset.DeletedAt = assetRequestUpdateDto.DeletedAt;
+
+
+                await context.SaveChangesAsync();
+
+                return Ok(asset);
+
+            }
+            
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
             }   
         }
 
