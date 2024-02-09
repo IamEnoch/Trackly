@@ -6,12 +6,10 @@ import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart'
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_state.dart';
 import 'package:trackly_app/src/bloc/app_functionality/users/users_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/users/users_state.dart';
-import 'package:trackly_app/src/bloc/app_functionality/workItems/workt_item_cubit.dart';
 import 'package:trackly_app/src/data/enumhelper/enums.dart';
-import 'package:trackly_app/src/data/localstorage/shared_reference_manager.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
+import 'package:trackly_app/src/data/models/Assets/asset_update.dart';
 import 'package:trackly_app/src/data/models/Auth/user.dart';
-import 'package:trackly_app/src/data/models/work_item.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
@@ -28,26 +26,72 @@ class _WorkItemPageState extends State<EditAssetPage> {
   final log = logger(_WorkItemPageState);
   String? _selectedUser;
   List<User> _users = []; // List to store fetched users
-
-  //text controllers for five fields
-  final TextEditingController _assetNameController = TextEditingController();
-  final TextEditingController _departmentController = TextEditingController();
-  final TextEditingController _categoryController = TextEditingController();
-
-  final TextEditingController _serialNumberController = TextEditingController();
-  final TextEditingController _barcodeNumberController =
-      TextEditingController();
-  final TextEditingController _updatedAtController = TextEditingController();
-  final TextEditingController _deletedAtController = TextEditingController();
-  final TextEditingController _ramController = TextEditingController();
-  final TextEditingController _storageController = TextEditingController();
-  final TextEditingController _processorController = TextEditingController();
-  final TextEditingController _conditionController = TextEditingController();
-
-  final TextEditingController _userController = TextEditingController();
-
-  //Values to be submitter from the form
   String? _assetId;
+
+  // Text controllers for five fields
+  late TextEditingController _assetNameController;
+  late TextEditingController _departmentController;
+  late TextEditingController _locationController;
+  late TextEditingController _categoryController;
+  late TextEditingController _serialNumberController;
+  late TextEditingController _barcodeNumberController;
+  late TextEditingController _updatedAtController;
+  late TextEditingController _deletedAtController;
+  late TextEditingController _ramController;
+  late TextEditingController _storageController;
+  late TextEditingController _processorController;
+  late TextEditingController _conditionController;
+  late TextEditingController _userController;
+  late TextEditingController _descriptionController;
+
+  @override
+  void initState() {
+    super.initState();
+    UsersCubit().fetchUsers();
+    _assetNameController = TextEditingController();
+    _departmentController = TextEditingController();
+    _locationController = TextEditingController();
+    _categoryController = TextEditingController();
+    _serialNumberController = TextEditingController();
+    _barcodeNumberController = TextEditingController();
+    _updatedAtController = TextEditingController();
+    _deletedAtController = TextEditingController();
+    _ramController = TextEditingController();
+    _storageController = TextEditingController();
+    _processorController = TextEditingController();
+    _conditionController = TextEditingController();
+    _userController = TextEditingController();
+
+    _descriptionController = TextEditingController();
+  }
+
+  // @override
+  // void didChangeDependencies() {
+  //   super.didChangeDependencies();
+
+  //   final arguments =
+  //       ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+
+  //   Asset myAsset = arguments['asset'] as Asset;
+  //   _assetNameController.text = myAsset.assetName;
+  //   _categoryController.text =
+  //       assetCategoryValues.reverse[myAsset.category].toString();
+  //   _departmentController.text =
+  //       departmentNameValues.reverse[myAsset.departmentName].toString();
+  //   _locationController.text =
+  //       locationNameValues.reverse[myAsset.locationName].toString();
+  //   _barcodeNumberController.text = myAsset.barcodeNumber;
+  //   _serialNumberController.text = myAsset.serialNumber;
+  //   _conditionController.text =
+  //       conditionValues.reverse[myAsset.condition].toString();
+  //   _processorController.text = myAsset.processor;
+  //   _ramController.text = myAsset.ram;
+  //   _storageController.text = myAsset.storage;
+  //   _userController.text = myAsset.assignedTo;
+  //   //_descriptionController.text = myAsset.description;
+
+  //   _assetId = myAsset.assetId;
+  // }
 
   //Dispose of the controllers when the widget is disposed
   @override
@@ -55,7 +99,7 @@ class _WorkItemPageState extends State<EditAssetPage> {
     _assetNameController.dispose();
     _departmentController.dispose();
     _categoryController.dispose();
-
+    _locationController.dispose();
     _serialNumberController.dispose();
     _barcodeNumberController.dispose();
     _updatedAtController.dispose();
@@ -65,37 +109,18 @@ class _WorkItemPageState extends State<EditAssetPage> {
     _processorController.dispose();
     _conditionController.dispose();
     _userController.dispose();
+    _descriptionController.dispose();
+
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    UsersCubit().fetchUsers();
     final arguments =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
 
-    //get asset from arguements and set the texts in the text controllers
     Asset myAsset = arguments['asset'] as Asset;
-    _assetNameController.text = myAsset.assetName;
-    // _departmentController.text =
-    //     departmentNameValues.reverse[myAsset.departmentName].toString();
-    _categoryController.text =
-        assetCategoryValues.reverse[myAsset.category].toString();
-    _barcodeNumberController.text = myAsset.barcodeNumber;
-    _serialNumberController.text = myAsset.serialNumber;
-    _conditionController.text =
-        conditionValues.reverse[myAsset.condition].toString();
-    _processorController.text = myAsset.processor;
-    _ramController.text = myAsset.ram;
-    _storageController.text = myAsset.storage;
-    // _updatedAtController.text = myAsset.updatedAt != null
-    //     ? DateFormat('yyyy-MM-dd').format(myAsset.updatedAt!)
-    //     : '';
-    // _deletedAtController.text = myAsset.deletedAt != null
-    //     ? DateFormat('yyyy-MM-dd').format(myAsset.deletedAt!)
-    //     : '';
-    _userController.text = myAsset.assignedTo;
-
+    _assetId = myAsset.assetId;
     return Scaffold(
       body: BlocListener<AssetCubit, AssetState>(
         listener: (context, state) {
@@ -147,10 +172,11 @@ class _WorkItemPageState extends State<EditAssetPage> {
                       ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.05),
-                      TextField(
+                      TextFormField(
                         //vertical text field,
                         maxLines: null,
-                        controller: _assetNameController,
+                        initialValue: myAsset.assetName,
+                        onChanged: (value) => _assetNameController.text = value,
                         style:
                             AppResources().appStyles.textStyles.bodyTextInput,
                         decoration: AppResources()
@@ -184,7 +210,7 @@ class _WorkItemPageState extends State<EditAssetPage> {
                           return null;
                         },
                         maxLines: null,
-                        controller: _barcodeNumberController,
+                        initialValue: myAsset.barcodeNumber,
                         style:
                             AppResources().appStyles.textStyles.bodyTextInput,
                         decoration:
@@ -206,7 +232,11 @@ class _WorkItemPageState extends State<EditAssetPage> {
                           return null;
                         },
                         maxLines: null,
-                        controller: _serialNumberController,
+                        //controller: _serialNumberController,
+                        initialValue: myAsset.serialNumber,
+                        onChanged: (value) {
+                          _serialNumberController.text = value;
+                        },
                         style:
                             AppResources().appStyles.textStyles.bodyTextInput,
                         decoration:
@@ -218,47 +248,63 @@ class _WorkItemPageState extends State<EditAssetPage> {
                           height: MediaQuery.of(context).size.height * 0.02),
 
                       //Assigned to
-                      BlocListener<UsersCubit, UsersState>(
-                        listener: (context, state) {
-                          // TODO: implement listener
+                      BlocBuilder<UsersCubit, UsersState>(
+                        builder: (context, state) {
                           if (state is UsersFetched) {
+                            //set state
                             _users = state.users;
+                            return DropdownButtonFormField<String>(
+                                validator: (value) {
+                                  //If not filled return error
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please select a user';
+                                  }
+                                  return null;
+                                },
+                                isExpanded: true,
+                                // style: AppResources()
+                                //     .appStyles
+                                //     .textStyles
+                                //     .bodyTextInput,
+                                decoration: AppResources()
+                                    .textFieldStyles
+                                    .inputDecoration(
+                                      labelText: 'Assigned to',
+                                    ),
+                                value: myAsset.assignedTo,
+                                items: _users.map((user) {
+                                  return DropdownMenuItem<String>(
+                                    value: user
+                                        .userId, // Assuming user.id is unique
+                                    child: Text(user.email),
+                                  );
+                                }).toList(),
+                                onChanged: (value) {
+                                  setState(() {
+                                    _userController.text =
+                                        value!; // Ensure value is not null
+                                  });
+                                });
                           }
+                          return DropdownButtonFormField<String>(
+                            validator: (value) {
+                              //If not filled return error
+                              if (value == null || value.isEmpty) {
+                                return 'Please select a user';
+                              }
+                              return null;
+                            },
+                            isExpanded: true,
+                            decoration:
+                                AppResources().textFieldStyles.inputDecoration(
+                                      labelText: 'Assigned to',
+                                    ),
+                            items: null,
+                            onChanged: (value) {},
+                          );
                         },
-                        child: DropdownMenu<String>(
-                          // validator: (value) {
-                          //   if (value == null || value.isEmpty) {
-                          //     return 'Please select a user';
-                          //   }
-                          //   return null;
-                          // },
-                          // value: _selectedUser,
-                          // style:
-                          //     AppResources().appStyles.textStyles.bodyTextInput,
-                          enableFilter: true,
-                          controller: _userController,
-                          onSelected: (value) {
-                            _userController.text = value!;
-                          },
-                          width: MediaQuery.of(context).size.width * 0.9,
-                          inputDecorationTheme: InputDecorationTheme(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                          dropdownMenuEntries: _users.map((user) {
-                            return DropdownMenuEntry<String>(
-                              value: user.email,
-                              label: user.email,
-                            );
-                          }).toList(),
-                          // onChanged: (value) {
-                          //   setState(() {
-                          //     _selectedUser = value as String?;
-                          //   });
-                          // },
-                        ),
                       ),
+
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02),
                       //Priority and category are dropdowns in the same row
@@ -267,13 +313,16 @@ class _WorkItemPageState extends State<EditAssetPage> {
                           Expanded(
                             //Drop down for priority
                             child: DropdownButtonFormField(
-                              // validator: (value) {
-                              //   //If not filled return error
-                              //   if (value == null || value.isEmpty) {
-                              //     return 'Please select a department';
-                              //   }
-                              //   return null;
-                              // },
+                              validator: (value) {
+                                //If not filled return error
+                                if (value == null || value.isEmpty) {
+                                  return 'Please select a department';
+                                }
+                                return null;
+                              },
+                              value: departmentNameValues
+                                  .reverse[myAsset.departmentName],
+
                               isExpanded: true,
                               // style: AppResources()
                               //     .appStyles
@@ -286,18 +335,18 @@ class _WorkItemPageState extends State<EditAssetPage> {
                                   ),
                               items: const [
                                 DropdownMenuItem(
-                                  child: Text('Low'),
-                                  value: 'Low',
+                                  child: Text('Finance'),
+                                  value: 'Finance',
                                 ),
                                 DropdownMenuItem(
-                                  child: Text('Medium'),
-                                  value: 'Medium',
+                                  child: Text('HR'),
+                                  value: 'HR',
                                 ),
                                 DropdownMenuItem(
                                   child: Text(
-                                    'High',
+                                    'IT',
                                   ),
-                                  value: 'High',
+                                  value: 'IT',
                                 ),
                               ],
                               onChanged: (value) {
@@ -318,10 +367,8 @@ class _WorkItemPageState extends State<EditAssetPage> {
                                 }
                                 return null;
                               },
-                              style: AppResources()
-                                  .appStyles
-                                  .textStyles
-                                  .bodyTextInput,
+                              value:
+                                  assetCategoryValues.reverse[myAsset.category],
                               decoration: AppResources()
                                   .textFieldStyles
                                   .inputDecoration(
@@ -329,16 +376,28 @@ class _WorkItemPageState extends State<EditAssetPage> {
                                   ),
                               items: const [
                                 DropdownMenuItem(
-                                  child: Text('Hardware'),
-                                  value: 'Hardware',
+                                  child: Text('Desktop'),
+                                  value: 'Desktop',
                                 ),
                                 DropdownMenuItem(
-                                  child: Text('Software'),
-                                  value: 'Software',
+                                  child: Text('Laptop'),
+                                  value: 'Laptop',
                                 ),
                                 DropdownMenuItem(
-                                  child: Text('Network'),
-                                  value: 'Network',
+                                  child: Text('Monitor'),
+                                  value: 'Monitor',
+                                ),
+                                DropdownMenuItem(
+                                  child: Text('Printer'),
+                                  value: 'Printer',
+                                ),
+                                DropdownMenuItem(
+                                  child: Text('Projection'),
+                                  value: 'Projection',
+                                ),
+                                DropdownMenuItem(
+                                  child: Text('Scanner'),
+                                  value: 'Scanner',
                                 ),
                                 DropdownMenuItem(
                                   child: Text('Other'),
@@ -370,28 +429,31 @@ class _WorkItemPageState extends State<EditAssetPage> {
                           return null;
                         },
                         //value: _conditionController.text,
-                        style:
-                            AppResources().appStyles.textStyles.bodyTextInput,
+                        value: conditionValues.reverse[myAsset.condition],
                         decoration:
                             AppResources().textFieldStyles.inputDecoration(
                                   labelText: 'Condition',
                                 ),
-                        items: [
+                        items: const [
                           DropdownMenuItem(
-                            child: Text('Hardware'),
-                            value: 'Hardware',
+                            child: Text('New'),
+                            value: 'New',
                           ),
                           DropdownMenuItem(
-                            child: Text('Software'),
-                            value: 'Software',
+                            child: Text('Good'),
+                            value: 'Good',
                           ),
                           DropdownMenuItem(
-                            child: Text('Network'),
-                            value: 'Network',
+                            child: Text('Fair'),
+                            value: 'Fair',
                           ),
                           DropdownMenuItem(
-                            child: Text('Other'),
-                            value: 'Other',
+                            child: Text('Poor'),
+                            value: 'Poor',
+                          ),
+                          DropdownMenuItem(
+                            child: Text('Broken'),
+                            value: 'Broken',
                           ),
                         ],
                         onChanged: (value) {
@@ -407,7 +469,12 @@ class _WorkItemPageState extends State<EditAssetPage> {
                       TextFormField(
                         //vertical scrollable text field
                         maxLines: null,
-                        controller: _processorController,
+                        initialValue: myAsset.processor,
+                        onChanged: (value) {
+                          setState(() {
+                            _processorController.text = value;
+                          });
+                        },
                         style:
                             AppResources().appStyles.textStyles.bodyTextInput,
                         decoration:
@@ -426,7 +493,12 @@ class _WorkItemPageState extends State<EditAssetPage> {
                               //vertical scrollable text field
                               keyboardType: TextInputType.number,
                               maxLines: null,
-                              controller: _ramController,
+                              initialValue: myAsset.ram,
+                              onChanged: (value) {
+                                setState(() {
+                                  _ramController.text = value;
+                                });
+                              },
                               style: AppResources()
                                   .appStyles
                                   .textStyles
@@ -446,7 +518,12 @@ class _WorkItemPageState extends State<EditAssetPage> {
                               //vertical scrollable text field
                               keyboardType: TextInputType.number,
                               maxLines: null,
-                              controller: _storageController,
+                              initialValue: myAsset.storage,
+                              onChanged: (value) {
+                                setState(() {
+                                  _storageController.text = value;
+                                });
+                              },
                               style: AppResources()
                                   .appStyles
                                   .textStyles
@@ -462,6 +539,27 @@ class _WorkItemPageState extends State<EditAssetPage> {
                       ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02),
+                      //Description
+                      TextFormField(
+                        //vertical scrollable text field
+                        maxLines: null,
+                        //controller: _descriptionController,
+                        initialValue: myAsset.description,
+                        onChanged: (value) {
+                          log.e('The value is $value');
+                          setState(() {
+                            _descriptionController.text = value;
+                          });
+                        },
+                        style:
+                            AppResources().appStyles.textStyles.bodyTextInput,
+                        decoration:
+                            AppResources().textFieldStyles.inputDecoration(
+                                  labelText: 'Description',
+                                ),
+                      ),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02),
 
                       //Created at
                       Row(
@@ -469,64 +567,8 @@ class _WorkItemPageState extends State<EditAssetPage> {
                           SizedBox(
                               height:
                                   MediaQuery.of(context).size.height * 0.02),
-                          Expanded(
-                            child: TextFormField(
-                              //vertical scrollable text field
-                              validator: (value) {
-                                //If not filled return error
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter a date';
-                                }
-                                return null;
-                              },
-                              maxLines: null,
-                              controller: _updatedAtController,
-                              style: AppResources()
-                                  .appStyles
-                                  .textStyles
-                                  .bodyTextInput,
-                              decoration: AppResources()
-                                  .textFieldStyles
-                                  .inputDecoration(
-                                    labelText: 'Updated At',
-                                  )
-                                  .copyWith(
-                                    prefixIcon: Icon(Icons
-                                        .calendar_today), //icon of text field
-                                  ),
-                              readOnly:
-                                  true, //set it true, so that user will not able to edit text
 
-                              onTap: () async {
-                                DateTime? pickedDate = await showDatePicker(
-                                    context: context,
-                                    initialDate: DateTime.now(),
-                                    firstDate: DateTime(
-                                        2000), //DateTime.now() - not to allow to choose before today.
-                                    lastDate: DateTime(2101));
-
-                                if (pickedDate != null) {
-                                  print(
-                                      pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
-                                  String formattedDate =
-                                      DateFormat('yyyy-MM-dd')
-                                          .format(pickedDate);
-                                  print(
-                                      formattedDate); //formatted date output using intl package =>  2021-03-16
-                                  //you can implement different kind of Date Format here according to your requirement
-
-                                  setState(() {
-                                    _updatedAtController.text =
-                                        formattedDate; //set output date to TextField value.
-                                  });
-                                } else {
-                                  print("Date is not selected");
-                                }
-                              },
-                            ),
-                          ),
-
-                          //Updated at
+                          //Deleted at
                           SizedBox(
                               width: MediaQuery.of(context).size.width * 0.02),
                           Expanded(
@@ -540,7 +582,10 @@ class _WorkItemPageState extends State<EditAssetPage> {
                               //   return null;
                               // },
                               maxLines: null,
-                              controller: _deletedAtController,
+                              initialValue: myAsset.deletedAt == null
+                                  ? null
+                                  : DateFormat('yyyy-MM-dd')
+                                      .format(myAsset.deletedAt!),
                               style: AppResources()
                                   .appStyles
                                   .textStyles
@@ -593,10 +638,17 @@ class _WorkItemPageState extends State<EditAssetPage> {
                       //submit button
                       BlocListener<AssetCubit, AssetState>(
                         listener: (context, state) {
+                          if (state is AssetUpdated) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Asset Updated'),
+                              ),
+                            );
+                          }
                           if (state is AssetCreated) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                content: Text('Work Item Created'),
+                                content: Text('Asset Created'),
                               ),
                             );
                           }
@@ -604,6 +656,13 @@ class _WorkItemPageState extends State<EditAssetPage> {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(state.message),
+                              ),
+                            );
+                          }
+                          if (state is AssetLoading) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Loading...'),
                               ),
                             );
                           }
@@ -615,19 +674,53 @@ class _WorkItemPageState extends State<EditAssetPage> {
                               if (_formKey.currentState!.validate()) {
                                 //use cubit to submit the form
                                 //create a work item object
-                                // final workItem = WorkItem(
-                                //   title: _titleController.text,
-                                //   description: _descriptionController.text,
-                                //   priority: _departmentController.text,
-                                //   category: _categoryController.text,
-                                //   assetId: _assetId!,
-                                //   creatorUserId:
-                                //       await SharedPreferencesManager()
-                                //           .getUserId(),
-                                // );
-                                // log.d(
-                                //     'The create work item to be submitted is ${workItem.toJson()}');
-                                // await WorkItemCubit().createWorkItem(workItem);
+                                AssetUpdate assetUpdate = AssetUpdate(
+                                  barcodeNumber:
+                                      _barcodeNumberController.text == ''
+                                          ? null
+                                          : _barcodeNumberController.text,
+                                  assetName: _assetNameController.text == ''
+                                      ? null
+                                      : _assetNameController.text,
+                                  category: _categoryController.text == ''
+                                      ? null
+                                      : _categoryController.text,
+                                  department: null,
+                                  location: null,
+                                  condition: _conditionController.text == ''
+                                      ? null
+                                      : _conditionController.text,
+                                  ram: _ramController.text == ''
+                                      ? null
+                                      : _ramController.text,
+                                  serialNumber:
+                                      _serialNumberController.text == ''
+                                          ? null
+                                          : _serialNumberController.text,
+                                  assignedToId: _userController.text == ''
+                                      ? null
+                                      : _userController.text,
+                                  processor: _processorController.text == ''
+                                      ? null
+                                      : _processorController.text,
+                                  storage: _storageController.text == ''
+                                      ? null
+                                      : _storageController.text,
+                                  description: _descriptionController.text == ''
+                                      ? null
+                                      : _descriptionController.text,
+                                  deletedAt: DateTime.tryParse(
+                                              _deletedAtController.text) !=
+                                          null
+                                      ? DateTime.parse(
+                                          _deletedAtController.text)
+                                      : null,
+                                );
+                                log.d(
+                                    'The create work item to be submitted is ${assetUpdate.toJson()}');
+
+                                await AssetCubit()
+                                    .updateAsset(_assetId!, assetUpdate);
                               }
                             },
                             style: AppResources().buttonStyles.buttonStyle(
