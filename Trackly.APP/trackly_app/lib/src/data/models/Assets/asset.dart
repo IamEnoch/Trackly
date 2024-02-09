@@ -54,7 +54,8 @@ class Asset {
       locationName: locationNameValues.map[json["locationName"]]!,
       description: json["description"],
       createdAt: DateTime.parse(json["createdAt"]),
-      updatedAt: json["updatedAt"],
+      updatedAt:
+          json["updatedAt"] == null ? null : DateTime.parse(json["updatedAt"]),
       deletedAt:
           json["deletedAt"] == null ? null : DateTime.parse(json["deletedAt"]),
       purchaseDate: DateTime.parse(json["purchaseDate"]),
