@@ -270,15 +270,15 @@ namespace TracklyApi.Controllers
                         l.LocationName == Enum.Parse<Helpers.EnumHelper.LocationEnum>(assetRequestUpdateDto.Location))!
                     .LocationID;
                 asset.Condition = assetRequestUpdateDto.Condition == null ? asset.Condition :Enum.Parse<Helpers.EnumHelper.AssetCondition>(assetRequestUpdateDto.Condition);
-                asset.Ram = assetRequestUpdateDto.Ram;
+                asset.Ram = assetRequestUpdateDto.Ram ?? asset.Ram;
                 asset.SerialNumber = assetRequestUpdateDto.SerialNumber ?? asset.SerialNumber;
-                asset.AssignedTo = assetRequestUpdateDto.AssignedToId;
-                asset.Processor = assetRequestUpdateDto.Processor;
-                asset.Storage = assetRequestUpdateDto.Storage;
-                asset.Description = assetRequestUpdateDto.Description;
+                asset.AssignedTo = assetRequestUpdateDto.AssignedToId ?? asset.AssignedTo;
+                asset.Processor = assetRequestUpdateDto.Processor ?? asset.Processor;
+                asset.Storage = assetRequestUpdateDto.Storage ?? asset.Storage;
+                asset.Description = assetRequestUpdateDto.Description ?? asset.Description;
                 asset.PurchaseCost = assetRequestUpdateDto.PurchaseCost == null ? asset.PurchaseCost : Convert.ToDecimal(assetRequestUpdateDto.PurchaseCost);
                 asset.UpdatedAt = DateTime.Now;
-                asset.DeletedAt = assetRequestUpdateDto.DeletedAt;
+                asset.DeletedAt = assetRequestUpdateDto.DeletedAt ?? asset.DeletedAt;
 
 
                 await context.SaveChangesAsync();
