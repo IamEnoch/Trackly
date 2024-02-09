@@ -1,3 +1,4 @@
+import 'package:trackly_app/src/data/models/Assets/asset_update.dart';
 import 'package:trackly_app/src/data/models/api_response.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
 import 'package:trackly_app/src/data/services/repositories/asset_repository.dart';
@@ -14,5 +15,9 @@ class AssetProvider {
 
   Future<ApiResponse<Asset>> createAsset(Asset asset) {
     return AssetRepository().createAsset(asset);
+  }
+
+  Future<ApiResponse<void>> updateAsset(String assetId, AssetUpdate asset) {
+    return AssetRepository().updateAsset(assetId, asset);
   }
 }
