@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart';
 import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/data/localstorage/shared_reference_manager.dart';
+import 'package:trackly_app/src/data/models/Assets/asset_update.dart';
 import 'package:trackly_app/src/data/models/api_response.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
 
@@ -72,6 +73,56 @@ class AssetRepository {
     }
   }
 
+  //Update asset by assetId and assetUpdate model class
+  Future<ApiResponse<void>> updateAsset(
+      String assetId, AssetUpdate asset) async {
+    Response? response;
+    String authToken = await SharedPreferencesManager().getAuthAccessToken();
+
+    try {
+      //Make a PUT request to the API
+      var uri = Uri.http(basicUrl, '/assets/$assetId');
+      response = await http.put(
+        Uri.parse(
+          uri.toString(),
+        ),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $authToken',
+        },
+        body: convert.jsonEncode(asset.toJson()),
+      );
+
+      if (response.statusCode != 200) {
+        log.e('The status code is ${response.statusCode}');
+        log.e('The auth token is ${authToken}');
+        log.e('The base uri is ${basicUrl}');
+        return ApiResponse(
+            response: null, errorMessage: 'Error occured', error: true);
+      }
+      log.e('The response is $response');
+      var jsonResponse =
+          await convert.jsonDecode(response.body) as Map<String, dynamic>;
+      //var itemCount = jsonResponse['totalItems'];
+
+      log.e('The json response is $jsonResponse');
+
+      //var decodedResponse = Asset.fromJson(jsonResponse);
+
+      //log.e('The decoded response is $decodedResponse');
+
+      return ApiResponse(
+          response: null, errorMessage: 'No error', error: false);
+    } catch (e) {
+      log.e('Error: Exception occured => $e');
+      return ApiResponse(
+          response: null,
+          errorMessage: 'Error occured while updating asset',
+          error: true);
+    }
+  }
+
   //Create an asset
   Future<ApiResponse<Asset>> createAsset(Asset asset) async {
     Response? response;
@@ -92,7 +143,7 @@ class AssetRepository {
         body: convert.jsonEncode(asset.toJson()),
       );
 
-      if (response.statusCode != 201) {
+      if (response.statusCode != 200) {
         log.e('The status code is ${response.statusCode}');
         log.e('The auth token is ${authToken}');
         log.e('The base uri is ${basicUrl}');
