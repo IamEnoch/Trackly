@@ -99,7 +99,7 @@ class _WorkItemPageState extends State<WorkItemPage> {
                               onPressed: () {
                                 context
                                     .read<AssetCubit>()
-                                    .fetchAsset('100000000019');
+                                    .getAsset('100000000019');
                               },
                               icon: Image.asset(AppAssets.scanIcon, scale: 2),
                             ),
