@@ -208,13 +208,13 @@ namespace TracklyApi.Controllers
         /// <summary>
         /// Create asset
         /// </summary>
-        /// <param name="assetRequestDto"></param>
+        /// <param name="assetRequestCreateDto"></param>
         /// <returns>Return created asset details</returns>
         [HttpPost("assets/")]
-        public async Task<ActionResult<AssetResponseDto>> CreateAsset([FromBody] AssetRequestDto assetRequestDto) 
+        public async Task<ActionResult<AssetResponseDto>> CreateAsset([FromBody] AssetRequestCreateDto assetRequestCreateDto) 
         {
             //check if asset already exists
-            var assetExists = await context.Assets.AnyAsync(a => a.BarcodeNumber == assetRequestDto.BarcodeNumber);
+            var assetExists = await context.Assets.AnyAsync(a => a.BarcodeNumber == assetRequestCreateDto.BarcodeNumber);
             if (assetExists)
             {
                 return BadRequest("Asset already exist");
@@ -226,11 +226,22 @@ namespace TracklyApi.Controllers
                 var asset = new Asset
                 {
 
-                    AssetName = assetRequestDto.AssetName,
-                    BarcodeNumber = assetRequestDto.BarcodeNumber,
-                    Category = Enum.Parse<Helpers.EnumHelper.AssetCategory>(assetRequestDto.Category),
-                    DepartmentId = context.Departments.FirstOrDefault(d => d.DepartmentName == Enum.Parse<Helpers.EnumHelper.DepartmentEnum>(assetRequestDto.DepartmentName)).DepartmentId,
-                    LocationId = context.Locations.FirstOrDefault(l => l.LocationName == Enum.Parse<Helpers.EnumHelper.LocationEnum>(assetRequestDto.LocationName)).LocationID
+                    AssetName = assetRequestCreateDto.AssetName,
+                    BarcodeNumber = assetRequestCreateDto.BarcodeNumber,
+                    Category = Enum.Parse<Helpers.EnumHelper.AssetCategory>(assetRequestCreateDto.Category),
+                    DepartmentId = context.Departments.FirstOrDefault(d => d.DepartmentName == Enum.Parse<Helpers.EnumHelper.DepartmentEnum>(assetRequestCreateDto.DepartmentName)).DepartmentId,
+                    LocationId = context.Locations.FirstOrDefault(l => l.LocationName == Enum.Parse<Helpers.EnumHelper.LocationEnum>(assetRequestCreateDto.LocationName)).LocationID,
+                    AssignedTo = assetRequestCreateDto.AssignedTo,
+                    Condition = Enum.Parse<Helpers.EnumHelper.AssetCondition>(assetRequestCreateDto.Condition),
+                    Ram = assetRequestCreateDto.Ram,
+                    SerialNumber = assetRequestCreateDto.SerialNumber,
+                    Processor = assetRequestCreateDto.Processor,
+                    Storage = assetRequestCreateDto.Storage,
+                    Description = assetRequestCreateDto.Description,
+                    PurchaseCost = assetRequestCreateDto.PurchaseCost,
+                    PurchaseDate = assetRequestCreateDto.PurchaseDate,
+                    CreatedAt = DateTime.Now,
+                    
                 };
 
                 context.Assets.Add(asset);

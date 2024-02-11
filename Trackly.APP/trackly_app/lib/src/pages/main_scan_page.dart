@@ -5,6 +5,7 @@ import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_bloc.dart';
 import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_event.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_state.dart';
+import 'package:trackly_app/src/data/enumhelper/enums.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -57,9 +58,12 @@ class _MainScanPageState extends State<MainScanPage> {
                 arguments: {
                   'barcodeNumber': state.asset.barcodeNumber,
                   'assetName': state.asset.assetName,
-                  'assetCategory': state.asset.category,
-                  'assetDepartment': state.asset.departmentName,
-                  'assetLocation': state.asset.locationName,
+                  'assetCategory':
+                      assetCategoryValues.reverse[state.asset.category]!,
+                  'assetDepartment':
+                      departmentNameValues.reverse[state.asset.departmentName]!,
+                  'assetLocation':
+                      locationNameValues.reverse[state.asset.locationName]!,
                   'tickets': state.asset.tickets
                 },
               );
@@ -96,7 +100,7 @@ class _MainScanPageState extends State<MainScanPage> {
                   var barcode = capture.barcodes.last;
                   log.e('Detected barcode: ${barcode.rawValue}');
                   if (_canScan) {
-                    context.read<AssetCubit>().fetchAsset(barcode.rawValue!);
+                    context.read<AssetCubit>().getAsset(barcode.rawValue!);
                   }
                 },
               );

@@ -1,3 +1,4 @@
+import 'package:trackly_app/src/data/models/Assets/asset_create.dart';
 import 'package:trackly_app/src/data/models/Assets/asset_update.dart';
 import 'package:trackly_app/src/data/models/api_response.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
@@ -13,7 +14,7 @@ class AssetProvider {
     return AssetRepository().getPaginatedAssets(pageNumber, recordNumber);
   }
 
-  Future<ApiResponse<Asset>> createAsset(Asset asset) {
+  Future<ApiResponse<Asset>> createAsset(AssetCreate asset) {
     return AssetRepository().createAsset(asset);
   }
 
