@@ -110,7 +110,11 @@ class _AssetsPageState extends State<AssetsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed(
+            createAssetPageRoute,
+          );
+        },
         backgroundColor: AppColors.pinkColor,
         child: const Icon(
           Icons.add,

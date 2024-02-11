@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart';
 import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/data/localstorage/shared_reference_manager.dart';
+import 'package:trackly_app/src/data/models/Assets/asset_create.dart';
 import 'package:trackly_app/src/data/models/Assets/asset_update.dart';
 import 'package:trackly_app/src/data/models/api_response.dart';
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
@@ -124,7 +125,7 @@ class AssetRepository {
   }
 
   //Create an asset
-  Future<ApiResponse<Asset>> createAsset(Asset asset) async {
+  Future<ApiResponse<Asset>> createAsset(AssetCreate asset) async {
     Response? response;
     String authToken = await SharedPreferencesManager().getAuthAccessToken();
 
@@ -148,7 +149,7 @@ class AssetRepository {
         log.e('The auth token is ${authToken}');
         log.e('The base uri is ${basicUrl}');
         return ApiResponse(
-            response: null, errorMessage: 'No error', error: false);
+            response: null, errorMessage: 'Error occured', error: true);
       }
       log.e('The response is $response');
       var jsonResponse =
@@ -157,16 +158,18 @@ class AssetRepository {
 
       log.e('The json response is $jsonResponse');
 
-      var decodedResponse = Asset.fromJson(jsonResponse);
+      // var decodedResponse = Asset.fromJson(jsonResponse);
 
-      log.e('The decoded response is $decodedResponse');
+      // log.e('The decoded response is $decodedResponse');
 
       return ApiResponse(
-          response: decodedResponse, errorMessage: 'No error', error: false);
+          response: null, errorMessage: 'No error', error: false);
     } catch (e) {
       log.e(e);
       return ApiResponse(
-          response: null, errorMessage: 'No error', error: false);
+          response: null,
+          errorMessage: 'Error occured while creating asset',
+          error: true);
     }
   }
 
@@ -195,12 +198,11 @@ class AssetRepository {
         log.e('The auth token is ${authToken}');
         log.e('The base uri is ${basicUrl}');
         return ApiResponse(
-            response: null, errorMessage: 'No error', error: false);
+            response: null, errorMessage: 'Error occured', error: true);
       }
       log.e('The response is $response');
       var jsonResponse =
           await convert.jsonDecode(response.body) as Map<String, dynamic>;
-      //var itemCount = jsonResponse['totalItems'];
 
       log.e('The json response is $jsonResponse');
 
@@ -213,7 +215,9 @@ class AssetRepository {
     } catch (e) {
       log.e(e);
       return ApiResponse(
-          response: null, errorMessage: 'No error', error: false);
+          response: null,
+          errorMessage: 'Error occured while creating asset',
+          error: true);
     }
   }
 }
