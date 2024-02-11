@@ -8,11 +8,13 @@ import 'package:trackly_app/src/bloc/app_functionality/workItems/workt_item_cubi
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/authentication_bloc/authentication_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/role_bloc/role_bloc.dart';
+import 'package:trackly_app/src/pages/assets/add_asset_page.dart';
 import 'package:trackly_app/src/pages/assets/asset_admin_page.dart';
 import 'package:trackly_app/src/pages/assets/asset_details_page.dart';
 import 'package:trackly_app/src/pages/assets/assets_failure_page.dart';
 import 'package:trackly_app/src/pages/assets/assets_success_page.dart';
 import 'package:trackly_app/src/pages/assets/edit_asset_page.dart';
+import 'package:trackly_app/src/pages/barcode_scan_page.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/login_page.dart';
 import 'package:trackly_app/src/pages/main_scan_page.dart';
@@ -84,10 +86,12 @@ class MyApp extends StatelessWidget {
             assetFailurePageRoute: (context) => const AssetsFailurePage(),
             assetAdminPageRoute: (context) => AssetAdminPage(),
             mainScanPageRoute: (context) => const MainScanPage(),
+            barcodeScanPageRoute: (context) => const BarcodeScanPage(),
             assetDetailsPageRoute: (context) => AssetDetailsPage(),
             ticketDetailsPageRoute: (context) => const TicketDetailsPage(),
             workItemPageRoute: (context) => const WorkItemPage(),
             editAssetPageRoute: (context) => const EditAssetPage(),
+            createAssetPageRoute: (context) => const CreateAssetPage(),
           },
         );
       }),
