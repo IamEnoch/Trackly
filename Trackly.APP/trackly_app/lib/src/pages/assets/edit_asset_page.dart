@@ -18,12 +18,12 @@ class EditAssetPage extends StatefulWidget {
   const EditAssetPage({super.key});
 
   @override
-  State<EditAssetPage> createState() => _WorkItemPageState();
+  State<EditAssetPage> createState() => _EditAssetPageState();
 }
 
-class _WorkItemPageState extends State<EditAssetPage> {
+class _EditAssetPageState extends State<EditAssetPage> {
   final _formKey = GlobalKey<FormState>();
-  final log = logger(_WorkItemPageState);
+  final log = logger(_EditAssetPageState);
   String? _selectedUser;
   List<User> _users = []; // List to store fetched users
   String? _assetId;
@@ -64,34 +64,6 @@ class _WorkItemPageState extends State<EditAssetPage> {
 
     _descriptionController = TextEditingController();
   }
-
-  // @override
-  // void didChangeDependencies() {
-  //   super.didChangeDependencies();
-
-  //   final arguments =
-  //       ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
-
-  //   Asset myAsset = arguments['asset'] as Asset;
-  //   _assetNameController.text = myAsset.assetName;
-  //   _categoryController.text =
-  //       assetCategoryValues.reverse[myAsset.category].toString();
-  //   _departmentController.text =
-  //       departmentNameValues.reverse[myAsset.departmentName].toString();
-  //   _locationController.text =
-  //       locationNameValues.reverse[myAsset.locationName].toString();
-  //   _barcodeNumberController.text = myAsset.barcodeNumber;
-  //   _serialNumberController.text = myAsset.serialNumber;
-  //   _conditionController.text =
-  //       conditionValues.reverse[myAsset.condition].toString();
-  //   _processorController.text = myAsset.processor;
-  //   _ramController.text = myAsset.ram;
-  //   _storageController.text = myAsset.storage;
-  //   _userController.text = myAsset.assignedTo;
-  //   //_descriptionController.text = myAsset.description;
-
-  //   _assetId = myAsset.assetId;
-  // }
 
   //Dispose of the controllers when the widget is disposed
   @override
@@ -189,7 +161,7 @@ class _WorkItemPageState extends State<EditAssetPage> {
                                 onPressed: () {
                                   context
                                       .read<AssetCubit>()
-                                      .fetchAsset('100000000019');
+                                      .getAsset('100000000019');
                                 },
                                 icon: Image.asset(AppAssets.scanIcon, scale: 2),
                               ),
