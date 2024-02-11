@@ -14,11 +14,11 @@ class AssetDetailsPage extends StatelessWidget {
     final arguments =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
 
-    final List<Ticket> tickets = arguments['tickets'];
+    final List<Ticket?> tickets = arguments['tickets'];
     final String assetName = arguments['assetName'];
     final String departmentName = arguments['department'];
 
-    log.e('The ticekts are: ${tickets[1]}');
+    //log.e('The ticekts are: ${tickets[1]}');
 
     return Scaffold(
       backgroundColor: const Color(0xffF5F7FA),
@@ -107,7 +107,7 @@ class AssetDetailsPage extends StatelessWidget {
                       ),
                       margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
                       child: TicketSmallCard(
-                        ticket: tickets.elementAt(index),
+                        ticket: tickets.elementAt(index)!,
                         departmentName: departmentName,
                       ),
                     );
