@@ -7,7 +7,7 @@ import 'package:trackly_app/src/pages/assets/assets_page.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/profile_page.dart';
 import 'package:trackly_app/src/pages/main_scan_page.dart';
-import 'package:trackly_app/src/pages/tickets/work_item_page.dart';
+import 'package:trackly_app/src/pages/workItems/work_item_page.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
 

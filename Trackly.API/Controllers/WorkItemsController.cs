@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TracklyApi.Data;
+using TracklyApi.DTOs;
+using TracklyApi.DTOs.Output;
 using TracklyApi.DTOs.PartialUpdate;
 using TracklyApi.DTOs.RequestDTOs;
 using TracklyApi.Helpers;
+using TracklyApi.Models;
 using TracklyApi.Models.Tickets;
 
 namespace TracklyApi.Controllers
@@ -109,6 +113,46 @@ namespace TracklyApi.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        //Get paged work items that are pending
+        [HttpGet("pending/paged")]
+        public async Task<ActionResult<IEnumerable<WorkItem>>> GetPagedPendingWorkItems(
+            [FromQuery] QueryParameters parameters)
+        {
+            try
+            {
+                int page = parameters.PageNumber;
+                int pageSize = parameters.PageSize;
+
+                // Validate and normalize page and pageSize values
+                if (parameters.PageNumber < 1) page = 1;
+                if (parameters.PageSize < 1)
+                {
+                    pageSize = 15;
+                };
+
+
+                var totalNumberOfWorkItems = await context.WorkItems.CountAsync();
+                var workItems = await context.WorkItems
+                    .Where(w => w.Status == EnumHelper.WorkItemStatus.Pending)
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync();
+
+                return Ok(new PagedResult<WorkItem>
+                {
+                    Items = workItems,
+                    TotalCount = totalNumberOfWorkItems,
+                    PageNumber = parameters.PageNumber,
+                    RecordNumber = parameters.PageSize
+                });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
 
     }
 }
