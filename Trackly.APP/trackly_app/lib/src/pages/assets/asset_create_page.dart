@@ -12,16 +12,16 @@ import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 
-class CreateAssetPage extends StatefulWidget {
-  const CreateAssetPage({super.key});
+class AssetCreatePage extends StatefulWidget {
+  const AssetCreatePage({super.key});
 
   @override
-  State<CreateAssetPage> createState() => _CreateAssetPageState();
+  State<AssetCreatePage> createState() => _AssetCreatePageState();
 }
 
-class _CreateAssetPageState extends State<CreateAssetPage> {
+class _AssetCreatePageState extends State<AssetCreatePage> {
   final _formKey = GlobalKey<FormState>();
-  final log = logger(_CreateAssetPageState);
+  final log = logger(_AssetCreatePageState);
   List<User> _users = []; // List to store fetched users
 
   // Text controllers for five fields
@@ -665,14 +665,14 @@ class _CreateAssetPageState extends State<CreateAssetPage> {
                                     : _storageController.text,
                                 description: _descriptionController.text == ''
                                     ? null
-                                    : _storageController.text,
+                                    : _descriptionController.text,
                                 purchaseCost: double.tryParse(
                                         _purchaseCostController.text) ??
                                     0.0,
                                 purchaseDate: DateTime.now(),
                               );
                               log.d(
-                                  'The create work item to be submitted is ${assetCreate.toJson()}');
+                                  'The create asset to be submitted is ${assetCreate.toJson()}');
 
                               await AssetCubit().createAsset(assetCreate);
                             }

@@ -14,16 +14,16 @@ import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 
-class EditAssetPage extends StatefulWidget {
-  const EditAssetPage({super.key});
+class AssetEditPage extends StatefulWidget {
+  const AssetEditPage({super.key});
 
   @override
-  State<EditAssetPage> createState() => _EditAssetPageState();
+  State<AssetEditPage> createState() => _AssetEditPageState();
 }
 
-class _EditAssetPageState extends State<EditAssetPage> {
+class _AssetEditPageState extends State<AssetEditPage> {
   final _formKey = GlobalKey<FormState>();
-  final log = logger(_EditAssetPageState);
+  final log = logger(_AssetEditPageState);
   String? _selectedUser;
   List<User> _users = []; // List to store fetched users
   String? _assetId;
