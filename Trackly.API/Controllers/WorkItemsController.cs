@@ -116,7 +116,7 @@ namespace TracklyApi.Controllers
 
         //Get paged work items that are pending
         [HttpGet("pending/paged")]
-        public async Task<ActionResult<IEnumerable<WorkItem>>> GetPagedPendingWorkItems(
+        public async Task<ActionResult<IEnumerable<WorkItemResponseDto>>> GetPagedPendingWorkItems(
             [FromQuery] QueryParameters parameters)
         {
             try
@@ -139,9 +139,23 @@ namespace TracklyApi.Controllers
                     .Take(pageSize)
                     .ToListAsync();
 
-                return Ok(new PagedResult<WorkItem>
+                //Return workItem reponse dto
+                var workItemsResponseDto = workItems.Select(w => new WorkItemResponseDto
                 {
-                    Items = workItems,
+                    WorkItemId = w.WorkItemId.ToString(),
+                    Title = w.Title,
+                    Description = w.Description,
+                    Status = w.Status,
+                    Priority = w.Priority,
+                    Category = w.Category,
+                    CreatorUserId = w.CreatorUserID,
+                    AssetId = w.AssetId,
+                    CreatedAt = w.CreatedAt
+                }).ToList();
+
+                return Ok(new PagedResult<WorkItemResponseDto>
+                {
+                    Items = workItemsResponseDto,
                     TotalCount = totalNumberOfWorkItems,
                     PageNumber = parameters.PageNumber,
                     RecordNumber = parameters.PageSize
