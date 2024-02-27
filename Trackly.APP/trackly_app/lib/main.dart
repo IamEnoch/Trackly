@@ -4,22 +4,22 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_bloc.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/users/users_cubit.dart';
-import 'package:trackly_app/src/bloc/app_functionality/workItems/workt_item_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_cubit.dart';
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/authentication_bloc/authentication_bloc.dart';
 import 'package:trackly_app/src/bloc/auth/role_bloc/role_bloc.dart';
-import 'package:trackly_app/src/pages/assets/add_asset_page.dart';
+import 'package:trackly_app/src/pages/assets/asset_create_page.dart';
 import 'package:trackly_app/src/pages/assets/asset_admin_page.dart';
 import 'package:trackly_app/src/pages/assets/asset_details_page.dart';
 import 'package:trackly_app/src/pages/assets/assets_failure_page.dart';
 import 'package:trackly_app/src/pages/assets/assets_success_page.dart';
-import 'package:trackly_app/src/pages/assets/edit_asset_page.dart';
+import 'package:trackly_app/src/pages/assets/asset_edit_page.dart';
 import 'package:trackly_app/src/pages/barcode_scan_page.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/login_page.dart';
 import 'package:trackly_app/src/pages/main_scan_page.dart';
 import 'package:trackly_app/src/pages/tickets/ticket_details_page.dart';
-import 'package:trackly_app/src/pages/workItems/work_item_page.dart';
+import 'package:trackly_app/src/pages/workItems/work_item_create_page.dart';
 import 'package:trackly_app/src/utils/routes.dart';
 import 'package:trackly_app/src/pages/tab_page.dart';
 import 'package:trackly_app/src/utils/widgets/splash_screen.dart';
@@ -89,9 +89,9 @@ class MyApp extends StatelessWidget {
             barcodeScanPageRoute: (context) => const BarcodeScanPage(),
             assetDetailsPageRoute: (context) => AssetDetailsPage(),
             ticketDetailsPageRoute: (context) => const TicketDetailsPage(),
-            workItemPageRoute: (context) => const WorkItemPage(),
-            editAssetPageRoute: (context) => const EditAssetPage(),
-            createAssetPageRoute: (context) => const CreateAssetPage(),
+            workItemPageRoute: (context) => const WorkItemCreatePage(),
+            editAssetPageRoute: (context) => const AssetEditPage(),
+            createAssetPageRoute: (context) => const AssetCreatePage(),
           },
         );
       }),

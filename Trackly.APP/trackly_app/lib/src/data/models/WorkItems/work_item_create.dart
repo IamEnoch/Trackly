@@ -1,4 +1,4 @@
-class WorkItem {
+class WorkItemCreate {
   String title;
   String description;
   String priority;
@@ -6,7 +6,7 @@ class WorkItem {
   String creatorUserId;
   String assetId;
 
-  WorkItem({
+  WorkItemCreate({
     required this.title,
     required this.description,
     required this.priority,
@@ -28,8 +28,8 @@ class WorkItem {
   }
 
   //Create a work item for from a json object
-  factory WorkItem.fromJson(Map<String, dynamic> json) {
-    return WorkItem(
+  factory WorkItemCreate.fromJson(Map<String, dynamic> json) {
+    return WorkItemCreate(
       title: json['title'],
       description: json['description'],
       priority: json['priority'],
