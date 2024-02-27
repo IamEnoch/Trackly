@@ -4,51 +4,47 @@ import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_state.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_state.dart';
-import 'package:trackly_app/src/bloc/app_functionality/workItems/workt_item_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_cubit.dart';
 import 'package:trackly_app/src/data/localstorage/shared_reference_manager.dart';
-import 'package:trackly_app/src/data/models/work_item.dart';
+import 'package:trackly_app/src/data/models/WorkItems/work_item_create.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 
-class WorkItemPage extends StatefulWidget {
-  const WorkItemPage({super.key});
+class WorkItemCreatePage extends StatefulWidget {
+  const WorkItemCreatePage({super.key});
 
   @override
-  State<WorkItemPage> createState() => _WorkItemPageState();
+  State<WorkItemCreatePage> createState() => _WorkItemCreatePageState();
 }
 
-class _WorkItemPageState extends State<WorkItemPage> {
-  final log = logger(_WorkItemPageState);
+class _WorkItemCreatePageState extends State<WorkItemCreatePage> {
+  final _workItemFormKey = GlobalKey<FormState>();
+  final log = logger(_WorkItemCreatePageState);
 
   //text controllers for five fields
-  final TextEditingController _assetNameController = TextEditingController();
-  final TextEditingController _descriptionController = TextEditingController();
-  final TextEditingController _titleController = TextEditingController();
-  final TextEditingController _priorityController = TextEditingController();
-  final TextEditingController _categoryController = TextEditingController();
+  late final TextEditingController _assetNameController;
+  late final TextEditingController _assetIdConroller;
+  late final TextEditingController _descriptionController;
+  late final TextEditingController _titleController;
+  late final TextEditingController _priorityController;
+  late final TextEditingController _categoryController;
 
-  //Values to be submitter from the form
-  String? _assetName;
-  String? _assetId;
-  String? _description;
-  String? _title;
-  String? _priority;
-  String? _category;
-  String? _creatorUserId;
-
-  //Check if the form is valid
-  bool _isFormValid() {
-    return _assetName != null &&
-        _description != null &&
-        _title != null &&
-        _priority != null &&
-        _category != null;
+  @override
+  void initState() {
+    super.initState();
+    _assetNameController = TextEditingController();
+    _assetIdConroller = TextEditingController();
+    _descriptionController = TextEditingController();
+    _titleController = TextEditingController();
+    _priorityController = TextEditingController();
+    _categoryController = TextEditingController();
   }
 
   //Dispose of the controllers when the widget is disposed
   @override
   void dispose() {
     _assetNameController.dispose();
+    _assetIdConroller.dispose();
     _descriptionController.dispose();
     _titleController.dispose();
     _priorityController.dispose();
@@ -61,12 +57,10 @@ class _WorkItemPageState extends State<WorkItemPage> {
     return Scaffold(
       body: BlocListener<AssetCubit, AssetState>(
         listener: (context, state) {
-          // TODO: implement listener
           //Fill the asset name is the asset is fetched
           if (state is AssetFetched) {
             _assetNameController.text = state.asset.assetName;
-            _assetName = _assetNameController.text;
-            _assetId = state.asset.assetId;
+            _assetIdConroller.text = state.asset.assetId;
           }
         },
         child: SafeArea(
@@ -85,45 +79,84 @@ class _WorkItemPageState extends State<WorkItemPage> {
                       style: AppResources().appStyles.textStyles.headineH4,
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-                    TextField(
-                      //vertical text field,
-                      maxLines: null,
-                      controller: _assetNameController,
-                      decoration: AppResources()
-                          .textFieldStyles
-                          .inputDecoration(
-                            labelText: 'Asset Name',
-                          )
-                          .copyWith(
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                context
-                                    .read<AssetCubit>()
-                                    .getAsset('100000000019');
-                              },
-                              icon: Image.asset(AppAssets.scanIcon, scale: 2),
+
+                    BlocListener<AssetCubit, AssetState>(
+                      listener: (context, state) {
+                        if (state is AssetFetched) {
+                          _assetNameController.text = state.asset.assetName;
+                          _assetIdConroller.text = state.asset.assetId;
+                        } else if (state is AssetFailure) {
+                          //Toast notification
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text('Asset not found'),
+                          ));
+                        }
+                      },
+                      child: TextFormField(
+                        //vertical text field,
+                        validator: (value) {
+                          //If not filled return error
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter an Asset Name';
+                          }
+                          return null;
+                        },
+
+                        maxLines: null,
+                        controller: _assetNameController,
+                        decoration: AppResources()
+                            .textFieldStyles
+                            .inputDecoration(
+                              labelText: 'Asset Name',
+                            )
+                            .copyWith(
+                              suffixIcon: IconButton(
+                                onPressed: () async {
+                                  var barcodeNumber =
+                                      await Navigator.of(context)
+                                              .pushNamed(barcodeScanPageRoute)
+                                          as String;
+                                  AssetCubit().getAsset(barcodeNumber);
+                                },
+                                icon: Image.asset(AppAssets.scanIcon, scale: 2),
+                              ),
                             ),
-                          ),
+                      ),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                    TextField(
+                    TextFormField(
+                      validator: (value) {
+                        //If not filled return error
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter a title';
+                        }
+                        return null;
+                      },
                       controller: _titleController,
                       decoration:
                           AppResources().textFieldStyles.inputDecoration(
                                 labelText: 'Title',
                               ),
-                      onChanged: (value) => _title = value,
+                      onChanged: (value) => _titleController.text = value,
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                    TextField(
+                    TextFormField(
                       //vertical scrollable text field
+                      validator: (value) {
+                        //If not filled return error
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter a description';
+                        }
+                        return null;
+                      },
                       maxLines: null,
                       controller: _descriptionController,
                       decoration:
                           AppResources().textFieldStyles.inputDecoration(
                                 labelText: 'Description',
                               ),
-                      onChanged: (value) => _description = value,
+                      onChanged: (value) => _descriptionController.text = value,
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                     //Priority and category are dropdowns in the same row
@@ -131,7 +164,15 @@ class _WorkItemPageState extends State<WorkItemPage> {
                       children: [
                         Expanded(
                           //Drop down for priority
+
                           child: DropdownButtonFormField(
+                            validator: (value) {
+                              //If not filled return error
+                              if (value == null || value.isEmpty) {
+                                return 'Please select a priority';
+                              }
+                              return null;
+                            },
                             decoration:
                                 AppResources().textFieldStyles.inputDecoration(
                                       labelText: 'Priority',
@@ -152,7 +193,7 @@ class _WorkItemPageState extends State<WorkItemPage> {
                             ],
                             onChanged: (value) {
                               setState(() {
-                                _priority = value as String;
+                                _priorityController.text = value as String;
                               });
                             },
                           ),
@@ -161,6 +202,13 @@ class _WorkItemPageState extends State<WorkItemPage> {
                         Expanded(
                           //Drop down for category
                           child: DropdownButtonFormField(
+                            validator: (value) {
+                              //If not filled return error
+                              if (value == null || value.isEmpty) {
+                                return 'Please select a category';
+                              }
+                              return null;
+                            },
                             decoration:
                                 AppResources().textFieldStyles.inputDecoration(
                                       labelText: 'Category',
@@ -185,11 +233,12 @@ class _WorkItemPageState extends State<WorkItemPage> {
                             ],
                             onChanged: (value) {
                               setState(() {
-                                _category = value as String;
+                                _categoryController.text = value as String;
                               });
                             },
                           ),
                         ),
+                        //Prority text field
                       ],
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
@@ -214,36 +263,28 @@ class _WorkItemPageState extends State<WorkItemPage> {
                       child: Center(
                         child: ElevatedButton(
                           onPressed: () async {
-                            if (_isFormValid()) {
+                            if (_workItemFormKey.currentState!.validate()) {
                               log.e('The form is valid');
 
-                              _creatorUserId =
-                                  await SharedPreferencesManager().getUserId();
-
-                              //TODO: Submit the form
-                              //use cubit to submit the form
                               //create a work item object
-                              final workItem = WorkItem(
-                                title: _title!,
-                                description: _description!,
-                                priority: _priority!,
-                                category: _category!,
-                                creatorUserId: _creatorUserId!,
-                                assetId: _assetId!,
+                              WorkItemCreate workItem = WorkItemCreate(
+                                title: _titleController.text,
+                                description: _descriptionController.text,
+                                priority: _priorityController.text,
+                                category: _categoryController.text,
+                                creatorUserId: await SharedPreferencesManager()
+                                    .getUserId(),
+                                assetId: _assetIdConroller.text,
                               );
                               log.d(
                                   'The create work item to be submitted is ${workItem.toJson()}');
-                              context
-                                  .read<WorkItemCubit>()
-                                  .createWorkItem(workItem);
-                            } else {
-                              log.e('The form is not valid');
+                              WorkItemCubit().createWorkItem(workItem);
                             }
                           },
-                          child: const Text('Submit'),
                           style: AppResources().buttonStyles.buttonStyle(
-                                backgroundColor: Color(0xFF1573FE),
+                                backgroundColor: const Color(0xFF1573FE),
                               ),
+                          child: const Text('Submit'),
                         ),
                       ),
                     ),
