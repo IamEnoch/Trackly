@@ -69,226 +69,246 @@ class _WorkItemCreatePageState extends State<WorkItemCreatePage> {
               child: Padding(
                 padding:
                     EdgeInsets.all(MediaQuery.of(context).size.width * 0.05),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                    //Title: Work Item
-                    Text(
-                      'Work Item',
-                      style: AppResources().appStyles.textStyles.headineH4,
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                child: Form(
+                  key: _workItemFormKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02),
+                      //Title: Work Item
+                      Text(
+                        'Work Item',
+                        style: AppResources().appStyles.textStyles.headineH4,
+                      ),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.05),
 
-                    BlocListener<AssetCubit, AssetState>(
-                      listener: (context, state) {
-                        if (state is AssetFetched) {
-                          _assetNameController.text = state.asset.assetName;
-                          _assetIdConroller.text = state.asset.assetId;
-                        } else if (state is AssetFailure) {
-                          //Toast notification
-                          ScaffoldMessenger.of(context)
-                              .showSnackBar(const SnackBar(
-                            content: Text('Asset not found'),
-                          ));
-                        }
-                      },
-                      child: TextFormField(
-                        //vertical text field,
+                      BlocListener<AssetCubit, AssetState>(
+                        listener: (context, state) {
+                          if (state is AssetFetched) {
+                            _assetNameController.text = state.asset.assetName;
+                            _assetIdConroller.text = state.asset.assetId;
+                          } else if (state is AssetFailure) {
+                            //Toast notification
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
+                              content: Text('Asset not found'),
+                            ));
+                          }
+                        },
+                        child: TextFormField(
+                          //vertical text field,
+                          validator: (value) {
+                            //If not filled return error
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter an Asset Name';
+                            }
+                            return null;
+                          },
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          maxLines: null,
+                          controller: _assetNameController,
+                          decoration: AppResources()
+                              .textFieldStyles
+                              .inputDecoration(
+                                labelText: 'Asset Name',
+                              )
+                              .copyWith(
+                                suffixIcon: IconButton(
+                                  onPressed: () async {
+                                    var barcodeNumber =
+                                        await Navigator.of(context)
+                                                .pushNamed(barcodeScanPageRoute)
+                                            as String;
+                                    AssetCubit().getAsset(barcodeNumber);
+                                  },
+                                  icon:
+                                      Image.asset(AppAssets.scanIcon, scale: 2),
+                                ),
+                              ),
+                        ),
+                      ),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.03),
+                      TextFormField(
                         validator: (value) {
                           //If not filled return error
                           if (value == null || value.isEmpty) {
-                            return 'Please enter an Asset Name';
+                            return 'Please enter a title';
                           }
                           return null;
                         },
-
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        controller: _titleController,
+                        decoration:
+                            AppResources().textFieldStyles.inputDecoration(
+                                  labelText: 'Title',
+                                ),
+                        onChanged: (value) => _titleController.text = value,
+                      ),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.03),
+                      TextFormField(
+                        //vertical scrollable text field
+                        validator: (value) {
+                          //If not filled return error
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a description';
+                          }
+                          return null;
+                        },
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
                         maxLines: null,
-                        controller: _assetNameController,
-                        decoration: AppResources()
-                            .textFieldStyles
-                            .inputDecoration(
-                              labelText: 'Asset Name',
-                            )
-                            .copyWith(
-                              suffixIcon: IconButton(
-                                onPressed: () async {
-                                  var barcodeNumber =
-                                      await Navigator.of(context)
-                                              .pushNamed(barcodeScanPageRoute)
-                                          as String;
-                                  AssetCubit().getAsset(barcodeNumber);
-                                },
-                                icon: Image.asset(AppAssets.scanIcon, scale: 2),
-                              ),
-                            ),
+                        controller: _descriptionController,
+                        decoration:
+                            AppResources().textFieldStyles.inputDecoration(
+                                  labelText: 'Description',
+                                ),
+                        onChanged: (value) =>
+                            _descriptionController.text = value,
                       ),
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                    TextFormField(
-                      validator: (value) {
-                        //If not filled return error
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter a title';
-                        }
-                        return null;
-                      },
-                      controller: _titleController,
-                      decoration:
-                          AppResources().textFieldStyles.inputDecoration(
-                                labelText: 'Title',
-                              ),
-                      onChanged: (value) => _titleController.text = value,
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                    TextFormField(
-                      //vertical scrollable text field
-                      validator: (value) {
-                        //If not filled return error
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter a description';
-                        }
-                        return null;
-                      },
-                      maxLines: null,
-                      controller: _descriptionController,
-                      decoration:
-                          AppResources().textFieldStyles.inputDecoration(
-                                labelText: 'Description',
-                              ),
-                      onChanged: (value) => _descriptionController.text = value,
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                    //Priority and category are dropdowns in the same row
-                    Row(
-                      children: [
-                        Expanded(
-                          //Drop down for priority
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.03),
+                      //Priority and category are dropdowns in the same row
+                      Row(
+                        children: [
+                          Expanded(
+                            //Drop down for priority
 
-                          child: DropdownButtonFormField(
-                            validator: (value) {
-                              //If not filled return error
-                              if (value == null || value.isEmpty) {
-                                return 'Please select a priority';
+                            child: DropdownButtonFormField(
+                              validator: (value) {
+                                //If not filled return error
+                                if (value == null || value.isEmpty) {
+                                  return 'Please select a priority';
+                                }
+                                return null;
+                              },
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              decoration: AppResources()
+                                  .textFieldStyles
+                                  .inputDecoration(
+                                    labelText: 'Priority',
+                                  ),
+                              items: const [
+                                DropdownMenuItem(
+                                  child: Text('Low'),
+                                  value: 'Low',
+                                ),
+                                DropdownMenuItem(
+                                  child: Text('Medium'),
+                                  value: 'Medium',
+                                ),
+                                DropdownMenuItem(
+                                  child: Text('High'),
+                                  value: 'High',
+                                ),
+                              ],
+                              onChanged: (value) {
+                                setState(() {
+                                  _priorityController.text = value as String;
+                                });
+                              },
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Expanded(
+                            //Drop down for category
+                            child: DropdownButtonFormField(
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              validator: (value) {
+                                //If not filled return error
+                                if (value == null || value.isEmpty) {
+                                  return 'Please select a category';
+                                }
+                                return null;
+                              },
+                              decoration: AppResources()
+                                  .textFieldStyles
+                                  .inputDecoration(
+                                    labelText: 'Category',
+                                  ),
+                              items: const [
+                                DropdownMenuItem(
+                                  child: Text('Hardware'),
+                                  value: 'Hardware',
+                                ),
+                                DropdownMenuItem(
+                                  child: Text('Software'),
+                                  value: 'Software',
+                                ),
+                                DropdownMenuItem(
+                                  child: Text('Network'),
+                                  value: 'Network',
+                                ),
+                                DropdownMenuItem(
+                                  child: Text('Other'),
+                                  value: 'Other',
+                                ),
+                              ],
+                              onChanged: (value) {
+                                setState(() {
+                                  _categoryController.text = value as String;
+                                });
+                              },
+                            ),
+                          ),
+                          //Prority text field
+                        ],
+                      ),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.03),
+                      //submit button
+                      BlocListener<WorkItemCubit, WorkItemState>(
+                        listener: (context, state) {
+                          if (state is WorkItemCreated) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Work Item Created'),
+                              ),
+                            );
+                          }
+                          if (state is WorkItemFailure) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(state.message),
+                              ),
+                            );
+                          }
+                        },
+                        child: Center(
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              if (_workItemFormKey.currentState!.validate()) {
+                                log.e('The form is valid');
+
+                                //create a work item object
+                                WorkItemCreate workItem = WorkItemCreate(
+                                  title: _titleController.text,
+                                  description: _descriptionController.text,
+                                  priority: _priorityController.text,
+                                  category: _categoryController.text,
+                                  creatorUserId:
+                                      await SharedPreferencesManager()
+                                          .getUserId(),
+                                  assetId: _assetIdConroller.text,
+                                );
+                                log.d(
+                                    'The create work item to be submitted is ${workItem.toJson()}');
+                                WorkItemCubit().createWorkItem(workItem);
                               }
-                              return null;
                             },
-                            decoration:
-                                AppResources().textFieldStyles.inputDecoration(
-                                      labelText: 'Priority',
-                                    ),
-                            items: const [
-                              DropdownMenuItem(
-                                child: Text('Low'),
-                                value: 'Low',
-                              ),
-                              DropdownMenuItem(
-                                child: Text('Medium'),
-                                value: 'Medium',
-                              ),
-                              DropdownMenuItem(
-                                child: Text('High'),
-                                value: 'High',
-                              ),
-                            ],
-                            onChanged: (value) {
-                              setState(() {
-                                _priorityController.text = value as String;
-                              });
-                            },
+                            style: AppResources().buttonStyles.buttonStyle(
+                                  backgroundColor: const Color(0xFF1573FE),
+                                ),
+                            child: const Text('Submit'),
                           ),
                         ),
-                        SizedBox(width: 10),
-                        Expanded(
-                          //Drop down for category
-                          child: DropdownButtonFormField(
-                            validator: (value) {
-                              //If not filled return error
-                              if (value == null || value.isEmpty) {
-                                return 'Please select a category';
-                              }
-                              return null;
-                            },
-                            decoration:
-                                AppResources().textFieldStyles.inputDecoration(
-                                      labelText: 'Category',
-                                    ),
-                            items: const [
-                              DropdownMenuItem(
-                                child: Text('Hardware'),
-                                value: 'Hardware',
-                              ),
-                              DropdownMenuItem(
-                                child: Text('Software'),
-                                value: 'Software',
-                              ),
-                              DropdownMenuItem(
-                                child: Text('Network'),
-                                value: 'Network',
-                              ),
-                              DropdownMenuItem(
-                                child: Text('Other'),
-                                value: 'Other',
-                              ),
-                            ],
-                            onChanged: (value) {
-                              setState(() {
-                                _categoryController.text = value as String;
-                              });
-                            },
-                          ),
-                        ),
-                        //Prority text field
-                      ],
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                    //submit button
-                    BlocListener<WorkItemCubit, WorkItemState>(
-                      listener: (context, state) {
-                        if (state is WorkItemCreated) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Work Item Created'),
-                            ),
-                          );
-                        }
-                        if (state is WorkItemFailure) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(state.message),
-                            ),
-                          );
-                        }
-                      },
-                      child: Center(
-                        child: ElevatedButton(
-                          onPressed: () async {
-                            if (_workItemFormKey.currentState!.validate()) {
-                              log.e('The form is valid');
-
-                              //create a work item object
-                              WorkItemCreate workItem = WorkItemCreate(
-                                title: _titleController.text,
-                                description: _descriptionController.text,
-                                priority: _priorityController.text,
-                                category: _categoryController.text,
-                                creatorUserId: await SharedPreferencesManager()
-                                    .getUserId(),
-                                assetId: _assetIdConroller.text,
-                              );
-                              log.d(
-                                  'The create work item to be submitted is ${workItem.toJson()}');
-                              WorkItemCubit().createWorkItem(workItem);
-                            }
-                          },
-                          style: AppResources().buttonStyles.buttonStyle(
-                                backgroundColor: const Color(0xFF1573FE),
-                              ),
-                          child: const Text('Submit'),
-                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
