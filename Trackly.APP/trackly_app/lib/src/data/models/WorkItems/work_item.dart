@@ -6,9 +6,7 @@ import 'dart:convert';
 
 import 'package:trackly_app/src/data/enumhelper/enums.dart';
 
-WorkItem assetCreateFromJson(String str) => WorkItem.fromJson(json.decode(str));
-
-String assetCreateToJson(WorkItem data) => json.encode(data.toJson());
+//WorkItem assetCreateFromJson(String str) => WorkItem.fromJson(json.decode(str));
 
 class WorkItem {
   final String workItemId;
@@ -44,17 +42,4 @@ class WorkItem {
         assetId: json["assetId"],
         createdAt: DateTime.parse(json["createdAt"]),
       );
-
-  Map<String, dynamic> toJson() => {
-        "workItemId": workItemId,
-        "title": title,
-        "description": description,
-        "status": statusValues.reverse[status],
-        "priority": priorityValues.reverse[priority],
-        "category": categoryValues.reverse[category],
-        "creatorUserId": creatorUserId,
-        "assetId": assetId,
-        "createdAt":
-            "${createdAt.year.toString().padLeft(4, '0')}-${createdAt.month.toString().padLeft(2, '0')}-${createdAt.day.toString().padLeft(2, '0')}",
-      };
 }
