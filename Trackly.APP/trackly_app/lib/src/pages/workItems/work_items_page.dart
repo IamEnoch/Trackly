@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/users/users_cubit.dart';
-import 'package:trackly_app/src/data/models/Assets/asset.dart';
+import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_cubit.dart';
+import 'package:trackly_app/src/data/models/WorkItems/work_item.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
-import 'package:trackly_app/src/utils/widgets/asset_card_small.dart';
 
 class WorkItemsPage extends StatefulWidget {
   const WorkItemsPage({super.key});
@@ -23,8 +23,8 @@ class _WorkItemsPageState extends State<WorkItemsPage> {
   int _currentPage = 1;
   bool _isLoading = false;
   bool _fetchFuther = true;
-  List<Asset> _assetList = [];
-  List<Asset> _filteredAssetList = []; // List for storing filtered assets
+  List<WorkItem> _worktItemList = [];
+  List<WorkItem> _filteredWorkItemList = []; // List for storing filtered assets
   String? _error;
 
   final ScrollController _scrollController = ScrollController();
@@ -47,16 +47,16 @@ class _WorkItemsPageState extends State<WorkItemsPage> {
     });
 
     try {
-      final newItems = await assetCubit.getAssets(pageKey, _pageSize);
+      final newItems = await WorkItemCubit().getWorkItems(pageKey, _pageSize);
 
       setState(() {
         if (newItems.isEmpty) {
           _fetchFuther = false;
           _isLoading = false;
         } else {
-          _assetList.addAll(newItems);
-          _filteredAssetList =
-              _assetList; // Initialize filtered list with all assets
+          _worktItemList.addAll(newItems);
+          _filteredWorkItemList =
+              _worktItemList; // Initialize filtered list with all assets
           _isLoading = false;
           _currentPage++;
         }
@@ -75,7 +75,7 @@ class _WorkItemsPageState extends State<WorkItemsPage> {
     log.d('MaxScrollExtent: ${_scrollController.position.maxScrollExtent}');
     if (_scrollController.position.pixels ==
         _scrollController.position.maxScrollExtent) {
-      if (_assetList.length % _pageSize == 0) {
+      if (_worktItemList.length % _pageSize == 0) {
         if (_fetchFuther) {
           log.d('Fetching page $_currentPage');
           _fetchPage(_currentPage);
@@ -95,12 +95,12 @@ class _WorkItemsPageState extends State<WorkItemsPage> {
     setState(() {
       if (searchText.isEmpty) {
         // If search text is empty, display the entire list
-        _filteredAssetList = _assetList;
+        _filteredWorkItemList = _worktItemList;
       } else {
         // If search text is not empty, filter the list
-        _filteredAssetList = _assetList
+        _filteredWorkItemList = _worktItemList
             .where(
-                (asset) => asset.assetName.toLowerCase().contains(searchText))
+                (workItem) => workItem.title.toLowerCase().contains(searchText))
             .toList();
       }
     });
@@ -124,7 +124,7 @@ class _WorkItemsPageState extends State<WorkItemsPage> {
       body: RefreshIndicator(
         onRefresh: () async {
           _currentPage = 1;
-          _assetList.clear();
+          _worktItemList.clear();
           _fetchFuther = true;
           await _fetchPage(_currentPage);
         },
@@ -138,7 +138,7 @@ class _WorkItemsPageState extends State<WorkItemsPage> {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 //Assets Page Title
                 Text(
-                  'Assets',
+                  'Work Items',
                   style: AppResources().appStyles.textStyles.headineH4,
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
@@ -149,7 +149,7 @@ class _WorkItemsPageState extends State<WorkItemsPage> {
                     //pop up keyboard
                   },
                   controller: _searchController,
-                  hintText: 'Search for assets',
+                  hintText: 'Search for work items',
                   onChanged: (value) {},
                   //leading icon
                   leading: const Icon(
@@ -174,9 +174,10 @@ class _WorkItemsPageState extends State<WorkItemsPage> {
                 Expanded(
                   child: ListView.builder(
                     controller: _scrollController,
-                    itemCount: _filteredAssetList.length + (_isLoading ? 1 : 0),
+                    itemCount:
+                        _filteredWorkItemList.length + (_isLoading ? 1 : 0),
                     itemBuilder: (BuildContext context, int index) {
-                      if (index == _assetList.length) {
+                      if (index == _worktItemList.length) {
                         // Loading Indicator
                         return _isLoading
                             ? const Center(
@@ -194,25 +195,27 @@ class _WorkItemsPageState extends State<WorkItemsPage> {
                                   assetAdminPageRoute,
                                   arguments: {
                                     'barcodeNumber':
-                                        _filteredAssetList[index].barcodeNumber,
+                                        _filteredWorkItemList[index].title,
                                     'assetName':
-                                        _filteredAssetList[index].assetName,
+                                        _filteredWorkItemList[index].title,
                                     'assetCategory':
-                                        _filteredAssetList[index].category,
-                                    'assetDepartment': _filteredAssetList[index]
-                                        .departmentName,
+                                        _filteredWorkItemList[index].category,
+                                    'assetDepartment':
+                                        _filteredWorkItemList[index].title,
                                     'assetLocation':
-                                        _filteredAssetList[index].locationName,
+                                        _filteredWorkItemList[index].title,
                                     'tickets':
-                                        _filteredAssetList[index].tickets,
-                                    'asset': _filteredAssetList[index]
+                                        _filteredWorkItemList[index].title,
+                                    'asset': _filteredWorkItemList[index]
                                   },
                                 );
                               },
-                              child: AssetCardSmall(
-                                  asset: _filteredAssetList[index]),
+                              child: Text(''),
                             ),
-                            const SizedBox(height: 10),
+                            //   child: AssetCardSmall(
+                            //       asset: _filteredAssetList[index]),
+                            // ),
+                            //const SizedBox(height: 10),
                           ],
                         );
                       }

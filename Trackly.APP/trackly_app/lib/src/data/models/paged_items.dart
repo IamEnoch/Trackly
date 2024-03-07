@@ -1,36 +1,53 @@
 import 'dart:convert';
 
 import 'package:trackly_app/src/data/models/Assets/asset.dart';
+import 'package:trackly_app/src/data/models/WorkItems/work_item.dart';
 
-PagedAssets pagedAssetsFromJson(String str) =>
-    PagedAssets.fromJson(json.decode(str));
+// PagedItems pagedAssetsFromJson(String str) =>
+//     PagedItems.fromJson(json.decode(str));
 
-String pagedAssetsToJson(PagedAssets data) => json.encode(data.toJson());
+//String pagedAssetsToJson(PagedItems data) => json.encode(data.toJson());
 
-class PagedAssets {
+class PageedAssets {
   final int pageNumber;
   final int totalCount;
   final int recordNumber;
   final List<Asset> items;
 
-  PagedAssets({
+  PageedAssets({
     required this.pageNumber,
     required this.totalCount,
     required this.recordNumber,
     required this.items,
   });
 
-  factory PagedAssets.fromJson(Map<String, dynamic> json) => PagedAssets(
+  factory PageedAssets.fromJson(Map<String, dynamic> json) => PageedAssets(
         pageNumber: json["pageNumber"],
         totalCount: json["totalCount"],
         recordNumber: json["recordNumber"],
         items: List<Asset>.from(json["items"].map((x) => Asset.fromJson(x))),
       );
+}
 
-  Map<String, dynamic> toJson() => {
-        "pageNumber": pageNumber,
-        "totalCount": totalCount,
-        "recordNumber": recordNumber,
-        "items": List<dynamic>.from(items.map((x) => x.toJson())),
-      };
+class PageedWorkItems {
+  final int pageNumber;
+  final int totalCount;
+  final int recordNumber;
+  final List<WorkItem> items;
+
+  PageedWorkItems({
+    required this.pageNumber,
+    required this.totalCount,
+    required this.recordNumber,
+    required this.items,
+  });
+
+  factory PageedWorkItems.fromJson(Map<String, dynamic> json) =>
+      PageedWorkItems(
+        pageNumber: json["pageNumber"],
+        totalCount: json["totalCount"],
+        recordNumber: json["recordNumber"],
+        items:
+            List<WorkItem>.from(json["items"].map((x) => WorkItem.fromJson(x))),
+      );
 }

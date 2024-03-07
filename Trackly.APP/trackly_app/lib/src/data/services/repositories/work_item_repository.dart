@@ -9,6 +9,8 @@ import 'package:trackly_app/src/data/models/WorkItems/work_item.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
+import 'package:trackly_app/src/data/models/paged_items.dart';
+
 class WorkItemRepository {
   late String basicUrl;
   final log = logger(WorkItemRepository);
@@ -84,17 +86,22 @@ class WorkItemRepository {
             response: [], errorMessage: 'Bad request', error: true);
       } else {
         log.e('The status code is ${response.statusCode}');
-        var jsonResponse = convert.jsonDecode(response.body);
-        List<WorkItem> workItems = [];
-        for (var item in jsonResponse) {
-          workItems.add(WorkItem.fromJson(item));
-        }
-        return ApiResponse(
-            response: workItems, errorMessage: 'error', error: false);
+        var jsonResponse =
+            convert.jsonDecode(response.body) as Map<String, dynamic>;
+        log.e('The json response is $jsonResponse');
+
+        var decodedResponse = PageedWorkItems.fromJson(jsonResponse);
+
+        log.e('The decoded response is $decodedResponse');
+
+        return ApiResponse<List<WorkItem>>(
+            response: decodedResponse.items,
+            errorMessage: 'No error',
+            error: false);
       }
     } catch (e) {
       log.e(e);
-      return ApiResponse(response: [], errorMessage: 'No error', error: true);
+      return ApiResponse(response: null, errorMessage: 'No error', error: true);
     }
   }
 }
