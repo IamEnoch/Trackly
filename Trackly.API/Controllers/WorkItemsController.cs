@@ -94,7 +94,6 @@ namespace TracklyApi.Controllers
                     };
 
                     context.Tickets.Add(ticket);
-                    await context.SaveChangesAsync();
 
                 }
                 await context.SaveChangesAsync();
