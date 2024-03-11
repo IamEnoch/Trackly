@@ -174,6 +174,7 @@ class _WorkItemsPageState extends State<WorkItemsPage> {
                               onTap: () {
                                 Navigator.of(context).pushNamed(
                                   workItemDetailsPageRoute,
+                                  arguments: _filteredWorkItemList[index],
                                 );
                               },
                               child: WorkItemCard(
