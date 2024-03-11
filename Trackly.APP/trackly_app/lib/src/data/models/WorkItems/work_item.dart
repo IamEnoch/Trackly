@@ -12,7 +12,7 @@ class WorkItem {
   final String workItemId;
   final String title;
   final String description;
-  final Status status;
+  final WorkItemStatus status;
   final Priority priority;
   final Category category;
   final String? creatorUserId;
@@ -35,7 +35,7 @@ class WorkItem {
         workItemId: json["workItemId"],
         title: json["title"],
         description: json["description"],
-        status: statusValues.map[json["status"]]!,
+        status: workItemStatusValues.map[json["status"]]!,
         priority: priorityValues.map[json["priority"]]!,
         category: categoryValues.map[json["category"]]!,
         creatorUserId: json["creatorUserId"],
