@@ -58,11 +58,17 @@ namespace TracklyApi.Controllers
 
         //Change the status of the work-item
         [HttpPut("{id}/status")]
-        public async Task<ActionResult<WorkItem>> UpdateWorkItemStatus(Guid id, WorkItemUpdateDto workItemUpdateDto)
+        public async Task<ActionResult<WorkItem>> UpdateWorkItemStatus(string id, [FromBody]WorkItemUpdateDto workItemUpdateDto)
         {
+
+            //convert string to guid
+            if (!Guid.TryParse(id, out Guid workItemId))
+            {
+                return BadRequest("Invalid work item id");
+            }
             try
             {
-                var workItem = await context.WorkItems.FindAsync(id);
+                var workItem = await context.WorkItems.Where(e => e.WorkItemId == workItemId).FirstOrDefaultAsync();
                 if (workItem == null)
                 {
                     return NotFound();
@@ -73,6 +79,8 @@ namespace TracklyApi.Controllers
                 //if work item is approved, create a ticket
                 if (workItem.Status == EnumHelper.WorkItemStatus.Approved)
                 {
+
+
                     var ticket = new Ticket
                     {
                         Title = workItem.Title,
@@ -81,18 +89,21 @@ namespace TracklyApi.Controllers
                         Priority = workItem.Priority,
                         Category = workItem.Category,
                         AssetID = workItem.AssetId,
-                        CreatedAt = DateTime.Now
+                        CreatedAt = DateTime.Now,
+                        CreatedBy = workItem.CreatorUserID
                     };
 
                     context.Tickets.Add(ticket);
+                    await context.SaveChangesAsync();
+
                 }
                 await context.SaveChangesAsync();
 
-                return Ok(workItem);
+                return Ok();
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return BadRequest(e.InnerException.Message);
             }
         }
 
@@ -102,7 +113,7 @@ namespace TracklyApi.Controllers
         {
             try
             {
-                var workItems =  context.WorkItems
+                var workItems = context.WorkItems
                     .Where(w => w.Status == EnumHelper.WorkItemStatus.Pending)
                     .AsEnumerable();
 
@@ -139,23 +150,11 @@ namespace TracklyApi.Controllers
                     .Take(pageSize)
                     .ToListAsync();
 
-                //Return workItem reponse dto
-                var workItemsResponseDto = workItems.Select(w => new WorkItemResponseDto
-                {
-                    WorkItemId = w.WorkItemId.ToString(),
-                    Title = w.Title,
-                    Description = w.Description,
-                    Status = w.Status,
-                    Priority = w.Priority,
-                    Category = w.Category,
-                    CreatorUserId = w.CreatorUserID,
-                    AssetId = w.AssetId,
-                    CreatedAt = w.CreatedAt
-                }).ToList();
+                var workItemsDto = workItems.Select(w => new WorkItemResponseDto(w.WorkItemId.ToString(), w.Title, w.Description, w.Status.ToString(), w.Priority, w.Category, w.CreatorUserID, w.AssetId, w.CreatedAt)).ToList();
 
                 return Ok(new PagedResult<WorkItemResponseDto>
                 {
-                    Items = workItemsResponseDto,
+                    Items = workItemsDto,
                     TotalCount = totalNumberOfWorkItems,
                     PageNumber = parameters.PageNumber,
                     RecordNumber = parameters.PageSize
