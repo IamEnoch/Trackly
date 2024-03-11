@@ -14,6 +14,19 @@ class WorkItemLoading extends WorkItemState {}
 
 class WorkItemCreated extends WorkItemState {}
 
+class WorkItemStatusUpdateLoading extends WorkItemState {}
+
+class WorkItemStatusUpdateSucess extends WorkItemState {}
+
+class WorkItemStatusUpdateFailure extends WorkItemState {
+  final String message;
+
+  const WorkItemStatusUpdateFailure({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}
+
 class WorkItemFailure extends WorkItemState {
   final String message;
 
