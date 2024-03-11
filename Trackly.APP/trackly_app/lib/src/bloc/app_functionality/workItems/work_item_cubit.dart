@@ -3,6 +3,7 @@ import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_state.dart';
 import 'package:trackly_app/src/data/models/WorkItems/work_item.dart';
 import 'package:trackly_app/src/data/models/WorkItems/work_item_create.dart';
+import 'package:trackly_app/src/data/models/WorkItems/work_item_status_update.dart';
 import 'package:trackly_app/src/data/models/api_response.dart';
 import 'package:trackly_app/src/data/services/providers/work_item_provider.dart';
 
@@ -26,6 +27,27 @@ class WorkItemCubit extends Cubit<WorkItemState> {
       }
     } on Exception catch (e) {
       emit(WorkItemFailure(message: e.toString()));
+    }
+  }
+
+  //Update work item status
+  Future<void> changeWorkItemStatus(
+      String workItemId, WorkItemStatusUpdate workItemStatusUpdate) async {
+    emit(WorkItemStatusUpdateLoading());
+    try {
+      var response = await WorkItemProvider()
+          .changeWorkItemStatus(workItemId, workItemStatusUpdate);
+      if (response.error) {
+        log.e('The work item status was not updated');
+        emit(WorkItemStatusUpdateFailure(message: response.errorMessage));
+        log.e(response.errorMessage);
+        return;
+      } else {
+        log.d('The work item status was updated');
+        emit(WorkItemStatusUpdateSucess());
+      }
+    } on Exception catch (e) {
+      emit(WorkItemStatusUpdateFailure(message: e.toString()));
     }
   }
 
