@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_state.dart';
+import 'package:trackly_app/src/data/models/WorkItems/work_item.dart';
+import 'package:trackly_app/src/data/models/WorkItems/work_item_status_update.dart';
+import 'package:trackly_app/src/utils/app_colors.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 import 'package:trackly_app/src/utils/widgets/status_card.dart';
+
+import 'package:fluttertoast/fluttertoast.dart';
 
 class WorkItemDetailsPage extends StatefulWidget {
   const WorkItemDetailsPage({super.key});
@@ -13,8 +21,7 @@ class WorkItemDetailsPage extends StatefulWidget {
 class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
   @override
   Widget build(BuildContext context) {
-    // final arguments =
-    //     ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    final workItem = ModalRoute.of(context)?.settings.arguments as WorkItem;
     return Scaffold(
       backgroundColor: const Color(0xffF5F7FA),
       body: SafeArea(
@@ -320,7 +327,103 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.0387,
+                  height: MediaQuery.of(context).size.height * 0.02,
+                ),
+                //Row of buttons
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.35,
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          var workItemStatus = WorkItemStatusUpdate(
+                            workItemStatus: 'Approved',
+                          );
+                          //Update to approved
+                          WorkItemCubit().changeWorkItemStatus(
+                            workItem.workItemId,
+                            workItemStatus,
+                          );
+                        },
+                        style: AppResources().buttonStyles.buttonStyle(
+                            backgroundColor: AppColors.blueColor,
+                            textColor: Colors.white),
+                        child: BlocListener<WorkItemCubit, WorkItemState>(
+                          listener: (context, state) {
+                            // TODO: implement listener
+                            if (state is WorkItemStatusUpdateLoading) {
+                              //Show toast notification
+                              Fluttertoast.showToast(
+                                msg: "Status update in progress...",
+                                toastLength: Toast
+                                    .LENGTH_LONG, // Duration for which the toast will be shown
+                                gravity: ToastGravity
+                                    .BOTTOM, // Position of the toast on the screen
+
+                                backgroundColor: Color.fromARGB(255, 221, 53,
+                                    53), // Background color of the toast
+                                textColor:
+                                    Colors.white, // Text color of the toast
+                                fontSize:
+                                    16.0, // Font size of the toast message
+                              );
+                            } else if (state is WorkItemStatusUpdateSucess) {
+                              //Show toast notification
+                              Fluttertoast.showToast(
+                                msg: "Status updated successfully",
+                                toastLength: Toast
+                                    .LENGTH_SHORT, // Duration for which the toast will be shown
+                                gravity: ToastGravity
+                                    .BOTTOM, // Position of the toast on the screen
+
+                                backgroundColor: Colors
+                                    .green, // Background color of the toast
+                                textColor:
+                                    Colors.white, // Text color of the toast
+                                fontSize:
+                                    16.0, // Font size of the toast message
+                              );
+
+                              //Pop the page
+                              Navigator.of(context).pop();
+                            } else if (state is WorkItemStatusUpdateFailure) {
+                              //Show toast notification
+                              Fluttertoast.showToast(
+                                msg: "Status update failed",
+                                toastLength: Toast
+                                    .LENGTH_SHORT, // Duration for which the toast will be shown
+                                gravity: ToastGravity
+                                    .BOTTOM, // Position of the toast on the screen
+
+                                backgroundColor:
+                                    Colors.red, // Background color of the toast
+                                textColor:
+                                    Colors.white, // Text color of the toast
+                                fontSize:
+                                    16.0, // Font size of the toast message
+                              );
+                            }
+                          },
+                          child: const Text('Approve'),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.08,
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.35,
+                      child: ElevatedButton(
+                        onPressed: () async {},
+                        style: AppResources().buttonStyles.buttonStyle(
+                            backgroundColor: AppColors.pinkColor,
+                            textColor: Colors.white),
+                        child: const Text('Reject'),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
