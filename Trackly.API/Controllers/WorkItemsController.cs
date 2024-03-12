@@ -41,7 +41,7 @@ namespace TracklyApi.Controllers
                     Category = Enum.Parse<EnumHelper.TicketCategory>(workItemRequestDto.Category),
                     CreatorUserID = workItemRequestDto.CreatorUserId,
                     AssetId = assetId,
-                    CreatedAt = DateTime.Now
+                    CreatedAt = DateTime.UtcNow
                 };
 
                 context.WorkItems.Add(workItem);
@@ -114,6 +114,7 @@ namespace TracklyApi.Controllers
             {
                 var workItems = context.WorkItems
                     .Where(w => w.Status == EnumHelper.WorkItemStatus.Pending)
+                    .OrderByDescending(e => e.CreatedAt)
                     .AsEnumerable();
 
                 return Ok(workItems);
@@ -145,6 +146,7 @@ namespace TracklyApi.Controllers
                 var totalNumberOfWorkItems = await context.WorkItems.CountAsync();
                 var workItems = await context.WorkItems
                     .Where(w => w.Status == EnumHelper.WorkItemStatus.Pending)
+                    .OrderByDescending(e => e.CreatedAt)
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToListAsync();
