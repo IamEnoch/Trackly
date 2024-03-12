@@ -2,18 +2,20 @@
 
 namespace TracklyApi.DTOs.Output
 {
-    public class WorkItemResponseDto
+    public class WorkItemResponseDto(string workItemId, string title, string description, string status, 
+        Priority priority, TicketCategory category, string creatorUserId, Guid assertId, DateTime createdDate)
     {
-        public String WorkItemId { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public WorkItemStatus Status { get; set; }
-        public Priority Priority { get; set; }
-        public TicketCategory Category { get; set; }
-        public string CreatorUserId { get; set; }
-        public Guid AssetId { get; set; }
+
+        public string WorkItemId { get; set; } = workItemId;
+        public string Title { get; set; } = title;
+        public string Description { get; set; } = description;
+        public string Status { get; set; } = status;
+        public string Priority { get; set; } = priority.ToString();
+        public string Category { get; set; } = category.ToString();
+        public string CreatorUserID { get; set; } = creatorUserId;
+        public string AssetId { get; set; } = assertId.ToString();
         
         //Time created for the ticket
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = createdDate;
     }
 }

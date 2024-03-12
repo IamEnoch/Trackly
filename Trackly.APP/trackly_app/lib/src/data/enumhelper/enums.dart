@@ -25,8 +25,11 @@ final categoryValues = EnumValues({
 
 enum Priority { high, low, medium }
 
-final priorityValues = EnumValues(
-    {"High": Priority.high, "Low": Priority.low, "Medium": Priority.medium});
+final priorityValues = EnumValues({
+  "High": Priority.high,
+  "Low": Priority.low,
+  "Medium": Priority.medium,
+});
 
 enum Status { closed, completed, inprogress, open }
 
@@ -35,6 +38,14 @@ final statusValues = EnumValues({
   "Completed": Status.completed,
   "InProgress": Status.inprogress,
   "Open": Status.open
+});
+
+enum WorkItemStatus { pending, approved, rejected }
+
+final workItemStatusValues = EnumValues({
+  "Pending": WorkItemStatus.pending,
+  "Approved": WorkItemStatus.approved,
+  "Rejected": WorkItemStatus.rejected,
 });
 
 enum AssetCategory {

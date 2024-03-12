@@ -8,11 +8,12 @@ import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/profile_page.dart';
 import 'package:trackly_app/src/pages/main_scan_page.dart';
 import 'package:trackly_app/src/pages/workItems/work_item_create_page.dart';
+import 'package:trackly_app/src/pages/workItems/work_items_page.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
 
 class TabPage extends StatefulWidget {
-  const TabPage({Key? key}) : super(key: key);
+  const TabPage({super.key});
 
   @override
   State<TabPage> createState() => _TabPageState();
@@ -59,7 +60,7 @@ class _TabPageState extends State<TabPage> {
                 children: <Widget>[
                   HomePage(),
                   AssetsPage(),
-                  MainScanPage(),
+                  WorkItemsPage(),
                   HomePage(),
                   ProfilePage(),
                 ],
