@@ -20,6 +20,7 @@ import 'package:trackly_app/src/pages/auth/login_page.dart';
 import 'package:trackly_app/src/pages/main_scan_page.dart';
 import 'package:trackly_app/src/pages/tickets/ticket_details_page.dart';
 import 'package:trackly_app/src/pages/workItems/work_item_create_page.dart';
+import 'package:trackly_app/src/pages/workItems/work_item_details_page.dart';
 import 'package:trackly_app/src/utils/routes.dart';
 import 'package:trackly_app/src/pages/tab_page.dart';
 import 'package:trackly_app/src/utils/widgets/splash_screen.dart';
@@ -92,6 +93,7 @@ class MyApp extends StatelessWidget {
             workItemPageRoute: (context) => const WorkItemCreatePage(),
             editAssetPageRoute: (context) => const AssetEditPage(),
             createAssetPageRoute: (context) => const AssetCreatePage(),
+            workItemDetailsPageRoute: (context) => const WorkItemDetailsPage()
           },
         );
       }),

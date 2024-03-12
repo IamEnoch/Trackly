@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.JsonPatch;
+﻿using Auth0.ManagementApi.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TracklyApi.Data;
@@ -8,6 +9,7 @@ using TracklyApi.DTOs.RequestDTOs;
 using TracklyApi.Helpers;
 using TracklyApi.Models.Tickets;
 using static TracklyApi.Helpers.EnumHelper;
+using Ticket = TracklyApi.Models.Tickets.Ticket;
 
 namespace TracklyApi.Controllers
 {
@@ -83,10 +85,10 @@ namespace TracklyApi.Controllers
         [HttpPut("{ticketId}/status")]
         public async Task<ActionResult<Ticket>> ChangeTicketStatus(string ticketId, [FromBody]TicketStatusUpdateDto ticketStatusUpdateDto)
         {
+            var ticket = await _context.Tickets.Where(e => e.TicketId == Guid.Parse(ticketId))
+                .Include(ticket => ticket.Asset).FirstOrDefaultAsync();
             try
             {
-                var ticket = await _context.Tickets.FindAsync(Guid.Parse(ticketId));
-
                 if (ticket == null)
                     return NotFound("Ticket not found");
 
@@ -110,13 +112,13 @@ namespace TracklyApi.Controllers
                         ticket.ClosedAt = DateTime.Now;
                         break;
                     case TicketStatus.Completed:
-                        ticket.CompletedAt = DateTime.Now;
+                        ticket.CompletedAt = DateTime.Now; 
                         break;
                 }
                 
                 await _context.SaveChangesAsync();
 
-                return Ok(ticket);
+                return Ok();
             }
             catch (Exception e)
             {
