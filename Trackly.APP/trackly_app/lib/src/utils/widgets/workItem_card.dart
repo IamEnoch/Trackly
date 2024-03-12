@@ -21,16 +21,21 @@ class _WorkItemCardState extends State<WorkItemCard> {
   }
 
   void updateTimeAgo() {
-    Duration difference = DateTime.now().difference(widget.workItem.createdAt);
+    Duration difference =
+        DateTime.now().difference(widget.workItem.createdAt.toUtc());
 
     if (difference.inSeconds < 60) {
       timeAgo = "${difference.inSeconds} seconds ago";
-    } else if (difference.inMinutes < 60) {
+    } else if (difference.inMinutes < 60 && difference.inSeconds >= 60) {
       timeAgo = "${difference.inMinutes} minutes ago";
-    } else if (difference.inHours < 24) {
+    } else if (difference.inHours < 24 && difference.inMinutes >= 60) {
       timeAgo = "${difference.inHours} hours ago";
-    } else {
+    } else if (difference.inDays < 365 && difference.inHours >= 24) {
+      // Less than a year
       timeAgo = "${difference.inDays} days ago";
+    } else {
+      int years = difference.inDays ~/ 365;
+      timeAgo = "${years} years ago";
     }
 
     setState(() {}); // Update the UI with the new time ago value
