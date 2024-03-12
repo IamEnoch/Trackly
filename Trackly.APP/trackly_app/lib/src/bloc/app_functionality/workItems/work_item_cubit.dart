@@ -8,7 +8,13 @@ import 'package:trackly_app/src/data/models/api_response.dart';
 import 'package:trackly_app/src/data/services/providers/work_item_provider.dart';
 
 class WorkItemCubit extends Cubit<WorkItemState> {
-  WorkItemCubit() : super(WorkItemInitial());
+  ///Singleton instance
+  static final WorkItemCubit _instance = WorkItemCubit._internal();
+
+  factory WorkItemCubit() {
+    return _instance;
+  }
+  WorkItemCubit._internal() : super(WorkItemInitial());
   final log = logger(WorkItemCubit);
 
   //Create work item
@@ -72,5 +78,10 @@ class WorkItemCubit extends Cubit<WorkItemState> {
       emit(WorkItemsFailure(message: error.toString()));
       return <WorkItem>[];
     }
+  }
+
+  //set intitial state
+  void setInitialState() {
+    emit(WorkItemInitial());
   }
 }
