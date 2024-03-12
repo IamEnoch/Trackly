@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_state.dart';
 import 'package:trackly_app/src/data/models/WorkItems/work_item.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
@@ -106,88 +108,103 @@ class _WorkItemsPageState extends State<WorkItemsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: RefreshIndicator(
-        onRefresh: () async {
+    return BlocListener<WorkItemCubit, WorkItemState>(
+      bloc: BlocProvider.of<WorkItemCubit>(context),
+      listener: (context, state) {
+        // TODO: implement listener
+        if (state is WorkItemStatusUpdateSucess ||
+            state is WorkItemStatusUpdateFailure) {
+          BlocProvider.of<WorkItemCubit>(context).setInitialState();
+
           _currentPage = 1;
           _workItemList.clear();
           _fetchFuther = true;
-          await _fetchPage(_currentPage);
-        },
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                //Assets Page Title
-                Text(
-                  'Work Items',
-                  style: AppResources().appStyles.textStyles.headineH4,
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                //search bar
-                SearchBar(
-                  //on tap pop up keyboard
-                  onTap: () {
-                    //pop up keyboard
-                  },
-                  controller: _searchController,
-                  hintText: 'Search for work items',
-                  onChanged: (value) {},
-                  //leading icon
-                  leading: const Icon(
-                    Icons.line_weight_rounded,
-                    color: AppColors.lightGreyColor,
-                    weight: 10,
+          _fetchPage(_currentPage);
+        }
+      },
+      child: Scaffold(
+        body: RefreshIndicator(
+          onRefresh: () async {
+            _currentPage = 1;
+            _workItemList.clear();
+            _fetchFuther = true;
+            await _fetchPage(_currentPage);
+          },
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                  //Assets Page Title
+                  Text(
+                    'Work Items',
+                    style: AppResources().appStyles.textStyles.headineH4,
                   ),
-                  //Two trailing icons. I for seatch and one image asset
-                  trailing: [
-                    const Icon(
-                      Icons.search,
-                      color: AppColors.lightGreyColor,
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.04),
-                  ],
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                Expanded(
-                  child: ListView.builder(
-                    controller: _scrollController,
-                    itemCount:
-                        _filteredWorkItemList.length + (_isLoading ? 1 : 0),
-                    itemBuilder: (BuildContext context, int index) {
-                      if (index == _workItemList.length) {
-                        // Loading Indicator
-                        return _isLoading
-                            ? const Center(
-                                child: CircularProgressIndicator(),
-                              )
-                            : Container(); // Return an empty container if not loading
-                      } else {
-                        // Asset Item
-                        return Column(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.of(context).pushNamed(
-                                  workItemDetailsPageRoute,
-                                  arguments: _filteredWorkItemList[index],
-                                );
-                              },
-                              child: WorkItemCard(
-                                  workItem: _filteredWorkItemList[index]),
-                            ),
-                            const SizedBox(height: 10),
-                          ],
-                        );
-                      }
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                  //search bar
+                  SearchBar(
+                    //on tap pop up keyboard
+                    onTap: () {
+                      //pop up keyboard
                     },
+                    controller: _searchController,
+                    hintText: 'Search for work items',
+                    onChanged: (value) {},
+                    //leading icon
+                    leading: const Icon(
+                      Icons.line_weight_rounded,
+                      color: AppColors.lightGreyColor,
+                      weight: 10,
+                    ),
+                    //Two trailing icons. I for seatch and one image asset
+                    trailing: [
+                      const Icon(
+                        Icons.search,
+                        color: AppColors.lightGreyColor,
+                      ),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.04),
+                    ],
                   ),
-                ),
-              ],
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                  Expanded(
+                    child: ListView.builder(
+                      controller: _scrollController,
+                      itemCount:
+                          _filteredWorkItemList.length + (_isLoading ? 1 : 0),
+                      itemBuilder: (BuildContext context, int index) {
+                        if (index == _workItemList.length) {
+                          // Loading Indicator
+                          return _isLoading
+                              ? const Center(
+                                  child: CircularProgressIndicator(),
+                                )
+                              : Container(); // Return an empty container if not loading
+                        } else {
+                          // Asset Item
+                          return Column(
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  Navigator.of(context).pushNamed(
+                                    workItemDetailsPageRoute,
+                                    arguments: _filteredWorkItemList[index],
+                                  );
+                                },
+                                child: WorkItemCard(
+                                    workItem: _filteredWorkItemList[index]),
+                              ),
+                              const SizedBox(height: 10),
+                            ],
+                          );
+                        }
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
