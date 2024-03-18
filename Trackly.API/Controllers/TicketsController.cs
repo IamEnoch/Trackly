@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TracklyApi.Data;
 using TracklyApi.DTOs;
+using TracklyApi.DTOs.Output;
 using TracklyApi.DTOs.PartialUpdate;
 using TracklyApi.DTOs.RequestDTOs;
 using TracklyApi.Helpers;
+using TracklyApi.Models;
 using TracklyApi.Models.Tickets;
 using static TracklyApi.Helpers.EnumHelper;
 using Ticket = TracklyApi.Models.Tickets.Ticket;
@@ -24,62 +26,7 @@ namespace TracklyApi.Controllers
             _logger = logger;
             _context = context;
         }
-        //get work item by id
-        [HttpGet("workitem/{workItemId}")]
-        public async Task<ActionResult<WorkItem>> GetWorkItemById(string workItemId)
-        {
-            try
-            {
-                var workItem = await _context.WorkItems.FindAsync(Guid.Parse(workItemId));
-                if (workItem == null)
-                {
-                    return NotFound("Work item not found");
-                }
-
-                return Ok(workItem);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
-
-        [HttpPost("workitem")]
-        public async Task<ActionResult<WorkItem>> CreateWorkItem([FromBody]WorkItemRequestDto workItemRequestDto)
-        {
-            try
-            {
-                //check if asset id exists first or assetId fails to parse or assetId is null            
-                var asset = await _context.Assets.FindAsync(Guid.Parse(workItemRequestDto.AssetId));
-                if (!Guid.TryParse(workItemRequestDto.AssetId, out Guid assetId))
-                {
-                    return BadRequest("Asset Id is not valid");
-                }
-
-                var workItem = new WorkItem
-                {
-                    Title = workItemRequestDto.Title,
-                    Description = workItemRequestDto.Description,
-                    Status = EnumHelper.WorkItemStatus.Pending,
-                    Priority = Enum.Parse<EnumHelper.Priority>(workItemRequestDto.Priority),
-                    Category = Enum.Parse<EnumHelper.TicketCategory>(workItemRequestDto.Category),
-                    AssetId = assetId,
-                    CreatedAt = DateTime.Now
-                };
-
-                _context.WorkItems.Add(workItem);
-                await _context.SaveChangesAsync();
-
-
-                var resultId = new { id = workItem.WorkItemId};
-                return await GetWorkItemById(resultId.id.ToString());
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-
-        }
+        
 
         //put request to change the status of a ticket
         [HttpPut("{ticketId}/status")]
@@ -125,6 +72,39 @@ namespace TracklyApi.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        //Get paginated tickets(TicketDto) that have been completed 
+        [HttpGet("completed")]
+        public async Task<ActionResult<IEnumerable<TicketDto>>> GetPagedCompletedTickets(
+            [FromQuery] QueryParameters parameters)
+        {
+            try
+            {
+                var totalNumberOfCompletedTickets = await _context.Tickets.Where(e => e.Status == TicketStatus.Completed).CountAsync();
+                var tickets = await _context.Tickets.Where(e => e.Status == TicketStatus.Completed)
+                    .Include(ticket => ticket.Asset)
+                    .Skip((parameters.PageNumber - 1) * parameters.PageSize)
+                    .Take(parameters.PageSize)
+                    .Select(ticket => new TicketDto(ticket.TicketId,ticket.Title, ticket.Description, ticket.Status, ticket.Priority,
+                        ticket.Category, ticket.AssignedUserID, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
+                    .ToListAsync();
+
+                return Ok(new PagedResult<TicketDto>
+                {
+                    Items = tickets,
+                    TotalCount = totalNumberOfCompletedTickets,
+                    PageNumber = parameters.PageNumber,
+                    RecordNumber = parameters.PageSize
+                });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            
+            
+        }
+
     }
         
 }

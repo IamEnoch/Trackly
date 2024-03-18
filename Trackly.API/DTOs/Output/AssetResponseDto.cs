@@ -29,7 +29,7 @@ namespace TracklyApi.DTOs.Output
         public string AssignedTo { get; set; } = assignedTo;
         public string Condition { get; set; } = condition.ToString();
 
-        public IList<TicketDto>? Tickets { get; set; } = tickets.Select(t => new TicketDto(t.Title, t.Description, t.Status, t.Priority, t.Category, t.AssignedUserID, t.CreatedAt, t.CompletedAt, t.ClosedAt))
+        public IList<TicketDto>? Tickets { get; set; } = tickets.Select(t => new TicketDto(t.TicketId,t.Title, t.Description, t.Status, t.Priority, t.Category, t.AssignedUserID, t.CreatedAt, t.CompletedAt, t.ClosedAt))
                 .ToList();
     }
 }

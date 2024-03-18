@@ -193,8 +193,7 @@ namespace TracklyApi.Controllers
 
                 // Constructing the response using the fetched data
                 var response = tickets.Select(ticket => new TicketDto(
-                    ticket.Title, ticket.Description, ticket.Status, ticket.Priority, ticket.Category, ticket.AssignedUserID, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt)
-                { Id = ticket.TicketId.ToString()})
+                            ticket.TicketId, ticket.Title, ticket.Description, ticket.Status, ticket.Priority, ticket.Category, ticket.AssignedUserID, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
                     .ToList();
                 
                 return Ok(response);

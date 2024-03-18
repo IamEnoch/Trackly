@@ -31,13 +31,13 @@ final priorityValues = EnumValues({
   "Medium": Priority.medium,
 });
 
-enum Status { closed, completed, inprogress, open }
+enum TicketStatus { closed, completed, inprogress, open }
 
 final statusValues = EnumValues({
-  "Closed": Status.closed,
-  "Completed": Status.completed,
-  "InProgress": Status.inprogress,
-  "Open": Status.open
+  "Closed": TicketStatus.closed,
+  "Completed": TicketStatus.completed,
+  "InProgress": TicketStatus.inprogress,
+  "Open": TicketStatus.open
 });
 
 enum WorkItemStatus { pending, approved, rejected }

@@ -59,7 +59,7 @@ class AssetRepository {
 
       log.e('The json response is $jsonResponse');
 
-      var decodedResponse = PageedAssets.fromJson(jsonResponse);
+      var decodedResponse = PagedAssets.fromJson(jsonResponse);
 
       log.e('The decoded response is $decodedResponse');
 

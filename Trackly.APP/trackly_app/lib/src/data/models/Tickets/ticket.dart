@@ -4,7 +4,7 @@ class Ticket {
   final dynamic id;
   final String title;
   final String description;
-  final Status status;
+  final TicketStatus status;
   final Priority priority;
   final Category category;
   final String assignedUser;
