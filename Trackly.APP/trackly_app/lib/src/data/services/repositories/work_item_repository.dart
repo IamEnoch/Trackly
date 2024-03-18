@@ -128,7 +128,7 @@ class WorkItemRepository {
             convert.jsonDecode(response.body) as Map<String, dynamic>;
         log.e('The json response is $jsonResponse');
 
-        var decodedResponse = PageedWorkItems.fromJson(jsonResponse);
+        var decodedResponse = PagedWorkItems.fromJson(jsonResponse);
 
         log.e('The decoded response is $decodedResponse');
 
