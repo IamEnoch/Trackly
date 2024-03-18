@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_bloc.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/tickets/tickets_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/users/users_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_cubit.dart';
 import 'package:trackly_app/src/bloc/auth/auth_bloc/auth_bloc.dart';
@@ -18,6 +19,7 @@ import 'package:trackly_app/src/pages/barcode_scan_page.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/login_page.dart';
 import 'package:trackly_app/src/pages/main_scan_page.dart';
+import 'package:trackly_app/src/pages/tickets/Admin/admin_ticket_details_page.dart';
 import 'package:trackly_app/src/pages/tickets/ticket_details_page.dart';
 import 'package:trackly_app/src/pages/workItems/work_item_create_page.dart';
 import 'package:trackly_app/src/pages/workItems/work_item_details_page.dart';
@@ -50,7 +52,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ScanBloc()),
         BlocProvider(
           create: (context) => UsersCubit(),
-        )
+        ),
+        BlocProvider(create: (context) => TicketCubit()),
       ],
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
           builder: (context, state) {
@@ -90,6 +93,8 @@ class MyApp extends StatelessWidget {
             barcodeScanPageRoute: (context) => const BarcodeScanPage(),
             assetDetailsPageRoute: (context) => AssetDetailsPage(),
             ticketDetailsPageRoute: (context) => const TicketDetailsPage(),
+            adminTicketDetailsPageRoute: (context) =>
+                const AdminTicketDetailsPage(),
             workItemPageRoute: (context) => const WorkItemCreatePage(),
             editAssetPageRoute: (context) => const AssetEditPage(),
             createAssetPageRoute: (context) => const AssetCreatePage(),

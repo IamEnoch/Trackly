@@ -28,6 +28,19 @@ final class TicketsFailure extends TicketsState {
 //Asset related states
 final class TicketLoading extends TicketsState {}
 
+final class TicketStatusUpdateLoading extends TicketsState {}
+
+final class TicketStatusUpdateSuccess extends TicketsState {}
+
+final class TicketStatusUpdateFailure extends TicketsState {
+  final String message;
+
+  const TicketStatusUpdateFailure({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}
+
 final class TicketCreated extends TicketsState {}
 
 final class TicketUpdated extends TicketsState {}
