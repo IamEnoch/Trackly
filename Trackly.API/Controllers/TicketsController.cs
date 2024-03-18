@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TracklyApi.Data;
 using TracklyApi.DTOs;
+using TracklyApi.DTOs.Output;
 using TracklyApi.DTOs.PartialUpdate;
 using TracklyApi.DTOs.RequestDTOs;
 using TracklyApi.Helpers;
+using TracklyApi.Models;
 using TracklyApi.Models.Tickets;
 using static TracklyApi.Helpers.EnumHelper;
 using Ticket = TracklyApi.Models.Tickets.Ticket;
@@ -125,6 +127,39 @@ namespace TracklyApi.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        //Get paginated tickets(TicketDto) that have been completed 
+        [HttpGet("closed")]
+        public async Task<ActionResult<IEnumerable<TicketDto>>> GetPagedCompletedTickets(
+            [FromQuery] QueryParameters parameters)
+        {
+            try
+            {
+                var totalNumberOfCompletedTickets = await _context.Tickets.Where(e => e.Status == TicketStatus.Completed).CountAsync();
+                var tickets = await _context.Tickets.Where(e => e.Status == TicketStatus.Completed)
+                    .Include(ticket => ticket.Asset)
+                    .Skip((parameters.PageNumber - 1) * parameters.PageSize)
+                    .Take(parameters.PageSize)
+                    .Select(ticket => new TicketDto(ticket.TicketId,ticket.Title, ticket.Description, ticket.Status, ticket.Priority,
+                        ticket.Category, ticket.AssignedUserID, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
+                    .ToListAsync();
+
+                return Ok(new PagedResult<TicketDto>
+                {
+                    Items = tickets,
+                    TotalCount = totalNumberOfCompletedTickets,
+                    PageNumber = parameters.PageNumber,
+                    RecordNumber = parameters.PageSize
+                });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            
+            
+        }
+
     }
         
 }

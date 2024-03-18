@@ -1,8 +1,6 @@
-﻿using Azure;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TracklyApi.Data;
-using TracklyApi.DTOs;
 using TracklyApi.DTOs.Output;
 using TracklyApi.DTOs.PartialUpdate;
 using TracklyApi.DTOs.RequestDTOs;
@@ -14,9 +12,29 @@ namespace TracklyApi.Controllers
 {
     [ApiController]
     [Route("workitems")]
-    public class WorkItemsController(ILogger<AssetsController> logger, AppDbContext context) : ControllerBase
+    public class WorkItemsController(ILogger<AssetsController> logger, AppDbContext _context) : ControllerBase
     {
         private readonly ILogger<AssetsController> _logger = logger;
+
+        //get work item by id
+        [HttpGet("workitem/{workItemId}")]
+        public async Task<ActionResult<WorkItem>> GetWorkItemById(string workItemId)
+        {
+            try
+            {
+                var workItem = await _context.WorkItems.FindAsync(Guid.Parse(workItemId));
+                if (workItem == null)
+                {
+                    return NotFound("Work item not found");
+                }
+
+                return Ok(workItem);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
 
         //create a work item independent of ticket model class
         //ticket created when the work item is approved
@@ -26,7 +44,7 @@ namespace TracklyApi.Controllers
             try
             {
                 //check if asset id exists first or assetId fails to parse or assetId is null            
-                var asset = await context.Assets.FindAsync(Guid.Parse(workItemRequestDto.AssetId));
+                var asset = await _context.Assets.FindAsync(Guid.Parse(workItemRequestDto.AssetId));
                 if (!Guid.TryParse(workItemRequestDto.AssetId, out Guid assetId))
                 {
                     return BadRequest("Asset Id is not valid");
@@ -44,8 +62,8 @@ namespace TracklyApi.Controllers
                     CreatedAt = DateTime.UtcNow
                 };
 
-                context.WorkItems.Add(workItem);
-                await context.SaveChangesAsync();
+                _context.WorkItems.Add(workItem);
+                await _context.SaveChangesAsync();
 
                 return Ok("workItem created");
             }
@@ -68,7 +86,7 @@ namespace TracklyApi.Controllers
             }
             try
             {
-                var workItem = await context.WorkItems.Where(e => e.WorkItemId == workItemId).FirstOrDefaultAsync();
+                var workItem = await _context.WorkItems.Where(e => e.WorkItemId == workItemId).FirstOrDefaultAsync();
                 if (workItem == null)
                 {
                     return NotFound();
@@ -93,10 +111,10 @@ namespace TracklyApi.Controllers
                         CreatedBy = workItem.CreatorUserID
                     };
 
-                    context.Tickets.Add(ticket);
+                    _context.Tickets.Add(ticket);
 
                 }
-                await context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
 
                 return Ok();
             }
@@ -112,7 +130,7 @@ namespace TracklyApi.Controllers
         {
             try
             {
-                var workItems = context.WorkItems
+                var workItems = _context.WorkItems
                     .Where(w => w.Status == EnumHelper.WorkItemStatus.Pending)
                     .OrderByDescending(e => e.CreatedAt)
                     .AsEnumerable();
@@ -143,8 +161,8 @@ namespace TracklyApi.Controllers
                 };
 
 
-                var totalNumberOfWorkItems = await context.WorkItems.CountAsync();
-                var workItems = await context.WorkItems
+                var totalNumberOfWorkItems = await _context.WorkItems.CountAsync();
+                var workItems = await _context.WorkItems
                     .Where(w => w.Status == EnumHelper.WorkItemStatus.Pending)
                     .OrderByDescending(e => e.CreatedAt)
                     .Skip((page - 1) * pageSize)
