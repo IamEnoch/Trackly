@@ -2,108 +2,66 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trackly_app/Logging/logger.dart';
-import 'package:trackly_app/src/bloc/app_functionality/assets/assets_state.dart';
-import 'package:trackly_app/src/data/models/Assets/asset.dart';
-import 'package:trackly_app/src/data/models/Assets/asset_create.dart';
-import 'package:trackly_app/src/data/models/Assets/asset_update.dart';
+import 'package:trackly_app/src/bloc/app_functionality/tickets/tickets_state.dart';
+import 'package:trackly_app/src/data/models/Tickets/ticket.dart';
+import 'package:trackly_app/src/data/models/Tickets/ticket_status_update.dart';
 import 'package:trackly_app/src/data/models/api_response.dart';
-import 'package:trackly_app/src/data/services/providers/asset_provider.dart';
+import 'package:trackly_app/src/data/services/providers/ticket_provider.dart';
 
-class TicketCubit extends Cubit<AssetState> {
+class TicketCubit extends Cubit<TicketsState> {
   ///Singleton instance
   static final TicketCubit _instance = TicketCubit._internal();
 
   factory TicketCubit() {
     return _instance;
   }
-  TicketCubit._internal() : super(AssetsInitial());
+  TicketCubit._internal() : super(TicketsInitial());
   final log = logger(TicketCubit);
 
-  //Get paginated assets
-  Future<List<Asset>> getAssets(int currentPage, int pageSize) async {
+  //Update ticket status
+  Future<void> changeTicketStatus(
+      String id, TicketStatusUpdate ticketStatusUpdate) async {
+    emit(TicketStatusUpdateLoading());
     try {
-      emit(AssetsLoading());
-      ApiResponse<List<Asset>?> assets =
-          await AssetProvider().getPaginatedAssets(currentPage, pageSize);
+      var response = await TicketProvider().changeTicketStatus(
+        id,
+        ticketStatusUpdate,
+      );
+      if (response.error) {
+        log.e('The ticket status was not updated');
+        emit(TicketStatusUpdateFailure(message: response.errorMessage));
+        log.e(response.errorMessage);
+        return;
+      } else {
+        log.d('The ticket status was updated');
+        emit(TicketStatusUpdateSuccess());
+      }
+    } on Exception catch (e) {
+      emit(TicketStatusUpdateFailure(message: e.toString()));
+    }
+  }
+
+  //Get paginated assets
+  Future<List<Ticket>> getCompletedPaginatedTickets(
+      int currentPage, int pageSize) async {
+    try {
+      emit(TicketsLoading());
+      ApiResponse<List<Ticket>?> assets = await TicketProvider()
+          .getCompletedPaginatedTickets(currentPage, pageSize);
 
       // Check if there are assets. If not, do not fetch data again
       if (assets.response!.isEmpty) {
-        emit(AssetsEmpty());
+        emit(TicketsEmpty());
         //return an empty list of type asset
-        return <Asset>[];
+        return <Ticket>[];
       }
 
-      emit(AssetsSuccess());
+      emit(TicketsSuccess());
       return assets.response!;
     } catch (error) {
       // Handle errors
-      emit(AssetsFailure(message: error.toString()));
-      return <Asset>[];
+      emit(TicketsFailure(message: error.toString()));
+      return <Ticket>[];
     }
-  }
-
-  //Get an asset
-  Future<void> getAsset(String id) async {
-    emit(AssetLoading());
-    try {
-      final response = await AssetProvider().getAssetByBarcodeNumber(id);
-      if (response.error) {
-        emit(AssetFailure(message: response.errorMessage));
-        log.e(response.errorMessage);
-        return;
-      } else if (response.response == null) {
-        emit(const AssetFailure(message: 'No asset found'));
-        log.e('No asset found');
-        log.e(response.errorMessage);
-        return;
-      } else {
-        emit(AssetFetched(asset: response.response!));
-        log.d('The response is ${response.response}');
-      }
-    } on Exception catch (e) {
-      emit(AssetFailure(message: e.toString()));
-    }
-  }
-
-  //create asset
-  Future<void> createAsset(AssetCreate asset) async {
-    emit(AssetLoading());
-    try {
-      var response = await AssetProvider().createAsset(asset);
-      if (response.error) {
-        log.e('The aset was not created');
-        emit(AssetFailure(message: response.errorMessage));
-        log.e(response.errorMessage);
-        return;
-      } else {
-        log.d('The asset was created');
-        emit(AssetCreated());
-      }
-    } on Exception catch (e) {
-      emit(AssetFailure(message: e.toString()));
-    }
-  }
-
-  //update asset
-  Future<void> updateAsset(String assetId, AssetUpdate asset) async {
-    emit(AssetLoading());
-    try {
-      var response = await AssetProvider().updateAsset(assetId, asset);
-      if (response.error) {
-        log.e('The asset was not updated');
-        emit(AssetFailure(message: response.errorMessage));
-        log.e(response.errorMessage);
-        return;
-      } else {
-        log.d('The asset was updated');
-        emit(AssetUpdated());
-      }
-    } on Exception catch (e) {
-      emit(AssetFailure(message: e.toString()));
-    }
-  }
-
-  void toAssetInitial() {
-    emit(AssetsInitial());
   }
 }

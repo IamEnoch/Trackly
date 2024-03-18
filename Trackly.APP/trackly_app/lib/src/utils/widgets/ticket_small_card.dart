@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:trackly_app/Logging/logger.dart';
+import 'package:trackly_app/src/data/localstorage/shared_reference_manager.dart';
 import 'package:trackly_app/src/data/models/Tickets/ticket.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
 import 'package:trackly_app/src/utils/widgets/status_card.dart';
@@ -29,19 +31,34 @@ class _TicketSmallCardState extends State<TicketSmallCard> {
       // shape: RoundedRectangleBorder(
       //     borderRadius: BorderRadius.circular(24)),
       child: InkWell(
-        onTap: () {
-          Navigator.of(context).pushNamed(
-            ticketDetailsPageRoute,
-            arguments: {
-              'description': widget.ticket.description,
-              'createdAt': widget.ticket.createdAt,
-              'priority': widget.ticket.priority.name,
-              'status': widget.ticket.status.name,
-              'title': widget.ticket.title,
-              'time': widget.ticket.assignedUser,
-              'date': widget.ticket.assignedUser,
-            },
-          );
+        onTap: () async {
+          //Determine if role is admin or technician form shared prefs
+          //If admin, navigate to admin ticket details page
+          //If technician, navigate to technician ticket details page
+          final String role = await SharedPreferencesManager().getRole();
+
+          if (role == 'admin') {
+            Navigator.of(context).pushNamed(
+              adminTicketDetailsPageRoute,
+              arguments: {
+                'ticket': widget.ticket,
+              },
+            );
+          } else {
+            Navigator.of(context).pushNamed(
+              ticketDetailsPageRoute,
+              arguments: {
+                'tickerId': widget.ticket.id,
+                'description': widget.ticket.description,
+                'createdAt': widget.ticket.createdAt,
+                'priority': widget.ticket.priority.name,
+                'status': widget.ticket.status.name,
+                'title': widget.ticket.title,
+                'time': widget.ticket.assignedUser,
+                'date': widget.ticket.assignedUser,
+              },
+            );
+          }
         },
         borderRadius: BorderRadius.circular(10),
         child: Container(
@@ -62,25 +79,8 @@ class _TicketSmallCardState extends State<TicketSmallCard> {
                   style: TextStyle(
                     fontFamily: GoogleFonts.poppins().fontFamily,
                     fontWeight: FontWeight.w400,
-                    fontSize: 13,
+                    fontSize: 12,
                     color: const Color(0xff474747),
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.009,
-              ),
-              Expanded(
-                flex: 1,
-                child: Text(
-                  '${widget.departmentName}',
-                  style: TextStyle(
-                    fontFamily: GoogleFonts.poppins().fontFamily,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 13,
-                    color: const Color(0xff121212),
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -92,11 +92,28 @@ class _TicketSmallCardState extends State<TicketSmallCard> {
               Expanded(
                 flex: 1,
                 child: Text(
-                  '${widget.ticket.createdAt}',
+                  '${widget.departmentName}',
                   style: TextStyle(
                     fontFamily: GoogleFonts.poppins().fontFamily,
                     fontWeight: FontWeight.w400,
-                    fontSize: 13,
+                    fontSize: 11,
+                    color: const Color(0xff121212),
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.035,
+              ),
+              Expanded(
+                flex: 1,
+                child: Text(
+                  DateFormat('d/M/y').format(widget.ticket.createdAt),
+                  style: TextStyle(
+                    fontFamily: GoogleFonts.poppins().fontFamily,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12,
                     color: const Color(0xff121212),
                   ),
                   maxLines: 1,

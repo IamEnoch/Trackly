@@ -68,7 +68,7 @@ class _StatusCardWidgetState extends State<StatusCardWidget> {
             style: TextStyle(
               fontFamily: GoogleFonts.poppins().fontFamily,
               fontWeight: FontWeight.w600,
-              fontSize: 13,
+              fontSize: 10,
               color: widget.statusColor.textColor,
             ),
             maxLines: 1,
