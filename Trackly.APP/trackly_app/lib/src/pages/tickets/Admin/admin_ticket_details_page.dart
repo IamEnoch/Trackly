@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:trackly_app/src/bloc/app_functionality/tickets/tickets_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/tickets/tickets_state.dart';
+import 'package:trackly_app/src/data/enumhelper/enums.dart';
+import 'package:trackly_app/src/data/models/Tickets/ticket.dart';
+import 'package:trackly_app/src/data/models/Tickets/ticket_status_update.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 import 'package:trackly_app/src/utils/widgets/status_card.dart';
 
-class TicketDetailsPage extends StatefulWidget {
-  const TicketDetailsPage({super.key});
+class AdminTicketDetailsPage extends StatefulWidget {
+  const AdminTicketDetailsPage({super.key});
 
   @override
-  State<TicketDetailsPage> createState() => _TicketDetailsPageState();
+  State<AdminTicketDetailsPage> createState() => _AdminTicketDetailsPageState();
 }
 
-class _TicketDetailsPageState extends State<TicketDetailsPage> {
+class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
   @override
   Widget build(BuildContext context) {
     final arguments =
-        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+        ModalRoute.of(context)?.settings.arguments as Map<String, Ticket>;
     return Scaffold(
       backgroundColor: const Color(0xffF5F7FA),
       body: SafeArea(
@@ -77,7 +84,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                             height: MediaQuery.of(context).size.height * 0.009,
                           ),
                           Text(
-                            "#${arguments['title']}",
+                            '#Funny',
                             style: TextStyle(
                               fontFamily: GoogleFonts.poppins().fontFamily,
                               fontWeight: FontWeight.w600,
@@ -113,7 +120,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 width: 10,
                               ),
                               Text(
-                                arguments['description'],
+                                arguments['ticket']!.description,
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -173,7 +180,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 ),
                               ),
                               Text(
-                                "${arguments['date']}",
+                                arguments['ticket']!.createdAt.toString(),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -199,7 +206,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 ),
                               ),
                               Text(
-                                arguments['time'],
+                                arguments['ticket']!.createdAt.toString(),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -277,7 +284,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 ),
                               ),
                               Text(
-                                arguments['priority'],
+                                arguments['ticket']!.priority.name,
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -301,7 +308,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                     .bodyDefaultBold,
                               ),
                               StatusCardWidget(
-                                status: arguments['status'],
+                                status: arguments['ticket']!.status.name,
                               )
                             ],
                           ),
@@ -323,6 +330,141 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.02,
+                ),
+                //Row of two elevated buttons, Approve and reject
+                BlocListener<TicketCubit, TicketsState>(
+                  bloc: BlocProvider.of<TicketCubit>(context),
+                  listener: (context, state) {
+                    // TODO: implement listener
+                    if (state is TicketStatusUpdateSuccess) {
+                      //Toast to show success and navigate back
+                      //Show toast notification
+                      Fluttertoast.showToast(
+                        msg: "Status updated successfully",
+                        toastLength: Toast
+                            .LENGTH_LONG, // Duration for which the toast will be shown
+                        gravity: ToastGravity
+                            .BOTTOM, // Position of the toast on the screen
+
+                        backgroundColor:
+                            Colors.green, // Background color of the toast
+                        textColor: Colors.white, // Text color of the toast
+                        fontSize: 16.0, // Font size of the toast message
+                      );
+
+                      //Pop the page
+                      Navigator.of(context).pop();
+                    } else if (state is TicketStatusUpdateFailure) {
+                      //Toast to show failure and navigate back
+                      //Show toast notification
+                      Fluttertoast.showToast(
+                        msg: "Status update failed",
+                        toastLength: Toast
+                            .LENGTH_SHORT, // Duration for which the toast will be shown
+                        gravity: ToastGravity
+                            .BOTTOM, // Position of the toast on the screen
+
+                        backgroundColor:
+                            Colors.red, // Background color of the toast
+                        textColor: Colors.white, // Text color of the toast
+                        fontSize: 16.0, // Font size of the toast message
+                      );
+
+                      //Pop the page
+                      Navigator.of(context).pop();
+                    } else if (state is TicketStatusUpdateLoading) {
+                      //Show toast notification
+                      Fluttertoast.showToast(
+                        msg: "Status update loading",
+                        toastLength: Toast
+                            .LENGTH_SHORT, // Duration for which the toast will be shown
+                        gravity: ToastGravity
+                            .BOTTOM, // Position of the toast on the screen
+
+                        backgroundColor:
+                            Colors.grey, // Background color of the toast
+                        textColor: Colors.white, // Text color of the toast
+                        fontSize: 16.0, // Font size of the toast message
+                      );
+                    }
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          //TODO: Implement approve button
+                          //Update to ticket close
+                          final TicketStatusUpdate ticketStatusUpdate =
+                              TicketStatusUpdate(
+                            ticketStatus: 'approved',
+                          );
+
+                          //Change status via ticket cubit
+                          TicketCubit().changeTicketStatus(
+                            arguments['ticket']!.id,
+                            ticketStatusUpdate,
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xff1573FE),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: MediaQuery.of(context).size.width * 0.1,
+                            vertical:
+                                MediaQuery.of(context).size.height * 0.018,
+                          ),
+                        ),
+                        child: Text(
+                          'APPROVE',
+                          style: TextStyle(
+                            fontFamily: GoogleFonts.poppins().fontFamily,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          //TODO: Implement approve button
+                          //Update to ticket close
+                          final TicketStatusUpdate ticketStatusUpdate =
+                              TicketStatusUpdate(
+                            ticketStatus: 'rejected',
+                          );
+
+                          //Change status via ticket cubit
+                          TicketCubit().changeTicketStatus(
+                            arguments['ticket']!.id,
+                            ticketStatusUpdate,
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xffDA3365),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(24),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: MediaQuery.of(context).size.width * 0.1,
+                            vertical:
+                                MediaQuery.of(context).size.height * 0.018,
+                          ),
+                        ),
+                        child: Text(
+                          'REJECT',
+                          style: TextStyle(
+                            fontFamily: GoogleFonts.poppins().fontFamily,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

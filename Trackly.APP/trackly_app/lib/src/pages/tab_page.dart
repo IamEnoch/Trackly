@@ -7,6 +7,7 @@ import 'package:trackly_app/src/pages/assets/assets_page.dart';
 import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/profile_page.dart';
 import 'package:trackly_app/src/pages/main_scan_page.dart';
+import 'package:trackly_app/src/pages/tickets/Admin/completed_tickets_page.dart';
 import 'package:trackly_app/src/pages/workItems/work_item_create_page.dart';
 import 'package:trackly_app/src/pages/workItems/work_items_page.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
@@ -46,6 +47,7 @@ class _TabPageState extends State<TabPage> {
     return BlocBuilder<RoleBloc, RoleState>(
       builder: (context, state) {
         if (state is RoleAdmin) {
+          //Admin section
           return Scaffold(
             body: SizedBox.expand(
               child: PageView(
@@ -57,11 +59,12 @@ class _TabPageState extends State<TabPage> {
                   _pageController.jumpToPage(index);
                   setState(() => _currentIndex = index);
                 },
+                //Admin widgets
                 children: <Widget>[
                   HomePage(),
                   AssetsPage(),
                   WorkItemsPage(),
-                  HomePage(),
+                  CompletedTicketsPage(),
                   ProfilePage(),
                 ],
               ),
@@ -105,6 +108,7 @@ class _TabPageState extends State<TabPage> {
             ),
           );
         } else {
+          //Technician section
           return Scaffold(
             body: SizedBox.expand(
               child: PageView(
@@ -116,6 +120,7 @@ class _TabPageState extends State<TabPage> {
                   _pageController.jumpToPage(index);
                   setState(() => _currentIndex = index);
                 },
+                //Technician widgets
                 children: <Widget>[
                   HomePage(),
                   WorkItemCreatePage(),
