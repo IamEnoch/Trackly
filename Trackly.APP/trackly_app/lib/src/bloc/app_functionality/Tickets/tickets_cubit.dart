@@ -64,4 +64,9 @@ class TicketCubit extends Cubit<TicketsState> {
       return <Ticket>[];
     }
   }
+
+  //To ticket initial
+  void toTicketInitial() {
+    emit(TicketsInitial());
+  }
 }
