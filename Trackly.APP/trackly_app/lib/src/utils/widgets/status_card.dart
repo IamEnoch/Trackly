@@ -4,7 +4,6 @@ import 'package:trackly_app/src/data/models/status_color.dart';
 
 class StatusCardWidget extends StatefulWidget {
   final String status;
-  late final StatusColor statusColor;
 
   StatusCardWidget({
     super.key,
@@ -16,6 +15,14 @@ class StatusCardWidget extends StatefulWidget {
 }
 
 class _StatusCardWidgetState extends State<StatusCardWidget> {
+  late StatusColor statusColor;
+
+  @override
+  void initState() {
+    statusColor = getColorForStatus(widget.status);
+    super.initState();
+  }
+
   StatusColor getColorForStatus(String status) {
     switch (status) {
       case 'open':
@@ -48,18 +55,12 @@ class _StatusCardWidgetState extends State<StatusCardWidget> {
   }
 
   @override
-  void initState() {
-    widget.statusColor = getColorForStatus(widget.status);
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(13),
       ),
-      color: widget.statusColor.backgroundColor,
+      color: statusColor.backgroundColor,
       child: Center(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
@@ -69,7 +70,7 @@ class _StatusCardWidgetState extends State<StatusCardWidget> {
               fontFamily: GoogleFonts.poppins().fontFamily,
               fontWeight: FontWeight.w600,
               fontSize: 10,
-              color: widget.statusColor.textColor,
+              color: statusColor.textColor,
             ),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
