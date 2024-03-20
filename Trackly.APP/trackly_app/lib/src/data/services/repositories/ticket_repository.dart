@@ -26,6 +26,8 @@ class TicketRepository {
     String authToken = await SharedPreferencesManager().getAuthAccessToken();
 
     try {
+      log.e('The id is $id');
+      log.e('The status update is ${ticketStatusUpdate.toJson()}');
       //Make a POST request to the API
       var uri = Uri.http(basicUrl, '/tickets/${id}/status');
       log.d('The uri is ${uri.toString()}');
