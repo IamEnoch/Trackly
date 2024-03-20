@@ -19,7 +19,7 @@ class _CompletedTicketsPageState extends State<CompletedTicketsPage> {
 
   final TicketCubit ticketCubit = TicketCubit();
 
-  static const _pageSize = 7;
+  static const _pageSize = 12;
   int _currentPage = 1;
   bool _isLoading = false;
   bool _fetchFuther = true;
@@ -27,7 +27,6 @@ class _CompletedTicketsPageState extends State<CompletedTicketsPage> {
   String? _error;
 
   final ScrollController _scrollController = ScrollController();
-  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
@@ -97,94 +96,101 @@ class _CompletedTicketsPageState extends State<CompletedTicketsPage> {
           _fetchFuther = true;
           await _fetchPage(_currentPage);
         },
-        child: SingleChildScrollView(
-          child: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.059),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.0409,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.0309,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.877,
-                    child: Card(
-                      color: const Color(0xffFFFFFF),
-                      elevation: 1,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(24)),
-                      child: Container(
-                        padding: EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * 0.028,
-                          bottom: MediaQuery.of(context).size.height * 0.028,
-                          left: MediaQuery.of(context).size.width * 0.0610,
-                          right: MediaQuery.of(context).size.width * 0.0610,
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height:
-                                  MediaQuery.of(context).size.height * 0.018,
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.059),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.0409,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.0309,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.877,
+                  child: Card(
+                    color: const Color(0xffFFFFFF),
+                    elevation: 1,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24)),
+                    child: Container(
+                      padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.028,
+                        bottom: MediaQuery.of(context).size.height * 0.028,
+                        left: MediaQuery.of(context).size.width * 0.0610,
+                        right: MediaQuery.of(context).size.width * 0.0610,
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.018,
+                          ),
+                          Text(
+                            'Completed Tickets',
+                            style: TextStyle(
+                              fontFamily: GoogleFonts.poppins().fontFamily,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: Colors.black,
                             ),
-                            Text(
-                              'Completed Tickets',
-                              style: TextStyle(
-                                fontFamily: GoogleFonts.poppins().fontFamily,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                color: Colors.black,
-                              ),
-                            ),
-                            SizedBox(
-                              height:
-                                  MediaQuery.of(context).size.height * 0.009,
-                            ),
-                          ],
-                        ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.009,
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.0209,
-                  ),
-                  BlocBuilder<TicketCubit, TicketsState>(
-                    bloc: BlocProvider.of<TicketCubit>(context),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.0209,
+                ),
+                BlocBuilder<TicketCubit, TicketsState>(
+                    bloc: ticketCubit,
                     builder: (context, state) {
-                      if (state is TicketsLoading) {
-                        //Diplay progress indicator
-                        return Center(
+                      if (state is TicketStatusUpdateFailure) {
+                        //Return spinner
+                        const Center(
                           child: CircularProgressIndicator(),
                         );
-                      } else {
-                        return ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: _ticketList.length,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              padding: EdgeInsets.only(
-                                right:
-                                    MediaQuery.of(context).size.width * 0.0610,
-                              ),
-                              margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
-                              child: TicketSmallCard(
-                                ticket: _ticketList.elementAt(index)!,
-                                departmentName:
-                                    _ticketList.elementAt(index).title,
-                              ),
-                            );
-                          },
-                        );
+
+                        //To initial
+                        TicketCubit().toTicketInitial();
                       }
-                    },
-                  ),
-                ],
-              ),
+                      return Expanded(
+                        child: ListView.builder(
+                          controller: _scrollController,
+                          itemCount: _ticketList.length + (_isLoading ? 1 : 0),
+                          itemBuilder: (context, index) {
+                            if (index == _ticketList.length) {
+                              // Loading Indicator
+                              return _isLoading
+                                  ? const Center(
+                                      child: CircularProgressIndicator(),
+                                    )
+                                  : Container(); // Return an empty container if not loading
+                            } else {
+                              return Container(
+                                padding: EdgeInsets.only(
+                                  right: MediaQuery.of(context).size.width *
+                                      0.0610,
+                                ),
+                                margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
+                                child: TicketSmallCard(
+                                  ticket: _ticketList.elementAt(index),
+                                  departmentName:
+                                      _ticketList.elementAt(index).title,
+                                ),
+                              );
+                            }
+                          },
+                        ),
+                      );
+                    }),
+              ],
             ),
           ),
         ),
