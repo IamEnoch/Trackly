@@ -7,10 +7,10 @@ class TicketStatusUpdate {
 
   factory TicketStatusUpdate.fromJson(Map<String, dynamic> json) =>
       TicketStatusUpdate(
-        ticketStatus: json["workItemStatus"],
+        ticketStatus: json["status"],
       );
 
   Map<String, dynamic> toJson() => {
-        "workItemStatus": ticketStatus,
+        "status": ticketStatus,
       };
 }
