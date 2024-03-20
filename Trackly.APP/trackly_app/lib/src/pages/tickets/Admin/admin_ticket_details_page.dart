@@ -333,8 +333,8 @@ class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
                 ),
                 //Row of two elevated buttons, Approve and reject
                 BlocListener<TicketCubit, TicketsState>(
-                  bloc: BlocProvider.of<TicketCubit>(context),
-                  listener: (context, state) {
+                  bloc: TicketCubit(),
+                  listener: (context, state) async {
                     // TODO: implement listener
                     if (state is TicketStatusUpdateSuccess) {
                       //Toast to show success and navigate back
@@ -353,6 +353,7 @@ class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
                       );
 
                       //Pop the page
+                      await Future.delayed(const Duration(seconds: 2));
                       Navigator.of(context).pop();
                     } else if (state is TicketStatusUpdateFailure) {
                       //Toast to show failure and navigate back
@@ -371,6 +372,7 @@ class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
                       );
 
                       //Pop the page
+                      await Future.delayed(const Duration(seconds: 2));
                       Navigator.of(context).pop();
                     } else if (state is TicketStatusUpdateLoading) {
                       //Show toast notification
@@ -397,7 +399,7 @@ class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
                           //Update to ticket close
                           final TicketStatusUpdate ticketStatusUpdate =
                               TicketStatusUpdate(
-                            ticketStatus: 'approved',
+                            ticketStatus: 'Closed',
                           );
 
                           //Change status via ticket cubit
@@ -433,7 +435,7 @@ class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
                           //Update to ticket close
                           final TicketStatusUpdate ticketStatusUpdate =
                               TicketStatusUpdate(
-                            ticketStatus: 'rejected',
+                            ticketStatus: 'Open',
                           );
 
                           //Change status via ticket cubit
