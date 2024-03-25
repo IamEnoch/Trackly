@@ -105,6 +105,37 @@ namespace TracklyApi.Controllers
             
         }
 
+        //Get the all the tickets of a particular person(given their id) apart from closed ones
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<IEnumerable<TicketDto>>> GetTechnicianTicketsByUserId(string userId, [FromQuery] QueryParameters parameters)
+        {
+            try
+            {
+                var totalNumberOfTickets = await _context.Tickets.Where(e => e.AssignedUserID == userId && e.Status != TicketStatus.Closed).CountAsync();
+                var tickets = await _context.Tickets.Where(e => e.AssignedUserID == userId && e.Status != TicketStatus.Closed)
+                    .Include(ticket => ticket.Asset)
+                    .Skip((parameters.PageNumber - 1) * parameters.PageSize)
+                    .Take(parameters.PageSize)
+                    .Select(ticket => new TicketDto(ticket.TicketId, ticket.Title, ticket.Description, ticket.Status,
+                                               ticket.Priority,
+                                               ticket.Category, ticket.AssignedUserID, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
+                    .ToListAsync();
+
+
+                return Ok(new PagedResult<TicketDto>
+                {
+                    Items = tickets,
+                    TotalCount = totalNumberOfTickets,
+                    PageNumber = parameters.PageNumber,
+                    RecordNumber = parameters.PageSize
+                });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
     }
         
 }
