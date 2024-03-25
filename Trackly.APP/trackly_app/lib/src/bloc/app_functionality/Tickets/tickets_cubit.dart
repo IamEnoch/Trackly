@@ -49,7 +49,31 @@ class TicketCubit extends Cubit<TicketsState> {
       ApiResponse<List<Ticket>?> assets = await TicketProvider()
           .getCompletedPaginatedTickets(currentPage, pageSize);
 
-      // Check if there are assets. If not, do not fetch data again
+      // Check if there are tickets. If not, do not fetch data again
+      if (assets.response!.isEmpty) {
+        emit(TicketsEmpty());
+        //return an empty list of type asset
+        return <Ticket>[];
+      }
+
+      emit(TicketsSuccess());
+      return assets.response!;
+    } catch (error) {
+      // Handle errors
+      emit(TicketsFailure(message: error.toString()));
+      return <Ticket>[];
+    }
+  }
+
+  //Get paginated tickets by user
+  Future<List<Ticket>> getPaginatedTicketsByUser(
+      int currentPage, int pageSize) async {
+    try {
+      emit(TicketsLoading());
+      ApiResponse<List<Ticket>?> assets =
+          await TicketProvider().getUserAssignedTickets(currentPage, pageSize);
+
+      // Check if there are tickets. If not, do not fetch data again
       if (assets.response!.isEmpty) {
         emit(TicketsEmpty());
         //return an empty list of type asset

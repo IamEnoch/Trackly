@@ -188,7 +188,7 @@ namespace TracklyApi.Controllers
             try
             {
                 var tickets = await _context.Tickets
-                    .Where(t => t.AssignedUserID == Guid.Parse(userId))
+                    .Where(t => t.AssignedUserID == userId)
                     .ToListAsync();
 
                 // Constructing the response using the fetched data

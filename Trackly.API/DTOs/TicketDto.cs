@@ -16,7 +16,7 @@ namespace TracklyApi.DTOs
         public DateTime? ClosedAt { get; set; }
 
 
-        public TicketDto(Guid id, string title, string description, TicketStatus status, Priority priority, TicketCategory category, Guid? assignedUserID, DateTime createdAt, DateTime? completedAt, DateTime? closedAt)
+        public TicketDto(Guid id, string title, string description, TicketStatus status, Priority priority, TicketCategory category, string? assignedUserID, DateTime createdAt, DateTime? completedAt, DateTime? closedAt)
         {
             Id = id;
             Title = title;
