@@ -17,4 +17,12 @@ class TicketProvider {
     return await TicketRepository()
         .getCompletedPaginatedTickets(pageNumber, pageSize);
   }
+
+  Future<ApiResponse<List<Ticket>?>> getUserAssignedTickets(
+    int pageNumber,
+    int pageSize,
+  ) async {
+    return await TicketRepository()
+        .getUserAssignedTickets(pageNumber, pageSize);
+  }
 }

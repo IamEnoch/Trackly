@@ -55,8 +55,6 @@ class _AssetsPageState extends State<AssetsPage> {
           _isLoading = false;
         } else {
           _assetList.addAll(newItems);
-          _filteredAssetList =
-              _assetList; // Initialize filtered list with all assets
           _isLoading = false;
           _currentPage++;
         }
