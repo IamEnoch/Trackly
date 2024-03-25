@@ -8,6 +8,7 @@ import 'package:trackly_app/src/pages/home_page.dart';
 import 'package:trackly_app/src/pages/auth/profile_page.dart';
 import 'package:trackly_app/src/pages/main_scan_page.dart';
 import 'package:trackly_app/src/pages/tickets/Admin/completed_tickets_page.dart';
+import 'package:trackly_app/src/pages/tickets/Technician/my_tickets_page.dart';
 import 'package:trackly_app/src/pages/workItems/work_item_create_page.dart';
 import 'package:trackly_app/src/pages/workItems/work_items_page.dart';
 import 'package:trackly_app/src/utils/all_constants_imports.dart';
@@ -125,7 +126,7 @@ class _TabPageState extends State<TabPage> {
                   HomePage(),
                   WorkItemCreatePage(),
                   MainScanPage(),
-                  HomePage(),
+                  MyTicketsPage(),
                   ProfilePage(),
                 ],
               ),
