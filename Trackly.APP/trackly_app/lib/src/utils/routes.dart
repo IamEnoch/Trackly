@@ -20,7 +20,8 @@ const createAssetPageRoute = '/crete-asset-page';
 //tickets paths
 const adminTicketDetailsPageRoute = '/admin-ticket-details-page/';
 const ticketDetailsPageRoute = '/ticket-details-page/';
-const workItemPageRoute = '/work-item-page/';
+const myTicketsPageRoute = '/my-tickets-page/';
 
 //Work items path
 const workItemDetailsPageRoute = 'work-item-details-page-route';
+const workItemPageRoute = '/work-item-page/';
