@@ -111,7 +111,7 @@ namespace TracklyApi.Data
                     Status = (WorkItemStatus)(i % Enum.GetValues(typeof(WorkItemStatus)).Length),
                     Priority = (Priority)(i % Enum.GetValues(typeof(Priority)).Length),
                     Category = (TicketCategory)(i % Enum.GetValues(typeof(TicketCategory)).Length),
-                    CreatorUserID = null, // Set CreatorUserID as null for now
+                    CreatorUserID = usersIds[i % 4] ,//Select any id
                     AssetId = assetGuids[i % 70], // Use Asset ID
                     CreatedAt = DateTime.Now.AddDays(-i)
                 });
