@@ -25,16 +25,16 @@ class _StatusCardWidgetState extends State<StatusCardWidget> {
 
   StatusColor getColorForStatus(String status) {
     switch (status) {
-      case 'open':
+      case 'Open':
         return StatusColor(
           textColor: const Color(0xff000000),
           backgroundColor: const Color(0xffF1C40F),
         );
-      case 'inprogress':
+      case 'Inprogress':
         return StatusColor(
           backgroundColor: const Color(0xff3498DB),
         );
-      case 'completed':
+      case 'Completed':
         return StatusColor(
           backgroundColor: const Color(0xff27AE60),
         );
@@ -42,7 +42,7 @@ class _StatusCardWidgetState extends State<StatusCardWidget> {
       //   return StatusColor(
       //     backgroundColor: const Color(0xff9B59B6),
       //   );
-      case 'closed':
+      case 'Closed':
         return StatusColor(
           backgroundColor: const Color(0xff27AE60),
           //backgroundColor: const Color(0xff95A5A6),
