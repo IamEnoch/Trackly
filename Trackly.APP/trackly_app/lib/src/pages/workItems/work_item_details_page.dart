@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:trackly_app/Logging/logger.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/workItems/work_item_state.dart';
+import 'package:trackly_app/src/data/enumhelper/enums.dart';
 import 'package:trackly_app/src/data/models/WorkItems/work_item.dart';
 import 'package:trackly_app/src/data/models/WorkItems/work_item_status_update.dart';
 import 'package:trackly_app/src/utils/app_colors.dart';
@@ -136,7 +138,7 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                                   MediaQuery.of(context).size.height * 0.009,
                             ),
                             Text(
-                              "Yes",
+                              workItem.title,
                               style: TextStyle(
                                 fontFamily: GoogleFonts.poppins().fontFamily,
                                 fontWeight: FontWeight.w600,
@@ -175,7 +177,7 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                                   width: 10,
                                 ),
                                 Text(
-                                  'Yes',
+                                  workItem.description,
                                   textAlign: TextAlign.end,
                                   style: AppResources()
                                       .appStyles
@@ -202,7 +204,7 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                                   ),
                                 ),
                                 Text(
-                                  'Department',
+                                  workItem.description,
                                   textAlign: TextAlign.end,
                                   style: AppResources()
                                       .appStyles
@@ -237,7 +239,9 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                                   ),
                                 ),
                                 Text(
-                                  'Yes',
+                                  DateFormat('dd-MM-yyyy').format(
+                                    workItem.createdAt,
+                                  ),
                                   textAlign: TextAlign.end,
                                   style: AppResources()
                                       .appStyles
@@ -264,7 +268,9 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                                   ),
                                 ),
                                 Text(
-                                  'Yes',
+                                  DateFormat('hh:mm a').format(
+                                    workItem.createdAt,
+                                  ),
                                   textAlign: TextAlign.end,
                                   style: AppResources()
                                       .appStyles
@@ -307,7 +313,7 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Branch',
+                                  'Category',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
                                     fontFamily:
@@ -318,7 +324,8 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                                   ),
                                 ),
                                 Text(
-                                  'Branch',
+                                  categoryValues.reverse[workItem.category]
+                                      .toString(),
                                   textAlign: TextAlign.end,
                                   style: AppResources()
                                       .appStyles
@@ -345,7 +352,8 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                                   ),
                                 ),
                                 Text(
-                                  'Yes',
+                                  priorityValues.reverse[workItem.priority]
+                                      .toString(),
                                   textAlign: TextAlign.end,
                                   style: AppResources()
                                       .appStyles
@@ -363,13 +371,18 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                                 Text(
                                   'Status',
                                   textAlign: TextAlign.start,
-                                  style: AppResources()
-                                      .appStyles
-                                      .textStyles
-                                      .bodyDefaultBold,
+                                  style: TextStyle(
+                                    fontFamily:
+                                        GoogleFonts.poppins().fontFamily,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: const Color(0xff707070),
+                                  ),
                                 ),
                                 StatusCardWidget(
-                                  status: 'Yes',
+                                  status: workItemStatusValues
+                                      .reverse[workItem.status]
+                                      .toString(),
                                 )
                               ],
                             ),
