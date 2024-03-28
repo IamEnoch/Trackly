@@ -30,7 +30,7 @@ class _StatusCardWidgetState extends State<StatusCardWidget> {
           textColor: const Color(0xff000000),
           backgroundColor: const Color(0xffF1C40F),
         );
-      case 'Inprogress':
+      case 'InProgress':
         return StatusColor(
           backgroundColor: const Color(0xff3498DB),
         );
