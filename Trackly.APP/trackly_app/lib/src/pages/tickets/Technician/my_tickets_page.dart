@@ -19,7 +19,7 @@ class _MyTicketsPageState extends State<MyTicketsPage> {
 
   final TicketCubit ticketCubit = TicketCubit();
 
-  static const _pageSize = 11;
+  static const _pageSize = 12;
   int _currentPage = 1;
   bool _isLoading = false;
   bool _fetchFuther = true;
@@ -149,7 +149,7 @@ class _MyTicketsPageState extends State<MyTicketsPage> {
                   height: MediaQuery.of(context).size.height * 0.0209,
                 ),
                 BlocBuilder<TicketCubit, TicketsState>(
-                  bloc: BlocProvider.of<TicketCubit>(context),
+                  bloc: ticketCubit,
                   builder: (context, state) {
                     if (state is TicketsLoading) {
                       //Diplay progress indicator

@@ -62,9 +62,11 @@ class _WorkItemCardState extends State<WorkItemCard> {
         children: [
           Text(
             widget.workItem.title,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+            style: const TextStyle(
+              color: Color(0xFF292D32),
+              fontSize: 15,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w500,
             ),
           ),
           SizedBox(height: 12),

@@ -14,30 +14,30 @@ final locationNameValues = EnumValues({
   "Other": LocationName.other
 });
 
-enum Category { hardware, network, other, software }
+enum Category { Hardware, Network, Other, Software }
 
 final categoryValues = EnumValues({
-  "Hardware": Category.hardware,
-  "Network": Category.network,
-  "Other": Category.other,
-  "Software": Category.software
+  "Hardware": Category.Hardware,
+  "Network": Category.Network,
+  "Other": Category.Other,
+  "Software": Category.Software
 });
 
-enum Priority { high, low, medium }
+enum Priority { High, Low, Medium }
 
 final priorityValues = EnumValues({
-  "High": Priority.high,
-  "Low": Priority.low,
-  "Medium": Priority.medium,
+  "High": Priority.High,
+  "Low": Priority.Low,
+  "Medium": Priority.Medium,
 });
 
-enum TicketStatus { closed, completed, inprogress, open }
+enum TicketStatus { Closed, Completed, Inprogress, Open }
 
 final statusValues = EnumValues({
-  "Closed": TicketStatus.closed,
-  "Completed": TicketStatus.completed,
-  "InProgress": TicketStatus.inprogress,
-  "Open": TicketStatus.open
+  "Closed": TicketStatus.Closed,
+  "Completed": TicketStatus.Completed,
+  "InProgress": TicketStatus.Inprogress,
+  "Open": TicketStatus.Open
 });
 
 enum WorkItemStatus { pending, approved, rejected }
