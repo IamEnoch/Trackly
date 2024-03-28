@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:trackly_app/src/data/enumhelper/enums.dart';
+import 'package:trackly_app/src/data/models/Tickets/ticket.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 import 'package:trackly_app/src/utils/widgets/status_card.dart';
 
@@ -15,6 +18,8 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
   Widget build(BuildContext context) {
     final arguments =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+
+    final ticket = arguments['ticket'] as Ticket;
     return Scaffold(
       backgroundColor: const Color(0xffF5F7FA),
       body: SafeArea(
@@ -77,7 +82,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                             height: MediaQuery.of(context).size.height * 0.009,
                           ),
                           Text(
-                            "#${arguments['title']}",
+                            ticket.title,
                             style: TextStyle(
                               fontFamily: GoogleFonts.poppins().fontFamily,
                               fontWeight: FontWeight.w600,
@@ -113,7 +118,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 width: 10,
                               ),
                               Text(
-                                arguments['description'],
+                                ticket.description,
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -173,7 +178,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 ),
                               ),
                               Text(
-                                "${arguments['date']}",
+                                DateFormat('dd/MM/yy').format(ticket.createdAt),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -199,7 +204,9 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 ),
                               ),
                               Text(
-                                arguments['time'],
+                                DateFormat('hh:mm a')
+                                    .format(ticket.createdAt)
+                                    .toString(),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -277,7 +284,8 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 ),
                               ),
                               Text(
-                                arguments['priority'],
+                                priorityValues.reverse[ticket.priority]
+                                    .toString(),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -295,13 +303,16 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                               Text(
                                 'Status',
                                 textAlign: TextAlign.start,
-                                style: AppResources()
-                                    .appStyles
-                                    .textStyles
-                                    .bodyDefaultBold,
+                                style: TextStyle(
+                                  fontFamily: GoogleFonts.poppins().fontFamily,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 13,
+                                  color: const Color(0xff707070),
+                                ),
                               ),
                               StatusCardWidget(
-                                status: arguments['status'],
+                                status: statusValues.reverse[ticket.status]
+                                    .toString(),
                               )
                             ],
                           ),
