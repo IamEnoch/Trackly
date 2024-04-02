@@ -21,8 +21,9 @@ class _WorkItemCardState extends State<WorkItemCard> {
   }
 
   void updateTimeAgo() {
-    Duration difference =
-        DateTime.now().difference(widget.workItem.createdAt.toUtc());
+    Duration difference = DateTime.now()
+        .subtract(const Duration(hours: 3))
+        .difference(widget.workItem.createdAt.toLocal());
 
     if (difference.inSeconds < 60) {
       timeAgo = "${difference.inSeconds} seconds ago";
