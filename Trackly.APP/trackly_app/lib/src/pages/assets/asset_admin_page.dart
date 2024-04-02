@@ -508,7 +508,7 @@ class AssetAdminPage extends StatelessWidget {
                                     ),
                                     Text(
                                       //Parse the date to a readable format
-                                      DateFormat('dd-MM-yyyy HH:mm:ss')
+                                      DateFormat('dd-MM-yyyy')
                                           .format(asset.purchaseDate),
                                       textAlign: TextAlign.end,
                                       style: AppResources()
@@ -535,7 +535,7 @@ class AssetAdminPage extends StatelessWidget {
                                           .bodySmall,
                                     ),
                                     Text(
-                                      DateFormat('dd-MM-yyyy HH:mm:ss')
+                                      DateFormat('dd-MM-yyyy')
                                           .format(asset.createdAt),
                                       textAlign: TextAlign.end,
                                       style: AppResources()
@@ -564,7 +564,7 @@ class AssetAdminPage extends StatelessWidget {
                                     Text(
                                       asset.updatedAt == null
                                           ? '-'
-                                          : DateFormat('dd-MM-yyyy HH:mm:ss')
+                                          : DateFormat('dd-MM-yyyy')
                                               .format(asset.updatedAt!),
                                       textAlign: TextAlign.end,
                                       style: AppResources()
@@ -593,7 +593,7 @@ class AssetAdminPage extends StatelessWidget {
                                     Text(
                                       asset.deletedAt == null
                                           ? '-'
-                                          : DateFormat('dd-MM-yyyy HH:mm:ss')
+                                          : DateFormat('dd-MM-yyyy')
                                               .format(asset.deletedAt!),
                                       textAlign: TextAlign.end,
                                       style: AppResources()

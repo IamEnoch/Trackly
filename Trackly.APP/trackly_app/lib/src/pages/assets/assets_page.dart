@@ -174,7 +174,7 @@ class _AssetsPageState extends State<AssetsPage> {
                     controller: _scrollController,
                     itemCount: _filteredAssetList.length + (_isLoading ? 1 : 0),
                     itemBuilder: (BuildContext context, int index) {
-                      if (index == _assetList.length) {
+                      if (index == _filteredAssetList.length) {
                         // Loading Indicator
                         return _isLoading
                             ? const Center(

@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:trackly_app/src/bloc/app_functionality/tickets/tickets_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/tickets/tickets_state.dart';
+import 'package:trackly_app/src/bloc/app_functionality/users/users_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/users/users_state.dart';
 import 'package:trackly_app/src/data/enumhelper/enums.dart';
 import 'package:trackly_app/src/data/models/Tickets/ticket.dart';
 import 'package:trackly_app/src/data/models/Tickets/ticket_status_update.dart';
@@ -22,6 +25,9 @@ class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
   Widget build(BuildContext context) {
     final arguments =
         ModalRoute.of(context)?.settings.arguments as Map<String, Ticket>;
+
+    BlocProvider.of<UsersCubit>(context)
+        .fetchUser(arguments['ticket']!.assignedUser);
     return Scaffold(
       backgroundColor: const Color(0xffF5F7FA),
       body: SafeArea(
@@ -84,7 +90,7 @@ class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
                             height: MediaQuery.of(context).size.height * 0.009,
                           ),
                           Text(
-                            '#Funny',
+                            arguments['ticket']!.title,
                             style: TextStyle(
                               fontFamily: GoogleFonts.poppins().fontFamily,
                               fontWeight: FontWeight.w600,
@@ -180,7 +186,8 @@ class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
                                 ),
                               ),
                               Text(
-                                arguments['ticket']!.createdAt.toString(),
+                                DateFormat('dd-MM-yyyy').format(
+                                    arguments['ticket']!.createdAt.toLocal()),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -206,7 +213,8 @@ class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
                                 ),
                               ),
                               Text(
-                                arguments['ticket']!.createdAt.toString(),
+                                DateFormat('hh:mm a').format(
+                                    arguments['ticket']!.createdAt.toLocal()),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -231,13 +239,32 @@ class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
                                   color: const Color(0xff707070),
                                 ),
                               ),
-                              Text(
-                                'Assigned to',
-                                textAlign: TextAlign.end,
-                                style: AppResources()
-                                    .appStyles
-                                    .textStyles
-                                    .bodyDefaultBold,
+                              BlocBuilder<UsersCubit, UsersState>(
+                                builder: (context, state) {
+                                  if (state is UserLoading) {
+                                    return const CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                    );
+                                  } else if (state is UserFetched) {
+                                    return Text(
+                                      state.user.username!,
+                                      textAlign: TextAlign.end,
+                                      style: AppResources()
+                                          .appStyles
+                                          .textStyles
+                                          .bodyDefaultBold,
+                                    );
+                                  } else {
+                                    return Text(
+                                      '-',
+                                      textAlign: TextAlign.end,
+                                      style: AppResources()
+                                          .appStyles
+                                          .textStyles
+                                          .bodyDefaultBold,
+                                    );
+                                  }
+                                },
                               ),
                             ],
                           ),
@@ -302,10 +329,12 @@ class _AdminTicketDetailsPageState extends State<AdminTicketDetailsPage> {
                               Text(
                                 'Status',
                                 textAlign: TextAlign.start,
-                                style: AppResources()
-                                    .appStyles
-                                    .textStyles
-                                    .bodyDefaultBold,
+                                style: TextStyle(
+                                  fontFamily: GoogleFonts.poppins().fontFamily,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 13,
+                                  color: const Color(0xff707070),
+                                ),
                               ),
                               StatusCardWidget(
                                 status: arguments['ticket']!.status.name,

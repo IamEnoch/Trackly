@@ -153,40 +153,42 @@ class _MyTicketsPageState extends State<MyTicketsPage> {
                   builder: (context, state) {
                     if (state is TicketsLoading) {
                       //Diplay progress indicator
-                      return Center(
+                      const Center(
                         child: CircularProgressIndicator(),
                       );
-                    } else {
-                      return Expanded(
-                        child: ListView.builder(
-                          controller: _scrollController,
-                          itemCount: _ticketList.length + (_isLoading ? 1 : 0),
-                          itemBuilder: (context, index) {
-                            if (index == _ticketList.length) {
-                              // Loading Indicator
-                              return _isLoading
-                                  ? const Center(
-                                      child: CircularProgressIndicator(),
-                                    )
-                                  : Container(); // Return an empty container if not loading
-                            } else {
-                              return Container(
-                                padding: EdgeInsets.only(
-                                  right: MediaQuery.of(context).size.width *
-                                      0.0610,
-                                ),
-                                margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
-                                child: TicketSmallCard(
-                                  ticket: _ticketList.elementAt(index)!,
-                                  departmentName:
-                                      _ticketList.elementAt(index).title,
-                                ),
-                              );
-                            }
-                          },
-                        ),
-                      );
+
+                      //To intitial
+                      TicketCubit().toTicketInitial();
                     }
+                    return Expanded(
+                      child: ListView.builder(
+                        controller: _scrollController,
+                        itemCount: _ticketList.length + (_isLoading ? 1 : 0),
+                        itemBuilder: (context, index) {
+                          if (index == _ticketList.length) {
+                            // Loading Indicator
+                            return _isLoading
+                                ? const Center(
+                                    child: CircularProgressIndicator(),
+                                  )
+                                : Container(); // Return an empty container if not loading
+                          } else {
+                            return Container(
+                              padding: EdgeInsets.only(
+                                right:
+                                    MediaQuery.of(context).size.width * 0.0610,
+                              ),
+                              margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
+                              child: TicketSmallCard(
+                                ticket: _ticketList.elementAt(index)!,
+                                departmentName:
+                                    _ticketList.elementAt(index).title,
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                    );
                   },
                 ),
               ],

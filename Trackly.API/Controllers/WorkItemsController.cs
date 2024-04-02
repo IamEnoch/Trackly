@@ -108,7 +108,8 @@ namespace TracklyApi.Controllers
                         Category = workItem.Category,
                         AssetID = workItem.AssetId,
                         CreatedAt = DateTime.Now,
-                        CreatedBy = workItem.CreatorUserID
+                        CreatedBy = workItem.CreatorUserID,
+                        AssignedUserID = workItem.CreatorUserID
                     };
 
                     _context.Tickets.Add(ticket);

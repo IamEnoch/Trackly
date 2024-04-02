@@ -269,7 +269,7 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                                 ),
                                 Text(
                                   DateFormat('hh:mm a').format(
-                                    workItem.createdAt,
+                                    workItem.createdAt.toLocal(),
                                   ),
                                   textAlign: TextAlign.end,
                                   style: AppResources()
