@@ -24,7 +24,7 @@ namespace TracklyApi.DTOs
             Status = status.ToString();
             Priority = priority.ToString();
             Category = category.ToString();
-            AssignedUser = assignedUserID.ToString();
+            AssignedUser = assignedUserID?.ToString();
             CreatedAt = createdAt;
             CompletedAt = completedAt;
             ClosedAt = closedAt;
