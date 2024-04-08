@@ -112,10 +112,12 @@ namespace TracklyApi.Controllers
             try
             {
                 var totalNumberOfTickets = await _context.Tickets.Where(e => e.AssignedUserID == userId && e.Status != TicketStatus.Closed).CountAsync();
+                //Order by date. The most recent ticket should be at the top
                 var tickets = await _context.Tickets.Where(e => e.AssignedUserID == userId && e.Status != TicketStatus.Closed)
                     .Include(ticket => ticket.Asset)
                     .Skip((parameters.PageNumber - 1) * parameters.PageSize)
                     .Take(parameters.PageSize)
+                    .OrderByDescending(ticket => ticket.CreatedAt)
                     .Select(ticket => new TicketDto(ticket.TicketId, ticket.Title, ticket.Description, ticket.Status,
                                                ticket.Priority,
                                                ticket.Category, ticket.AssignedUserID, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
