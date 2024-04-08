@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:trackly_app/src/bloc/app_functionality/Metrics/metrics_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/Scans/scan_bloc.dart';
 import 'package:trackly_app/src/bloc/app_functionality/assets/assets_cubit.dart';
 import 'package:trackly_app/src/bloc/app_functionality/tickets/tickets_cubit.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
           create: (context) => UsersCubit(),
         ),
         BlocProvider(create: (context) => TicketCubit()),
+        BlocProvider(create: (context) => MetricsCubit()),
       ],
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
           builder: (context, state) {
