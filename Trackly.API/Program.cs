@@ -6,6 +6,8 @@ using System.Security.Claims;
 using TracklyApi.Data;
 using TracklyApi.Models.Auth;
 using Microsoft.OpenApi.Models;
+using Trackly.API.Interfaces;
+using Trackly.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -93,6 +95,7 @@ builder.Services.AddAuthorization(options =>
 });
 
 builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
+builder.Services.AddSingleton<IMetricsService, MetricsService>();
 
 var app = builder.Build();
 

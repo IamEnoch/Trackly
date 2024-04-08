@@ -64,8 +64,8 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
           //Show toast notification
           Fluttertoast.showToast(
             msg: "Status update failed",
-            toastLength: Toast
-                .LENGTH_SHORT, // Duration for which the toast will be shown
+            toastLength:
+                Toast.LENGTH_LONG, // Duration for which the toast will be shown
             gravity: ToastGravity.BOTTOM, // Position of the toast on the screen
 
             backgroundColor: Colors.red, // Background color of the toast
@@ -269,7 +269,7 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                                 ),
                                 Text(
                                   DateFormat('hh:mm a').format(
-                                    workItem.createdAt,
+                                    workItem.createdAt.toLocal(),
                                   ),
                                   textAlign: TextAlign.end,
                                   style: AppResources()
@@ -436,7 +436,17 @@ class _WorkItemDetailsPageState extends State<WorkItemDetailsPage> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.35,
                         child: ElevatedButton(
-                          onPressed: () async {},
+                          onPressed: () async {
+                            var workItemStatus = WorkItemStatusUpdate(
+                              workItemStatus: 'Rejected',
+                            );
+                            //Update to approved
+                            BlocProvider.of<WorkItemCubit>(context)
+                                .changeWorkItemStatus(
+                              workItem.workItemId,
+                              workItemStatus,
+                            );
+                          },
                           style: AppResources().buttonStyles.buttonStyle(
                               backgroundColor: AppColors.pinkColor,
                               textColor: Colors.white),

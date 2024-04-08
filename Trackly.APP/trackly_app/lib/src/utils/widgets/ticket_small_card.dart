@@ -48,14 +48,7 @@ class _TicketSmallCardState extends State<TicketSmallCard> {
             Navigator.of(context).pushNamed(
               ticketDetailsPageRoute,
               arguments: {
-                'tickerId': widget.ticket.id,
-                'description': widget.ticket.description,
-                'createdAt': widget.ticket.createdAt,
-                'priority': widget.ticket.priority.name,
-                'status': widget.ticket.status.name,
-                'title': widget.ticket.title,
-                'time': widget.ticket.assignedUser,
-                'date': widget.ticket.assignedUser,
+                'ticket': widget.ticket,
               },
             );
           }

@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:trackly_app/Logging/logger.dart';
+import 'package:trackly_app/src/bloc/app_functionality/tickets/tickets_cubit.dart';
+import 'package:trackly_app/src/bloc/app_functionality/tickets/tickets_state.dart';
+import 'package:trackly_app/src/data/enumhelper/enums.dart';
+import 'package:trackly_app/src/data/models/Tickets/ticket.dart';
+import 'package:trackly_app/src/data/models/Tickets/ticket_status_update.dart';
 import 'package:trackly_app/src/utils/app_resources.dart';
 import 'package:trackly_app/src/utils/widgets/status_card.dart';
 
@@ -11,10 +20,15 @@ class TicketDetailsPage extends StatefulWidget {
 }
 
 class _TicketDetailsPageState extends State<TicketDetailsPage> {
+  final log = logger(TicketDetailsPage);
+  final TicketCubit ticketCubit = TicketCubit();
+
   @override
   Widget build(BuildContext context) {
     final arguments =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+
+    final ticket = arguments['ticket'] as Ticket;
     return Scaffold(
       backgroundColor: const Color(0xffF5F7FA),
       body: SafeArea(
@@ -77,7 +91,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                             height: MediaQuery.of(context).size.height * 0.009,
                           ),
                           Text(
-                            "#${arguments['title']}",
+                            ticket.title,
                             style: TextStyle(
                               fontFamily: GoogleFonts.poppins().fontFamily,
                               fontWeight: FontWeight.w600,
@@ -113,7 +127,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 width: 10,
                               ),
                               Text(
-                                arguments['description'],
+                                ticket.description,
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -173,7 +187,7 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 ),
                               ),
                               Text(
-                                "${arguments['date']}",
+                                DateFormat('dd/MM/yy').format(ticket.createdAt),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -199,7 +213,9 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 ),
                               ),
                               Text(
-                                arguments['time'],
+                                DateFormat('hh:mm a')
+                                    .format(ticket.createdAt)
+                                    .toString(),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -277,7 +293,8 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                                 ),
                               ),
                               Text(
-                                arguments['priority'],
+                                priorityValues.reverse[ticket.priority]
+                                    .toString(),
                                 textAlign: TextAlign.end,
                                 style: AppResources()
                                     .appStyles
@@ -289,21 +306,257 @@ class _TicketDetailsPageState extends State<TicketDetailsPage> {
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.01,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Status',
-                                textAlign: TextAlign.start,
-                                style: AppResources()
-                                    .appStyles
-                                    .textStyles
-                                    .bodyDefaultBold,
-                              ),
-                              StatusCardWidget(
-                                status: arguments['status'],
-                              )
-                            ],
+                          BlocListener<TicketCubit, TicketsState>(
+                            listener: (context, state) {
+                              if (state is TicketStatusUpdateSuccess) {
+                                // Toast notification
+                                Fluttertoast.showToast(
+                                  msg: 'Status updated successfully',
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.green,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0,
+                                );
+                                Future.delayed(
+                                  const Duration(seconds: 2),
+                                  () {
+                                    Navigator.of(context).pop();
+                                  },
+                                );
+                              } else if (state is TicketStatusUpdateFailure) {
+                                // Toast notification
+                                Fluttertoast.showToast(
+                                  msg: 'Status update failed',
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0,
+                                );
+                              } else if (state is TicketStatusUpdateLoading) {
+                                // Toast notification
+                                Fluttertoast.showToast(
+                                  msg: 'Updating status...',
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.blue,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0,
+                                );
+                              }
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Status',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                    fontFamily:
+                                        GoogleFonts.poppins().fontFamily,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 13,
+                                    color: const Color(0xff707070),
+                                  ),
+                                ),
+                                InkWell(
+                                  borderRadius: BorderRadius.circular(15),
+                                  onTap: () {
+                                    //Inflate the status dialog
+
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.8,
+                                          child: AlertDialog(
+                                            title: const Text('Status'),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                            ),
+                                            content: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    //Alert dialog to confirm
+                                                    Navigator.of(context).pop();
+                                                    showDialog(
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return AlertDialog(
+                                                          title: const Text(
+                                                              'Change Status'),
+                                                          content: const Text(
+                                                              'Are you sure you want to change the status to Open?'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                'No',
+                                                              ),
+                                                            ),
+                                                            TextButton(
+                                                              onPressed: () {
+                                                                //Change the status
+                                                                ticketCubit
+                                                                    .changeTicketStatus(
+                                                                  ticket.id,
+                                                                  TicketStatusUpdate(
+                                                                      ticketStatus:
+                                                                          'Open'),
+                                                                );
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                'Yes',
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                  child: StatusCardWidget(
+                                                    status: 'Open',
+                                                  ),
+                                                ),
+                                                InkWell(
+                                                  onTap: () {
+                                                    //Alert dialog to confirm
+                                                    Navigator.of(context).pop();
+                                                    showDialog(
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return AlertDialog(
+                                                          title: const Text(
+                                                              'Change Status'),
+                                                          content: const Text(
+                                                              'Are you sure you want to change the status to InProgress?'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                'No',
+                                                              ),
+                                                            ),
+                                                            TextButton(
+                                                              onPressed: () {
+                                                                //Change the status
+                                                                ticketCubit
+                                                                    .changeTicketStatus(
+                                                                  ticket.id,
+                                                                  TicketStatusUpdate(
+                                                                      ticketStatus:
+                                                                          'InProgress'),
+                                                                );
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                'Yes',
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                  child: StatusCardWidget(
+                                                    status: 'InProgress',
+                                                  ),
+                                                ),
+                                                InkWell(
+                                                  onTap: () {
+                                                    //Alert dialog to confirm
+                                                    Navigator.of(context).pop();
+                                                    showDialog(
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return AlertDialog(
+                                                          title: const Text(
+                                                              'Change Status'),
+                                                          content: const Text(
+                                                              'Are you sure you want to change the status to Completed?'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                'No',
+                                                              ),
+                                                            ),
+                                                            TextButton(
+                                                              onPressed: () {
+                                                                //Change the status
+                                                                ticketCubit
+                                                                    .changeTicketStatus(
+                                                                  ticket.id,
+                                                                  TicketStatusUpdate(
+                                                                      ticketStatus:
+                                                                          'Completed'),
+                                                                );
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                              child: const Text(
+                                                                'Yes',
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                  child: StatusCardWidget(
+                                                    status: 'Completed',
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                                child: const Text('Close'),
+                                              )
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
+                                  child: StatusCardWidget(
+                                    status: statusValues.reverse[ticket.status]
+                                        .toString(),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.01,
