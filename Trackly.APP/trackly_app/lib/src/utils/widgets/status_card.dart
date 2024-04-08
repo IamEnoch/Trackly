@@ -34,6 +34,10 @@ class _StatusCardWidgetState extends State<StatusCardWidget> {
         return StatusColor(
           backgroundColor: const Color(0xff3498DB),
         );
+      case 'Inprogress':
+        return StatusColor(
+          backgroundColor: const Color(0xff3498DB),
+        );
       case 'Completed':
         return StatusColor(
           backgroundColor: const Color(0xff27AE60),
