@@ -25,6 +25,18 @@ namespace Trackly.API.Services
             var totalAssets = await _context.Assets.CountAsync();
             var assetsNotUnderMaintenance = totalAssets - assetsUnderMaintenance;
             var totalTickets = await _context.Tickets.CountAsync();
+
+            //Get the numbers for the different asset categories
+            var assetsCategoryMetrics = new AssetsCategoryMetrics
+            {
+                Desktop = await _context.Assets.Where(a => a.Category == AssetCategory.Desktop).CountAsync(),
+                Laptop = await _context.Assets.Where(a => a.Category == AssetCategory.Laptop).CountAsync(),
+                Monitor = await _context.Assets.Where(a => a.Category == AssetCategory.Monitor).CountAsync(),
+                Other = await _context.Assets.Where(a => a.Category == AssetCategory.Other).CountAsync(),
+                Printer = await _context.Assets.Where(a => a.Category == AssetCategory.Printer).CountAsync(),
+                Projector = await _context.Assets.Where(a => a.Category == AssetCategory.Projector).CountAsync(),
+                Scanner = await _context.Assets.Where(a => a.Category == AssetCategory.Scanner).CountAsync()
+            };
         
 
             return new Metrics
@@ -32,7 +44,8 @@ namespace Trackly.API.Services
                 TotalAssets = totalAssets,
                 AssetsUnderMaintenance = assetsUnderMaintenance,
                 AssetsNotUnderMaintenance = assetsNotUnderMaintenance,
-                TotalTickets = totalTickets
+                TotalTickets = totalTickets,
+                AssetsCategoryMetrics = assetsCategoryMetrics
             };
         }
 
