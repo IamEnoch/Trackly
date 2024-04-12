@@ -26,18 +26,24 @@ namespace Trackly.API.Services
             var assetsNotUnderMaintenance = totalAssets - assetsUnderMaintenance;
             var totalTickets = await _context.Tickets.CountAsync();
 
-            //Get the numbers for the different asset categories
-            var assetsCategoryMetrics = new AssetsCategoryMetrics
+            //Get the numbers for the different asset condition(Fair, good, poor, broken)
+            var assetsCondtitionMetrics = new AssetsConditionMetrics
             {
-                Desktop = await _context.Assets.Where(a => a.Category == AssetCategory.Desktop).CountAsync(),
-                Laptop = await _context.Assets.Where(a => a.Category == AssetCategory.Laptop).CountAsync(),
-                Monitor = await _context.Assets.Where(a => a.Category == AssetCategory.Monitor).CountAsync(),
-                Other = await _context.Assets.Where(a => a.Category == AssetCategory.Other).CountAsync(),
-                Printer = await _context.Assets.Where(a => a.Category == AssetCategory.Printer).CountAsync(),
-                Projector = await _context.Assets.Where(a => a.Category == AssetCategory.Projector).CountAsync(),
-                Scanner = await _context.Assets.Where(a => a.Category == AssetCategory.Scanner).CountAsync()
-            };
-        
+                New = await _context.Assets.Where(a => a.Condition == AssetCondition.New).CountAsync(),
+                Good = await _context.Assets.Where(a => a.Condition == AssetCondition.Good).CountAsync(),
+                Fair = await _context.Assets.Where(a => a.Condition == AssetCondition.Fair).CountAsync(),
+                Broken = await _context.Assets.Where(a => a.Condition == AssetCondition.Broken).CountAsync(),
+                Poor = await _context.Assets.Where(a => a.Condition == AssetCondition.Poor).CountAsync()
+            };  
+
+            //Get the numbers for the different ticket status(Open, InProgress, Completed, Closed)
+            var ticketsStatusMetrics = new TicketsStatusMetrics
+            {
+                Open = await _context.Tickets.Where(t => t.Status == TicketStatus.Open).CountAsync(),
+                InProgress = await _context.Tickets.Where(t => t.Status == TicketStatus.InProgress).CountAsync(),
+                Completed = await _context.Tickets.Where(t => t.Status == TicketStatus.Completed).CountAsync(),
+                Closed = await _context.Tickets.Where(t => t.Status == TicketStatus.Closed).CountAsync()
+            };      
 
             return new Metrics
             {
@@ -45,7 +51,8 @@ namespace Trackly.API.Services
                 AssetsUnderMaintenance = assetsUnderMaintenance,
                 AssetsNotUnderMaintenance = assetsNotUnderMaintenance,
                 TotalTickets = totalTickets,
-                AssetsCategoryMetrics = assetsCategoryMetrics
+                AssetsConditionMetrics = assetsCondtitionMetrics,
+                TicketsStatusMetrics = ticketsStatusMetrics
             };
         }
 
