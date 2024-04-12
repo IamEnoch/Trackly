@@ -11,5 +11,16 @@ namespace Trackly.API.Models
         public int AssetsUnderMaintenance { get; set; }
         public int AssetsNotUnderMaintenance { get; set; }
         public int TotalTickets { get; set; }
+        public AssetsCategoryMetrics AssetsCategoryMetrics { get; set; }
+    }
+
+    public class AssetsCategoryMetrics{
+        public int Desktop { get; set; }
+        public int Laptop { get; set; }
+        public int Monitor { get; set; }
+        public int Other { get; set; }
+        public int Printer { get; set; }
+        public int Projector { get; set; }
+        public int Scanner { get; set; }
     }
 }
