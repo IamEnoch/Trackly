@@ -21,14 +21,8 @@ class _AssetCardMetricsWidgetState extends State<AssetCardMetricsWidget> {
 
   @override
   void initState() {
-    final metrics = metricsCubit.getMetrics();
+    metricsCubit.getMetrics();
 
-    data = [
-      _ChartData('David', 25),
-      _ChartData('Steve', 38),
-      _ChartData('Jack', 34),
-      _ChartData('Others', 52)
-    ];
     _tooltip = charts.TooltipBehavior(enable: true);
     super.initState();
   }
@@ -53,6 +47,22 @@ class _AssetCardMetricsWidgetState extends State<AssetCardMetricsWidget> {
             ),
           );
         } else if (state is MetricsSuccess) {
+          //Metrics data
+          final metrics = state.metrics;
+
+          //Create a list of data from the asset categories in metrics
+          data = [
+            _ChartData(
+                'New', metrics.assetConditionMetrics.New, Color(0xFF27AE60)),
+            _ChartData(
+                'Good', metrics.assetConditionMetrics.Good, Color(0xFF3498DB)),
+            _ChartData(
+                'Fair', metrics.assetConditionMetrics.Fair, Color(0xFFF1C40F)),
+            _ChartData(
+                'Poor', metrics.assetConditionMetrics.Poor, Color(0xFF95A5A6)),
+            _ChartData('Broken', metrics.assetConditionMetrics.Broken,
+                Color(0xFFD95959)),
+          ];
           return Card(
             color: Color(0xFFFFFFFF),
             elevation: 1, // Set the elevation as needed
@@ -299,7 +309,7 @@ class _AssetCardMetricsWidgetState extends State<AssetCardMetricsWidget> {
                         legendItemBuilder: (String name, dynamic series,
                             dynamic point, int index) {
                           return SizedBox(
-                            height: 60,
+                            height: 58,
                             child: Row(
                               children: <Widget>[
                                 Container(
@@ -310,13 +320,14 @@ class _AssetCardMetricsWidgetState extends State<AssetCardMetricsWidget> {
                                   //corners to have a radius
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(5),
-                                    color: Colors.red,
+                                    color: data[index].color,
                                   ),
                                 ),
                                 SizedBox(
                                     width: MediaQuery.of(context).size.width *
                                         0.04),
                                 Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       data[index].x,
@@ -351,6 +362,7 @@ class _AssetCardMetricsWidgetState extends State<AssetCardMetricsWidget> {
                           dataSource: data,
                           xValueMapper: (_ChartData data, _) => data.x,
                           yValueMapper: (_ChartData data, _) => data.y,
+                          pointColorMapper: (datum, index) => datum.color,
                           name: 'Gold',
                           radius: "47%",
                           innerRadius: '79%',
@@ -371,8 +383,9 @@ class _AssetCardMetricsWidgetState extends State<AssetCardMetricsWidget> {
 }
 
 class _ChartData {
-  _ChartData(this.x, this.y);
+  _ChartData(this.x, this.y, this.color);
 
   final String x;
-  final double y;
+  final int y;
+  final Color color;
 }
