@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Trackly.API.Interfaces;
 using Trackly.API.Models;
@@ -18,32 +14,42 @@ namespace Trackly.API.Services
         /// <returns>Metrics for the dashboard</returns>                                
         public async Task<Metrics> GetMetricsAsync()
         {
-            //asset under maintenance if a ticket has been created for it and not completed or closed
-            var assetsUnderMaintenance =  await _context.Assets
-                .Where(a => a.Tickets.Any(t => t.Status != TicketStatus.Completed && t.Status != TicketStatus.Closed))
-                .CountAsync();
-            var totalAssets = await _context.Assets.CountAsync();
-            var assetsNotUnderMaintenance = totalAssets - assetsUnderMaintenance;
-            var totalTickets = await _context.Tickets.CountAsync();
+            var assetQuery = _context.Assets;
+            var ticketQuery = _context.Tickets;
 
-            //Get the numbers for the different asset condition(Fair, good, poor, broken)
+            var assetsUnderMaintenance = await assetQuery
+                .CountAsync(a => a.Tickets.Any(t => t.Status != TicketStatus.Completed && t.Status != TicketStatus.Closed));
+            var totalAssets = await assetQuery.CountAsync();
+            var totalTickets = await ticketQuery.CountAsync();
+
+            var conditionCounts = await assetQuery
+                .GroupBy(a => a.Condition)
+                .Select(g => new { Condition = g.Key, Count = g.Count() })
+                .ToDictionaryAsync(x => x.Condition, x => x.Count);
+
+            var statusCounts = await ticketQuery
+                .GroupBy(t => t.Status)
+                .Select(g => new { Status = g.Key, Count = g.Count() })
+                .ToDictionaryAsync(x => x.Status, x => x.Count);
+
             var assetsCondtitionMetrics = new AssetsConditionMetrics
             {
-                New = await _context.Assets.Where(a => a.Condition == AssetCondition.New).CountAsync(),
-                Good = await _context.Assets.Where(a => a.Condition == AssetCondition.Good).CountAsync(),
-                Fair = await _context.Assets.Where(a => a.Condition == AssetCondition.Fair).CountAsync(),
-                Broken = await _context.Assets.Where(a => a.Condition == AssetCondition.Broken).CountAsync(),
-                Poor = await _context.Assets.Where(a => a.Condition == AssetCondition.Poor).CountAsync()
-            };  
+                New = conditionCounts.GetValueOrDefault(AssetCondition.New, 0),
+                Good = conditionCounts.GetValueOrDefault(AssetCondition.Good, 0),
+                Fair = conditionCounts.GetValueOrDefault(AssetCondition.Fair, 0),
+                Broken = conditionCounts.GetValueOrDefault(AssetCondition.Broken, 0),
+                Poor = conditionCounts.GetValueOrDefault(AssetCondition.Poor, 0)
+            };
 
-            //Get the numbers for the different ticket status(Open, InProgress, Completed, Closed)
             var ticketsStatusMetrics = new TicketsStatusMetrics
             {
-                Open = await _context.Tickets.Where(t => t.Status == TicketStatus.Open).CountAsync(),
-                InProgress = await _context.Tickets.Where(t => t.Status == TicketStatus.InProgress).CountAsync(),
-                Completed = await _context.Tickets.Where(t => t.Status == TicketStatus.Completed).CountAsync(),
-                Closed = await _context.Tickets.Where(t => t.Status == TicketStatus.Closed).CountAsync()
-            };      
+                Open = statusCounts.GetValueOrDefault(TicketStatus.Open, 0),
+                InProgress = statusCounts.GetValueOrDefault(TicketStatus.InProgress, 0),
+                Completed = statusCounts.GetValueOrDefault(TicketStatus.Completed, 0),
+                Closed = statusCounts.GetValueOrDefault(TicketStatus.Closed, 0)
+            };
+
+            var assetsNotUnderMaintenance = totalAssets - assetsUnderMaintenance;
 
             return new Metrics
             {
@@ -54,8 +60,8 @@ namespace Trackly.API.Services
                 AssetsConditionMetrics = assetsCondtitionMetrics,
                 TicketsStatusMetrics = ticketsStatusMetrics
             };
-        }
 
+        }
 
     }
 }
