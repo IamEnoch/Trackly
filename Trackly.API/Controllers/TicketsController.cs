@@ -1,15 +1,9 @@
-﻿using Auth0.ManagementApi.Models;
-using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TracklyApi.Data;
 using TracklyApi.DTOs;
-using TracklyApi.DTOs.Output;
 using TracklyApi.DTOs.PartialUpdate;
-using TracklyApi.DTOs.RequestDTOs;
-using TracklyApi.Helpers;
 using TracklyApi.Models;
-using TracklyApi.Models.Tickets;
 using static TracklyApi.Helpers.EnumHelper;
 using Ticket = TracklyApi.Models.Tickets.Ticket;
 
@@ -111,18 +105,20 @@ namespace TracklyApi.Controllers
         {
             try
             {
-                var totalNumberOfTickets = await _context.Tickets.Where(e => e.AssignedUserID == userId && e.Status != TicketStatus.Closed).CountAsync();
-                //Order by date. The most recent ticket should be at the top
-                var tickets = await _context.Tickets.Where(e => e.AssignedUserID == userId && e.Status != TicketStatus.Closed)
+                var query = _context.Tickets
+                    .Where(e => e.AssignedUserID == userId && e.Status != TicketStatus.Closed)
                     .Include(ticket => ticket.Asset)
+                    .OrderByDescending(ticket => ticket.CreatedAt);
+
+                var totalNumberOfTickets = await query.CountAsync();
+
+                var tickets = await query
                     .Skip((parameters.PageNumber - 1) * parameters.PageSize)
                     .Take(parameters.PageSize)
-                    .OrderByDescending(ticket => ticket.CreatedAt)
                     .Select(ticket => new TicketDto(ticket.TicketId, ticket.Title, ticket.Description, ticket.Status,
-                                               ticket.Priority,
-                                               ticket.Category, ticket.AssignedUserID, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
+                                                    ticket.Priority,
+                                                    ticket.Category, ticket.AssignedUserID, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
                     .ToListAsync();
-
 
                 return Ok(new PagedResult<TicketDto>
                 {
@@ -131,6 +127,7 @@ namespace TracklyApi.Controllers
                     PageNumber = parameters.PageNumber,
                     RecordNumber = parameters.PageSize
                 });
+
             }
             catch (Exception e)
             {
