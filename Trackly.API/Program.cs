@@ -95,7 +95,7 @@ builder.Services.AddAuthorization(options =>
 });
 
 builder.Services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
-builder.Services.AddSingleton<IMetricsService, MetricsService>();
+builder.Services.AddScoped<IMetricsService, MetricsService>();
 
 var app = builder.Build();
 

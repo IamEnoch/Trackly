@@ -14,7 +14,7 @@ namespace TracklyApi.Models.Assets
         public string AssetName { get; set; }
         public AssetCategory Category { get; set; }
         public Guid DepartmentId { get; set; }
-        public Guid LocationId { get; set; }
+        public Guid LocationID { get; set; }
         public AssetCondition Condition { get; set; }
         public string? Ram { get; set; }
         public string SerialNumber { get; set; }

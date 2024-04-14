@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Trackly.API.Interfaces;
 using Trackly.API.Services;
+using TracklyApi.Data;
 
 namespace Trackly.API.Controllers
 {
@@ -17,7 +18,6 @@ namespace Trackly.API.Controllers
         {
             _metricsService = metricsService;
         }
-        
         //Get the metrics for the dashboard using metrics service
         [HttpGet("/metrics")]
         public async Task<IActionResult> GetMetrics()

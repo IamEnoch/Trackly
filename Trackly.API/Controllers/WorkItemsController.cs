@@ -57,7 +57,7 @@ namespace TracklyApi.Controllers
                     Status = EnumHelper.WorkItemStatus.Pending,
                     Priority = Enum.Parse<EnumHelper.Priority>(workItemRequestDto.Priority),
                     Category = Enum.Parse<EnumHelper.TicketCategory>(workItemRequestDto.Category),
-                    CreatorUserID = workItemRequestDto.CreatorUserId,
+                    CreatorUserId = workItemRequestDto.CreatorUserId,
                     AssetId = assetId,
                     CreatedAt = DateTime.UtcNow
                 };
@@ -106,10 +106,10 @@ namespace TracklyApi.Controllers
                         Status = EnumHelper.TicketStatus.Open,
                         Priority = workItem.Priority,
                         Category = workItem.Category,
-                        AssetID = workItem.AssetId,
+                        AssetId = workItem.AssetId,
                         CreatedAt = DateTime.Now,
-                        CreatedBy = workItem.CreatorUserID,
-                        AssignedUserID = workItem.CreatorUserID
+                        CreatedBy = workItem.CreatorUserId,
+                        AssignedUserId = workItem.CreatorUserId
                     };
 
                     _context.Tickets.Add(ticket);
@@ -170,7 +170,7 @@ namespace TracklyApi.Controllers
                     .Take(pageSize)
                     .ToListAsync();
 
-                var workItemsDto = workItems.Select(w => new WorkItemResponseDto(w.WorkItemId.ToString(), w.Title, w.Description, w.Status.ToString(), w.Priority, w.Category, w.CreatorUserID, w.AssetId, w.CreatedAt)).ToList();
+                var workItemsDto = workItems.Select(w => new WorkItemResponseDto(w.WorkItemId.ToString(), w.Title, w.Description, w.Status.ToString(), w.Priority, w.Category, w.CreatorUserId, w.AssetId, w.CreatedAt)).ToList();
 
                 return Ok(new PagedResult<WorkItemResponseDto>
                 {
