@@ -80,7 +80,7 @@ namespace TracklyApi.Controllers
                     .Skip((parameters.PageNumber - 1) * parameters.PageSize)
                     .Take(parameters.PageSize)
                     .Select(ticket => new TicketDto(ticket.TicketId,ticket.Title, ticket.Description, ticket.Status, ticket.Priority,
-                        ticket.Category, ticket.AssignedUserID, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
+                        ticket.Category, ticket.AssignedUserId, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
                     .ToListAsync();
 
                 return Ok(new PagedResult<TicketDto>
@@ -106,7 +106,7 @@ namespace TracklyApi.Controllers
             try
             {
                 var query = _context.Tickets
-                    .Where(e => e.AssignedUserID == userId && e.Status != TicketStatus.Closed)
+                    .Where(e => e.AssignedUserId == userId && e.Status != TicketStatus.Closed)
                     .Include(ticket => ticket.Asset)
                     .OrderByDescending(ticket => ticket.CreatedAt);
 
@@ -117,7 +117,7 @@ namespace TracklyApi.Controllers
                     .Take(parameters.PageSize)
                     .Select(ticket => new TicketDto(ticket.TicketId, ticket.Title, ticket.Description, ticket.Status,
                                                     ticket.Priority,
-                                                    ticket.Category, ticket.AssignedUserID, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
+                                                    ticket.Category, ticket.AssignedUserId, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
                     .ToListAsync();
 
                 return Ok(new PagedResult<TicketDto>

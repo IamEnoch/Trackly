@@ -12,8 +12,8 @@ namespace TracklyApi.Models.Tickets
         public Priority Priority { get; set; }
         public TicketCategory Category { get; set; }
         public string CreatedBy { get; set; }
-        public string? AssignedUserID { get; set; }
-        public Guid AssetID { get; set; }
+        public string? AssignedUserId { get; set; }
+        public Guid AssetId { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public DateTime? CompletedAt { get; set; }

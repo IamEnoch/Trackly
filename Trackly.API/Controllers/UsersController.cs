@@ -188,12 +188,12 @@ namespace TracklyApi.Controllers
             try
             {
                 var tickets = await _context.Tickets
-                    .Where(t => t.AssignedUserID == userId)
+                    .Where(t => t.AssignedUserId == userId)
                     .ToListAsync();
 
                 // Constructing the response using the fetched data
                 var response = tickets.Select(ticket => new TicketDto(
-                            ticket.TicketId, ticket.Title, ticket.Description, ticket.Status, ticket.Priority, ticket.Category, ticket.AssignedUserID, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
+                            ticket.TicketId, ticket.Title, ticket.Description, ticket.Status, ticket.Priority, ticket.Category, ticket.AssignedUserId, ticket.CreatedAt, ticket.CompletedAt, ticket.ClosedAt))
                     .ToList();
                 
                 return Ok(response);
