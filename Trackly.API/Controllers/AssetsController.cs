@@ -37,7 +37,7 @@ namespace TracklyApi.Controllers
             var assetIds = assets.Select(a => a.AssetId).ToList();
                 // Fetching tickets for the fetched assets
                 var tickets = await context.Tickets
-                    .Where(t => assetIds.Contains(t.AssetID))
+                    .Where(t => assetIds.Contains(t.AssetId))
                     .ToListAsync();
 
                 // Constructing the response using the fetched data
@@ -61,7 +61,7 @@ namespace TracklyApi.Controllers
                     asset.Ram,
                     asset.AssignedTo,
                     asset.Condition,
-                    tickets.Where(t => t.AssetID == asset.AssetId).ToList()
+                    tickets.Where(t => t.AssetId == asset.AssetId).ToList()
                 )).ToList();
                 return Ok(response);
             }
@@ -104,7 +104,7 @@ namespace TracklyApi.Controllers
 
                 // Fetching tickets for the fetched assets
                 var tickets = await context.Tickets
-                    .Where(t => assetIds.Contains(t.AssetID))
+                    .Where(t => assetIds.Contains(t.AssetId))
                     .ToListAsync();
 
                 // Constructing the response using the fetched data
@@ -127,7 +127,7 @@ namespace TracklyApi.Controllers
                     asset.Ram,
                     asset.AssignedTo,
                     asset.Condition,
-                    tickets.Where(t => t.AssetID == asset.AssetId).ToList()
+                    tickets.Where(t => t.AssetId == asset.AssetId).ToList()
                 )).ToList();
 
 
@@ -167,7 +167,7 @@ namespace TracklyApi.Controllers
             }
 
             var tickets = await context.Tickets
-                .Where(t => t.AssetID == asset.AssetId)
+                .Where(t => t.AssetId == asset.AssetId)
                 .ToListAsync();
 
             return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetId, asset.AssetName, asset.Category, 
@@ -196,7 +196,7 @@ namespace TracklyApi.Controllers
             }
 
             var tickets = await context.Tickets
-                .Where(t => t.AssetID == asset.AssetId)
+                .Where(t => t.AssetId == asset.AssetId)
                 .ToListAsync();
 
             return Ok(new AssetResponseDto(asset.BarcodeNumber, asset.AssetId, asset.AssetName, 
@@ -230,7 +230,7 @@ namespace TracklyApi.Controllers
                     BarcodeNumber = assetRequestCreateDto.BarcodeNumber,
                     Category = Enum.Parse<Helpers.EnumHelper.AssetCategory>(assetRequestCreateDto.Category),
                     DepartmentId = context.Departments.FirstOrDefault(d => d.DepartmentName == Enum.Parse<Helpers.EnumHelper.DepartmentEnum>(assetRequestCreateDto.DepartmentName)).DepartmentId,
-                    LocationId = context.Locations.FirstOrDefault(l => l.LocationName == Enum.Parse<Helpers.EnumHelper.LocationEnum>(assetRequestCreateDto.LocationName)).LocationID,
+                    LocationID = context.Locations.FirstOrDefault(l => l.LocationName == Enum.Parse<Helpers.EnumHelper.LocationEnum>(assetRequestCreateDto.LocationName)).LocationID,
                     AssignedTo = assetRequestCreateDto.AssignedTo,
                     Condition = Enum.Parse<Helpers.EnumHelper.AssetCondition>(assetRequestCreateDto.Condition),
                     Ram = assetRequestCreateDto.Ram,
@@ -277,7 +277,7 @@ namespace TracklyApi.Controllers
                         d.DepartmentName ==
                         Enum.Parse<Helpers.EnumHelper.DepartmentEnum>(assetRequestUpdateDto.Department))!
                     .DepartmentId;
-                asset.LocationId = assetRequestUpdateDto.Location == null ? asset.LocationId : context.Locations.FirstOrDefault(l =>
+                asset.LocationID = assetRequestUpdateDto.Location == null ? asset.LocationID : context.Locations.FirstOrDefault(l =>
                         l.LocationName == Enum.Parse<Helpers.EnumHelper.LocationEnum>(assetRequestUpdateDto.Location))!
                     .LocationID;
                 asset.Condition = assetRequestUpdateDto.Condition == null ? asset.Condition :Enum.Parse<Helpers.EnumHelper.AssetCondition>(assetRequestUpdateDto.Condition);
